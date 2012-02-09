@@ -1,0 +1,19 @@
+Package: citeulike
+Version: 0.1
+Date: 2012-1-28
+Description: A programmatic interface to the
+    Web Service methods provided by the CiteULike.
+Title: Interface to CiteULike API
+License: BSD
+Author: Rafael Maia, Scott Chamberlain
+Maintainer: Rafael Maia <Rafael Maia <rm72@zips.uakron.edu>>, Scott Chamberlain <myrmecocystus@gmail.com>
+URL: https://github.com/ropensci/citeulike
+Depends:
+    RCurl,
+    XML,
+    plyr,
+    wordcloud
+Collate:
+    'users.r'
+    'posts.r'
+    'tags.r'
