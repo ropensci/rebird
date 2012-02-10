@@ -50,13 +50,14 @@
 recentobs <-  function(lat,lng, dist = NA, back = NA, maxResults = NA, 
   locale = NA, includeProvisional = F, hotspot = F, sleep = 0,
   ..., #additional parameters inside curl
+  url = 'http://ebird.org/ws1.1/data/obs/geo/recent',
   curl = getCurlHandle() ) {
     
   Sys.sleep(sleep)
 
-  url <- 'http://ebird.org/ws1.1/data/obs/geo/recent'
+
   
-  args <- list()
+  args <- list(fmt='json')
     args$lat <- round(lat, 2)
     args$lng <- round(lng, 2)
   if(!is.na(dist))
@@ -71,7 +72,7 @@ recentobs <-  function(lat,lng, dist = NA, back = NA, maxResults = NA,
     args$includeProvisional <- 'true' 
   if(hotspot)
     args$hotspot <- 'true'
-    args$fmt <- 'json'
+    
 
 content <- getForm(url, 
             .params = args, 
