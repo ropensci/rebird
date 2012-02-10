@@ -1,6 +1,6 @@
-# 'reBird'
+# `reBird`
 
-'reBird' is a package to interface with the eBird webservices.
+`reBird` is a package to interface with the eBird webservices.
 
 eBird is a real-time, online bird checklist program. For more information, visit their website: http://www.ebird.org
 
