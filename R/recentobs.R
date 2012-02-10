@@ -31,11 +31,10 @@
 #TODO: include erorr messages in case values are out of the accepted range
 #TODO: include translation of API errors
 
-recentobs <-  function(lat,lng, dist = 25, back = 14, maxResults = NA, locale = "en_US", includeProvisional = F, hotspot = F, 
+recentobs <-  function(lat,lng, dist = 25, back = 14, maxResults = NA, locale = "en_US", includeProvisional = F, hotspot = F, sleep = 0,
   ...,
-  url = 'http://ebird.org/ws1.1/data/obs/geo/recent?', 
-  sleep = 0 
-   ) {
+  url = 'http://ebird.org/ws1.1/data/obs/geo/recent', 
+  curl = getCurlHandle() ) {
     
   Sys.sleep(sleep)
   
@@ -47,8 +46,28 @@ recentobs <-  function(lat,lng, dist = 25, back = 14, maxResults = NA, locale = 
   tt <- getURLContent(url2)
   res <- fromJSON(tt)
   
-  tab <- ldply(res, data.frame)  
-  
-  return(tab)
+  ldply(res, data.frame)  
 
 }
+
+
+args <- list()
+if(!is.na(lat))
+  args$lat <- round(lat, 2)
+if(!is.na(lng))
+  args$lng <- round(lng, 2)
+if(!is.na(dist))
+  args$dist <- as.integer(dist)
+if(!is.na(back))
+  args$back <- as.integer(back)
+if(!is.na(maxResults))
+  args$maxResults <- maxResults
+if(!is.na(locale))
+  args$locale <- locale
+if(!is.na(fmt))
+  args$fmt <- fmt
+
+getForm(url, 
+        .params = args, 
+#         ... # uncomment this when it's within the function, but leave for testing
+        curl = curl)
