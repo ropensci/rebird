@@ -40,8 +40,8 @@
 #' @return sciName species scientific name
 #' @export
 #' @examples \dontrun{
-#' nearestobs(42,-76,'spinus tristis')
-#' nearestobs(42,-76,'spinus tristis', includeProvisional=T, hotspot=T)
+#' nearestobs(42,-76,'spizella arborea')
+#' nearestobs(42,-76,'spizella arborea', includeProvisional=T, hotspot=T)
 #' }
 
 #TODO: include error messages in case values are out of the accepted range
