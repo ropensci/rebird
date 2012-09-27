@@ -1,9 +1,5 @@
-#' Returns the most recent sighting date and specific location for the 
-#' requested species of bird reported within the number of days specified by 
-#' the "back" parameter and reported in a given vector of hotspots.
-#' requested species of bird reported within the number of days 
-#' specified by the "back" parameter and reported in a given list 
-#' of hotspots.
+#' Returns a list of all bird species observed in a given vector of locations 
+#' along with their most recent sighting and location.
 #' @import RJSONIO plyr RCurl
 #' @param species scientific name of the species of interest (not case 
 #' sensitive). See eBird-1.1-SpeciesReference for a complete list of 
@@ -39,8 +35,8 @@
 #' @return sciName species scientific name
 #' @export
 #' @examples \dontrun{
-#' hotspot_spprecent('larus delawarensis',c('L99381','L99382'))
-#' hotspot_spprecent('larus delawarensis','L99381', maxResults=10, includeProvisional=T, hotspot=T)
+#' loc_spprecent('larus delawarensis',c('L99381','L99382'))
+#' loc_spprecent('larus delawarensis','L99381', maxResults=10, includeProvisional=T, hotspot=T)
 #' }
 
 #TODO: include error messages in case values are out of the accepted range
@@ -48,10 +44,10 @@
 
 
 
-hotspot_spprecent <-  function(species, LocIDs, back = NA, maxResults = NA, 
+loc_spprecent <-  function(species, LocIDs, back = NA, maxResults = NA, 
   locale = NA, includeProvisional = F, sleep = 0,
   ..., #additional parameters inside curl
-  url = 'http://ebird.org/ws1.1/data/obs/hotspot_spp/recent',
+  url = 'http://ebird.org/ws1.1/data/obs/loc_spp/recent',
   curl = getCurlHandle() ) {
     
   Sys.sleep(sleep)
