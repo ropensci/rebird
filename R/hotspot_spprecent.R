@@ -1,16 +1,14 @@
-#' Returns the most recent sighting date and specific location for the requested 
-#' species of bird reported within the number of days specified
-#'    and reported in the specified area.
+#' Returns the most recent sighting date and specific location for the 
+#' requested species of bird reported within the number of days 
+#' specified by the "back" parameter and reported in a given list 
+#' of hotspots.
 #' @import RJSONIO plyr RCurl
 #' @param species scientific name of the species of interest (not case 
 #' sensitive). See eBird-1.1-SpeciesReference for a complete list of 
 #' supported scientific names
-#' @param lat decimal latitude - value between -90.00 and 90.00, two decimal
-#'    places of precision required (is it?) 
-#' @param lng decimal longitude - value between -180.00 and 180.00, two decimal
-#'    places of precision required (?)
-#' @param dist distance defining radius of interest from given lat/lng in 
-#'    kilometers - value between 0 and 50, defaults to 25
+#' @param LocIDs Code(s) for region of interest; here, regions are the locIDs 
+#' of hotspots.  LocIDs that are not valid or are not hotspots are ignored. 
+#' Maximum of 10 locIDs.
 #' @param back the number of days back to look for observations - value between
 #'    1 and 30, defaults to 14
 #' @param maxResults the maximum number of result rows to return in this request
@@ -20,8 +18,6 @@
 #'    - defaults to en_US
 #' @param includeProvisional should flagged records that have not been reviewed 
 #'    be included? - defaults to F
-#' @param hotspot should results be limited to sightings at birding hotspots? 
-#'    - defaults to F
 #' @param sleep Time (in seconds) before function sends API call - defaults to
 #'    zero.  Set to higher number if you are using this function in a loop with 
 #'    many API calls.
@@ -41,8 +37,8 @@
 #' @return sciName species scientific name
 #' @export
 #' @examples \dontrun{
-#' geo_spprecent('spinus tristis',42,-76)
-#' geo_spprecent('spinus tristis', 42,-76, maxResults=10, includeProvisional=T, hotspot=T)
+#' hotspot_spprecent('larus delawarensis',c('L99381','L99382'))
+#' hotspot_spprecent('larus delawarensis','L99381', maxResults=10, includeProvisional=T, hotspot=T)
 #' }
 
 #TODO: include error messages in case values are out of the accepted range
@@ -50,23 +46,19 @@
 
 
 
-geo_spprecent <-  function(species,lat,lng, dist = NA, back = NA, 
-  maxResults = NA, locale = NA, includeProvisional = F, 
-  hotspot = F, sleep = 0,
+hotspot_spprecent <-  function(species, LocIDs, back = NA, maxResults = NA, 
+  locale = NA, includeProvisional = F, sleep = 0,
   ..., #additional parameters inside curl
-  url = 'http://ebird.org/ws1.1/data/obs/geo_spp/recent',
+  url = 'http://ebird.org/ws1.1/data/obs/hotspot_spp/recent',
   curl = getCurlHandle() ) {
     
   Sys.sleep(sleep)
-
-
+  
+  if(length(LocIDs) > 10){stop('Too many locations (max. 10)')}
   
   args <- list(fmt='json')
+    args$r <- LocIDs
     args$sci <- species
-    args$lat <- round(lat, 2)
-    args$lng <- round(lng, 2)
-  if(!is.na(dist))
-    args$dist <- as.integer(dist)
   if(!is.na(back))
     args$back <- as.integer(back)
   if(!is.na(maxResults))
@@ -75,19 +67,15 @@ geo_spprecent <-  function(species,lat,lng, dist = NA, back = NA,
     args$locale <- locale
   if(includeProvisional)
     args$includeProvisional <- 'true' 
-  if(hotspot)
-    args$hotspot <- 'true'
 
+    
 
-    content <- getForm(url, 
-                .params = args, 
-                ... ,
-                curl = curl)
-
- res <- fromJSON(content)  
- 
-
- 
- ldply(res, data.frame)  
+content <- getForm(url, 
+            .params = args, 
+            ... ,
+            curl = curl)
+res <- fromJSON(content)  
+  
+ldply(res, data.frame)  
 
 }
