@@ -50,7 +50,8 @@ hotspot_recent <-  function(LocIDs, back = NA, maxResults = NA,
     
   Sys.sleep(sleep)
   
-  if(length(LocIDs) > 10){stop('Too many locations (max. 10)')}
+  if(length(LocIDs) > 10)
+    stop('Too many locations (max. 10)')
   
   args <- list(fmt='json')
     args$r <- LocIDs
