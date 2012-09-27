@@ -41,8 +41,8 @@
 #' @return sciName species scientific name
 #' @export
 #' @examples \dontrun{
-#' geo_recent(42,-76,'spinus tristis')
-#' geo_recent(42,-76, maxResults=10, includeProvisional=T, hotspot=T)
+#' ebird_geo(42,-76,'spinus tristis')
+#' ebird_geo(42,-76, maxResults=10, includeProvisional=T, hotspot=T)
 #' }
 
 #TODO: include error messages in case values are out of the accepted range
@@ -50,7 +50,7 @@
 
 
 
-geo_recent <-  function(lat,lng, species=NA, dist = NA, back = NA, 
+ebird_geo <-  function(lat,lng, species=NA, dist = NA, back = NA, 
   maxResults = NA, locale = NA, includeProvisional = F, 
   hotspot = F, sleep = 0,
   ..., #additional parameters inside curl

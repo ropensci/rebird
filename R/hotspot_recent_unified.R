@@ -39,8 +39,8 @@
 #' @return sciName species scientific name
 #' @export
 #' @examples \dontrun{
-#' hotspot_recent(c('L99381','L99382'),'larus delawarensis')
-#' hotspot_recent('L99381', maxResults=10, includeProvisional=T, hotspot=T)
+#' ebird_hotspot(c('L99381','L99382'),'larus delawarensis')
+#' ebird_hotspot('L99381', maxResults=10, includeProvisional=T, hotspot=T)
 #' }
 
 #TODO: include error messages in case values are out of the accepted range
@@ -48,7 +48,7 @@
 
 
 
-hotspot_recent <-  function(LocIDs, species=NA, back = NA, maxResults = NA, 
+ebird_hotspot <-  function(LocIDs, species=NA, back = NA, maxResults = NA, 
   locale = NA, includeProvisional = F, sleep = 0,
   ..., #additional parameters inside curl
   url = 'http://ebird.org/ws1.1/data/obs/hotspot/recent',

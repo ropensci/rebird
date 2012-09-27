@@ -35,8 +35,8 @@
 #' @return sciName species scientific name
 #' @export
 #' @examples \dontrun{
-#' region_spprecent('Setophaga caerulescens','US')
-#' region_recent('US-OH', maxResults=10, includeProvisional=T, hotspot=T)
+#' ebird_recent('US','Setophaga caerulescens')
+#' ebird_recent('US-OH', maxResults=10, includeProvisional=T, hotspot=T)
 #' }
 
 #TODO: include error messages in case values are out of the accepted range
@@ -44,7 +44,7 @@
 
 
 
-region_recent <-  function(region, species = NA,
+ebird_recent <-  function(region, species = NA,
   regtype = c("country", "subnational1", "subnational2"), 
   back = NA, maxResults = NA, locale = NA, 
   includeProvisional = F, hotspot = F,
