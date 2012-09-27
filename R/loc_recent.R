@@ -1,11 +1,5 @@
 #' Returns a list of recent observations at birding locations.
-#' requested species of bird reported within the number of days 
-#' specified by the "back" parameter and reported in a given list 
-#' of hotspots.
 #' @import RJSONIO plyr RCurl
-#' @param species scientific name of the species of interest (not case 
-#' sensitive). See eBird-1.1-SpeciesReference for a complete list of 
-#' supported scientific names
 #' @param LocIDs Code(s) for region of interest; here, regions are the locIDs 
 #' of hotspots.  LocIDs that are not valid or are not hotspots are ignored. 
 #' Maximum of 10 locIDs.
@@ -37,8 +31,8 @@
 #' @return sciName species scientific name
 #' @export
 #' @examples \dontrun{
-#' loc_spprecent('larus delawarensis',c('L99381','L99382'))
-#' loc_spprecent('larus delawarensis','L99381', maxResults=10, includeProvisional=T, hotspot=T)
+#' loc_recent(c('L99381','L99382'))
+#' loc_recent(c('L99381','L99382'), maxResults=10, includeProvisional=T, hotspot=T)
 #' }
 
 #TODO: include error messages in case values are out of the accepted range
@@ -46,10 +40,10 @@
 
 
 
-loc_spprecent <-  function(species, LocIDs, back = NA, maxResults = NA, 
+loc_recent <-  function(LocIDs, back = NA, maxResults = NA, 
   locale = NA, includeProvisional = F, sleep = 0,
   ..., #additional parameters inside curl
-  url = 'http://ebird.org/ws1.1/data/obs/loc_spp/recent',
+  url = 'http://ebird.org/ws1.1/data/obs/loc/recent',
   curl = getCurlHandle() ) {
     
   Sys.sleep(sleep)
@@ -58,7 +52,6 @@ loc_spprecent <-  function(species, LocIDs, back = NA, maxResults = NA,
   
   args <- list(fmt='json')
     args$r <- LocIDs
-    args$sci <- species
   if(!is.na(back))
     args$back <- as.integer(back)
   if(!is.na(maxResults))
