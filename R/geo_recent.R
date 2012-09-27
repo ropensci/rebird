@@ -42,12 +42,12 @@
 #' recentobs(42,-76, maxResults=10, includeProvisional=T, hotspot=T)
 #' }
 
-#TODO: include erorr messages in case values are out of the accepted range
+#TODO: include error messages in case values are out of the accepted range
 #TODO: include translation of API errors
 
 
 
-recentobs <-  function(lat,lng, dist = NA, back = NA, maxResults = NA, 
+geo_recent <-  function(lat,lng, dist = NA, back = NA, maxResults = NA, 
   locale = NA, includeProvisional = F, hotspot = F, sleep = 0,
   ..., #additional parameters inside curl
   url = 'http://ebird.org/ws1.1/data/obs/geo/recent',
