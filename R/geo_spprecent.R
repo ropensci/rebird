@@ -38,8 +38,8 @@
 #' @return sciName species scientific name
 #' @export
 #' @examples \dontrun{
-#' geo_spprecent(42,-76)
-#' geo_spprecent(42,-76, maxResults=10, includeProvisional=T, hotspot=T)
+#' geo_spprecent('spinus tristis',42,-76)
+#' geo_spprecent('spinus tristis', 42,-76, maxResults=10, includeProvisional=T, hotspot=T)
 #' }
 
 #TODO: include error messages in case values are out of the accepted range
@@ -88,5 +88,3 @@ geo_spprecent <-  function(species,lat,lng, dist = NA, back = NA,
  ldply(res, data.frame)  
 
 }
-
-geo_spprecent('larus delawarensis',40,-76)

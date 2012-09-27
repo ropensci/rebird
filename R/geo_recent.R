@@ -38,8 +38,8 @@
 #' @return sciName species scientific name
 #' @export
 #' @examples \dontrun{
-#' recentobs(42,-76)
-#' recentobs(42,-76, maxResults=10, includeProvisional=T, hotspot=T)
+#' geo_recent(42,-76)
+#' geo_recent(42,-76, maxResults=10, includeProvisional=T, hotspot=T)
 #' }
 
 #TODO: include error messages in case values are out of the accepted range
