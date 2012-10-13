@@ -5,7 +5,8 @@ Description: A programmatic interface to the eBird database
 Title: Interface to eBird
 License: BSD
 Author: Rafael Maia, Scott Chamberlain
-Maintainer: Rafael Maia <Rafael Maia <rm72@zips.uakron.edu>>, Scott Chamberlain <myrmecocystus@gmail.com>
+Maintainer: Rafael Maia <Rafael Maia <rm72@zips.uakron.edu>>, Scott Chamberlain
+    <myrmecocystus@gmail.com>
 URL: https://github.com/ropensci/rebird
 Depends:
     RCurl,
@@ -13,6 +14,17 @@ Depends:
     plyr,
     wordcloud
 Collate:
-    'users.r'
-    'posts.r'
-    'tags.r'
+    'geo_recent_unified.R'
+    'geo_recent.R'
+    'geo_spprecent.R'
+    'hotspot_recent_unified.R'
+    'hotspot_recent.R'
+    'hotspot_spprecent.R'
+    'loc_recent_unified.R'
+    'loc_recent.R'
+    'loc_spprecent.R'
+    'nearest_obs.R'
+    'notable.R'
+    'region_recent_unified.R'
+    'region_recent.R'
+    'region_spprecent.R'

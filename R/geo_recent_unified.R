@@ -1,3 +1,5 @@
+#' Sightings at location determined by latitude/longitude
+#' 
 #' Returns the most recent sighting date and specific location for the requested 
 #' species of bird reported within the number of days specified
 #'    and reported in the specified area.
@@ -25,7 +27,8 @@
 #' @param sleep Time (in seconds) before function sends API call - defaults to
 #'    zero.  Set to higher number if you are using this function in a loop with 
 #'    many API calls.
-#' @return comName species common name
+#' @return A data.frame containing the collected information:
+#' @return 'comName' species common name
 #' @return howMany number of individuals observed, NA if only presence was noted
 #' @return lat latitude of the location
 #' @return lng longitude of the location
