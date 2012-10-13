@@ -51,16 +51,20 @@
 
 
 ebirdgeo <-  function(lat,lng, species=NULL, dist = NULL, back = NULL, 
-  maxResults = NULL, locale = NULL, includeProvisional = FALSE, 
-  hotspot = FALSE, sleep = 0,
+  max = NULL, locale = NULL, provisional = FALSE, 
+  hotspot = FALSE,
   ..., #additional parameters inside curl
-  url = 'http://ebird.org/ws1.1/data/obs/geo/recent',
-  curl = getCurlHandle() ) {
+  sleep = 0
+  ) {
+  
+    curl <- getCurlHandle() 
     
   Sys.sleep(sleep)
 
-  if(!is.null(species))
-    url <- 'http://ebird.org/ws1.1/data/obs/geo_spp/recent'
+  if(!is.null(species)){
+    url <- 'http://ebird.org/ws1.1/data/obs/geo_spp/recent' }else{
+    url <- 'http://ebird.org/ws1.1/data/obs/geo/recent' }
+ 
     
   if(!is.null(dist))
     dist <- round(dist)
@@ -69,11 +73,11 @@ ebirdgeo <-  function(lat,lng, species=NULL, dist = NULL, back = NULL,
 
   args <- compact(list(fmt='json', sci=species, 
                lat=round(lat,2), lng=round(lng,2),
-               dist=dist, back=back, maxResults=maxResults,
+               dist=dist, back=back, maxResults=max,
                locale=locale
                ))
 
-  if(includeProvisional)
+  if(provisional)
     args$includeProvisional <- 'true' 
   if(hotspot)
     args$hotspot <- 'true'
@@ -86,8 +90,5 @@ ebirdgeo <-  function(lat,lng, species=NULL, dist = NULL, back = NULL,
 
  res <- fromJSON(content)  
  
-
- 
  ldply(res, data.frame)  
-
 }
