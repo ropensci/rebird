@@ -7,57 +7,56 @@
 #' @param species scientific name of the species of interest (not case 
 #' sensitive). See eBird-1.1-SpeciesReference for a complete list of 
 #' supported scientific names
-#' @param lat decimal latitude - value between -90.00 and 90.00, two decimal
-#'    places of precision required (is it?) 
-#' @param lng decimal longitude - value between -180.00 and 180.00, two decimal
-#'    places of precision required (?)
+#' @param lat decimal latitude - value between -90.00 and 90.00, up to two 
+#'    decimal places of precision
+#' @param lng decimal longitude - value between -180.00 and 180.00, up to
+#'    two decimal places of precision
 #' @param dist distance defining radius of interest from given lat/lng in 
-#'    kilometers - value between 0 and 50, defaults to 25
-#' @param back the number of days back to look for observations - value between
-#'    1 and 30, defaults to 14
-#' @param maxResults the maximum number of result rows to return in this request
-#'    - value between 1 and 10000, defaults to all
+#'    kilometers (between 0 and 50, defaults to 25)
+#' @param back the number of days back to look for observations (between
+#'    1 and 30, defaults to 14)
+#' @param max the maximum number of result rows to return in this request
+#'    (between 1 and 10000, defaults to all)
 #' @param locale Language/locale of response (when translations are available).
 #'    See http://java.sun.com/javase/6/docs/api/java/util/Locale.html 
-#'    - defaults to en_US
-#' @param includeProvisional should flagged records that have not been reviewed 
-#'    be included? - defaults to F
+#'    (defaults to en_US)
+#' @param provisional should flagged records that have not been reviewed 
+#'    be included? (defaults to FALSE)
 #' @param hotspot should results be limited to sightings at birding hotspots? 
-#'    - defaults to F
-#' @param sleep Time (in seconds) before function sends API call - defaults to
-#'    zero.  Set to higher number if you are using this function in a loop with 
-#'    many API calls.
+#'    (defaults to FALSE)
+#' @param sleep Time (in seconds) before function sends API call (defaults to
+#'    zero. Set to higher number if you are using this function in a loop with 
+#'    many API calls.)
 #' @param ... additional parameters to be passed to curl
 #' @return A data.frame containing the collected information:
-#' @return 'comName' species common name
-#' @return howMany number of individuals observed, NA if only presence was noted
-#' @return lat latitude of the location
-#' @return lng longitude of the location
-#' @return locID unique identifier for the location
-#' @return locName location name
-#' @return locationPrivate TRUE if location is not a birding hotspot
-#' @return obsDt observation date formatted according to ISO 8601 
+#' @return "comName": species common name
+#' @return "howMany": number of individuals observed, NA if only presence was noted
+#' @return "lat": latitude of the location
+#' @return "lng": longitude of the location
+#' @return "locID": unique identifier for the location
+#' @return "locName": location name
+#' @return "locationPrivate": TRUE if location is not a birding hotspot
+#' @return "obsDt": observation date formatted according to ISO 8601 
 #'    (e.g. 'YYYY-MM-DD', or 'YYYY-MM-DD hh:mm').  Hours and minutes are excluded 
 #'    if the observer did not report an observation time. 
-#' @return obsReviewed TRUE if observation has been reviewed, FALSE otherwise
-#' @return obsValid TRUE if observation has been deemed valid by either the 
+#' @return "obsReviewed": TRUE if observation has been reviewed, FALSE otherwise
+#' @return "obsValid": TRUE if observation has been deemed valid by either the 
 #'    automatic filters or a regional viewer, FALSE otherwise
-#' @return sciName species scientific name
+#' @return "sciName" species' scientific name
 #' @export
 #' @examples \dontrun{
 #' ebirdgeo(42,-76,'spinus tristis')
-#' ebirdgeo(42,-76, maxResults=10, includeProvisional=T, hotspot=T)
-#' }
+#' ebirdgeo(42,-76, maxResults=10, includeProvisional=T, hotspot=T) }
+#' @author Rafael Maia \email{rm72@@zips.uakron.edu}
 
 
 ebirdgeo <-  function(lat,lng, species=NULL, dist = NULL, back = NULL, 
   max = NULL, locale = NULL, provisional = FALSE, 
-  hotspot = FALSE,
-  ..., #additional parameters inside curl
-  sleep = 0
+  hotspot = FALSE,   sleep = 0,
+  ... #additional parameters inside curl
   ) {
-  
-    curl <- getCurlHandle() 
+  	
+  curl <- getCurlHandle() 
     
   Sys.sleep(sleep)
 

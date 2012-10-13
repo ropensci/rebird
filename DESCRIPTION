@@ -15,16 +15,8 @@ Depends:
     wordcloud
 Collate:
     'geo_recent_unified.R'
-    'geo_recent.R'
-    'geo_spprecent.R'
     'hotspot_recent_unified.R'
-    'hotspot_recent.R'
-    'hotspot_spprecent.R'
     'loc_recent_unified.R'
-    'loc_recent.R'
-    'loc_spprecent.R'
     'nearest_obs.R'
     'notable.R'
     'region_recent_unified.R'
-    'region_recent.R'
-    'region_spprecent.R'
