@@ -27,6 +27,7 @@
 #' @param sleep Time (in seconds) before function sends API call - defaults to
 #'    zero.  Set to higher number if you are using this function in a loop with 
 #'    many API calls.
+#' @param ... additional parameters to be passed to curl
 #' @return A data.frame containing the collected information:
 #' @return 'comName' species common name
 #' @return howMany number of individuals observed, NA if only presence was noted
@@ -48,35 +49,30 @@
 #' ebird_geo(42,-76, maxResults=10, includeProvisional=T, hotspot=T)
 #' }
 
-#TODO: include error messages in case values are out of the accepted range
-#TODO: include translation of API errors
 
-
-
-ebird_geo <-  function(lat,lng, species=NA, dist = NA, back = NA, 
-  maxResults = NA, locale = NA, includeProvisional = F, 
-  hotspot = F, sleep = 0,
+ebird_geo <-  function(lat,lng, species=NULL, dist = NULL, back = NULL, 
+  maxResults = NULL, locale = NULL, includeProvisional = FALSE, 
+  hotspot = FALSE, sleep = 0,
   ..., #additional parameters inside curl
   url = 'http://ebird.org/ws1.1/data/obs/geo/recent',
   curl = getCurlHandle() ) {
     
   Sys.sleep(sleep)
 
-   if(!is.na(species))
+  if(!is.null(species))
     url <- 'http://ebird.org/ws1.1/data/obs/geo_spp/recent'
+    
+  if(!is.null(dist))
+    dist <- round(dist)
+  if(!is.null(back))
+    back <- round(back)
 
-  args <- list(fmt='json')
-    args$sci <- species
-    args$lat <- round(lat, 2)
-    args$lng <- round(lng, 2)
-  if(!is.na(dist))
-    args$dist <- as.integer(dist)
-  if(!is.na(back))
-    args$back <- as.integer(back)
-  if(!is.na(maxResults))
-    args$maxResults <- maxResults
-  if(!is.na(locale))
-    args$locale <- locale
+  args <- compact(list(fmt='json', sci=species, 
+               lat=round(lat,2), lng=round(lng,2),
+               dist=dist, back=back, maxResults=maxResults,
+               locale=locale
+               ))
+
   if(includeProvisional)
     args$includeProvisional <- 'true' 
   if(hotspot)
