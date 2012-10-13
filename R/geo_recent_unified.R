@@ -45,12 +45,12 @@
 #' @return sciName species scientific name
 #' @export
 #' @examples \dontrun{
-#' ebird_geo(42,-76,'spinus tristis')
-#' ebird_geo(42,-76, maxResults=10, includeProvisional=T, hotspot=T)
+#' ebirdgeo(42,-76,'spinus tristis')
+#' ebirdgeo(42,-76, maxResults=10, includeProvisional=T, hotspot=T)
 #' }
 
 
-ebird_geo <-  function(lat,lng, species=NULL, dist = NULL, back = NULL, 
+ebirdgeo <-  function(lat,lng, species=NULL, dist = NULL, back = NULL, 
   maxResults = NULL, locale = NULL, includeProvisional = FALSE, 
   hotspot = FALSE, sleep = 0,
   ..., #additional parameters inside curl
