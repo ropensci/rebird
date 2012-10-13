@@ -5,8 +5,8 @@
 #'    and reported in the specified area.
 #' @import RJSONIO plyr RCurl
 #' @param species scientific name of the species of interest (not case 
-#' sensitive). See eBird-1.1-SpeciesReference for a complete list of 
-#' supported scientific names
+#' sensitive). See eBird taxonomy for more information: 
+#' http://ebird.org/content/ebird/about/ebird-taxonomy
 #' @param lat decimal latitude - value between -90.00 and 90.00, up to two 
 #'    decimal places of precision
 #' @param lng decimal longitude - value between -180.00 and 180.00, up to
@@ -48,6 +48,7 @@
 #' ebirdgeo(42,-76,'spinus tristis')
 #' ebirdgeo(42,-76, maxResults=10, includeProvisional=T, hotspot=T) }
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
+#' @references \url{http://ebird.org/}
 
 
 ebirdgeo <-  function(lat,lng, species=NULL, dist = NULL, back = NULL, 
