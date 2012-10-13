@@ -1,12 +1,14 @@
-#' Recent observations at hotspots
-#' 
-#' Returns the most recent sighting information reported in a given vector
-#' of hotspots. 
+#' Recent observations in a region
+#' Returns the most recent sighting information reported in a given region.
 #' @import RJSONIO plyr RCurl
-#' @param locID (required) Vector containing code(s) for up to 10 regions of 
-#' interest; here, regions are the locIDs of hotspots. Values that are not 
-#' valid or are not hotspots are ignored.
-#' @param species Scientific name of the species of interest (not case 
+#' @param region (required) Region code corresponding to selected region type.
+#' For supported region and coding, see
+#' https://confluence.cornell.edu/display/CLOISAPI/eBird-1.1-RegionCodeReference
+#' @param regtype Region type you are interested in. can be "country" 
+#' (e.g. "US"), "subnational1" (states/provinces, e.g. "US-NV") or 
+#' "subnational" (counties, not yet implemented, e.g. "US-NY-109"). Default
+#' behavior is to try and match according to the region specified.
+#' @param species scientific name of the species of interest (not case 
 #' sensitive). Defaults to NULL, in which case sightings for all species are returned.
 #' See eBird taxonomy for more information: 
 #' http://ebird.org/content/ebird/about/ebird-taxonomy
@@ -40,43 +42,48 @@
 #' @return "sciName" species' scientific name
 #' @export
 #' @examples \dontrun{
-#' ebirdhotspot(locID=c('L99381','L99382'),'larus delawarensis')
-#' ebirdhotspot('L99381', max=10, includeProvisional=T, hotspot=T)}
+#' ebirdregion('US','Setophaga caerulescens')
+#' ebirdregion('US-OH', max=10, provisional=T, hotspot=T) }
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
 #' @references \url{http://ebird.org/}
 
-ebirdhotspot <-  function(locID, species=NULL, back = NULL, max = NULL, 
-  locale = NULL, provisional = FALSE, sleep = 0,
+ebirdregion <-  function(region, species = NULL, 
+  regtype = c("country", "subnational1", "subnational2"), 
+  back = NULL, max = NULL, locale = NULL, 
+  provisional = FALSE, hotspot = FALSE,
+  sleep = 0,
   ... #additional parameters inside curl
   ) {
-
+  
   curl <- getCurlHandle()
-  
-  if(length(locID) > 10)
-    stop('Too many locations (maximum 10)')
-  
+
+  regtype <- match.arg(regtype)
+    
   Sys.sleep(sleep)
   
+  if(!is.null(species)){
+	url <- 'http://ebird.org/ws1.1/data/obs/region_spp/recent' }else{
+    url <- 'http://ebird.org/ws1.1/data/obs/region/recent' }
+
   if(!is.null(back))
     back <- round(back)
 
-  if(!is.null(species)){
-    url <- 'http://ebird.org/ws1.1/data/obs/hotspot_spp/recent' }else{
-    url <- 'http://ebird.org/ws1.1/data/obs/hotspot/recent' }
-   
-  args <- compact(list(fmt='json', sci=species,
-                  r=locID, back=back,
-                  maxResults=max, locale=locale
-                  ))
- 
-   if(provisional)
+  args <- compact(list(
+  fmt='json', r=region, rtype=regtype,
+  sci=species, back=back, 
+  maxResults=max, locale=locale
+  ))
+
+  if(provisional)
     args$includeProvisional <- 'true' 
+  if(hotspot)
+    args$hotspot <- 'true' 
 
 content <- getForm(url, 
             .params = args, 
             ... ,
             curl = curl)
 
-res <- fromJSON(content)  
+res <- fromJSON(content)   
 ldply(res, data.frame)  
 }

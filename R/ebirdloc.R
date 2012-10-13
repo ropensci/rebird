@@ -4,18 +4,18 @@
 #' @import RJSONIO plyr RCurl
 #' @param locID (required) Vector containing code(s) for up to 10 regions of interest; 
 #' here, values that are not hotspots are returned. Values that are not valid are ignored. 
-#' @param species scientific name of the species of interest (not case 
+#' @param species Scientific name of the species of interest (not case 
 #' sensitive). Defaults to NULL, in which case sightings for all species are returned.
 #' See eBird taxonomy for more information: 
 #' http://ebird.org/content/ebird/about/ebird-taxonomy
-#' @param back the number of days back to look for observations (between
+#' @param back Number of days back to look for observations (between
 #'    1 and 30, defaults to 14).
-#' @param maxResults the maximum number of result rows to return in this request
+#' @param max Maximum number of result rows to return in this request
 #'    (between 1 and 10000, defaults to all)
 #' @param locale Language/locale of response (when translations are available).
 #'    See http://java.sun.com/javase/6/docs/api/java/util/Locale.html 
 #'    (defaults to en_US)
-#' @param includeProvisional should flagged records that have not been reviewed 
+#' @param provisional Should flagged records that have not been reviewed 
 #'    be included? (defaults to FALSE)
 #' @param sleep Time (in seconds) before function sends API call (defaults to
 #'    zero.  Set to higher number if you are using this function in a loop with 

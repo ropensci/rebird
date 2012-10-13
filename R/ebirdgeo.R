@@ -4,26 +4,26 @@
 #' species of bird reported within the number of days specified
 #'    and reported in the specified area.
 #' @import RJSONIO plyr RCurl
-#' @param lat decimal latitude (required). value between -90.00 and 90.00, up to two 
+#' @param lat Decimal latitude (required). value between -90.00 and 90.00, up to two 
 #'    decimal places of precision.
-#' @param lng decimal longitude (required). value between -180.00 and 180.00, up to
+#' @param lng Decimal longitude (required). value between -180.00 and 180.00, up to
 #'    two decimal places of precision.
-#' @param species scientific name of the species of interest (not case 
+#' @param species Scientific name of the species of interest (not case 
 #' sensitive). Defaults to NULL, so sightings for all species are returned.
 #' See eBird taxonomy for more information: 
 #' http://ebird.org/content/ebird/about/ebird-taxonomy
-#' @param dist distance defining radius of interest from given lat/lng in 
+#' @param dist Distance defining radius of interest from given lat/lng in 
 #'    kilometers (between 0 and 50, defaults to 25)
-#' @param back the number of days back to look for observations (between
+#' @param back Number of days back to look for observations (between
 #'    1 and 30, defaults to 14).
-#' @param max the maximum number of result rows to return in this request
+#' @param max Maximum number of result rows to return in this request
 #'    (between 1 and 10000, defaults to all).
 #' @param locale Language/locale of response (when translations are available).
 #'    See http://java.sun.com/javase/6/docs/api/java/util/Locale.html 
 #'    (defaults to en_US).
-#' @param provisional should flagged records that have not been reviewed 
+#' @param provisional Should flagged records that have not been reviewed 
 #'    be included? (defaults to FALSE).
-#' @param hotspot should results be limited to sightings at birding hotspots? 
+#' @param hotspot Should results be limited to sightings at birding hotspots? 
 #'    (defaults to FALSE).
 #' @param sleep Time (in seconds) before function sends API call (defaults to
 #'    zero. Set to higher number if you are using this function in a loop with 
