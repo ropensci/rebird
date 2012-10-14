@@ -16,5 +16,5 @@
 #' @title rEbird: an R package for access to the eBird database.
 #' @author  Rafael Maia \email{rm72@@zips.uakron.edu}, Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @keywords package
-#' @examples see functions.
+#' @examples #see functions.
 NA

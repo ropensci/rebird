@@ -15,7 +15,7 @@
   database.
 }
 \examples{
-see functions.
+#see functions.
 }
 \author{
   Rafael Maia \email{rm72@zips.uakron.edu}, Scott
