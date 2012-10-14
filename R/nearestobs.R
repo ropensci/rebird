@@ -1,6 +1,6 @@
 #' Nearest species sightings
 #'
-#' Returns the nearest reported sighting information
+#' Returns the most recent and nearest reported sighting information
 #' with observations of a species.
 #' @import RJSONIO plyr RCurl
 #' @param lat (required) Decimal latitude. value between -90.00 and 90.00, up to two 

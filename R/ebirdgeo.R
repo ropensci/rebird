@@ -4,9 +4,9 @@
 #' species of bird reported within the number of days specified
 #'    and reported in the specified area.
 #' @import RJSONIO plyr RCurl
-#' @param lat Decimal latitude (required). value between -90.00 and 90.00, up to two 
+#' @param lat (required) Decimal latitude. value between -90.00 and 90.00, up to two 
 #'    decimal places of precision.
-#' @param lng Decimal longitude (required). value between -180.00 and 180.00, up to
+#' @param lng (required) Decimal longitude. value between -180.00 and 180.00, up to
 #'    two decimal places of precision.
 #' @param species Scientific name of the species of interest (not case 
 #' sensitive). Defaults to NULL, so sightings for all species are returned.
