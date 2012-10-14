@@ -5,8 +5,7 @@ Description: A programmatic interface to the eBird database
 Title: Interface to eBird
 License: BSD
 Author: Rafael Maia, Scott Chamberlain
-Maintainer: Rafael Maia <rm72@zips.uakron.edu>, Scott Chamberlain
-    <myrmecocystus@gmail.com>
+Maintainer: Rafael Maia <rm72@zips.uakron.edu>
 URL: https://github.com/ropensci/rebird
 Depends:
     RJSONIO,
