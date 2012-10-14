@@ -1,50 +1,42 @@
-\name{nearestobs}
-\alias{nearestobs}
-\title{Nearest species sightings}
+\name{ebirdhotspot}
+\alias{ebirdhotspot}
+\title{Recent observations at hotspots}
 \usage{
-  nearestobs(lat, lng, species, dist = NULL, back = NULL,
+  ebirdhotspot(locID, species = NULL, back = NULL,
     max = NULL, locale = NULL, provisional = FALSE,
-    hotspot = FALSE, sleep = 0, ...)
+    sleep = 0, ...)
 }
 \arguments{
-  \item{lat}{(required) Decimal latitude. value between
-  -90.00 and 90.00, up to two decimal places of precision.}
+  \item{locID}{(required) Vector containing code(s) for up
+  to 10 regions of interest; here, regions are the locIDs
+  of hotspots. Values that are not valid or are not
+  hotspots are ignored.}
 
-  \item{lng}{(required) Decimal longitude. value between
-  -180.00 and 180.00, up to two decimal places of
-  precision.}
-
-  \item{species}{(required) Scientific name of the species
-  of interest (not case sensitive). See eBird taxonomy for
-  more information:
+  \item{species}{Scientific name of the species of interest
+  (not case sensitive). Defaults to NULL, in which case
+  sightings for all species are returned. See eBird
+  taxonomy for more information:
   http://ebird.org/content/ebird/about/ebird-taxonomy}
-
-  \item{dist}{Distance defining radius of interest from
-  given lat/lng in kilometers (between 0 and 50, defaults
-  to 25)}
 
   \item{back}{Number of days back to look for observations
   (between 1 and 30, defaults to 14).}
 
   \item{max}{Maximum number of result rows to return in
-  this request (between 1 and 10000, defaults to all).}
+  this request (between 1 and 10000, defaults to all)}
 
   \item{locale}{Language/locale of response (when
   translations are available).  See
   http://java.sun.com/javase/6/docs/api/java/util/Locale.html
-  (defaults to en_US).}
+  (defaults to en_US)}
 
   \item{provisional}{Should flagged records that have not
-  been reviewed be included? (defaults to FALSE).}
-
-  \item{hotspot}{Should results be limited to sightings at
-  birding hotspots?  (defaults to FALSE).}
+  been reviewed be included? (defaults to FALSE)}
 
   \item{sleep}{Time (in seconds) before function sends API
-  call (defaults to zero. Set to higher number if you are
+  call (defaults to zero.  Set to higher number if you are
   using this function in a loop with many API calls).}
 
-  \item{...}{additional parameters to be passed to curl.}
+  \item{...}{additional parameters to be passed to curl}
 }
 \value{
   A data.frame containing the collected information:
@@ -80,13 +72,13 @@
   "sciName" species' scientific name
 }
 \description{
-  Returns the most recent and nearest reported sighting
-  information with observations of a species.
+  Returns the most recent sighting information reported in
+  a given vector of hotspots.
 }
 \examples{
 \dontrun{
-nearestobs(42,-76,'spizella arborea')
-nearestobs(42,-76,'spizella arborea', max=10, provisional=T, hotspot=T) }
+ebirdhotspot(locID=c('L99381','L99382'),'larus delawarensis')
+ebirdhotspot('L99381', max=10, includeProvisional=T, hotspot=T)}
 }
 \author{
   Rafael Maia \email{rm72@zips.uakron.edu}

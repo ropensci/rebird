@@ -7,42 +7,45 @@
     provisional = FALSE, hotspot = FALSE, sleep = 0, ...)
 }
 \arguments{
-  \item{species}{scientific name of the species of interest
-  (not case sensitive). See eBird-1.1-SpeciesReference for
-  a complete list of supported scientific names}
+  \item{lat}{(required) Decimal latitude. value between
+  -90.00 and 90.00, up to two decimal places of precision.}
 
-  \item{lat}{decimal latitude - value between -90.00 and
-  90.00, up to two decimal places of precision}
+  \item{lng}{(required) Decimal longitude. value between
+  -180.00 and 180.00, up to two decimal places of
+  precision.}
 
-  \item{lng}{decimal longitude - value between -180.00 and
-  180.00, up to two decimal places of precision}
+  \item{species}{Scientific name of the species of interest
+  (not case sensitive). Defaults to NULL, so sightings for
+  all species are returned. See eBird taxonomy for more
+  information:
+  http://ebird.org/content/ebird/about/ebird-taxonomy}
 
-  \item{dist}{distance defining radius of interest from
+  \item{dist}{Distance defining radius of interest from
   given lat/lng in kilometers (between 0 and 50, defaults
   to 25)}
 
-  \item{back}{the number of days back to look for
-  observations (between 1 and 30, defaults to 14)}
+  \item{back}{Number of days back to look for observations
+  (between 1 and 30, defaults to 14).}
 
-  \item{max}{the maximum number of result rows to return in
-  this request (between 1 and 10000, defaults to all)}
+  \item{max}{Maximum number of result rows to return in
+  this request (between 1 and 10000, defaults to all).}
 
   \item{locale}{Language/locale of response (when
   translations are available).  See
   http://java.sun.com/javase/6/docs/api/java/util/Locale.html
-  (defaults to en_US)}
+  (defaults to en_US).}
 
-  \item{provisional}{should flagged records that have not
-  been reviewed be included? (defaults to FALSE)}
+  \item{provisional}{Should flagged records that have not
+  been reviewed be included? (defaults to FALSE).}
 
-  \item{hotspot}{should results be limited to sightings at
-  birding hotspots?  (defaults to FALSE)}
+  \item{hotspot}{Should results be limited to sightings at
+  birding hotspots?  (defaults to FALSE).}
 
   \item{sleep}{Time (in seconds) before function sends API
   call (defaults to zero. Set to higher number if you are
-  using this function in a loop with many API calls.)}
+  using this function in a loop with many API calls).}
 
-  \item{...}{additional parameters to be passed to curl}
+  \item{...}{additional parameters to be passed to curl.}
 }
 \value{
   A data.frame containing the collected information:
@@ -90,5 +93,8 @@ ebirdgeo(42,-76, maxResults=10, includeProvisional=T, hotspot=T) }
 }
 \author{
   Rafael Maia \email{rm72@zips.uakron.edu}
+}
+\references{
+  \url{http://ebird.org/}
 }
 

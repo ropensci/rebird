@@ -1,50 +1,50 @@
-\name{nearestobs}
-\alias{nearestobs}
-\title{Nearest species sightings}
+\name{ebirdregion}
+\alias{ebirdregion}
+\title{Recent observations in a region
+Returns the most recent sighting information reported in a given region.}
 \usage{
-  nearestobs(lat, lng, species, dist = NULL, back = NULL,
-    max = NULL, locale = NULL, provisional = FALSE,
-    hotspot = FALSE, sleep = 0, ...)
+  ebirdregion(region, species = NULL,
+    regtype = c("country", "subnational1", "subnational2"),
+    back = NULL, max = NULL, locale = NULL,
+    provisional = FALSE, hotspot = FALSE, sleep = 0, ...)
 }
 \arguments{
-  \item{lat}{(required) Decimal latitude. value between
-  -90.00 and 90.00, up to two decimal places of precision.}
+  \item{region}{(required) Region code corresponding to
+  selected region type. For supported region and coding,
+  see
+  https://confluence.cornell.edu/display/CLOISAPI/eBird-1.1-RegionCodeReference}
 
-  \item{lng}{(required) Decimal longitude. value between
-  -180.00 and 180.00, up to two decimal places of
-  precision.}
+  \item{regtype}{Region type you are interested in. can be
+  "country" (e.g. "US"), "subnational1" (states/provinces,
+  e.g. "US-NV") or "subnational" (counties, not yet
+  implemented, e.g. "US-NY-109"). Default behavior is to
+  try and match according to the region specified.}
 
-  \item{species}{(required) Scientific name of the species
-  of interest (not case sensitive). See eBird taxonomy for
-  more information:
+  \item{species}{scientific name of the species of interest
+  (not case sensitive). Defaults to NULL, in which case
+  sightings for all species are returned. See eBird
+  taxonomy for more information:
   http://ebird.org/content/ebird/about/ebird-taxonomy}
-
-  \item{dist}{Distance defining radius of interest from
-  given lat/lng in kilometers (between 0 and 50, defaults
-  to 25)}
 
   \item{back}{Number of days back to look for observations
   (between 1 and 30, defaults to 14).}
 
   \item{max}{Maximum number of result rows to return in
-  this request (between 1 and 10000, defaults to all).}
+  this request (between 1 and 10000, defaults to all)}
 
   \item{locale}{Language/locale of response (when
   translations are available).  See
   http://java.sun.com/javase/6/docs/api/java/util/Locale.html
-  (defaults to en_US).}
+  (defaults to en_US)}
 
   \item{provisional}{Should flagged records that have not
-  been reviewed be included? (defaults to FALSE).}
-
-  \item{hotspot}{Should results be limited to sightings at
-  birding hotspots?  (defaults to FALSE).}
+  been reviewed be included? (defaults to FALSE)}
 
   \item{sleep}{Time (in seconds) before function sends API
-  call (defaults to zero. Set to higher number if you are
+  call (defaults to zero.  Set to higher number if you are
   using this function in a loop with many API calls).}
 
-  \item{...}{additional parameters to be passed to curl.}
+  \item{...}{additional parameters to be passed to curl}
 }
 \value{
   A data.frame containing the collected information:
@@ -80,13 +80,13 @@
   "sciName" species' scientific name
 }
 \description{
-  Returns the most recent and nearest reported sighting
-  information with observations of a species.
+  Recent observations in a region Returns the most recent
+  sighting information reported in a given region.
 }
 \examples{
 \dontrun{
-nearestobs(42,-76,'spizella arborea')
-nearestobs(42,-76,'spizella arborea', max=10, provisional=T, hotspot=T) }
+ebirdregion('US','Setophaga caerulescens')
+ebirdregion('US-OH', max=10, provisional=T, hotspot=T) }
 }
 \author{
   Rafael Maia \email{rm72@zips.uakron.edu}

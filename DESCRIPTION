@@ -9,14 +9,13 @@ Maintainer: Rafael Maia <Rafael Maia <rm72@zips.uakron.edu>>, Scott Chamberlain
     <myrmecocystus@gmail.com>
 URL: https://github.com/ropensci/rebird
 Depends:
+    RJSONIO,
     RCurl,
-    XML,
-    plyr,
-    wordcloud
+    plyr
 Collate:
-    'geo_recent_unified.R'
-    'hotspot_recent_unified.R'
-    'loc_recent_unified.R'
-    'nearest_obs.R'
     'notable.R'
-    'region_recent_unified.R'
+    'ebirdgeo.R'
+    'ebirdhotspot.R'
+    'ebirdloc.R'
+    'ebirdregion.R'
+    'nearestobs.R'
