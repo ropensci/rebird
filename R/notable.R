@@ -15,6 +15,8 @@
 #' (e.g. "US"), "subnational1" (states/provinces, e.g. "US-NV") or 
 #' "subnational" (counties, not yet implemented, e.g. "US-NY-109"). Default
 #' behavior is to try and match according to the region specified.
+#' @param dist Distance defining radius of interest from given lat/lng in 
+#'    kilometers (between 0 and 50, defaults to 25)
 #' @param back Number of days back to look for observations (between
 #'    1 and 30, defaults to 14).
 #' @param max Maximum number of result rows to return in this request
@@ -24,6 +26,8 @@
 #'    (defaults to en_US).
 #' @param provisional Should flagged records that have not been reviewed 
 #'    be included? (defaults to FALSE)
+#' @param hotspot Should results be limited to sightings at birding hotspots? 
+#'    (defaults to FALSE).
 #' @param sleep Time (in seconds) before function sends API call (defaults to
 #'    zero.  Set to higher number if you are using this function in a loop with 
 #'    many API calls).
@@ -63,10 +67,12 @@ ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL,
   back = NULL, max = NULL, locale = NULL, 
   provisional = FALSE, hotspot = FALSE,
   sleep = 0,
-  ..., #additional parameters inside curl
-  url = 'http://ebird.org/ws1.1/data/notable/geo/recent',
-  curl = getCurlHandle() ) {
-    
+  ... #additional parameters inside curl
+   ) {
+
+  url <- 'http://ebird.org/ws1.1/data/notable/geo/recent'
+  curl <- getCurlHandle()
+  
   Sys.sleep(sleep)
 
   if(!is.null(back))
