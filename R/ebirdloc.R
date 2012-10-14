@@ -39,7 +39,8 @@
 #' @export
 #' @examples \dontrun{
 #' ebirdloc(c('L99381','L99382'))
-#' ebirdloc('L99381', 'larus delawarensis', max=10, provisional=T, hotspot=T)}
+#' ebirdloc('L99381', 'larus delawarensis', max=10, provisional=T, hotspot=T)
+#' }
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
 #' @references \url{http://ebird.org/}
 

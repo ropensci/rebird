@@ -56,7 +56,10 @@
 #' ebirdnotable(locID = c('L99381','L99382'))
 #' ebirdnotable(region='US', max=10)
 #' ebirdnotable(region='US-OH', regtype='subnational1')
-#' ebirdnotable(locID='L99381',region='US') #ERROR }
+#' }
+#' @examples \donttest{
+#' ebirdnotable(locID='L99381',region='US') #ERROR 
+#' }
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
 #' @references \url{http://ebird.org/}
 
