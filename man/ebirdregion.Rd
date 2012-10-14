@@ -1,6 +1,6 @@
 \name{ebirdregion}
 \alias{ebirdregion}
-\title{Recent observations in a region
+\title{Recent observations at a region
 Returns the most recent sighting information reported in a given region.}
 \usage{
   ebirdregion(region, species = NULL,
@@ -80,7 +80,7 @@ Returns the most recent sighting information reported in a given region.}
   "sciName" species' scientific name
 }
 \description{
-  Recent observations in a region Returns the most recent
+  Recent observations at a region Returns the most recent
   sighting information reported in a given region.
 }
 \examples{

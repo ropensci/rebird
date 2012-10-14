@@ -1,4 +1,4 @@
-#' Recent observations in a region
+#' Recent observations at a region
 #' Returns the most recent sighting information reported in a given region.
 #' @import RJSONIO plyr RCurl
 #' @param region (required) Region code corresponding to selected region type.
