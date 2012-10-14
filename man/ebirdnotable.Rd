@@ -6,9 +6,7 @@
     locID = NULL, region = NULL,
     regtype = c("country", "subnational1", "subnational2"),
     back = NULL, max = NULL, locale = NULL,
-    provisional = FALSE, hotspot = FALSE, sleep = 0, ...,
-    url = "http://ebird.org/ws1.1/data/notable/geo/recent",
-    curl = getCurlHandle())
+    provisional = FALSE, hotspot = FALSE, sleep = 0, ...)
 }
 \arguments{
   \item{lat}{Decimal latitude. value between -90.00 and
@@ -30,6 +28,10 @@
   implemented, e.g. "US-NY-109"). Default behavior is to
   try and match according to the region specified.}
 
+  \item{dist}{Distance defining radius of interest from
+  given lat/lng in kilometers (between 0 and 50, defaults
+  to 25)}
+
   \item{back}{Number of days back to look for observations
   (between 1 and 30, defaults to 14).}
 
@@ -43,6 +45,9 @@
 
   \item{provisional}{Should flagged records that have not
   been reviewed be included? (defaults to FALSE)}
+
+  \item{hotspot}{Should results be limited to sightings at
+  birding hotspots?  (defaults to FALSE).}
 
   \item{sleep}{Time (in seconds) before function sends API
   call (defaults to zero.  Set to higher number if you are

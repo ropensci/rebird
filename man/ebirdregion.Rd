@@ -40,6 +40,9 @@ Returns the most recent sighting information reported in a given region.}
   \item{provisional}{Should flagged records that have not
   been reviewed be included? (defaults to FALSE)}
 
+  \item{hotspot}{Should results be limited to sightings at
+  birding hotspots?  (defaults to FALSE).}
+
   \item{sleep}{Time (in seconds) before function sends API
   call (defaults to zero.  Set to higher number if you are
   using this function in a loop with many API calls).}

@@ -21,6 +21,8 @@
 #'    (defaults to en_US)
 #' @param provisional Should flagged records that have not been reviewed 
 #'    be included? (defaults to FALSE)
+#' @param hotspot Should results be limited to sightings at birding hotspots? 
+#'    (defaults to FALSE).
 #' @param sleep Time (in seconds) before function sends API call (defaults to
 #'    zero.  Set to higher number if you are using this function in a loop with 
 #'    many API calls).
