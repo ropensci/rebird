@@ -104,7 +104,8 @@
 ebirdnotable(lat=42,lng=-70)
 ebirdnotable(locID = c('L99381','L99382'))
 ebirdnotable(region='US', max=10)
-ebirdnotable(region='US-OH', regtype='subnational1')}
+ebirdnotable(region='US-OH', regtype='subnational1')
+}
 }
 \author{
   Rafael Maia \email{rm72@zips.uakron.edu}

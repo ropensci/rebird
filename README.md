@@ -1,4 +1,7 @@
-# `reBird`
+reBird
+======
+
+[![Build Status](https://api.travis-ci.org/ropensci/rebird.png)](https://travis-ci.org/ropensci/rebird)
 
 `reBird` is a package to interface with the eBird webservices.
 
@@ -11,7 +14,7 @@ the API for the eBird webservices can be accessed here: https://confluence.corne
 For now, either download the archive above and install using `$R CMD INSTALL`
 or use Hadley Wickham's [devtools](https://github.com/hadley/devtools):
 
-```r     
+```coffee
 library(devtools)
 install_github("rebird", "ropensci")
 ```
