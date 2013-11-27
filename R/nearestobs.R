@@ -7,9 +7,9 @@
 #'    sensitive). See eBird taxonomy for more information: 
 #'    http://ebird.org/content/ebird/about/ebird-taxonomy
 #' @param lat Decimal latitude. value between -90.00 and 90.00, up to two 
-#'    decimal places of precision.
+#'    decimal places of precision. Defaults to latitude basd on IP.
 #' @param lng Decimal longitude. value between -180.00 and 180.00, up to
-#'    two decimal places of precision.
+#'    two decimal places of precision. Defaults to longitude basd on IP.
 #' @param back Number of days back to look for observations (between
 #'    1 and 30, defaults to 14).
 #' @param max Maximum number of result rows to return in this request
@@ -28,8 +28,8 @@
 #' @return A data.frame containing the collected information:
 #' @return "comName": species common name
 #' @return "howMany": number of individuals observed, NA if only presence was noted
-#' @return "lat": latitude of the location. Defaults to latitude basd on IP
-#' @return "lng": longitude of the location.  Defaults to longitude basd on IP
+#' @return "lat": latitude of the location.
+#' @return "lng": longitude of the location.
 #' @return "locID": unique identifier for the location
 #' @return "locName": location name
 #' @return "locationPrivate": TRUE if location is not a birding hotspot
@@ -60,14 +60,14 @@ nearestobs <-  function(species, lat=NULL,lng=NULL, back = NULL,
   Sys.sleep(sleep)
   
   if (is.null(lat) | is.null(lng)) {
-    # Get computer location information from http://freegeoip.net
+    # Get IP location information from http://freegeoip.net
     loc <- fromJSON(readLines("http://freegeoip.net/json/", warn=FALSE))
     lat <- loc$latitude
     lng <- loc$longitude
     warning(paste("As a complete lat/long pair was not provided, nearest", 
                   "locations are based on your computer's public-facing IP",
                   "address. This will likely not reflect your physical location", 
-                  "if you are logged into a remote server or proxy"))
+                  "if you are using a remote server or proxy."))
   }
 
   if(!is.null(back))

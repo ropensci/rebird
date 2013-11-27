@@ -2,7 +2,7 @@
 \alias{nearestobs}
 \title{Nearest species sightings}
 \usage{
-  nearestobs(lat, lng, species, back = NULL,
+  nearestobs(species, lat=NULL, lng=NULL, back = NULL,
     max = NULL, locale = NULL, provisional = FALSE,
     hotspot = FALSE, sleep = 0, ...)
 }
