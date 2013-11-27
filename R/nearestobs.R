@@ -3,13 +3,13 @@
 #' Returns the most recent and nearest reported sighting information
 #' with observations of a species.
 #' @import RJSONIO plyr RCurl
-#' @param lat (required) Decimal latitude. value between -90.00 and 90.00, up to two 
-#'    decimal places of precision.
-#' @param lng (required) Decimal longitude. value between -180.00 and 180.00, up to
-#'    two decimal places of precision.
 #' @param species (required) Scientific name of the species of interest (not case 
-#' sensitive). See eBird taxonomy for more information: 
-#' http://ebird.org/content/ebird/about/ebird-taxonomy
+#'    sensitive). See eBird taxonomy for more information: 
+#'    http://ebird.org/content/ebird/about/ebird-taxonomy
+#' @param lat Decimal latitude. value between -90.00 and 90.00, up to two 
+#'    decimal places of precision.
+#' @param lng Decimal longitude. value between -180.00 and 180.00, up to
+#'    two decimal places of precision.
 #' @param back Number of days back to look for observations (between
 #'    1 and 30, defaults to 14).
 #' @param max Maximum number of result rows to return in this request
@@ -28,8 +28,8 @@
 #' @return A data.frame containing the collected information:
 #' @return "comName": species common name
 #' @return "howMany": number of individuals observed, NA if only presence was noted
-#' @return "lat": latitude of the location
-#' @return "lng": longitude of the location
+#' @return "lat": latitude of the location. Defaults to latitude basd on IP
+#' @return "lng": longitude of the location.  Defaults to longitude basd on IP
 #' @return "locID": unique identifier for the location
 #' @return "locName": location name
 #' @return "locationPrivate": TRUE if location is not a birding hotspot
@@ -48,7 +48,7 @@
 #' @references \url{http://ebird.org/}
 
 
-nearestobs <-  function(lat,lng, species, back = NULL, 
+nearestobs <-  function(species, lat=NULL,lng=NULL, back = NULL, 
   max = NULL, locale = NULL, provisional = FALSE, 
   hotspot = FALSE, sleep = 0,
   ... #additional parameters inside curl
@@ -58,6 +58,16 @@ nearestobs <-  function(lat,lng, species, back = NULL,
   curl <- getCurlHandle()
     
   Sys.sleep(sleep)
+  
+  if (is.null(lat) | is.null(lng)) {
+    # Get computer location information from http://freegeoip.net
+    loc <- fromJSON(readLines("http://freegeoip.net/json/", warn=FALSE))
+    lat <- loc$latitude
+    lng <- loc$longitude
+    message(paste("As a complete lat/long pair was not provided, nearest", 
+                  "locations are based on your computer's public-facing IP",
+                  "address"))
+  }
 
   if(!is.null(back))
     back <- round(back)
