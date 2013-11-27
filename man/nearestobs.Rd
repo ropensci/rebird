@@ -2,22 +2,23 @@
 \alias{nearestobs}
 \title{Nearest species sightings}
 \usage{
-  nearestobs(lat, lng, species, back = NULL,
+  nearestobs(species, lat=NULL, lng=NULL, back = NULL,
     max = NULL, locale = NULL, provisional = FALSE,
     hotspot = FALSE, sleep = 0, ...)
 }
 \arguments{
-  \item{lat}{(required) Decimal latitude. value between
-  -90.00 and 90.00, up to two decimal places of precision.}
-
-  \item{lng}{(required) Decimal longitude. value between
-  -180.00 and 180.00, up to two decimal places of
-  precision.}
-
   \item{species}{(required) Scientific name of the species
   of interest (not case sensitive). See eBird taxonomy for
   more information:
   http://ebird.org/content/ebird/about/ebird-taxonomy}
+  
+  \item{lat}{Decimal latitude. value between
+  -90.00 and 90.00, up to two decimal places of precision.
+  (Defaults to latitude based on IP address)}
+
+  \item{lng}{Decimal longitude. value between
+  -180.00 and 180.00, up to two decimal places of
+  precision. (Defaults to longitude based on IP address)}
 
   \item{back}{Number of days back to look for observations
   (between 1 and 30, defaults to 14).}
