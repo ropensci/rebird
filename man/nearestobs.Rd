@@ -2,7 +2,7 @@
 \alias{nearestobs}
 \title{Nearest species sightings}
 \usage{
-  nearestobs(lat, lng, species, dist = NULL, back = NULL,
+  nearestobs(lat, lng, species, back = NULL,
     max = NULL, locale = NULL, provisional = FALSE,
     hotspot = FALSE, sleep = 0, ...)
 }
@@ -18,10 +18,6 @@
   of interest (not case sensitive). See eBird taxonomy for
   more information:
   http://ebird.org/content/ebird/about/ebird-taxonomy}
-
-  \item{dist}{Distance defining radius of interest from
-  given lat/lng in kilometers (between 0 and 50, defaults
-  to 25)}
 
   \item{back}{Number of days back to look for observations
   (between 1 and 30, defaults to 14).}
