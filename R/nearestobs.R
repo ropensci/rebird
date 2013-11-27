@@ -67,7 +67,7 @@ nearestobs <-  function(species, lat=NULL,lng=NULL, back = NULL,
     warning(paste("As a complete lat/long pair was not provided, nearest", 
                   "locations are based on your computer's public-facing IP",
                   "address. This will likely not reflect your physical location", 
-                  "if you are logged into a remote server"))
+                  "if you are logged into a remote server or proxy"))
   }
 
   if(!is.null(back))
