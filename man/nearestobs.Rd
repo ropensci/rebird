@@ -2,7 +2,7 @@
 \alias{nearestobs}
 \title{Nearest species sightings}
 \usage{
-  nearestobs(species, lat=NULL, lng=NULL, back = NULL,
+  nearestobs(species, lat = NULL, lng = NULL, back = NULL,
     max = NULL, locale = NULL, provisional = FALSE,
     hotspot = FALSE, sleep = 0, ...)
 }
@@ -11,14 +11,14 @@
   of interest (not case sensitive). See eBird taxonomy for
   more information:
   http://ebird.org/content/ebird/about/ebird-taxonomy}
-  
-  \item{lat}{Decimal latitude. value between
-  -90.00 and 90.00, up to two decimal places of precision.
-  (Defaults to latitude based on IP address)}
 
-  \item{lng}{Decimal longitude. value between
-  -180.00 and 180.00, up to two decimal places of
-  precision. (Defaults to longitude based on IP address)}
+  \item{lat}{Decimal latitude. value between -90.00 and
+  90.00, up to two decimal places of precision. Defaults to
+  latitude basd on IP.}
+
+  \item{lng}{Decimal longitude. value between -180.00 and
+  180.00, up to two decimal places of precision. Defaults
+  to longitude basd on IP.}
 
   \item{back}{Number of days back to look for observations
   (between 1 and 30, defaults to 14).}
@@ -51,9 +51,9 @@
   "howMany": number of individuals observed, NA if only
   presence was noted
 
-  "lat": latitude of the location
+  "lat": latitude of the location.
 
-  "lng": longitude of the location
+  "lng": longitude of the location.
 
   "locID": unique identifier for the location
 

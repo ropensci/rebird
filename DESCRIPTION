@@ -9,7 +9,7 @@ Authors@R: c(person("Rafael", "Maia", role = c("aut", "cre"),
     person("Scott", "Chamberlain", role = "aut",
     email = "myrmecocystus@gmail.com"))
 URL: http://github.com/ropensci/rebird
-Depends:
+Imports:
     RJSONIO,
     RCurl,
     plyr
