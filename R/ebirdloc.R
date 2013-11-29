@@ -51,32 +51,38 @@ ebirdloc <-  function(locID, species=NULL, back = NULL, max = NULL,
 
   curl <- getCurlHandle()
 
-  if(length(locID) > 10)
+  if (length(locID) > 10) {
     stop('Too many locations (max. 10)')
+  }
 
   Sys.sleep(sleep)
   
-  if(!is.null(species)){
-    url <- 'http://ebird.org/ws1.1/data/obs/loc_spp/recent' }else{
-    url <- 'http://ebird.org/ws1.1/data/obs/loc/recent' }
+  if(!is.null(species)) {
+    url <- 'http://ebird.org/ws1.1/data/obs/loc_spp/recent'
+  } else {
+    url <- 'http://ebird.org/ws1.1/data/obs/loc/recent' 
+  }
 
-  if(!is.null(back))
-    back <- round(back)  
+  if(!is.null(back)) {
+    back <- round(back) 
+  }
 
   args <- compact(list(
-  fmt='json', sci=species,
-  r=locID, back=back, maxResults=max,
-  locale=locale
+    fmt='json', sci=species,
+    r=locID, back=back, maxResults=max,
+    locale=locale
   ))
   
-  if(provisional)
-    args$includeProvisional <- 'true' 
+  if(provisional) {
+    args$includeProvisional <- 'true'
+  }
 
-content <- getForm(url, 
-            .params = args, 
-            ... ,
-            curl = curl)
-
-res <- fromJSON(content)  
-ldply(res, data.frame)  
+  content <- getForm(url, 
+                     .params = args, 
+                     ... ,
+                     curl = curl)
+  
+  res <- fromJSON(content)  
+  ret <- rbind.fill(lapply(res, data.frame, stringsAsFactors=FALSE))
+  return(ret)
 }

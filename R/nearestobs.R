@@ -98,11 +98,12 @@ nearestobs <-  function(species, lat=NULL,lng=NULL, back = NULL,
   if(hotspot)
     args$hotspot <- 'true'
 
-    content <- getForm(url, 
-                .params = args, 
-                ... ,
-                curl = curl)
+  content <- getForm(url, 
+                     .params = args, 
+                     ... ,
+                     curl = curl)
 
- res <- fromJSON(content)   
- ldply(res, data.frame)  
+  res <- fromJSON(content)   
+  ret <- rbind.fill(lapply(res, data.frame, stringsAsFactors=FALSE))
+  return(ret)
 }

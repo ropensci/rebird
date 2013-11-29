@@ -46,37 +46,43 @@
 #' @references \url{http://ebird.org/}
 
 ebirdhotspot <-  function(locID, species=NULL, back = NULL, max = NULL, 
-  locale = NULL, provisional = FALSE, sleep = 0,
-  ... #additional parameters inside curl
-  ) {
-
+                          locale = NULL, provisional = FALSE, sleep = 0,
+                          ... #additional parameters inside curl
+) {
+  
   curl <- getCurlHandle()
   
-  if(length(locID) > 10)
+  if(length(locID) > 10) {
     stop('Too many locations (maximum 10)')
+  }
   
   Sys.sleep(sleep)
   
-  if(!is.null(back))
+  if(!is.null(back)) {
     back <- round(back)
-
+  }
+  
   if(!is.null(species)){
-    url <- 'http://ebird.org/ws1.1/data/obs/hotspot_spp/recent' }else{
-    url <- 'http://ebird.org/ws1.1/data/obs/hotspot/recent' }
-   
+    url <- 'http://ebird.org/ws1.1/data/obs/hotspot_spp/recent'
+  } else {
+    url <- 'http://ebird.org/ws1.1/data/obs/hotspot/recent' 
+  }
+  
   args <- compact(list(fmt='json', sci=species,
-                  r=locID, back=back,
-                  maxResults=max, locale=locale
-                  ))
- 
-   if(provisional)
-    args$includeProvisional <- 'true' 
-
-content <- getForm(url, 
-            .params = args, 
-            ... ,
-            curl = curl)
-
-res <- fromJSON(content)  
-ldply(res, data.frame)  
+                       r=locID, back=back,
+                       maxResults=max, locale=locale
+  ))
+  
+  if(provisional) {
+    args$includeProvisional <- 'true'
+  }
+  
+  content <- getForm(url, 
+                     .params = args, 
+                     ... ,
+                     curl = curl)
+  
+  res <- fromJSON(content)  
+  ret <- rbind.fill(lapply(res, data.frame, stringsAsFactors=FALSE))
+  return(ret)  
 }

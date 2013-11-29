@@ -124,6 +124,6 @@ ebirdgeo <-  function(lat = NULL, lng = NULL, species=NULL, dist = NULL,
                      curl = curl)
   
   res <- fromJSON(content)  
-  
-  ldply(res, data.frame)  
+  ret <- rbind.fill(lapply(res, data.frame, stringsAsFactors=FALSE))
+  return(ret)
 }
