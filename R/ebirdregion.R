@@ -63,29 +63,36 @@ ebirdregion <-  function(region, species = NULL,
     
   Sys.sleep(sleep)
   
-  if(!is.null(species)){
-	url <- 'http://ebird.org/ws1.1/data/obs/region_spp/recent' }else{
-    url <- 'http://ebird.org/ws1.1/data/obs/region/recent' }
+  if (!is.null(species)) {
+    url <- 'http://ebird.org/ws1.1/data/obs/region_spp/recent'
+  } else {
+    url <- 'http://ebird.org/ws1.1/data/obs/region/recent'
+  }
 
-  if(!is.null(back))
+  if(!is.null(back)) {
     back <- round(back)
+  }
 
   args <- compact(list(
-  fmt='json', r=region, rtype=regtype,
-  sci=species, back=back, 
-  maxResults=max, locale=locale
+    fmt='json', r=region, rtype=regtype,
+    sci=species, back=back, 
+    maxResults=max, locale=locale
   ))
 
-  if(provisional)
-    args$includeProvisional <- 'true' 
-  if(hotspot)
-    args$hotspot <- 'true' 
-
-content <- getForm(url, 
-            .params = args, 
-            ... ,
-            curl = curl)
-
-res <- fromJSON(content)   
-ldply(res, data.frame)  
+  if(provisional) {
+    args$includeProvisional <- 'true'
+  }
+  
+  if(hotspot) {
+    args$hotspot <- 'true'
+  }
+  
+  content <- getForm(url, 
+                     .params = args, 
+                     ... ,
+                     curl = curl)
+  
+  res <- fromJSON(content)   
+  ret <- rbind.fill(lapply(res, data.frame, stringsAsFactors=FALSE))
+  return(ret)
 }

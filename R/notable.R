@@ -78,62 +78,71 @@ ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL,
   
   Sys.sleep(sleep)
 
-  if(!is.null(back))
+  if (!is.null(back)) {
     back <- round(back)
+  }
 
   args <- list(
-  fmt='json', back=back, 
-  maxResults=max, locale=locale
+    fmt='json', back=back, 
+    maxResults=max, locale=locale
   )
 
-  if(provisional)
+  if (provisional) {
     args$includeProvisional <- 'true' 
-  if(hotspot)
-    args$hotspot <- 'true' 
-
-  if(!is.null(lat)){
-	url <- 'http://ebird.org/ws1.1/data/notable/geo/recent'
-    args$lat <- lat
-    args$lng <- lng
- 
-     if(!is.null(dist))
-       args$dist <- round(dist)
   }
   
-  if(!is.null(locID[1])){
+  if (hotspot) {
+    args$hotspot <- 'true'
+  }
+    
 
-    if(length(locID) > 10)
+  if (!is.null(lat)) {
+    url <- 'http://ebird.org/ws1.1/data/notable/geo/recent'
+    args$lat <- lat
+    args$lng <- lng
+    
+    if (!is.null(dist)) {
+      args$dist <- round(dist)
+    }
+  }
+  
+  if (!is.null(locID[1])) {
+    
+    if (length(locID) > 10) {
       stop('Too many locations (maximum 10)')
-
-  	url <- 'http://ebird.org/ws1.1/data/notable/loc/recent'
-  	args$r <- locID
-  	
-    if(!is.null(dist))
+    }
+    
+    url <- 'http://ebird.org/ws1.1/data/notable/loc/recent'
+    args$r <- locID
+    
+    if (!is.null(dist)) {
       args$dist <- as.integer(dist)
-
- 	args$hotspot <- NULL 	 	
+    }
+    
+    args$hotspot <- NULL
   }
  
- if(!is.null(region)){
- 	url <- 'http://ebird.org/ws1.1/data/notable/region/recent'
+  if (!is.null(region)) {
+    url <- 'http://ebird.org/ws1.1/data/notable/region/recent'
     regtype <- match.arg(regtype)
- 	args$r <- region
- 	args$rtype <- regtype
- }
+    args$r <- region
+    args$rtype <- regtype
+  }
 
 # this is kinda convoluted, checking if user has entered +1 search option
 # Taking suggestions.
 
   args <- compact(args)
 
-if(length(c(lat,locID[1],region)) != 1)    
-  stop('multiple search options chosen. Please enter only lat/long, locID or region')
-
-content <- getForm(url, 
-            .params = args, 
-            ... ,
-            curl = curl)
-
-res <- fromJSON(content)    
-ldply(res, data.frame)  
+  if(length(c(lat,locID[1],region)) != 1)    
+    stop('multiple search options chosen. Please enter only lat/long, locID or region')
+  
+  content <- getForm(url, 
+                     .params = args, 
+                     ... ,
+                     curl = curl)
+  
+  res <- fromJSON(content)
+  ret <- rbind.fill(lapply(res, data.frame, stringsAsFactors=FALSE))
+  return(ret)
 }

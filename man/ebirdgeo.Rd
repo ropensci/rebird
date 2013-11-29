@@ -2,17 +2,18 @@
 \alias{ebirdgeo}
 \title{Sightings at location determined by latitude/longitude}
 \usage{
-  ebirdgeo(lat, lng, species = NULL, dist = NULL,
+  ebirdgeo(lat = NULL, lng = NULL, species = NULL, dist = NULL,
     back = NULL, max = NULL, locale = NULL,
     provisional = FALSE, hotspot = FALSE, sleep = 0, ...)
 }
 \arguments{
-  \item{lat}{(required) Decimal latitude. value between
-  -90.00 and 90.00, up to two decimal places of precision.}
+  \item{lat}{Decimal latitude. value between -90.00 and
+  90.00, up to two decimal places of precision. Defaults to
+  latitude basd on IP.}
 
-  \item{lng}{(required) Decimal longitude. value between
-  -180.00 and 180.00, up to two decimal places of
-  precision.}
+  \item{lng}{Decimal longitude. value between -180.00 and
+  180.00, up to two decimal places of precision. Defaults
+  to longitude basd on IP.}
 
   \item{species}{Scientific name of the species of interest
   (not case sensitive). Defaults to NULL, so sightings for
