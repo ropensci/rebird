@@ -70,8 +70,21 @@ nearestobs <-  function(species, lat=NULL,lng=NULL, back = NULL,
                   "if you are using a remote server or proxy."))
   }
 
-  if(!is.null(back))
+  if (abs(lat) > 90) {
+    stop("Please provide a latitude between -90 and 90 degrees.")
+  }
+  
+  if (abs(lng) > 180) {
+    stop("Please provide a longitude between -180 and 180 degrees.")
+  }
+  
+  if (!is.null(back)) {
+    if (back > 30) {
+      back <- 30
+      warning("'Back' supplied was >30 days, using 30 days.")
+    }
     back <- round(back)
+  }
   
   args <- compact(list(
   fmt='json', sci=species,
