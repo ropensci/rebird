@@ -4,10 +4,10 @@
 #' species of bird reported within the number of days specified
 #'    and reported in the specified area.
 #' @import RJSONIO plyr RCurl
-#' @param lat (required) Decimal latitude. value between -90.00 and 90.00, up to two 
-#'    decimal places of precision.
-#' @param lng (required) Decimal longitude. value between -180.00 and 180.00, up to
-#'    two decimal places of precision.
+#' @param lat Decimal latitude. value between -90.00 and 90.00, up to two 
+#'    decimal places of precision. Defaults to latitude basd on IP.
+#' @param lng Decimal longitude. value between -180.00 and 180.00, up to
+#'    two decimal places of precision. Defaults to longitude basd on IP.
 #' @param species Scientific name of the species of interest (not case 
 #' sensitive). Defaults to NULL, so sightings for all species are returned.
 #' See eBird taxonomy for more information: 
@@ -52,44 +52,78 @@
 #' @references \url{http://ebird.org/}
 
 
-ebirdgeo <-  function(lat,lng, species=NULL, dist = NULL, back = NULL, 
-  max = NULL, locale = NULL, provisional = FALSE, 
-  hotspot = FALSE,   sleep = 0,
-  ... #additional parameters inside curl
-  ) {
-  	
+ebirdgeo <-  function(lat = NULL, lng = NULL, species=NULL, dist = NULL, 
+                      back = NULL, max = NULL, locale = NULL, 
+                      provisional = FALSE, hotspot = FALSE,   sleep = 0,
+                      ... #additional parameters inside curl
+) {
+  
   curl <- getCurlHandle() 
-    
+  
   Sys.sleep(sleep)
-
+  
   if(!is.null(species)){
-    url <- 'http://ebird.org/ws1.1/data/obs/geo_spp/recent' }else{
-    url <- 'http://ebird.org/ws1.1/data/obs/geo/recent' }
- 
+    url <- 'http://ebird.org/ws1.1/data/obs/geo_spp/recent' 
+  } else {
+    url <- 'http://ebird.org/ws1.1/data/obs/geo/recent'
+  }
+  
+  if (is.null(lat) | is.null(lng)) {
+    # Get IP location information from http://freegeoip.net
+    loc <- fromJSON(readLines("http://freegeoip.net/json/", warn=FALSE))
+    lat <- loc$latitude
+    lng <- loc$longitude
+    warning(paste("As a complete lat/long pair was not provided, your location", 
+                  "was determined using your computer's public-facing IP", 
+                  "address. This will likely not reflect your physical", 
+                  "location if you are using a remote server or proxy."))
+  }
+  
+  if (abs(lat) > 90) {
+    stop("Please provide a latitude between -90 and 90 degrees.")
+  }
+  
+  if (abs(lng) > 180) {
+    stop("Please provide a longitude between -180 and 180 degrees.")
+  }
     
-  if(!is.null(dist))
+  if (!is.null(dist)) {
+    if (dist > 50) {
+      dist <- 50
+      warning("Distance supplied was >50km, using 50km.")
+    }
     dist <- round(dist)
-  if(!is.null(back))
+  }
+    
+  if (!is.null(back)) {
+    if (back > 30) {
+      back <- 30
+      warning("'Back' supplied was >30 days, using 30 days.")
+    }
     back <- round(back)
-
+  }
+  
   args <- compact(list(fmt='json', sci=species, 
-               lat=round(lat,2), lng=round(lng,2),
-               dist=dist, back=back, maxResults=max,
-               locale=locale
-               ))
-
-  if(provisional)
+                       lat=round(lat,2), lng=round(lng,2),
+                       dist=dist, back=back, maxResults=max,
+                       locale=locale
+  ))
+  
+  if (provisional) {
     args$includeProvisional <- 'true' 
-  if(hotspot)
+  }
+  
+  if (hotspot) {
     args$hotspot <- 'true'
-
-
-    content <- getForm(url, 
-                .params = args, 
-                ... ,
-                curl = curl)
-
- res <- fromJSON(content)  
- 
- ldply(res, data.frame)  
+  }
+  
+  
+  content <- getForm(url, 
+                     .params = args, 
+                     ... ,
+                     curl = curl)
+  
+  res <- fromJSON(content)  
+  
+  ldply(res, data.frame)  
 }
