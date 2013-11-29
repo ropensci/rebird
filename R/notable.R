@@ -44,7 +44,7 @@
 #' @return "locName": location name
 #' @return "locationPrivate": TRUE if location is not a birding hotspot
 #' @return "obsDt": observation date formatted according to ISO 8601 
-#'    (e.g. 'YYYY-MM-DD', or 'YYYY-MM-DD hh:mm').  Hours and minutes are excluded 
+#'    (e.g. 'YYYY-MM-DD', or 'YYYY-MM-DD hh:mm'). Hours and minutes are excluded 
 #'    if the observer did not report an observation time. 
 #' @return "obsReviewed": TRUE if observation has been reviewed, FALSE otherwise
 #' @return "obsValid": TRUE if observation has been deemed valid by either the 

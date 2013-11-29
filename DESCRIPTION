@@ -20,4 +20,5 @@ Collate:
     'ebirdloc.R'
     'ebirdregion.R'
     'nearestobs.R'
+    'ebirdtaxonomy.R'
     'rebird-package.R'
