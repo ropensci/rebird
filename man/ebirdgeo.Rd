@@ -2,8 +2,8 @@
 \alias{ebirdgeo}
 \title{Sightings at location determined by latitude/longitude}
 \usage{
-  ebirdgeo(lat = NULL, lng = NULL, species = NULL, dist = NULL,
-    back = NULL, max = NULL, locale = NULL,
+  ebirdgeo(lat = NULL, lng = NULL, species = NULL,
+    dist = NULL, back = NULL, max = NULL, locale = NULL,
     provisional = FALSE, hotspot = FALSE, sleep = 0, ...)
 }
 \arguments{
@@ -68,7 +68,7 @@
   hotspot
 
   "obsDt": observation date formatted according to ISO 8601
-  (e.g. 'YYYY-MM-DD', or 'YYYY-MM-DD hh:mm').  Hours and
+  (e.g. 'YYYY-MM-DD', or 'YYYY-MM-DD hh:mm'). Hours and
   minutes are excluded if the observer did not report an
   observation time.
 
