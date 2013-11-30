@@ -7,7 +7,7 @@
 #'    decimal places of precision.
 #' @param lng Decimal longitude. value between -180.00 and 180.00, up to
 #'    two decimal places of precision.
-#' @param locID Vector containing code(s) for up to 10 regions of interest.
+#' @param locID Vector containing code(s) for up to 10 locations of interest.
 #' @param region Region code corresponding to selected region type.
 #' For supported region and coding, see
 #' https://confluence.cornell.edu/display/CLOISAPI/eBird-1.1-RegionCodeReference
@@ -64,29 +64,26 @@
 #' @references \url{http://ebird.org/}
 
 
-ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL,
-  locID = NULL, region = NULL, 
-  regtype = c("country", "subnational1", "subnational2"), 
-  back = NULL, max = NULL, locale = NULL, 
-  provisional = FALSE, hotspot = FALSE,
-  sleep = 0,
-  ... #additional parameters inside curl
-   ) {
-
-  url <- 'http://ebird.org/ws1.1/data/notable/geo/recent'
+ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL, locID = NULL, 
+                          region = NULL, regtype = NULL, back = NULL, 
+                          max = NULL, locale = NULL, provisional = FALSE, 
+                          hotspot = FALSE, sleep = 0, 
+                          ... #additional parameters inside curl
+) {
+  
   curl <- getCurlHandle()
   
   Sys.sleep(sleep)
-
+  
   if (!is.null(back)) {
     back <- round(back)
   }
-
+  
   args <- list(
     fmt='json', back=back, 
     maxResults=max, locale=locale
   )
-
+  
   if (provisional) {
     args$includeProvisional <- 'true' 
   }
@@ -95,10 +92,33 @@ ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL,
     args$hotspot <- 'true'
   }
   
-  multilocs <- length(c(lat,locID,region) > 1)
-
-  if (all(sapply(list(lat,locID,region), is.null))) {
+  multilocs <- length(c(lat,locID[1],region)) > 1
+  
+  if (multilocs) {
+    warning("You supplied more than one location type, using the most specific")
+  }
+  
+  # Choose the most specific of the locations provided (lat/lng>locID>region)
+  if (!is.null(lat)) {
+    url <- 'http://ebird.org/ws1.1/data/notable/geo/recent'
+    args$lat <- lat
+    args$lng <- lng
+  } else if (!is.null(locID)) {
+    if (length(locID) > 10) {
+      locID <- locID[1:10]
+      warning("You supplied > 10 locations, using the first 10")
+    }
+    url <- 'http://ebird.org/ws1.1/data/notable/loc/recent'
+    args$r <- locID
+    args$hotspot <- NULL
+  } else if (!is.null(region)) {
+    url <- 'http://ebird.org/ws1.1/data/notable/region/recent'
+    regtype <- match.arg(regtype)
+    args$r <- region
+    args$rtype <- regtype
+  } else {
     # Get IP location information from http://freegeoip.net
+    url <- 'http://ebird.org/ws1.1/data/notable/geo/recent'
     loc <- fromJSON(readLines("http://freegeoip.net/json/", warn=FALSE))
     args$lat <- loc$latitude
     args$lng <- loc$longitude
@@ -106,47 +126,13 @@ ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL,
                   "was determined using your computer's public-facing IP", 
                   "address. This will likely not reflect your physical", 
                   "location if you are using a remote server or proxy."))
-  } else {
-    # TODO: Set warnings of which loc type takes precedence when multiple entered 
-    # (if multilocs=TRUE)
-    if (!is.null(lat)) {
-      url <- 'http://ebird.org/ws1.1/data/notable/geo/recent'
-      args$lat <- lat
-      args$lng <- lng
-      
-      if (!is.null(dist)) {
-        args$dist <- round(dist)
-      }
-    } else if (!is.null(locID)) {
-      if (length(locID) > 10) {
-        # TODO: use only first 10 instead of erroring
-        stop('Too many locations (maximum 10)')
-      }
-      
-      url <- 'http://ebird.org/ws1.1/data/notable/loc/recent'
-      args$r <- locID
-      
-      if (!is.null(dist)) {
-        args$dist <- as.integer(dist)
-      }
-      
-      args$hotspot <- NULL
-    } else if (!is.null(region)) {
-      url <- 'http://ebird.org/ws1.1/data/notable/region/recent'
-      regtype <- match.arg(regtype)
-      args$r <- region
-      args$rtype <- regtype
-    } else {
-      stop('multiple search options chosen. Please enter only lat/long, locID or region')
-    }
-    
   }
-
-# this is kinda convoluted, checking if user has entered +1 search option
-# Taking suggestions.
-
+  
+  if (!is.null(dist)) {
+    args$dist <- round(dist)
+  }
+  
   args <- compact(args)
-    
   
   content <- getForm(url, 
                      .params = args, 
