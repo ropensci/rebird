@@ -94,48 +94,59 @@ ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL,
   if (hotspot) {
     args$hotspot <- 'true'
   }
-    
-
-  if (!is.null(lat)) {
-    url <- 'http://ebird.org/ws1.1/data/notable/geo/recent'
-    args$lat <- lat
-    args$lng <- lng
-    
-    if (!is.null(dist)) {
-      args$dist <- round(dist)
-    }
-  }
   
-  if (!is.null(locID[1])) {
-    
-    if (length(locID) > 10) {
-      stop('Too many locations (maximum 10)')
+  multilocs <- length(c(lat,locID,region) > 1)
+
+  if (all(sapply(list(lat,locID,region), is.null))) {
+    # Get IP location information from http://freegeoip.net
+    loc <- fromJSON(readLines("http://freegeoip.net/json/", warn=FALSE))
+    args$lat <- loc$latitude
+    args$lng <- loc$longitude
+    warning(paste("As no location was provided, your location", 
+                  "was determined using your computer's public-facing IP", 
+                  "address. This will likely not reflect your physical", 
+                  "location if you are using a remote server or proxy."))
+  } else {
+    # TODO: Set warnings of which loc type takes precedence when multiple entered 
+    # (if multilocs=TRUE)
+    if (!is.null(lat)) {
+      url <- 'http://ebird.org/ws1.1/data/notable/geo/recent'
+      args$lat <- lat
+      args$lng <- lng
+      
+      if (!is.null(dist)) {
+        args$dist <- round(dist)
+      }
+    } else if (!is.null(locID)) {
+      if (length(locID) > 10) {
+        # TODO: use only first 10 instead of erroring
+        stop('Too many locations (maximum 10)')
+      }
+      
+      url <- 'http://ebird.org/ws1.1/data/notable/loc/recent'
+      args$r <- locID
+      
+      if (!is.null(dist)) {
+        args$dist <- as.integer(dist)
+      }
+      
+      args$hotspot <- NULL
+    } else if (!is.null(region)) {
+      url <- 'http://ebird.org/ws1.1/data/notable/region/recent'
+      regtype <- match.arg(regtype)
+      args$r <- region
+      args$rtype <- regtype
+    } else {
+      stop('multiple search options chosen. Please enter only lat/long, locID or region')
     }
     
-    url <- 'http://ebird.org/ws1.1/data/notable/loc/recent'
-    args$r <- locID
-    
-    if (!is.null(dist)) {
-      args$dist <- as.integer(dist)
-    }
-    
-    args$hotspot <- NULL
-  }
- 
-  if (!is.null(region)) {
-    url <- 'http://ebird.org/ws1.1/data/notable/region/recent'
-    regtype <- match.arg(regtype)
-    args$r <- region
-    args$rtype <- regtype
   }
 
 # this is kinda convoluted, checking if user has entered +1 search option
 # Taking suggestions.
 
   args <- compact(args)
-
-  if(length(c(lat,locID[1],region)) != 1)    
-    stop('multiple search options chosen. Please enter only lat/long, locID or region')
+    
   
   content <- getForm(url, 
                      .params = args, 
