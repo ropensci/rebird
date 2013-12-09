@@ -13,12 +13,3 @@ Imports:
     RJSONIO,
     RCurl,
     plyr
-Collate:
-    'notable.R'
-    'ebirdgeo.R'
-    'ebirdhotspot.R'
-    'ebirdloc.R'
-    'ebirdregion.R'
-    'nearestobs.R'
-    'ebirdtaxonomy.R'
-    'rebird-package.R'

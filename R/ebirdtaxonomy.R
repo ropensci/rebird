@@ -14,6 +14,7 @@
 #' @param locale Language/locale of response (when translations are available).
 #'    See http://java.sun.com/javase/6/docs/api/java/util/Locale.html 
 #'    (defaults to en_US).
+#' @param ... additional parameters to be passed to curl
 #' @return A data.frame containing the collected information:
 #' @return "comName": species' common name
 #' @return "sciName": species' scientific name

@@ -13,7 +13,7 @@
 #' https://confluence.cornell.edu/display/CLOISAPI/eBird-1.1-RegionCodeReference
 #' @param regtype Region type you are interested in. can be "country" 
 #' (e.g. "US"), "subnational1" (states/provinces, e.g. "US-NV") or 
-#' "subnational" (counties, not yet implemented, e.g. "US-NY-109"). Default
+#' "subnational2" (counties, not yet implemented, e.g. "US-NY-109"). Default
 #' behavior is to try and match according to the region specified.
 #' @param dist Distance defining radius of interest from given lat/lng in 
 #'    kilometers (between 0 and 50, defaults to 25)
@@ -134,9 +134,10 @@ ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL, locID = NULL,
   } else if (!is.null(region)) {
     loctype <- "region"
     url <- 'http://ebird.org/ws1.1/data/notable/region/recent'
-    # regtype <- match.arg(regtype)
     args$r <- region
-    args$rtype <- regtype
+    if (!is.null(regtype)) {
+      args$rtype <- regtype
+    }
   } else {
     # Get IP location information from http://freegeoip.net
     loctype <- "lat/lng"
