@@ -147,7 +147,8 @@ ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL, locID = NULL,
     warning(paste("As no location was provided, your location", 
                   "was determined using your computer's public-facing IP", 
                   "address. This will likely not reflect your physical", 
-                  "location if you are using a remote server or proxy."))
+                  "location if you are using a remote server or proxy.\n", 
+                  "lat: ", lat, ", lng: ", lng))
   }
   
   if (loctype == "lat/lng") {
