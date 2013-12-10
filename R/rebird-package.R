@@ -17,4 +17,4 @@
 #' @author  Rafael Maia \email{rm72@@zips.uakron.edu}, Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @keywords package
 #' @examples #see functions.
-NA
+
