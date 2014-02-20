@@ -7,7 +7,9 @@ License: BSD
 Authors@R: c(person("Rafael", "Maia", role = c("aut", "cre"),
     email = "rm72@zips.uakron.edu"),
     person("Scott", "Chamberlain", role = "aut",
-    email = "myrmecocystus@gmail.com"))
+    email = "myrmecocystus@gmail.com"),
+    person("Andy", "Teucher", role = "aut",
+    email = "andy.teucher@gmail.com"))
 URL: http://github.com/ropensci/rebird
 Imports:
     RJSONIO,
