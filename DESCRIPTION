@@ -3,7 +3,7 @@ Version: 0.1
 Date: 2012-1-28
 Description: A programmatic interface to the eBird database
 Title: Interface to eBird
-License: BSD
+License: MIT + file LICENSE
 Authors@R: c(person("Rafael", "Maia", role = c("aut", "cre"),
     email = "rm72@zips.uakron.edu"),
     person("Scott", "Chamberlain", role = "aut",
