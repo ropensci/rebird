@@ -13,5 +13,7 @@ Authors@R: c(person("Rafael", "Maia", role = c("aut", "cre"),
 URL: http://github.com/ropensci/rebird
 Imports:
     RJSONIO,
+    httr,
     RCurl,
+    assertthat,
     plyr

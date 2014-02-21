@@ -3,7 +3,7 @@
 #' Returns the most recent sighting date and specific location for the requested 
 #' species of bird reported within the number of days specified
 #'    and reported in the specified area.
-#' @import RJSONIO plyr RCurl
+#' @import RJSONIO plyr httr
 #' @param lat Decimal latitude. value between -90.00 and 90.00, up to two 
 #'    decimal places of precision. Defaults to latitude basd on IP.
 #' @param lng Decimal longitude. value between -180.00 and 180.00, up to
@@ -58,8 +58,6 @@ ebirdgeo <-  function(lat = NULL, lng = NULL, species=NULL, dist = NULL,
                       ... #additional parameters inside curl
 ) {
   
-  curl <- getCurlHandle() 
-  
   Sys.sleep(sleep)
   
   if(!is.null(species)){
@@ -70,9 +68,12 @@ ebirdgeo <-  function(lat = NULL, lng = NULL, species=NULL, dist = NULL,
   
   if (is.null(lat) | is.null(lng)) {
     # Get IP location information from http://freegeoip.net
-    loc <- fromJSON(readLines("http://freegeoip.net/json/", warn=FALSE))
-    lat <- loc$latitude
-    lng <- loc$longitude
+    # loc <- fromJSON(readLines("http://freegeoip.net/json/", warn=FALSE))
+    # lat <- loc$latitude
+    # lng <- loc$longitude
+    locs <- content(GET("http://ipinfo.io"), as = "parsed")
+    lat <- as.numeric(strsplit(locs$loc[[1]], ",")[[1]][1])
+    lng <- as.numeric(strsplit(locs$loc[[1]], ",")[[1]][2])
     warning(paste("As a complete lat/long pair was not provided, your location", 
                   "was determined using your computer's public-facing IP", 
                   "address. This will likely not reflect your physical", 
@@ -117,13 +118,7 @@ ebirdgeo <-  function(lat = NULL, lng = NULL, species=NULL, dist = NULL,
     args$hotspot <- 'true'
   }
   
-  
-  content <- getForm(url, 
-                     .params = args, 
-                     ... ,
-                     curl = curl)
-  
-  res <- fromJSON(content)  
+  res <- content(GET(url, query = args))
   ret <- rbind.fill(lapply(res, data.frame, stringsAsFactors=FALSE))
   return(ret)
 }
