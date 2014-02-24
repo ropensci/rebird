@@ -2,7 +2,7 @@
 #'
 #' Returns the most recent and nearest reported sighting information
 #' with observations of a species.
-#' @import RJSONIO plyr RCurl
+#' @import RJSONIO plyr httr
 #' @param species (required) Scientific name of the species of interest (not case 
 #'    sensitive). See eBird taxonomy for more information: 
 #'    http://ebird.org/content/ebird/about/ebird-taxonomy
@@ -55,26 +55,20 @@ nearestobs <-  function(species, lat=NULL,lng=NULL, back = NULL,
    ) {
 
   url <- 'http://ebird.org/ws1.1/data/nearest/geo_spp/recent'
-  curl <- getCurlHandle()
     
   Sys.sleep(sleep)
   
-  if (is.null(lat) | is.null(lng)) {
-    # Get IP location information from http://freegeoip.net
-    loc <- fromJSON(readLines("http://freegeoip.net/json/", warn=FALSE))
-    lat <- loc$latitude
-    lng <- loc$longitude
-    warning(paste("As a complete lat/long pair was not provided, nearest", 
-                  "locations are based on your computer's public-facing IP",
-                  "address. This will likely not reflect your physical location", 
-                  "if you are using a remote server or proxy."))
+  geoloc <- c(lat,lng)
+  
+  if (is.null(geoloc)) {
+    geoloc <- getlatlng()
   }
 
-  if (abs(lat) > 90) {
+  if (abs(geoloc[1]) > 90) {
     stop("Please provide a latitude between -90 and 90 degrees.")
   }
   
-  if (abs(lng) > 180) {
+  if (abs(geoloc[2]) > 180) {
     stop("Please provide a longitude between -180 and 180 degrees.")
   }
   
@@ -88,7 +82,7 @@ nearestobs <-  function(species, lat=NULL,lng=NULL, back = NULL,
   
   args <- compact(list(
   fmt='json', sci=species,
-  lat=round(lat,2), lng=round(lng,2),
+  lat=round(geoloc[1],2), lng=round(geoloc[2],2),
   back=back, maxResults=max,
   locale=locale
   ))
@@ -98,12 +92,8 @@ nearestobs <-  function(species, lat=NULL,lng=NULL, back = NULL,
   if(hotspot)
     args$hotspot <- 'true'
 
-  content <- getForm(url, 
-                     .params = args, 
-                     ... ,
-                     curl = curl)
+  res <- content(GET(url, query = args))
 
-  res <- fromJSON(content)   
   ret <- rbind.fill(lapply(res, data.frame, stringsAsFactors=FALSE))
   return(ret)
 }

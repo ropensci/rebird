@@ -1,3 +1,8 @@
+.Rproj.user
+.Rhistory
+.RData
+*.Rproj
+.gitattributes
 krlocal.R
 
 /.Rapp.history
