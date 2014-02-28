@@ -4,14 +4,14 @@
 #' species of bird reported within the number of days specified
 #'    and reported in the specified area.
 #' @import RJSONIO plyr httr
+#' @param species Scientific name of the species of interest (not case 
+#'    sensitive). Defaults to NULL, so sightings for all species are returned.
+#'    See eBird taxonomy for more information: 
+#'    http://ebird.org/content/ebird/about/ebird-taxonomy
 #' @param lat Decimal latitude. value between -90.00 and 90.00, up to two 
 #'    decimal places of precision. Defaults to latitude basd on IP.
 #' @param lng Decimal longitude. value between -180.00 and 180.00, up to
 #'    two decimal places of precision. Defaults to longitude basd on IP.
-#' @param species Scientific name of the species of interest (not case 
-#' sensitive). Defaults to NULL, so sightings for all species are returned.
-#' See eBird taxonomy for more information: 
-#' http://ebird.org/content/ebird/about/ebird-taxonomy
 #' @param dist Distance defining radius of interest from given lat/lng in 
 #'    kilometers (between 0 and 50, defaults to 25)
 #' @param back Number of days back to look for observations (between
@@ -46,13 +46,13 @@
 #' @return "sciName" species' scientific name
 #' @export
 #' @examples \dontrun{
-#' ebirdgeo(42,-76,'spinus tristis')
-#' ebirdgeo(42,-76, maxResults=10, includeProvisional=T, hotspot=T) }
+#'    ebirdgeo('spinus tristis', 42, -76)
+#'    ebirdgeo(42,-76, maxResults=10, includeProvisional=T, hotspot=T) }
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
 #' @references \url{http://ebird.org/}
 
 
-ebirdgeo <-  function(lat = NULL, lng = NULL, species=NULL, dist = NULL, 
+ebirdgeo <-  function(species=NULL, lat = NULL, lng = NULL, dist = NULL, 
                       back = NULL, max = NULL, locale = NULL, 
                       provisional = FALSE, hotspot = FALSE,   sleep = 0,
                       ... #additional parameters inside curl
@@ -66,25 +66,17 @@ ebirdgeo <-  function(lat = NULL, lng = NULL, species=NULL, dist = NULL,
     url <- 'http://ebird.org/ws1.1/data/obs/geo/recent'
   }
   
-  if (is.null(lat) | is.null(lng)) {
-    # Get IP location information from http://freegeoip.net
-    # loc <- fromJSON(readLines("http://freegeoip.net/json/", warn=FALSE))
-    # lat <- loc$latitude
-    # lng <- loc$longitude
-    locs <- content(GET("http://ipinfo.io"), as = "parsed")
-    lat <- as.numeric(strsplit(locs$loc[[1]], ",")[[1]][1])
-    lng <- as.numeric(strsplit(locs$loc[[1]], ",")[[1]][2])
-    warning(paste("As a complete lat/long pair was not provided, your location", 
-                  "was determined using your computer's public-facing IP", 
-                  "address. This will likely not reflect your physical", 
-                  "location if you are using a remote server or proxy."))
+  geoloc <- c(lat,lng)
+  
+  if (is.null(geoloc)) {
+    geoloc <- getlatlng()
   }
   
-  if (abs(lat) > 90) {
+  if (abs(geoloc[1]) > 90) {
     stop("Please provide a latitude between -90 and 90 degrees.")
   }
   
-  if (abs(lng) > 180) {
+  if (abs(geoloc[2]) > 180) {
     stop("Please provide a longitude between -180 and 180 degrees.")
   }
     
@@ -105,7 +97,7 @@ ebirdgeo <-  function(lat = NULL, lng = NULL, species=NULL, dist = NULL,
   }
   
   args <- compact(list(fmt='json', sci=species, 
-                       lat=round(lat,2), lng=round(lng,2),
+                       lat=round(geoloc[1],2), lng=round(geoloc[2],2),
                        dist=dist, back=back, maxResults=max,
                        locale=locale
   ))
