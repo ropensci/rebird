@@ -13,7 +13,7 @@ ebirdhotspot(locID, species = NULL, back = NULL, max = NULL,
 
   \item{species}{Scientific name of the species of interest
   (not case sensitive). Defaults to NULL, in which case
-  sightings for all species are returned. See eBird
+  sightings for all species are returned.  See eBird
   taxonomy for more information:
   http://ebird.org/content/ebird/about/ebird-taxonomy}
 
@@ -76,8 +76,8 @@ given vector of hotspots.
 }
 \examples{
 \dontrun{
-ebirdhotspot(locID=c('L99381','L99382'),'larus delawarensis')
-ebirdhotspot('L99381', max=10, includeProvisional=T, hotspot=T)}
+   ebirdhotspot(locID=c('L99381','L99382'),'larus delawarensis')
+   ebirdhotspot('L99381', max=10, includeProvisional=T, hotspot=T)}
 }
 \author{
 Rafael Maia \email{rm72@zips.uakron.edu}
