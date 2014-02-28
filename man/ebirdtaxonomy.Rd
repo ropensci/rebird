@@ -2,7 +2,7 @@
 \alias{ebirdtaxonomy}
 \title{eBird Taxonomy}
 \usage{
-ebirdtaxonomy(cat = NULL, locale = NULL, ...)
+  ebirdtaxonomy(cat = NULL, locale = NULL, ...)
 }
 \arguments{
   \item{cat}{Species category. String or character vector
@@ -19,22 +19,22 @@ ebirdtaxonomy(cat = NULL, locale = NULL, ...)
   \item{...}{additional parameters to be passed to curl}
 }
 \value{
-A data.frame containing the collected information:
+  A data.frame containing the collected information:
 
-"comName": species' common name
+  "comName": species' common name
 
-"sciName": species' scientific name
+  "sciName": species' scientific name
 
-"taxonID": Taxonomic Concept identifier, note this is
-currently in test
+  "taxonID": Taxonomic Concept identifier, note this is
+  currently in test
 }
 \description{
-Returns a data.frame of all species in the eBird taxonomy
-for the given combination of categories. The default
-category is "species". Any taxon with the category of
-'species' may be used as a parameter in service calls that
-take a scientific name. Any taxon not in this category will
-be rejected by these services at this time.
+  Returns a data.frame of all species in the eBird taxonomy
+  for the given combination of categories. The default
+  category is "species". Any taxon with the category of
+  'species' may be used as a parameter in service calls
+  that take a scientific name. Any taxon not in this
+  category will be rejected by these services at this time.
 }
 \examples{
 \dontrun{
@@ -42,9 +42,9 @@ ebirdtaxonomy()
 ebirdtaxonomy(cat=c("spuh", "slash")) }
 }
 \author{
-Andy Teucher \email{andy.teucher@gmail.com}
+  Andy Teucher \email{andy.teucher@gmail.com}
 }
 \references{
-\url{http://ebird.org/}
+  \url{http://ebird.org/}
 }
 

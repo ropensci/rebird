@@ -42,8 +42,8 @@
 #' @return "sciName" species' scientific name
 #' @export
 #' @examples \dontrun{
-#' nearestobs(42,-76,'spizella arborea')
-#' nearestobs(42,-76,'spizella arborea', max=10, provisional=T, hotspot=T) }
+#' nearestobs('spizella arborea', 42, -76)
+#' nearestobs('spizella arborea', 42,-76, max=10, provisional=T, hotspot=T) }
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
 #' @references \url{http://ebird.org/}
 

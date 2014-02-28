@@ -17,3 +17,13 @@ Imports:
     RCurl,
     assertthat,
     plyr
+Collate:
+    'ebirdgeo.R'
+    'ebirdhotspot.R'
+    'ebirdloc.R'
+    'ebirdnotable.R'
+    'ebirdregion.R'
+    'ebirdtaxonomy.R'
+    'getlatlng.R'
+    'nearestobs.R'
+    'rebird-package.R'
