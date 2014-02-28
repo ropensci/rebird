@@ -2,14 +2,15 @@
 #' 
 #' Returns the most recent sighting information reported in a given vector
 #' of hotspots. 
-#' @import RJSONIO plyr RCurl
+#' @import RJSONIO plyr httr
 #' @param locID (required) Vector containing code(s) for up to 10 regions of 
-#' interest; here, regions are the locIDs of hotspots. Values that are not 
-#' valid or are not hotspots are ignored.
+#'    interest; here, regions are the locIDs of hotspots. Values that are not 
+#'    valid or are not hotspots are ignored.
 #' @param species Scientific name of the species of interest (not case 
-#' sensitive). Defaults to NULL, in which case sightings for all species are returned.
-#' See eBird taxonomy for more information: 
-#' http://ebird.org/content/ebird/about/ebird-taxonomy
+#'    sensitive). Defaults to NULL, in which case sightings for all species 
+#'    are returned.
+#'    See eBird taxonomy for more information: 
+#'    http://ebird.org/content/ebird/about/ebird-taxonomy
 #' @param back Number of days back to look for observations (between
 #'    1 and 30, defaults to 14).
 #' @param max Maximum number of result rows to return in this request
@@ -40,8 +41,8 @@
 #' @return "sciName" species' scientific name
 #' @export
 #' @examples \dontrun{
-#' ebirdhotspot(locID=c('L99381','L99382'),'larus delawarensis')
-#' ebirdhotspot('L99381', max=10, includeProvisional=T, hotspot=T)}
+#'    ebirdhotspot(locID=c('L99381','L99382'),'larus delawarensis')
+#'    ebirdhotspot('L99381', max=10, includeProvisional=T, hotspot=T)}
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
 #' @references \url{http://ebird.org/}
 
@@ -49,8 +50,6 @@ ebirdhotspot <-  function(locID, species=NULL, back = NULL, max = NULL,
                           locale = NULL, provisional = FALSE, sleep = 0,
                           ... #additional parameters inside curl
 ) {
-  
-  curl <- getCurlHandle()
   
   if(length(locID) > 10) {
     stop('Too many locations (maximum 10)')
@@ -68,21 +67,19 @@ ebirdhotspot <-  function(locID, species=NULL, back = NULL, max = NULL,
     url <- 'http://ebird.org/ws1.1/data/obs/hotspot/recent' 
   }
   
-  args <- compact(list(fmt='json', sci=species,
-                       r=locID, back=back,
-                       maxResults=max, locale=locale
-  ))
+  args <- compact(list(fmt='json', sci=species, back=back,
+                       maxResults=max, locale=locale))
+  
+  locs <- as.list(locID)
+  names(locs) <- rep("r", length(locID))
+  
+  args <- c(args,locs)
   
   if(provisional) {
     args$includeProvisional <- 'true'
   }
   
-  content <- getForm(url, 
-                     .params = args, 
-                     ... ,
-                     curl = curl)
-  
-  res <- fromJSON(content)  
+  res <- content(GET(url, query = args))
   ret <- rbind.fill(lapply(res, data.frame, stringsAsFactors=FALSE))
   return(ret)  
 }
