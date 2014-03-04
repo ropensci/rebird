@@ -1,5 +1,5 @@
 Package: rebird
-Version: 0.1
+Version: 0.1.1
 Date: 2012-1-28
 Description: A programmatic interface to the eBird database
 Title: Interface to eBird
@@ -15,7 +15,6 @@ Imports:
     RJSONIO,
     httr,
     RCurl,
-    assertthat,
     plyr
 Collate:
     'ebirdgeo.R'
