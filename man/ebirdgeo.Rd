@@ -2,11 +2,17 @@
 \alias{ebirdgeo}
 \title{Sightings at location determined by latitude/longitude}
 \usage{
-  ebirdgeo(lat = NULL, lng = NULL, species = NULL,
-    dist = NULL, back = NULL, max = NULL, locale = NULL,
-    provisional = FALSE, hotspot = FALSE, sleep = 0, ...)
+ebirdgeo(species = NULL, lat = NULL, lng = NULL, dist = NULL,
+  back = NULL, max = NULL, locale = NULL, provisional = FALSE,
+  hotspot = FALSE, sleep = 0, ...)
 }
 \arguments{
+  \item{species}{Scientific name of the species of interest
+  (not case sensitive). Defaults to NULL, so sightings for
+  all species are returned.  See eBird taxonomy for more
+  information:
+  http://ebird.org/content/ebird/about/ebird-taxonomy}
+
   \item{lat}{Decimal latitude. value between -90.00 and
   90.00, up to two decimal places of precision. Defaults to
   latitude basd on IP.}
@@ -14,12 +20,6 @@
   \item{lng}{Decimal longitude. value between -180.00 and
   180.00, up to two decimal places of precision. Defaults
   to longitude basd on IP.}
-
-  \item{species}{Scientific name of the species of interest
-  (not case sensitive). Defaults to NULL, so sightings for
-  all species are returned. See eBird taxonomy for more
-  information:
-  http://ebird.org/content/ebird/about/ebird-taxonomy}
 
   \item{dist}{Distance defining radius of interest from
   given lat/lng in kilometers (between 0 and 50, defaults
@@ -49,53 +49,53 @@
   \item{...}{additional parameters to be passed to curl.}
 }
 \value{
-  A data.frame containing the collected information:
+A data.frame containing the collected information:
 
-  "comName": species common name
+"comName": species common name
 
-  "howMany": number of individuals observed, NA if only
-  presence was noted
+"howMany": number of individuals observed, NA if only
+presence was noted
 
-  "lat": latitude of the location
+"lat": latitude of the location
 
-  "lng": longitude of the location
+"lng": longitude of the location
 
-  "locID": unique identifier for the location
+"locID": unique identifier for the location
 
-  "locName": location name
+"locName": location name
 
-  "locationPrivate": TRUE if location is not a birding
-  hotspot
+"locationPrivate": TRUE if location is not a birding
+hotspot
 
-  "obsDt": observation date formatted according to ISO 8601
-  (e.g. 'YYYY-MM-DD', or 'YYYY-MM-DD hh:mm'). Hours and
-  minutes are excluded if the observer did not report an
-  observation time.
+"obsDt": observation date formatted according to ISO 8601
+(e.g. 'YYYY-MM-DD', or 'YYYY-MM-DD hh:mm'). Hours and
+minutes are excluded if the observer did not report an
+observation time.
 
-  "obsReviewed": TRUE if observation has been reviewed,
-  FALSE otherwise
+"obsReviewed": TRUE if observation has been reviewed, FALSE
+otherwise
 
-  "obsValid": TRUE if observation has been deemed valid by
-  either the automatic filters or a regional viewer, FALSE
-  otherwise
+"obsValid": TRUE if observation has been deemed valid by
+either the automatic filters or a regional viewer, FALSE
+otherwise
 
-  "sciName" species' scientific name
+"sciName" species' scientific name
 }
 \description{
-  Returns the most recent sighting date and specific
-  location for the requested species of bird reported
-  within the number of days specified and reported in the
-  specified area.
+Returns the most recent sighting date and specific location
+for the requested species of bird reported within the
+number of days specified and reported in the specified
+area.
 }
 \examples{
 \dontrun{
-ebirdgeo(42,-76,'spinus tristis')
-ebirdgeo(42,-76, maxResults=10, includeProvisional=T, hotspot=T) }
+   ebirdgeo('spinus tristis', 42, -76)
+   ebirdgeo(42,-76, maxResults=10, includeProvisional=T, hotspot=T) }
 }
 \author{
-  Rafael Maia \email{rm72@zips.uakron.edu}
+Rafael Maia \email{rm72@zips.uakron.edu}
 }
 \references{
-  \url{http://ebird.org/}
+\url{http://ebird.org/}
 }
 
