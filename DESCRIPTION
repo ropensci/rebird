@@ -11,18 +11,12 @@ Authors@R: c(person("Rafael", "Maia", role = c("aut", "cre"),
     person("Andy", "Teucher", role = "aut",
     email = "andy.teucher@gmail.com"))
 URL: http://github.com/ropensci/rebird
+VignetteBuilder: knitr
+Roxygen: list(wrap = FALSE)
 Imports:
     RJSONIO,
     httr,
     RCurl,
     plyr
-Collate:
-    'ebirdgeo.R'
-    'ebirdhotspot.R'
-    'ebirdloc.R'
-    'ebirdnotable.R'
-    'ebirdregion.R'
-    'ebirdtaxonomy.R'
-    'getlatlng.R'
-    'nearestobs.R'
-    'rebird-package.R'
+Suggests:
+    knitr
