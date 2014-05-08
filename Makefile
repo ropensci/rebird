@@ -1,8 +1,8 @@
-all: vignettes move rmd2md
+all: knit move rmd2md
 
-vignettes:
+knit:
 		cd inst/vign;\
-		Rscript --vanilla -e 'library(knitr); knit("rebird_vignette.Rmd")'
+		Rscript -e 'library(knitr); knit("rebird_vignette.Rmd")'
 
 move:
 		cp inst/vign/rebird_vignette.md vignettes;\

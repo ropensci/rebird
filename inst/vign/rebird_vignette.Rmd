@@ -11,13 +11,13 @@ A programmatic interface to the eBird database. Find out more about eBird at [th
 
 You can install the stable version from CRAN
 
-```{r}
+```{r eval=FALSE}
 install.packages("rebird")
 ```
 
 Or the development version from Github
 
-```{r}
+```{r eval=FALSE}
 install.packages("devtools")
 library("devtools")
 install_github("ropensci/rebird")
@@ -43,9 +43,9 @@ head(out)
 Same, but with additional parameter settings, returning only 10 records, including provisional records, and hotspot records. 
 
 ```{r ebirdgeo2}
-out <- ebirdgeo(lat = 42, lng = -76, max = 10, includeProvisional = TRUE, hotspot = TRUE)
-head(out)
-nrow(out)
+out1 <- ebirdgeo(lat = 42, lng = -76, max = 10, includeProvisional = TRUE, hotspot = TRUE)
+head(out1)
+nrow(out1)
 ```
 
 
@@ -54,14 +54,14 @@ nrow(out)
 Search for bird occurrences for two locations by their IDs 
 
 ```{r ebirdloc1}
-out <- ebirdloc(locID = c('L99381','L99382'))
-head(out)
+out2 <- ebirdloc(locID = c('L99381','L99382'))
+head(out2)
 ```
 
 Search by location ID and species name, as well as some additional parameter settings 
 
-```{r ebirdloc1}
-(out <- ebirdloc(locID = 'L99381', species = 'larus delawarensis', max = 10, provisional = TRUE, hotspot=TRUE))
+```{r ebirdloc2}
+ebirdloc(locID = 'L99381', species = 'larus delawarensis', max = 10, provisional = TRUE, hotspot=TRUE)
 ```
 
 
@@ -69,15 +69,15 @@ Search by location ID and species name, as well as some additional parameter set
 
 Search for bird occurrences by region and species name
 
-```{r ebirdloc1}
-out <- ebirdregion(region = 'US', species = 'Setophaga caerulescens')
-head(out)
+```{r ebirdregion1}
+out3 <- ebirdregion(region = 'US', species = 'Setophaga caerulescens')
+head(out3)
 ```
 
 Search by location ID and species name, as well as some additional parameter settings. Note that we use `US-OH` to represent Ohio within the US. [See possible region values](https://confluence.cornell.edu/display/CLOISAPI/eBird-1.1-RegionCodeReference).
 
-```{r ebirdloc1}
-(out <- ebirdregion(region = 'US-OH', max = 10, provisional = TRUE, hotspot = TRUE))
+```{r ebirdregion2}
+ebirdregion(region = 'US-OH', max = 10, provisional = TRUE, hotspot = TRUE)
 ```
 
 
@@ -85,8 +85,8 @@ Search by location ID and species name, as well as some additional parameter set
 
 Search for bird occurrences by region and species name
 
-```{r ebirdloc1}
-(out <- ebirdhotspot(locID = c('L99381','L99382'), species = 'larus delawarensis'))
+```{r ebirdhotspot}
+ebirdhotspot(locID = c('L99381','L99382'), species = 'larus delawarensis')
 ```
 
 
@@ -94,9 +94,9 @@ Search for bird occurrences by region and species name
 
 Search for notable sightings at a given latitude and longitude
 
-```{r ebirdloc1}
-out <- ebirdnotable(lat = 42, lng = -70)
-head(out)
+```{r ebirdnotable}
+out4 <- ebirdnotable(lat = 42, lng = -70)
+head(out4)
 ```
 
 
@@ -105,13 +105,13 @@ head(out)
 Returns a data.frame of all species in the eBird taxonomy for the given parameter inputs
 
 ```{r ebirdtax1}
-out <- ebirdtaxonomy()
-head(out)
+out5 <- ebirdtaxonomy()
+head(out5)
 ```
 
 Search for hybrid species only
 
 ```{r ebirdtax2}
-out <- ebirdtaxonomy(cat="hybrid")
-head(out)
+out6 <- ebirdtaxonomy(cat="hybrid")
+head(out6)
 ```
