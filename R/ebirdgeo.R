@@ -46,11 +46,11 @@
 #' @return "sciName" species' scientific name
 #' @export
 #' @examples \dontrun{
-#'    ebirdgeo('spinus tristis', 42, -76)
-#'    ebirdgeo(42,-76, maxResults=10, includeProvisional=T, hotspot=T) }
+#' ebirdgeo('spinus tristis', 42, -76)
+#' ebirdgeo(42,-76, max=10, includeProvisional=TRUE, hotspot=TRUE) 
+#' }
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
 #' @references \url{http://ebird.org/}
-
 
 ebirdgeo <-  function(species=NULL, lat = NULL, lng = NULL, dist = NULL, 
                       back = NULL, max = NULL, locale = NULL, 

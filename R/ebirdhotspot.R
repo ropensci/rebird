@@ -41,8 +41,9 @@
 #' @return "sciName" species' scientific name
 #' @export
 #' @examples \dontrun{
-#'    ebirdhotspot(locID=c('L99381','L99382'),'larus delawarensis')
-#'    ebirdhotspot('L99381', max=10, includeProvisional=T, hotspot=T)}
+#' ebirdhotspot(locID=c('L99381','L99382'),'larus delawarensis')
+#' ebirdhotspot('L99381', max=10, includeProvisional=T, hotspot=T)
+#' }
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
 #' @references \url{http://ebird.org/}
 

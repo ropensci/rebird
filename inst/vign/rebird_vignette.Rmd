@@ -31,35 +31,87 @@ library("rebird")
 
 ## Usage
 
-Below are some code chunks as examples.
+### Sightings at location determined by latitude/longitude
 
-```{r hello, results='asis'}
-cat('_hello_ **markdown**!', '\n')
+Search for bird occurrences by latitude and longitude point
+
+```{r ebirdgeo1}
+out <- ebirdgeo(species = 'spinus tristis', lat = 42, lng = -76)
+head(out)
 ```
 
-Normally you do not need any chunk options.
+Same, but with additional parameter settings, returning only 10 records, including provisional records, and hotspot records. 
 
-```{r}
-1+1
-10:1
-rnorm(5)^2
-strsplit('hello, markdown vignettes', '')
+```{r ebirdgeo2}
+out <- ebirdgeo(lat = 42, lng = -76, max = 10, includeProvisional = TRUE, hotspot = TRUE)
+head(out)
+nrow(out)
 ```
 
-Feel free to draw beautiful plots and write math $P(X>x)=\alpha/2$.
 
-```{r}
-n=300; set.seed(123)
-par(mar=c(4,4,.1,.1))
-plot(rnorm(n), rnorm(n), pch=21, cex=5*runif(n), col='white', bg='gray')
+### Recent sightings frm location IDs
+
+Search for bird occurrences for two locations by their IDs 
+
+```{r ebirdloc1}
+out <- ebirdloc(locID = c('L99381','L99382'))
+head(out)
 ```
 
-## How does it work
+Search by location ID and species name, as well as some additional parameter settings 
 
-The **markdown** package (>= v0.6.2) supports custom HTML templates, and the `docco` engine in **knitr** uses a custom template to compile Markdown to HTML:
-
-```{r header, eval=FALSE}
-knit2html(..., markdown.HTML.template = system.file('misc', 'docco-template.html', package='knitr'))
+```{r ebirdloc1}
+(out <- ebirdloc(locID = 'L99381', species = 'larus delawarensis', max = 10, provisional = TRUE, hotspot=TRUE))
 ```
 
-That is it.
+
+### Recent observations at a region
+
+Search for bird occurrences by region and species name
+
+```{r ebirdloc1}
+out <- ebirdregion(region = 'US', species = 'Setophaga caerulescens')
+head(out)
+```
+
+Search by location ID and species name, as well as some additional parameter settings. Note that we use `US-OH` to represent Ohio within the US. [See possible region values](https://confluence.cornell.edu/display/CLOISAPI/eBird-1.1-RegionCodeReference).
+
+```{r ebirdloc1}
+(out <- ebirdregion(region = 'US-OH', max = 10, provisional = TRUE, hotspot = TRUE))
+```
+
+
+### Recent observations at hotspots
+
+Search for bird occurrences by region and species name
+
+```{r ebirdloc1}
+(out <- ebirdhotspot(locID = c('L99381','L99382'), species = 'larus delawarensis'))
+```
+
+
+### Recent notable sightings
+
+Search for notable sightings at a given latitude and longitude
+
+```{r ebirdloc1}
+out <- ebirdnotable(lat = 42, lng = -70)
+head(out)
+```
+
+
+### eBird taxonomy
+
+Returns a data.frame of all species in the eBird taxonomy for the given parameter inputs
+
+```{r ebirdtax1}
+out <- ebirdtaxonomy()
+head(out)
+```
+
+Search for hybrid species only
+
+```{r ebirdtax2}
+out <- ebirdtaxonomy(cat="hybrid")
+head(out)
+```

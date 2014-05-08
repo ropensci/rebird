@@ -22,7 +22,8 @@
 #' @export
 #' @examples \dontrun{
 #' ebirdtaxonomy()
-#' ebirdtaxonomy(cat=c("spuh", "slash")) }
+#' ebirdtaxonomy(cat=c("spuh", "slash")) 
+#' }
 #' @author Andy Teucher \email{andy.teucher@@gmail.com}
 #' @references \url{http://ebird.org/}
 

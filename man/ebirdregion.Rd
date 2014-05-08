@@ -80,7 +80,8 @@ Returns the most recent sighting information reported in a given region.
 \examples{
 \dontrun{
 ebirdregion('US','Setophaga caerulescens')
-ebirdregion('US-OH', max=10, provisional=T, hotspot=T) }
+ebirdregion('US-OH', max=10, provisional=T, hotspot=T)
+}
 }
 \author{
 Rafael Maia \email{rm72@zips.uakron.edu}
