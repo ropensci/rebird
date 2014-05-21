@@ -3,7 +3,7 @@
 \alias{ebirdtaxonomy}
 \title{eBird Taxonomy}
 \usage{
-ebirdtaxonomy(cat = NULL, locale = NULL, ...)
+ebirdtaxonomy(cat = NULL, locale = NULL, curlopts = list())
 }
 \arguments{
 \item{cat}{Species category. String or character vector with one of more of:
@@ -16,7 +16,7 @@ http://ebird.org/content/ebird/about/ebird-taxonomy}
 See http://java.sun.com/javase/6/docs/api/java/util/Locale.html
 (defaults to en_US).}
 
-\item{...}{additional parameters to be passed to curl}
+\item{curlopts}{Curl options passed on to httr::GET.}
 }
 \value{
 A data.frame containing the collected information:

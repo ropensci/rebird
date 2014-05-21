@@ -5,7 +5,7 @@
 \usage{
 ebirdgeo(species = NULL, lat = NULL, lng = NULL, dist = NULL,
   back = NULL, max = NULL, locale = NULL, provisional = FALSE,
-  hotspot = FALSE, sleep = 0, ...)
+  hotspot = FALSE, sleep = 0, curlopts = list())
 }
 \arguments{
 \item{species}{Scientific name of the species of interest (not case
@@ -42,7 +42,7 @@ be included? (defaults to FALSE).}
 zero. Set to higher number if you are using this function in a loop with
 many API calls).}
 
-\item{...}{additional parameters to be passed to curl.}
+\item{curlopts}{Curl options passed on to httr::GET.}
 }
 \value{
 A data.frame containing the collected information:

@@ -16,7 +16,7 @@ Roxygen: list(wrap = FALSE)
 Imports:
     RJSONIO,
     httr,
-    RCurl,
-    plyr
+    dplyr
 Suggests:
-    knitr
+    knitr,
+    testthat

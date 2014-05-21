@@ -4,7 +4,7 @@
 \title{Recent observations at hotspots}
 \usage{
 ebirdhotspot(locID, species = NULL, back = NULL, max = NULL,
-  locale = NULL, provisional = FALSE, sleep = 0, ...)
+  locale = NULL, provisional = FALSE, sleep = 0, curlopts = list())
 }
 \arguments{
 \item{locID}{(required) Vector containing code(s) for up to 10 regions of
@@ -34,7 +34,7 @@ be included? (defaults to FALSE)}
 zero.  Set to higher number if you are using this function in a loop with
 many API calls).}
 
-\item{...}{additional parameters to be passed to curl}
+\item{curlopts}{Curl options passed on to httr::GET.}
 }
 \value{
 A data.frame containing the collected information:
@@ -70,8 +70,8 @@ of hotspots.
 }
 \examples{
 \dontrun{
-ebirdhotspot(locID=c('L99381','L99382'),'larus delawarensis')
-ebirdhotspot('L99381', max=10, includeProvisional=T, hotspot=T)
+ebirdhotspot(locID=c('L99381','L99382'),species='larus delawarensis')
+ebirdhotspot('L99381', max=10, provisional=TRUE)
 }
 }
 \author{

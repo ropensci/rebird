@@ -6,7 +6,7 @@ Returns the most recent sighting information reported in a given region.}
 \usage{
 ebirdregion(region, species = NULL, regtype = c("country", "subnational1",
   "subnational2"), back = NULL, max = NULL, locale = NULL,
-  provisional = FALSE, hotspot = FALSE, sleep = 0, ...)
+  provisional = FALSE, hotspot = FALSE, sleep = 0, curlopts = list())
 }
 \arguments{
 \item{region}{(required) Region code corresponding to selected region type.
@@ -43,7 +43,7 @@ be included? (defaults to FALSE)}
 zero.  Set to higher number if you are using this function in a loop with
 many API calls).}
 
-\item{...}{additional parameters to be passed to curl}
+\item{curlopts}{Curl options passed on to httr::GET.}
 }
 \value{
 A data.frame containing the collected information:

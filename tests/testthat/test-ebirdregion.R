@@ -12,7 +12,7 @@ test_that("ebirdregion works correctly", {
   res <- ebirdregion(region = 'US-CA', species = 'Accipiter gentilis', max = 50)
   expect_equal(dim(res), c(1,11))
 
-  expect_null(ebirdregion(region = 'US-CA', species = 'Accipiter gentilis', back=1))
+  expect_equal(nrow(ebirdregion(region = 'US-CA', species = 'Accipiter gentilis', back=1)), 0)
   
   expect_equal(dim(ebirdregion(region = 'US', species = 'Accipiter gentilis')), c(60,11))
 })

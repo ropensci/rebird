@@ -6,7 +6,7 @@
 ebirdnotable(lat = NULL, lng = NULL, dist = NULL, locID = NULL,
   region = NULL, regtype = NULL, back = NULL, max = NULL,
   locale = NULL, provisional = FALSE, hotspot = FALSE, simple = TRUE,
-  sleep = 0, ...)
+  sleep = 0, curlopts = list())
 }
 \arguments{
 \item{lat}{Decimal latitude. value between -90.00 and 90.00, up to two
@@ -52,7 +52,7 @@ be included? (defaults to FALSE)}
 zero.  Set to higher number if you are using this function in a loop with
 many API calls).}
 
-\item{...}{additional parameters to be passed to curl.}
+\item{curlopts}{Curl options passed on to httr::GET.}
 }
 \value{
 A data.frame containing the collected information:
@@ -119,7 +119,6 @@ specific being used. If none is supplied, defaults to lat/lng based on your IP.
 \examples{
 \dontrun{
 ebirdnotable(lat=42,lng=-70)
-ebirdnotable(locID = c('L99381','L99382'))
 ebirdnotable(region='US', max=10)
 ebirdnotable(region='US-OH', regtype='subnational1')
 }
