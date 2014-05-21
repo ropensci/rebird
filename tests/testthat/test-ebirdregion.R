@@ -14,5 +14,5 @@ test_that("ebirdregion works correctly", {
 
   expect_equal(nrow(ebirdregion(region = 'US-CA', species = 'Accipiter gentilis', back=1)), 0)
   
-  expect_equal(dim(ebirdregion(region = 'US', species = 'Accipiter gentilis')), c(60,11))
+  expect_equal(ncol(ebirdregion(region = 'US', species = 'Accipiter gentilis')), 11)
 })
