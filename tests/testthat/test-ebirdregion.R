@@ -9,8 +9,8 @@ test_that("ebirdregion works correctly", {
 
   expect_equal(dim(ebirdregion('US-OH', max=10, provisional=TRUE, hotspot=TRUE)), c(10,11))
   
-  res <- ebirdregion(region = 'US-CA', species = 'Accipiter gentilis', max = 50)
-  expect_equal(dim(res), c(1,11))
+  res <- ebirdregion(region = 'US-CA', max = 10)
+  expect_equal(ncol(res), 11)
 
   expect_equal(nrow(ebirdregion(region = 'US-CA', species = 'Accipiter gentilis', back=1)), 0)
   
