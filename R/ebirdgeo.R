@@ -1,9 +1,10 @@
 #' Sightings at location determined by latitude/longitude
 #'
 #' Returns the most recent sighting date and specific location for the requested
-#' species of bird reported within the number of days specified
-#'    and reported in the specified area.
-#' @import RJSONIO httr
+#' species of bird reported within the number of days specified and reported in 
+#' the specified area.
+#'    
+#' @import RJSONIO httr dplyr
 #' @param species Scientific name of the species of interest (not case
 #'    sensitive). Defaults to NULL, so sightings for all species are returned.
 #'    See eBird taxonomy for more information:
@@ -28,7 +29,7 @@
 #' @param sleep Time (in seconds) before function sends API call (defaults to
 #'    zero. Set to higher number if you are using this function in a loop with
 #'    many API calls).
-#' @param curlopts Curl options passed on to httr::GET.
+#' @param ... Curl options passed on to httr::GET.
 #' @return A data.frame containing the collected information:
 #' @return "comName": species common name
 #' @return "howMany": number of individuals observed, NA if only presence was noted
@@ -47,17 +48,19 @@
 #' @export
 #' @examples \dontrun{
 #' ebirdgeo('spinus tristis', 42, -76)
-#' ebirdgeo(42,-76, max=10, includeProvisional=TRUE, hotspot=TRUE)
+#' ebirdgeo(lat=42, lng=-76, max=10, provisional=TRUE, hotspot=TRUE)
+#' ebirdgeo('Anas platyrhynchos', 39, -121, max=5)
+#' library('httr')
+#' ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=verbose())
+#' ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=user_agent("rebird"))
+#' ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=timeout(0.1))
 #' }
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
 #' @references \url{http://ebird.org/}
 
-ebirdgeo <-  function(species=NULL, lat = NULL, lng = NULL, dist = NULL,
-                      back = NULL, max = NULL, locale = NULL,
-                      provisional = FALSE, hotspot = FALSE,   sleep = 0,
-                      curlopts=list()
-) {
-
+ebirdgeo <-  function(species=NULL, lat = NULL, lng = NULL, dist = NULL, back = NULL, max = NULL, 
+  locale = NULL, provisional = FALSE, hotspot = FALSE, sleep = 0, ...) 
+{
   Sys.sleep(sleep)
 
   if(!is.null(species)){
@@ -67,19 +70,7 @@ ebirdgeo <-  function(species=NULL, lat = NULL, lng = NULL, dist = NULL,
   }
 
   geoloc <- c(lat,lng)
-
-  if (is.null(geoloc)) {
-    geoloc <- getlatlng()
-  }
-
-  if (abs(geoloc[1]) > 90) {
-    stop("Please provide a latitude between -90 and 90 degrees.")
-  }
-
-  if (abs(geoloc[2]) > 180) {
-    stop("Please provide a longitude between -180 and 180 degrees.")
-  }
-
+  if (is.null(geoloc)) geoloc <- getlatlng()
   if (!is.null(dist)) {
     if (dist > 50) {
       dist <- 50
@@ -102,19 +93,13 @@ ebirdgeo <-  function(species=NULL, lat = NULL, lng = NULL, dist = NULL,
                        locale=locale
   ))
 
-  if (provisional) {
-    args$includeProvisional <- 'true'
-  }
+  if (provisional) args$includeProvisional <- 'true'
+  if (hotspot) args$hotspot <- 'true'
 
-  if (hotspot) {
-    args$hotspot <- 'true'
+  tt <- GET(url, query=args, ...)
+  res <- ebird_handler(tt)
+  if(!is.list(res)){ NA } else {
+    ret <- rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
+    return(ret)
   }
-
-  tt <- GET(url, query=args, curlopts)
-  warn_for_status(tt)
-  content <- content(tt, as = "text")
-  res <- fromJSON(content, simplifyWithNames = FALSE)
-#   res <- content(GET(url, query = args, curlopts))
-  ret <- rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
-  return(ret)
 }

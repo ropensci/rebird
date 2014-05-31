@@ -1,5 +1,7 @@
 #' Recent observations at a region
+#' 
 #' Returns the most recent sighting information reported in a given region.
+#' 
 #' @import RJSONIO httr
 #' @param region (required) Region code corresponding to selected region type.
 #' For supported region and coding, see
@@ -26,7 +28,7 @@
 #' @param sleep Time (in seconds) before function sends API call (defaults to
 #'    zero.  Set to higher number if you are using this function in a loop with
 #'    many API calls).
-#' @param curlopts Curl options passed on to httr::GET.
+#' @param ... Curl options passed on to httr::GET.
 #' @return A data.frame containing the collected information:
 #' @return "comName": species common name
 #' @return "howMany": number of individuals observed, NA if only presence was noted
@@ -45,21 +47,16 @@
 #' @export
 #' @examples \dontrun{
 #' ebirdregion('US','Setophaga caerulescens')
-#' ebirdregion('US-OH', max=10, provisional=T, hotspot=T)
+#' ebirdregion('US-OH', max=10, provisional=TRUE, hotspot=TRUE)
 #' }
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
 #' @references \url{http://ebird.org/}
 
-ebirdregion <-  function(region, species = NULL,
-  regtype = c("country", "subnational1", "subnational2"),
-  back = NULL, max = NULL, locale = NULL,
-  provisional = FALSE, hotspot = FALSE,
-  sleep = 0, curlopts=list()
-  ) {
-
-#   curl <- getCurlHandle()
-
-  regtype <- match.arg(regtype)
+ebirdregion <-  function(region, species = NULL, regtype = NULL, back = NULL, max = NULL, 
+  locale = NULL, provisional = FALSE, hotspot = FALSE, sleep = 0, ...)
+{  
+  if(!is.null(regtype))
+    regtype <- match.arg(regtype, choices = c("country", "subnational1", "subnational2"))
 
   Sys.sleep(sleep)
 
@@ -79,23 +76,21 @@ ebirdregion <-  function(region, species = NULL,
     maxResults=max, locale=locale
   ))
 
-  if(provisional) {
-    args$includeProvisional <- 'true'
+  if(provisional) args$includeProvisional <- 'true'
+  if(hotspot) args$hotspot <- 'true'
+
+  tt <- GET(url, query=args, ...)
+  res <- ebird_handler(tt)
+  if(!is.list(res)){ NA } else {
+    ret <- rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
+    return(ret)
   }
+}
 
-  if(hotspot) {
-    args$hotspot <- 'true'
-  }
-
-  tt <- GET(url, query=args, curlopts)
-  warn_for_status(tt)
-  content <- content(tt, as = "text")
-#   content <- getForm(url,
-#                      .params = args,
-#                      ... ,
-#                      curl = curl)
-
-  res <- fromJSON(content, simplifyWithNames = FALSE)
-  ret <- rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
-  return(ret)
+ebird_handler <- function(x){
+  warn <- fromJSON(content(x, as = "text"), simplifyWithNames = FALSE)
+  if(x$status_code > 202){
+    warning(sprintf("%s", warn[[1]]['errorMsg']))
+    NA
+  } else { warn }
 }

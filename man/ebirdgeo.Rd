@@ -5,7 +5,7 @@
 \usage{
 ebirdgeo(species = NULL, lat = NULL, lng = NULL, dist = NULL,
   back = NULL, max = NULL, locale = NULL, provisional = FALSE,
-  hotspot = FALSE, sleep = 0, curlopts = list())
+  hotspot = FALSE, sleep = 0, ...)
 }
 \arguments{
 \item{species}{Scientific name of the species of interest (not case
@@ -42,7 +42,7 @@ be included? (defaults to FALSE).}
 zero. Set to higher number if you are using this function in a loop with
 many API calls).}
 
-\item{curlopts}{Curl options passed on to httr::GET.}
+\item{...}{Curl options passed on to httr::GET.}
 }
 \value{
 A data.frame containing the collected information:
@@ -74,13 +74,18 @@ A data.frame containing the collected information:
 }
 \description{
 Returns the most recent sighting date and specific location for the requested
-species of bird reported within the number of days specified
-   and reported in the specified area.
+species of bird reported within the number of days specified and reported in
+the specified area.
 }
 \examples{
 \dontrun{
 ebirdgeo('spinus tristis', 42, -76)
-ebirdgeo(42,-76, max=10, includeProvisional=TRUE, hotspot=TRUE)
+ebirdgeo(lat=42, lng=-76, max=10, provisional=TRUE, hotspot=TRUE)
+ebirdgeo('Anas platyrhynchos', 39, -121, max=5)
+library('httr')
+ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=verbose())
+ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=user_agent("rebird"))
+ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=timeout(0.1))
 }
 }
 \author{
