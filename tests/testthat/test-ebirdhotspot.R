@@ -3,7 +3,7 @@ context("ebirdhotspot")
 test_that("ebirdhotspot works correctly", {
   out <- ebirdhotspot(locID=c('L99381','L99382'), species = 'larus delawarensis')
   expect_is(out, "data.frame")
-  expect_equal(dim(out), c(2,11))
+  expect_equal(NCOL(out), 11)
   expect_is(out$comName, "character")
   expect_is(out$howMany, "numeric")
   expect_is(ebirdhotspot('L99381', max=10, provisional=TRUE), "data.frame")
