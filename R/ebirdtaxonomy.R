@@ -5,7 +5,7 @@
 #' the category of 'species' may be used as a parameter in service calls that 
 #' take a scientific name. Any taxon not in this category will be rejected by 
 #' these services at this time.
-#' @import RJSONIO plyr RCurl
+#' @import RJSONIO httr dplyr
 #' @param cat Species category. String or character vector with one of more of:
 #'    "domestic", "form", "hybrid", "intergrade", "issf", "slash", "species"
 #'    , "spuh". 
@@ -14,7 +14,7 @@
 #' @param locale Language/locale of response (when translations are available).
 #'    See http://java.sun.com/javase/6/docs/api/java/util/Locale.html 
 #'    (defaults to en_US).
-#' @param ... additional parameters to be passed to curl
+#' @param curlopts Curl options passed on to httr::GET.
 #' @return A data.frame containing the collected information:
 #' @return "comName": species' common name
 #' @return "sciName": species' scientific name
@@ -22,16 +22,16 @@
 #' @export
 #' @examples \dontrun{
 #' ebirdtaxonomy()
-#' ebirdtaxonomy(cat=c("spuh", "slash")) }
+#' ebirdtaxonomy(cat=c("spuh", "slash")) 
+#' }
 #' @author Andy Teucher \email{andy.teucher@@gmail.com}
 #' @references \url{http://ebird.org/}
 
-ebirdtaxonomy <- function(cat=NULL, locale=NULL, 
-                          ... #additional parameters inside curl
-                          ) {
+ebirdtaxonomy <- function(cat=NULL, locale=NULL, curlopts=list()) 
+{
   
   url <- 'http://ebird.org/ws1.1/ref/taxa/ebird'
-  curl <- getCurlHandle()
+#   curl <- getCurlHandle()
   
   cats <- c("domestic", "form", "hybrid", "intergrade", "issf", "slash"
             , "species", "spuh")
@@ -39,18 +39,18 @@ ebirdtaxonomy <- function(cat=NULL, locale=NULL,
   if (!all(sapply(cat, function(x) x %in% cats))) {
     stop("You have supplied an invalid species category")
   }
+  cat <- if(!is.null(cat)) cat <- paste0(cat, collapse = ",")
+  args <- ebird_compact(list(fmt='json', cat=cat, locale=locale))
   
-  args <- compact(list(
-    fmt='json', cat=cat,
-    locale=locale
-  ))
-  
-  content <- getForm(url, 
-                     .params = args, 
-                     curl = curl)
-  
-  res <- fromJSON(content)
-  ret <- data.frame(do.call("rbind", res), stringsAsFactors=FALSE)
+#   content <- getForm(url, 
+#                      .params = args, 
+#                      curl = curl)
+  tt <- GET(url, query=args, curlopts)
+  warn_for_status(tt)
+  content <- content(tt, as = "text")
+  res <- fromJSON(content, simplifyWithNames = FALSE)
+#   ret <- do.call(rbind.fill, lapply(res, data.frame, stringsAsFactors=FALSE))
+  ret <- rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
   return(ret)
   
 }

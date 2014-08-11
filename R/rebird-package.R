@@ -5,7 +5,7 @@
 #' Type: \tab Package\cr
 #' Version: \tab 0.1\cr
 #' Date: \tab 2012-10-13\cr
-#' License: \tab BSD\cr
+#' License: \tab MIT\cr
 #' LazyLoad: \tab yes\cr}
 #'
 #' This package provides an R interface to the recent eBird database.
@@ -18,3 +18,4 @@
 #' @keywords package
 #' @examples #see functions.
 
+NULL

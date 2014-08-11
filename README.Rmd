@@ -1,0 +1,81 @@
+reBird
+======
+
+[![Build Status](https://api.travis-ci.org/ropensci/rebird.png)](https://travis-ci.org/ropensci/rebird)
+
+`reBird` is a package to interface with the eBird webservices.
+
+eBird is a real-time, online bird checklist program. For more information, visit their website: http://www.ebird.org
+
+the API for the eBird webservices can be accessed here: https://confluence.cornell.edu/display/CLOISAPI/eBird+API+1.1
+
+## Install
+
+You can install the stable version from CRAN
+
+```{r eval=FALSE}
+install.packages("rebird")
+```
+
+Or the development version from Github
+
+```{r eval=FALSE}
+install.packages("devtools")
+library("devtools")
+install_github("ropensci/rebird")
+```
+
+Then load the package into the R sesssion
+
+```{r eval=FALSE}
+library("rebird")
+```
+
+## Examples
+
+
+### Sightings at location determined by latitude/longitude
+
+Search for bird occurrences by latitude and longitude point
+
+```{r ebirdgeo1}
+out <- ebirdgeo(species = 'spinus tristis', lat = 42, lng = -76)
+head(out)
+```
+
+### Recent observations at a region
+
+Search for bird occurrences by region and species name
+
+```{r ebirdregion1}
+out3 <- ebirdregion(region = 'US', species = 'Setophaga caerulescens')
+head(out3)
+```
+
+
+### Recent observations at hotspots
+
+Search for bird occurrences by region and species name
+
+```{r ebirdhotspot}
+ebirdhotspot(locID = c('L99381','L99382'), species = 'larus delawarensis')
+```
+
+
+## Meta
+
+Please report any issues or bugs](https://github.com/ropensci/rebird/issues).
+
+License: MIT
+
+This package is part of the [rOpenSci](http://ropensci.org/packages) project.
+
+To cite package `rebird` in publications use:
+
+```{r echo=FALSE, comment=NA}
+citation(package = 'rebird')
+```
+
+Get citation information for `rebird` in R doing `citation(package = 'rebird')`
+
+[![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)

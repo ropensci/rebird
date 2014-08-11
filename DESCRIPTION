@@ -1,6 +1,6 @@
 Package: rebird
-Version: 0.1
-Date: 2012-1-28
+Version: 0.1.1
+Date: 2014-05-20
 Description: A programmatic interface to the eBird database
 Title: Interface to eBird
 License: MIT + file LICENSE
@@ -11,9 +11,12 @@ Authors@R: c(person("Rafael", "Maia", role = c("aut", "cre"),
     person("Andy", "Teucher", role = "aut",
     email = "andy.teucher@gmail.com"))
 URL: http://github.com/ropensci/rebird
+VignetteBuilder: knitr
+Roxygen: list(wrap = FALSE)
 Imports:
     RJSONIO,
     httr,
-    RCurl,
-    assertthat,
-    plyr
+    dplyr
+Suggests:
+    knitr,
+    testthat
