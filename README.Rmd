@@ -1,7 +1,8 @@
 reBird
 ======
 
-[![Build Status](https://api.travis-ci.org/ropensci/rebird.png)](https://travis-ci.org/ropensci/rebird)
+Linux: [![Build Status](https://api.travis-ci.org/ropensci/rebird.png)](https://travis-ci.org/ropensci/rebird)  
+Windows: [![Build status](https://ci.appveyor.com/api/projects/status/9jee0co6w09faiop)](https://ci.appveyor.com/project/karthik/rebird)
 
 `reBird` is a package to interface with the eBird webservices.
 
