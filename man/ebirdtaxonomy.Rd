@@ -7,13 +7,12 @@ ebirdtaxonomy(cat = NULL, locale = NULL, ...)
 }
 \arguments{
 \item{cat}{Species category. String or character vector with one of more of:
-"domestic", "form", "hybrid", "intergrade", "issf", "slash", "species"
-, "spuh".
+"domestic", "form", "hybrid", "intergrade", "issf", "slash", "species", "spuh".
 For more info about the meaning of species categories, see
 http://ebird.org/content/ebird/about/ebird-taxonomy}
 
 \item{locale}{Language/locale of response (when translations are available).
-See http://java.sun.com/javase/6/docs/api/java/util/Locale.html
+See \url{http://java.sun.com/javase/6/docs/api/java/util/Locale.html}
 (defaults to en_US).}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
