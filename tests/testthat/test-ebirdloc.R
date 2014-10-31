@@ -5,7 +5,7 @@ test_that("ebirdloc works correctly", {
   expect_is(out, "data.frame")
   expect_equal(ncol(out), 11)
   expect_is(out$comName, "character")
-  expect_is(out$howMany, "numeric")
+  expect_is(out$howMany, "integer")
   expect_is(ebirdloc('L99381', 'larus delawarensis', provisional=TRUE), "data.frame")
   expect_error(ebirdloc())
   expect_error(ebirdloc(species = "asdf"))

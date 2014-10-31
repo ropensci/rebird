@@ -5,7 +5,7 @@ test_that("ebirdregion works correctly", {
   expect_is(out, "data.frame")
   expect_equal(dim(out), c(50,11))
   expect_is(out$comName, "character")
-  expect_is(out$howMany, "numeric")
+  expect_is(out$howMany, "integer")
 
   expect_equal(dim(ebirdregion('US-OH', max=10, provisional=TRUE, hotspot=TRUE)), c(10,11))
   
