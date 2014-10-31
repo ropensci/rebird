@@ -22,13 +22,12 @@ Or the development version from Github
 
 ```{r eval=FALSE}
 install.packages("devtools")
-library("devtools")
-install_github("ropensci/rebird")
+devtools::install_github("ropensci/rebird")
 ```
 
-Then load the package into the R sesssion
+Then load the package
 
-```{r eval=FALSE}
+```{r}
 library("rebird")
 ```
 
@@ -40,8 +39,7 @@ library("rebird")
 Search for bird occurrences by latitude and longitude point
 
 ```{r ebirdgeo1}
-out <- ebirdgeo(species = 'spinus tristis', lat = 42, lng = -76)
-head(out)
+ebirdgeo(species = 'spinus tristis', lat = 42, lng = -76)
 ```
 
 ### Recent observations at a region
@@ -49,8 +47,7 @@ head(out)
 Search for bird occurrences by region and species name
 
 ```{r ebirdregion1}
-out3 <- ebirdregion(region = 'US', species = 'Setophaga caerulescens')
-head(out3)
+ebirdregion(region = 'US', species = 'Setophaga caerulescens')
 ```
 
 
@@ -65,23 +62,13 @@ ebirdhotspot(locID = c('L99381','L99382'), species = 'larus delawarensis')
 
 ## Meta
 
-Please report any issues or bugs](https://github.com/ropensci/rebird/issues).
-
-License: MIT
-
-This package is part of the [rOpenSci](http://ropensci.org/packages) project.
-
-To cite package `rebird` in publications use:
-
-```{r echo=FALSE, comment=NA}
-citation(package = 'rebird')
-```
-
-Get citation information for `rebird` in R doing `citation(package = 'rebird')`
+* Please report any issues or bugs](https://github.com/ropensci/rebird/issues).
+* License: MIT
+* Get citation information for `rebird` in R doing `citation(package = 'rebird')`
 
 ---
   
-This package is part of a richer suite called [SPOCC Species Occurrence Data](https://github.com/ropensci/spocc), along with several other packages, that provide access to occurrence records from multiple databases. We recommend using SPOCC as the primary R interface to rebird unless your needs are limited to this single source.    
+This package is part of a richer suite called [spocc - Species Occurrence Data](https://github.com/ropensci/spocc), along with several other packages, that provide access to occurrence records from multiple databases. We recommend using `spocc` as the primary R interface to `rebird` unless your needs are limited to this single source.
 
 ---
 
