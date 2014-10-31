@@ -53,12 +53,7 @@ ebirdloc <-  function(locID, species=NULL, back = NULL, max = NULL, locale = NUL
   }
 
   Sys.sleep(sleep)
-  
-  if(!is.null(species)) {
-    url <- 'http://ebird.org/ws1.1/data/obs/loc_spp/recent'
-  } else {
-    url <- 'http://ebird.org/ws1.1/data/obs/loc/recent' 
-  }
+  url <- paste0(ebase(), 'data/obs/', if(!is.null(species)) 'loc_spp/recent' else 'loc/recent')
 
   if(!is.null(back)) {
     back <- round(back) 

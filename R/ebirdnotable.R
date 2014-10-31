@@ -88,22 +88,10 @@ ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL, locID = NULL, reg
     back <- round(back)
   }
 
-  args <- list(
-    fmt='json', back=back,
-    maxResults=max, locale=locale
-  )
-
-  if (provisional) {
-    args$includeProvisional <- 'true'
-  }
-
-  if (hotspot) {
-    args$hotspot <- 'true'
-  }
-
-  if (!simple) {
-    args$detail <- 'full'
-  }
+  args <- list(fmt='json', back=back, maxResults=max, locale=locale)
+  if (provisional) args$includeProvisional <- 'true'
+  if (hotspot) args$hotspot <- 'true'
+  if (!simple) args$detail <- 'full'
 
   multilocs <- length(c(lat,locID[1],region)) > 1
 
@@ -122,11 +110,11 @@ ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL, locID = NULL, reg
       locID <- locID[1:10]
       warning("You supplied > 10 locations, using the first 10")
     }
-    url <- 'http://ebird.org/ws1.1/data/notable/loc/recent'
+    url <- paste0(ebase(), 'data/notable/loc/recent')
     args$r <- locID
   } else if (!is.null(region)) {
     loctype <- "region"
-    url <- 'http://ebird.org/ws1.1/data/notable/region/recent'
+    url <- paste0(ebase(), 'data/notable/region/recent')
     args$r <- region
     if (!is.null(regtype)) {
       args$rtype <- regtype
@@ -145,7 +133,7 @@ ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL, locID = NULL, reg
   }
 
   if (loctype == "lat/lng") {
-    url <- 'http://ebird.org/ws1.1/data/notable/geo/recent'
+    url <- paste0(ebase(), 'data/notable/geo/recent')
     args$lat <- lat
     args$lng <- lng
     if (!is.null(dist)) {

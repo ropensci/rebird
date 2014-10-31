@@ -54,8 +54,6 @@ nearestobs <-  function(species, lat=NULL,lng=NULL, back = NULL,
   max = NULL, locale = NULL, provisional = FALSE,
   hotspot = FALSE, sleep = 0, ...)
 {
-  url <- 'http://ebird.org/ws1.1/data/nearest/geo_spp/recent'
-
   Sys.sleep(sleep)
 
   geoloc <- c(lat,lng)
@@ -87,7 +85,7 @@ nearestobs <-  function(species, lat=NULL,lng=NULL, back = NULL,
   if(provisional) args$includeProvisional <- 'true'
   if(hotspot) args$hotspot <- 'true'
 
-  tt <- GET(url, query = args, ...)
+  tt <- GET(paste0(ebase(), 'data/nearest/geo_spp/recent'), query = args, ...)
   warn_for_status(tt)
   content <- content(tt, as = "text")
   res <- jsonlite::fromJSON(content, FALSE)

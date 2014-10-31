@@ -30,7 +30,6 @@
 #' @references \url{http://ebird.org/}
 
 ebirdtaxonomy <- function(cat=NULL, locale=NULL, ...){
-  url <- 'http://ebird.org/ws1.1/ref/taxa/ebird'
   cats <- c("domestic", "form", "hybrid", "intergrade", "issf", "slash", "species", "spuh")
   
   if (!all(sapply(cat, function(x) x %in% cats))) {
@@ -38,7 +37,7 @@ ebirdtaxonomy <- function(cat=NULL, locale=NULL, ...){
   }
   cat <- if(!is.null(cat)) cat <- paste0(cat, collapse = ",")
   args <- ebird_compact(list(fmt='json', cat=cat, locale=locale))
-  tt <- GET(url, query=args, ...)
+  tt <- GET(paste0(ebase(), 'ref/taxa/ebird'), query=args, ...)
   warn_for_status(tt)
   content <- content(tt, as = "text")
   res <- jsonlite::fromJSON(content, FALSE)

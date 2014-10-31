@@ -60,14 +60,9 @@ ebirdhotspot <-  function(locID, species=NULL, back = NULL, max = NULL, locale =
     back <- round(back)
   }
 
-  if(!is.null(species)){
-    url <- 'http://ebird.org/ws1.1/data/obs/hotspot_spp/recent'
-  } else {
-    url <- 'http://ebird.org/ws1.1/data/obs/hotspot/recent'
-  }
+  url <- paste0(ebase(), 'data/obs/', if(!is.null(species)) 'hotspot_spp/recent' else 'hotspot/recent')
 
-  args <- ebird_compact(list(fmt='json', sci=species, back=back,
-                       maxResults=max, locale=locale))
+  args <- ebird_compact(list(fmt='json', sci=species, back=back, maxResults=max, locale=locale))
 
   locs <- as.list(locID)
   names(locs) <- rep("r", length(locID))

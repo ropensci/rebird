@@ -61,12 +61,7 @@ ebirdgeo <-  function(species=NULL, lat = NULL, lng = NULL, dist = NULL, back = 
   locale = NULL, provisional = FALSE, hotspot = FALSE, sleep = 0, ...) 
 {
   Sys.sleep(sleep)
-
-  if(!is.null(species)){
-    url <- 'http://ebird.org/ws1.1/data/obs/geo_spp/recent'
-  } else {
-    url <- 'http://ebird.org/ws1.1/data/obs/geo/recent'
-  }
+  url <- paste0(ebase(), 'data/obs/', if(!is.null(species)) 'geo_spp/recent' else 'geo/recent')
 
   geoloc <- c(lat,lng)
   if (is.null(geoloc)) geoloc <- getlatlng()
@@ -87,9 +82,9 @@ ebirdgeo <-  function(species=NULL, lat = NULL, lng = NULL, dist = NULL, back = 
   }
 
   args <- ebird_compact(list(fmt='json', sci=species,
-                       lat=round(geoloc[1],2), lng=round(geoloc[2],2),
-                       dist=dist, back=back, maxResults=max,
-                       locale=locale
+                             lat=round(geoloc[1],2), lng=round(geoloc[2],2),
+                             dist=dist, back=back, maxResults=max,
+                             locale=locale
   ))
 
   if (provisional) args$includeProvisional <- 'true'

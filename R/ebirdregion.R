@@ -58,12 +58,7 @@ ebirdregion <-  function(region, species = NULL, regtype = NULL, back = NULL, ma
     regtype <- match.arg(regtype, choices = c("country", "subnational1", "subnational2"))
 
   Sys.sleep(sleep)
-
-  if (!is.null(species)) {
-    url <- 'http://ebird.org/ws1.1/data/obs/region_spp/recent'
-  } else {
-    url <- 'http://ebird.org/ws1.1/data/obs/region/recent'
-  }
+  url <- paste0(ebase(), 'data/obs/', if(!is.null(species)) 'region_spp/recent' else 'region/recent')
 
   if(!is.null(back)) {
     back <- round(back)
