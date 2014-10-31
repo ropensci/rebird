@@ -7,7 +7,7 @@ test_that("ebirdnotable works correctly", {
   expect_is(out$comName, "character")
   expect_is(out$howMany, "numeric")
 
-  expect_equal(ncol(ebirdnotable(region='US-OH', regtype='subnational1')), 11)
+  expect_equal(ncol(ebirdnotable(region='US-OH', regtype='subnational1')), 25)
   
   simpler <- ebirdnotable(lat=42, lng=-70, max = 40, simple = TRUE)
 #   lesssimpler <- ebirdnotable(lat=42, lng=-70, max = 40, simple = FALSE)
