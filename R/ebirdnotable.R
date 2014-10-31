@@ -67,7 +67,7 @@
 #'   number of birds. 'false' otherwise (returned if simple=FALSE)
 #' @export
 #' @examples \dontrun{
-#' ebirdnotable(lat=42,lng=-70)
+#' ebirdnotable(lat=42, lng=-70)
 #' ebirdnotable(region='US', max=10)
 #' ebirdnotable(region='US-OH', regtype='subnational1')
 #' }
@@ -151,9 +151,5 @@ ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL, locID = NULL, reg
   }
 
   args <- ebird_compact(args)
-  tt <- GET(url, query=args, ...)
-  warn_for_status(tt)
-  content <- content(tt, as = "text")
-  res <- jsonlite::fromJSON(content, FALSE)
-  rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
+  ebird_GET(url, args, ...)
 }

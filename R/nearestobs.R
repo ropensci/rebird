@@ -50,9 +50,8 @@
 #' nearestobs('spizella arborea', 42,-76, max=10, provisional=TRUE, hotspot=TRUE)
 #' }
 
-nearestobs <-  function(species, lat=NULL,lng=NULL, back = NULL,
-  max = NULL, locale = NULL, provisional = FALSE,
-  hotspot = FALSE, sleep = 0, ...)
+nearestobs <-  function(species, lat = NULL, lng = NULL, back = NULL, max = NULL, locale = NULL, 
+  provisional = FALSE, hotspot = FALSE, sleep = 0, ...)
 {
   Sys.sleep(sleep)
 
@@ -85,9 +84,5 @@ nearestobs <-  function(species, lat=NULL,lng=NULL, back = NULL,
   if(provisional) args$includeProvisional <- 'true'
   if(hotspot) args$hotspot <- 'true'
 
-  tt <- GET(paste0(ebase(), 'data/nearest/geo_spp/recent'), query = args, ...)
-  warn_for_status(tt)
-  content <- content(tt, as = "text")
-  res <- jsonlite::fromJSON(content, FALSE)
-  rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
+  ebird_GET(paste0(ebase(), 'data/nearest/geo_spp/recent'), args, ...)
 }

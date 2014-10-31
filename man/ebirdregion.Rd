@@ -77,7 +77,7 @@ Returns the most recent sighting information reported in a given region.
 }
 \examples{
 \dontrun{
-ebirdregion('US','Setophaga caerulescens')
+ebirdregion(region = 'US', species = 'Setophaga caerulescens')
 ebirdregion('US-OH', max=10, provisional=TRUE, hotspot=TRUE)
 }
 }

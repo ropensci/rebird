@@ -45,7 +45,7 @@
 #' @return "sciName" species' scientific name
 #' @export
 #' @examples \dontrun{
-#' ebirdregion('US','Setophaga caerulescens')
+#' ebirdregion(region = 'US', species = 'Setophaga caerulescens')
 #' ebirdregion('US-OH', max=10, provisional=TRUE, hotspot=TRUE)
 #' }
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
@@ -53,36 +53,21 @@
 
 ebirdregion <-  function(region, species = NULL, regtype = NULL, back = NULL, max = NULL, 
   locale = NULL, provisional = FALSE, hotspot = FALSE, sleep = 0, ...)
-{  
-  if(!is.null(regtype))
-    regtype <- match.arg(regtype, choices = c("country", "subnational1", "subnational2"))
-
+{
   Sys.sleep(sleep)
   url <- paste0(ebase(), 'data/obs/', if(!is.null(species)) 'region_spp/recent' else 'region/recent')
 
-  if(!is.null(back)) {
-    back <- round(back)
-  }
+  if(!is.null(regtype))
+    regtype <- match.arg(regtype, choices = c("country", "subnational1", "subnational2"))
+  if(!is.null(back)) back <- round(back)
 
   args <- ebird_compact(list(
     fmt='json', r=region, rtype=regtype,
     sci=species, back=back,
     maxResults=max, locale=locale
   ))
-
   if(provisional) args$includeProvisional <- 'true'
   if(hotspot) args$hotspot <- 'true'
-
-  tt <- GET(url, query=args, ...)
-  res <- ebird_handler(tt)
-  if(!is.list(res)) NA else rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
-}
-
-ebird_handler <- function(x){
-  ss <- content(x, as = "text")
-  warn <- jsonlite::fromJSON(ss, FALSE)
-  if(x$status_code > 202){
-    warning(sprintf("%s", warn[[1]]['errorMsg']))
-    NA
-  } else { warn }
+  
+  ebird_GET(url, args, ...)
 }

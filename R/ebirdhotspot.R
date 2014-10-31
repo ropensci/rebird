@@ -41,7 +41,7 @@
 #' @return "sciName" species' scientific name
 #' @export
 #' @examples \dontrun{
-#' ebirdhotspot(locID=c('L99381','L99382'),species='larus delawarensis')
+#' ebirdhotspot(locID=c('L99381','L99382'), species='larus delawarensis')
 #' ebirdhotspot('L99381', max=10, provisional=TRUE)
 #' }
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
@@ -56,26 +56,13 @@ ebirdhotspot <-  function(locID, species=NULL, back = NULL, max = NULL, locale =
 
   Sys.sleep(sleep)
 
-  if(!is.null(back)) {
-    back <- round(back)
-  }
+  if(!is.null(back)) back <- round(back)
 
   url <- paste0(ebase(), 'data/obs/', if(!is.null(species)) 'hotspot_spp/recent' else 'hotspot/recent')
-
   args <- ebird_compact(list(fmt='json', sci=species, back=back, maxResults=max, locale=locale))
-
   locs <- as.list(locID)
   names(locs) <- rep("r", length(locID))
-
   args <- c(args,locs)
-
-  if(provisional) {
-    args$includeProvisional <- 'true'
-  }
-
-  tt <- GET(url, query=args, ...)
-  warn_for_status(tt)
-  content <- content(tt, as = "text")
-  res <- jsonlite::fromJSON(content, FALSE)
-  rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
+  if(provisional) args$includeProvisional <- 'true'  
+  ebird_GET(url, args, ...)
 }

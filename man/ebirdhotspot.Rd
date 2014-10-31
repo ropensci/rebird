@@ -70,7 +70,7 @@ of hotspots.
 }
 \examples{
 \dontrun{
-ebirdhotspot(locID=c('L99381','L99382'),species='larus delawarensis')
+ebirdhotspot(locID=c('L99381','L99382'), species='larus delawarensis')
 ebirdhotspot('L99381', max=10, provisional=TRUE)
 }
 }

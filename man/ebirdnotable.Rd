@@ -118,7 +118,7 @@ specific being used. If none is supplied, defaults to lat/lng based on your IP.
 }
 \examples{
 \dontrun{
-ebirdnotable(lat=42,lng=-70)
+ebirdnotable(lat=42, lng=-70)
 ebirdnotable(region='US', max=10)
 ebirdnotable(region='US-OH', regtype='subnational1')
 }

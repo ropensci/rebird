@@ -52,12 +52,13 @@
 #' library('httr')
 #' ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=verbose())
 #' ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=user_agent("rebird"))
+#' ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=progress())
 #' ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=timeout(0.1))
 #' }
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
 #' @references \url{http://ebird.org/}
 
-ebirdgeo <-  function(species=NULL, lat = NULL, lng = NULL, dist = NULL, back = NULL, max = NULL, 
+ebirdgeo <-  function(species = NULL, lat = NULL, lng = NULL, dist = NULL, back = NULL, max = NULL, 
   locale = NULL, provisional = FALSE, hotspot = FALSE, sleep = 0, ...) 
 {
   Sys.sleep(sleep)
@@ -89,11 +90,5 @@ ebirdgeo <-  function(species=NULL, lat = NULL, lng = NULL, dist = NULL, back = 
 
   if (provisional) args$includeProvisional <- 'true'
   if (hotspot) args$hotspot <- 'true'
-
-  tt <- GET(url, query=args, ...)
-  res <- ebird_handler(tt)
-  if(!is.list(res)){ NA } else {
-    ret <- rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
-    return(ret)
-  }
+  ebird_GET(url, args, ...)
 }

@@ -39,7 +39,7 @@
 #' @return "sciName" species' scientific name
 #' @export
 #' @examples \dontrun{
-#' ebirdloc(locID=c('L99381','L99382'))
+#' ebirdloc(locID = c('L99381','L99382'))
 #' ebirdloc('L99381', 'larus delawarensis', max=10, provisional=TRUE)
 #' }
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
@@ -65,14 +65,7 @@ ebirdloc <-  function(locID, species=NULL, back = NULL, max = NULL, locale = NUL
     r=locID, back=back, maxResults=max,
     locale=locale
   ))
+  if(provisional) args$includeProvisional <- 'true'
   
-  if(provisional) {
-    args$includeProvisional <- 'true'
-  }
-
-  tt <- GET(url, query=args, ...)
-  warn_for_status(tt)
-  content <- content(tt, as = "text")
-  res <- jsonlite::fromJSON(content, FALSE)
-  rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
+  ebird_GET(url, args, ...)
 }

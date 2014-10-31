@@ -37,9 +37,5 @@ ebirdtaxonomy <- function(cat=NULL, locale=NULL, ...){
   }
   cat <- if(!is.null(cat)) cat <- paste0(cat, collapse = ",")
   args <- ebird_compact(list(fmt='json', cat=cat, locale=locale))
-  tt <- GET(paste0(ebase(), 'ref/taxa/ebird'), query=args, ...)
-  warn_for_status(tt)
-  content <- content(tt, as = "text")
-  res <- jsonlite::fromJSON(content, FALSE)
-  rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
+  ebird_GET(paste0(ebase(), 'ref/taxa/ebird'), args, ...)
 }
