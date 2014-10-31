@@ -1,5 +1,5 @@
 Package: rebird
-Version: 0.1.2.99
+Version: 0.1.5.99
 Date: 2014-10-31
 Title: R client for the eBird Database.
 Description: A programmatic client for the eBird database, including functions
