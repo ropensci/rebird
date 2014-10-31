@@ -4,6 +4,8 @@
 #' with observations of a species.
 #' 
 #' @import RJSONIO httr dplyr
+#' @export
+#' 
 #' @param species (required) Scientific name of the species of interest (not case
 #'    sensitive). See eBird taxonomy for more information:
 #'    http://ebird.org/content/ebird/about/ebird-taxonomy
@@ -25,7 +27,7 @@
 #' @param sleep Time (in seconds) before function sends API call (defaults to
 #'    zero. Set to higher number if you are using this function in a loop with
 #'    many API calls).
-#' @param curlopts Curl options passed on to httr::GET.
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return A data.frame containing the collected information:
 #' @return "comName": species common name
 #' @return "howMany": number of individuals observed, NA if only presence was noted
@@ -41,17 +43,17 @@
 #' @return "obsValid": TRUE if observation has been deemed valid by either the
 #'    automatic filters or a regional viewer, FALSE otherwise
 #' @return "sciName" species' scientific name
-#' @export
-#' @examples \dontrun{
-#' nearestobs('spizella arborea', 42, -76)
-#' nearestobs('spizella arborea', 42,-76, max=10, provisional=T, hotspot=T) }
+#' 
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
 #' @references \url{http://ebird.org/}
-
+#' @examples \dontrun{
+#' nearestobs('spizella arborea', 42, -76)
+#' nearestobs('spizella arborea', 42,-76, max=10, provisional=TRUE, hotspot=TRUE)
+#' }
 
 nearestobs <-  function(species, lat=NULL,lng=NULL, back = NULL,
   max = NULL, locale = NULL, provisional = FALSE,
-  hotspot = FALSE, sleep = 0, curlopts=list()) 
+  hotspot = FALSE, sleep = 0, ...)
 {
 
   url <- 'http://ebird.org/ws1.1/data/nearest/geo_spp/recent'
@@ -81,21 +83,18 @@ nearestobs <-  function(species, lat=NULL,lng=NULL, back = NULL,
   }
 
   args <- ebird_compact(list(
-  fmt='json', sci=species,
-  lat=round(geoloc[1],2), lng=round(geoloc[2],2),
-  back=back, maxResults=max,
-  locale=locale
+    fmt='json', sci=species,
+    lat=round(geoloc[1],2), lng=round(geoloc[2],2),
+    back=back, maxResults=max,
+    locale=locale
   ))
 
-  if(provisional)
-    args$includeProvisional <- 'true'
-  if(hotspot)
-    args$hotspot <- 'true'
+  if(provisional) args$includeProvisional <- 'true'
+  if(hotspot) args$hotspot <- 'true'
 
-  tt <- GET(url, query = args)
-  warn_for_status(res)
+  tt <- GET(url, query = args, ...)
+  warn_for_status(tt)
   content <- content(tt, as = "text")
   res <- fromJSON(content, simplifyWithNames = FALSE)
-  ret <- rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
-  return(ret)
+  rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
 }

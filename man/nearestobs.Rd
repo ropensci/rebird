@@ -4,8 +4,7 @@
 \title{Nearest species sightings}
 \usage{
 nearestobs(species, lat = NULL, lng = NULL, back = NULL, max = NULL,
-  locale = NULL, provisional = FALSE, hotspot = FALSE, sleep = 0,
-  curlopts = list())
+  locale = NULL, provisional = FALSE, hotspot = FALSE, sleep = 0, ...)
 }
 \arguments{
 \item{species}{(required) Scientific name of the species of interest (not case
@@ -38,7 +37,7 @@ be included? (defaults to FALSE).}
 zero. Set to higher number if you are using this function in a loop with
 many API calls).}
 
-\item{curlopts}{Curl options passed on to httr::GET.}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A data.frame containing the collected information:
@@ -75,7 +74,8 @@ with observations of a species.
 \examples{
 \dontrun{
 nearestobs('spizella arborea', 42, -76)
-nearestobs('spizella arborea', 42,-76, max=10, provisional=T, hotspot=T) }
+nearestobs('spizella arborea', 42,-76, max=10, provisional=TRUE, hotspot=TRUE)
+}
 }
 \author{
 Rafael Maia \email{rm72@zips.uakron.edu}
