@@ -1,10 +1,10 @@
-#' An R package to interface with the eBird webservices.
+#' An R package to interface with the eBird database.
 #'
 #' \tabular{ll}{
-#' Package: \tab reBird\cr
+#' Package: \tab rebird\cr
 #' Type: \tab Package\cr
-#' Version: \tab 0.1\cr
-#' Date: \tab 2012-10-13\cr
+#' Version: \tab 0.1.2.99\cr
+#' Date: \tab 2014-10-31\cr
 #' License: \tab MIT\cr
 #' LazyLoad: \tab yes\cr}
 #'
@@ -13,8 +13,9 @@
 #' @name rebird-package
 #' @aliases rebird
 #' @docType package
-#' @title rEbird: an R package for access to the eBird database.
-#' @author  Rafael Maia \email{rm72@@zips.uakron.edu}, Scott Chamberlain \email{myrmecocystus@@gmail.com}
+#' @title rebird: an R package for access to the eBird database.
+#' @author  Rafael Maia \email{rm72@@zips.uakron.edu}, 
+#' Scott Chamberlain \email{myrmecocystus@@gmail.com}, Andy Teucher \email{andy.teucher@@gmail.com}
 #' @keywords package
 #' @examples #see functions.
 

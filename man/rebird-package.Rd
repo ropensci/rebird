@@ -3,16 +3,16 @@
 \name{rebird-package}
 \alias{rebird}
 \alias{rebird-package}
-\title{rEbird: an R package for access to the eBird database.}
+\title{rebird: an R package for access to the eBird database.}
 \description{
-An R package to interface with the eBird webservices.
+An R package to interface with the eBird database.
 }
 \details{
 \tabular{ll}{
-Package: \tab reBird\cr
+Package: \tab rebird\cr
 Type: \tab Package\cr
-Version: \tab 0.1\cr
-Date: \tab 2012-10-13\cr
+Version: \tab 0.1.2.99\cr
+Date: \tab 2014-10-31\cr
 License: \tab MIT\cr
 LazyLoad: \tab yes\cr}
 
@@ -22,7 +22,8 @@ This package provides an R interface to the recent eBird database.
 #see functions.
 }
 \author{
-Rafael Maia \email{rm72@zips.uakron.edu}, Scott Chamberlain \email{myrmecocystus@gmail.com}
+Rafael Maia \email{rm72@zips.uakron.edu},
+Scott Chamberlain \email{myrmecocystus@gmail.com}, Andy Teucher \email{andy.teucher@gmail.com}
 }
 \keyword{package}
 
