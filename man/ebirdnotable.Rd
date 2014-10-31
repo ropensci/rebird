@@ -6,7 +6,7 @@
 ebirdnotable(lat = NULL, lng = NULL, dist = NULL, locID = NULL,
   region = NULL, regtype = NULL, back = NULL, max = NULL,
   locale = NULL, provisional = FALSE, hotspot = FALSE, simple = TRUE,
-  sleep = 0, curlopts = list())
+  sleep = 0, ...)
 }
 \arguments{
 \item{lat}{Decimal latitude. value between -90.00 and 90.00, up to two
@@ -52,7 +52,7 @@ be included? (defaults to FALSE)}
 zero.  Set to higher number if you are using this function in a loop with
 many API calls).}
 
-\item{curlopts}{Curl options passed on to httr::GET.}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A data.frame containing the collected information:

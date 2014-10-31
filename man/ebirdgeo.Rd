@@ -42,7 +42,7 @@ be included? (defaults to FALSE).}
 zero. Set to higher number if you are using this function in a loop with
 many API calls).}
 
-\item{...}{Curl options passed on to httr::GET.}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A data.frame containing the collected information:

@@ -4,7 +4,7 @@
 \title{Recent observations at a locality}
 \usage{
 ebirdloc(locID, species = NULL, back = NULL, max = NULL, locale = NULL,
-  provisional = FALSE, sleep = 0, curlopts = list())
+  provisional = FALSE, sleep = 0, ...)
 }
 \arguments{
 \item{locID}{(required) Vector containing code(s) for up to 10 regions of interest;
@@ -32,7 +32,7 @@ be included? (defaults to FALSE)}
 zero.  Set to higher number if you are using this function in a loop with
 many API calls).}
 
-\item{curlopts}{Curl options passed on to httr::GET.}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A data.frame containing the collected information:

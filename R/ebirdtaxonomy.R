@@ -17,7 +17,7 @@
 #' @param locale Language/locale of response (when translations are available).
 #'    See http://java.sun.com/javase/6/docs/api/java/util/Locale.html 
 #'    (defaults to en_US).
-#' @param curlopts Curl options passed on to httr::GET.
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return A data.frame containing the collected information:
 #' @return "comName": species' common name
 #' @return "sciName": species' scientific name
@@ -30,7 +30,7 @@
 #' @author Andy Teucher \email{andy.teucher@@gmail.com}
 #' @references \url{http://ebird.org/}
 
-ebirdtaxonomy <- function(cat=NULL, locale=NULL, curlopts=list()){
+ebirdtaxonomy <- function(cat=NULL, locale=NULL, ...){
   url <- 'http://ebird.org/ws1.1/ref/taxa/ebird'
   cats <- c("domestic", "form", "hybrid", "intergrade", "issf", "slash"
             , "species", "spuh")
@@ -40,7 +40,7 @@ ebirdtaxonomy <- function(cat=NULL, locale=NULL, curlopts=list()){
   }
   cat <- if(!is.null(cat)) cat <- paste0(cat, collapse = ",")
   args <- ebird_compact(list(fmt='json', cat=cat, locale=locale))
-  tt <- GET(url, query=args, curlopts)
+  tt <- GET(url, query=args, ...)
   warn_for_status(tt)
   content <- content(tt, as = "text")
   res <- jsonlite::fromJSON(content, FALSE)

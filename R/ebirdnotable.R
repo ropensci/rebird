@@ -33,7 +33,7 @@
 #' @param sleep Time (in seconds) before function sends API call (defaults to
 #'    zero.  Set to higher number if you are using this function in a loop with
 #'    many API calls).
-#' @param curlopts Curl options passed on to httr::GET.
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @note \code{ebirdnotable} requires that either latitude/longitude, location ID,
 #' or region be passed to the function. Multiple entries will result in the most
 #' specific being used. If none is supplied, defaults to lat/lng based on your IP.
@@ -74,12 +74,9 @@
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
 #' @references \url{http://ebird.org/}
 
-
-ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL, locID = NULL,
-                          region = NULL, regtype = NULL, back = NULL,
-                          max = NULL, locale = NULL, provisional = FALSE,
-                          hotspot = FALSE, simple=TRUE, sleep = 0,
-                          curlopts=list()) 
+ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL, locID = NULL, region = NULL, 
+  regtype = NULL, back = NULL, max = NULL, locale = NULL, provisional = FALSE, hotspot = FALSE, 
+  simple=TRUE, sleep = 0, ...) 
 {
   Sys.sleep(sleep)
 
@@ -166,7 +163,7 @@ ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL, locID = NULL,
   }
 
   args <- ebird_compact(args)
-  tt <- GET(url, query=args, curlopts)
+  tt <- GET(url, query=args, ...)
   warn_for_status(tt)
   content <- content(tt, as = "text")
   res <- jsonlite::fromJSON(content, FALSE)

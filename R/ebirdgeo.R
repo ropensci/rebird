@@ -28,7 +28,7 @@
 #' @param sleep Time (in seconds) before function sends API call (defaults to
 #'    zero. Set to higher number if you are using this function in a loop with
 #'    many API calls).
-#' @param ... Curl options passed on to httr::GET.
+#'@param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return A data.frame containing the collected information:
 #' @return "comName": species common name
 #' @return "howMany": number of individuals observed, NA if only presence was noted
