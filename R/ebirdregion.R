@@ -2,7 +2,6 @@
 #' 
 #' Returns the most recent sighting information reported in a given region.
 #' 
-#' @import RJSONIO httr
 #' @param region (required) Region code corresponding to selected region type.
 #' For supported region and coding, see
 #' https://confluence.cornell.edu/display/CLOISAPI/eBird-1.1-RegionCodeReference
@@ -88,7 +87,8 @@ ebirdregion <-  function(region, species = NULL, regtype = NULL, back = NULL, ma
 }
 
 ebird_handler <- function(x){
-  warn <- fromJSON(content(x, as = "text"), simplifyWithNames = FALSE)
+  ss <- content(x, as = "text")
+  warn <- jsonlite::fromJSON(ss, FALSE)
   if(x$status_code > 202){
     warning(sprintf("%s", warn[[1]]['errorMsg']))
     NA

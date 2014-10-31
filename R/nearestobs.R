@@ -2,8 +2,7 @@
 #'
 #' Returns the most recent and nearest reported sighting information
 #' with observations of a species.
-#' 
-#' @import RJSONIO httr dplyr
+#'
 #' @export
 #' 
 #' @param species (required) Scientific name of the species of interest (not case
@@ -55,16 +54,12 @@ nearestobs <-  function(species, lat=NULL,lng=NULL, back = NULL,
   max = NULL, locale = NULL, provisional = FALSE,
   hotspot = FALSE, sleep = 0, ...)
 {
-
   url <- 'http://ebird.org/ws1.1/data/nearest/geo_spp/recent'
 
   Sys.sleep(sleep)
 
   geoloc <- c(lat,lng)
-
-  if (is.null(geoloc)) {
-    geoloc <- getlatlng()
-  }
+  if (is.null(geoloc)) geoloc <- getlatlng()
 
   if (abs(geoloc[1]) > 90) {
     stop("Please provide a latitude between -90 and 90 degrees.")
@@ -95,6 +90,6 @@ nearestobs <-  function(species, lat=NULL,lng=NULL, back = NULL,
   tt <- GET(url, query = args, ...)
   warn_for_status(tt)
   content <- content(tt, as = "text")
-  res <- fromJSON(content, simplifyWithNames = FALSE)
+  res <- jsonlite::fromJSON(content, FALSE)
   rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
 }

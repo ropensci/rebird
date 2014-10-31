@@ -3,8 +3,7 @@
 #' Returns the most recent sighting date and specific location for the requested
 #' species of bird reported within the number of days specified and reported in 
 #' the specified area.
-#'    
-#' @import RJSONIO httr dplyr
+#'
 #' @param species Scientific name of the species of interest (not case
 #'    sensitive). Defaults to NULL, so sightings for all species are returned.
 #'    See eBird taxonomy for more information:

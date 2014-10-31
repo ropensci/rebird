@@ -3,7 +3,6 @@
 #' Returns the most recent sighting information reported in a given vector 
 #' of locations (including non-hotspots).
 #' 
-#' @import RJSONIO httr dplyr
 #' @param locID (required) Vector containing code(s) for up to 10 regions of interest; 
 #' here, values that are not hotspots are returned. Values that are not valid are ignored. 
 #' @param species Scientific name of the species of interest (not case 
@@ -47,11 +46,8 @@
 #' @references \url{http://ebird.org/}
 
 ebirdloc <-  function(locID, species=NULL, back = NULL, max = NULL, 
-  locale = NULL, provisional = FALSE, sleep = 0, curlopts=list()
-  ) {
-
-#   curl <- getCurlHandle()
-
+  locale = NULL, provisional = FALSE, sleep = 0, curlopts=list()) 
+{
   if (length(locID) > 10) {
     stop('Too many locations (max. 10)')
   }
@@ -82,12 +78,6 @@ ebirdloc <-  function(locID, species=NULL, back = NULL, max = NULL,
   tt <- GET(url, query=args, curlopts)
   warn_for_status(tt)
   content <- content(tt, as = "text")
-#   content <- getForm(url, 
-#                      .params = args, 
-#                      ... ,
-#                      curl = curl)
-  
-  res <- fromJSON(content, simplifyWithNames = FALSE)
-  ret <- rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
-  return(ret)
+  res <- jsonlite::fromJSON(content, FALSE)
+  rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
 }

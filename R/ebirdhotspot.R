@@ -2,7 +2,7 @@
 #'
 #' Returns the most recent sighting information reported in a given vector
 #' of hotspots.
-#' @import RJSONIO httr
+#' 
 #' @param locID (required) Vector containing code(s) for up to 10 regions of
 #'    interest; here, regions are the locIDs of hotspots. Values that are not
 #'    valid or are not hotspots are ignored.
@@ -83,7 +83,6 @@ ebirdhotspot <-  function(locID, species=NULL, back = NULL, max = NULL,
   tt <- GET(url, query=args, curlopts)
   warn_for_status(tt)
   content <- content(tt, as = "text")
-  res <- fromJSON(content, simplifyWithNames = FALSE)
-  ret <- rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
-  return(ret)
+  res <- jsonlite::fromJSON(content, FALSE)
+  rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
 }

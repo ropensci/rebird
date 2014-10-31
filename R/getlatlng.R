@@ -2,9 +2,9 @@
 #'
 #' Returns the most recent and nearest reported sighting information
 #' with observations of a species.
-#' @import httr
-#' @return a vector of length 2 with lat, lng in that order
+#' 
 #' @export
+#' @return a vector of length 2 with lat, lng in that order
 #' @examples \dontrun{
 #' getlatlng()
 #' }

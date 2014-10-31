@@ -2,7 +2,7 @@
 #'
 #' Returns the most recent notable observations by either latitude/longitude,
 #' hotspot or location ID, or particular region.
-#' @import RJSONIO httr
+#' 
 #' @param lat Decimal latitude. value between -90.00 and 90.00, up to two
 #'    decimal places of precision.
 #' @param lng Decimal longitude. value between -180.00 and 180.00, up to
@@ -79,11 +79,8 @@ ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL, locID = NULL,
                           region = NULL, regtype = NULL, back = NULL,
                           max = NULL, locale = NULL, provisional = FALSE,
                           hotspot = FALSE, simple=TRUE, sleep = 0,
-                          curlopts=list()
-) {
-
-#   curl <- getCurlHandle()
-
+                          curlopts=list()) 
+{
   Sys.sleep(sleep)
 
   if (!is.null(back)) {
@@ -169,16 +166,9 @@ ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL, locID = NULL,
   }
 
   args <- ebird_compact(args)
-
   tt <- GET(url, query=args, curlopts)
   warn_for_status(tt)
   content <- content(tt, as = "text")
-
-#   content <- getForm(url,
-#                      .params = args,
-#                      ... , curl = curl)
-
-  res <- fromJSON(content, simplifyWithNames = FALSE)
-  ret <- rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
-  return(ret)
+  res <- jsonlite::fromJSON(content, FALSE)
+  rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
 }

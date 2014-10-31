@@ -5,7 +5,10 @@
 #' the category of 'species' may be used as a parameter in service calls that 
 #' take a scientific name. Any taxon not in this category will be rejected by 
 #' these services at this time.
-#' @import RJSONIO httr dplyr
+#' 
+#' @import jsonlite httr dplyr
+#' @export
+#' 
 #' @param cat Species category. String or character vector with one of more of:
 #'    "domestic", "form", "hybrid", "intergrade", "issf", "slash", "species"
 #'    , "spuh". 
@@ -19,7 +22,7 @@
 #' @return "comName": species' common name
 #' @return "sciName": species' scientific name
 #' @return "taxonID": Taxonomic Concept identifier, note this is currently in test
-#' @export
+#' 
 #' @examples \dontrun{
 #' ebirdtaxonomy()
 #' ebirdtaxonomy(cat=c("spuh", "slash")) 
@@ -27,12 +30,8 @@
 #' @author Andy Teucher \email{andy.teucher@@gmail.com}
 #' @references \url{http://ebird.org/}
 
-ebirdtaxonomy <- function(cat=NULL, locale=NULL, curlopts=list()) 
-{
-  
+ebirdtaxonomy <- function(cat=NULL, locale=NULL, curlopts=list()){
   url <- 'http://ebird.org/ws1.1/ref/taxa/ebird'
-#   curl <- getCurlHandle()
-  
   cats <- c("domestic", "form", "hybrid", "intergrade", "issf", "slash"
             , "species", "spuh")
   
@@ -41,16 +40,9 @@ ebirdtaxonomy <- function(cat=NULL, locale=NULL, curlopts=list())
   }
   cat <- if(!is.null(cat)) cat <- paste0(cat, collapse = ",")
   args <- ebird_compact(list(fmt='json', cat=cat, locale=locale))
-  
-#   content <- getForm(url, 
-#                      .params = args, 
-#                      curl = curl)
   tt <- GET(url, query=args, curlopts)
   warn_for_status(tt)
   content <- content(tt, as = "text")
-  res <- fromJSON(content, simplifyWithNames = FALSE)
-#   ret <- do.call(rbind.fill, lapply(res, data.frame, stringsAsFactors=FALSE))
-  ret <- rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
-  return(ret)
-  
+  res <- jsonlite::fromJSON(content, FALSE)
+  rbind_all(lapply(res, data.frame, stringsAsFactors=FALSE))
 }

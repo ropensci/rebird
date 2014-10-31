@@ -18,7 +18,7 @@ BugReports: http://github.com/ropensci/rebird/issues
 VignetteBuilder: knitr
 Roxygen: list(wrap = FALSE)
 Imports:
-    RJSONIO,
+    jsonlite,
     httr,
     dplyr
 Suggests:
