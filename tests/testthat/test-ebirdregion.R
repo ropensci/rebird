@@ -3,7 +3,7 @@ context("ebirdregion")
 test_that("ebirdregion works correctly", {
   out <- ebirdregion(region = 'US', species = 'Setophaga caerulescens', max = 50)
   expect_is(out, "data.frame")
-  expect_equal(dim(out), c(50,11))
+  expect_equal(NCOL(out), 11)
   expect_is(out$comName, "character")
   expect_is(out$howMany, "integer")
 
