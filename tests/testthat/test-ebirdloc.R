@@ -10,4 +10,9 @@ test_that("ebirdloc works correctly", {
   expect_error(ebirdloc())
   expect_error(ebirdloc(species = "asdf"))
   expect_warning(ebirdloc(locID = "asdfasdf", species = "asdf"))
+  
+  simpler <- ebirdloc('L99381', max = 1, simple = TRUE)
+  lesssimpler <- ebirdloc('L99381', max = 1, simple = FALSE)
+  expect_equal(dim(simpler), c(1,11))
+  expect_equal(dim(lesssimpler), c(1,25))
 })

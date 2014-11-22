@@ -4,7 +4,7 @@
 \title{Recent observations at a locality}
 \usage{
 ebirdloc(locID, species = NULL, back = NULL, max = NULL, locale = NULL,
-  provisional = FALSE, sleep = 0, ...)
+  provisional = FALSE, simple = TRUE, sleep = 0, ...)
 }
 \arguments{
 \item{locID}{(required) Vector containing code(s) for up to 10 regions of interest;
@@ -27,6 +27,9 @@ See http://java.sun.com/javase/6/docs/api/java/util/Locale.html
 
 \item{provisional}{Should flagged records that have not been reviewed
 be included? (defaults to FALSE)}
+
+\item{simple}{Logical. Whether to return a simple (TRUE, default) or detailed
+(FALSE) set of results fields.}
 
 \item{sleep}{Time (in seconds) before function sends API call (defaults to
 zero.  Set to higher number if you are using this function in a loop with
@@ -61,6 +64,33 @@ A data.frame containing the collected information:
    automatic filters or a regional viewer, FALSE otherwise
 
 "sciName" species' scientific name
+
+"subnational2Code": county code (returned if simple=FALSE)
+
+"subnational2Name": county name (returned if simple=FALSE)
+
+"subnational1Code": state/province ISO code (returned if simple=FALSE)
+
+"subnational1Name": state/province name (returned if simple=FALSE)
+
+"countryCode": country ISO code (returned if simple=FALSE)
+
+"countryName": country name (returned if simple=FALSE)
+
+"userDisplayName": first and last name of the observer (returned if simple=FALSE)
+
+"firstName": observer's first name (returned if simple=FALSE)
+
+"lastName": observer's last name (returned if simple=FALSE)
+
+"subID": submission ID (returned if simple=FALSE)
+
+"obsID": observation ID (returned if simple=FALSE)
+
+"checklistID": checklist ID (returned if simple=FALSE)
+
+"presenceNoted": 'true' if user marked presence but did not count the
+  number of birds. 'false' otherwise (returned if simple=FALSE)
 }
 \description{
 Returns the most recent sighting information reported in a given vector

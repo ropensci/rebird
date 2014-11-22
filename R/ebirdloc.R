@@ -18,6 +18,8 @@
 #'    (defaults to en_US)
 #' @param provisional Should flagged records that have not been reviewed 
 #'    be included? (defaults to FALSE)
+#' @param simple Logical. Whether to return a simple (TRUE, default) or detailed
+#'    (FALSE) set of results fields.
 #' @param sleep Time (in seconds) before function sends API call (defaults to
 #'    zero.  Set to higher number if you are using this function in a loop with 
 #'    many API calls).
@@ -37,6 +39,20 @@
 #' @return "obsValid": TRUE if observation has been deemed valid by either the 
 #'    automatic filters or a regional viewer, FALSE otherwise
 #' @return "sciName" species' scientific name
+#' @return "subnational2Code": county code (returned if simple=FALSE)
+#' @return "subnational2Name": county name (returned if simple=FALSE)
+#' @return "subnational1Code": state/province ISO code (returned if simple=FALSE)
+#' @return "subnational1Name": state/province name (returned if simple=FALSE)
+#' @return "countryCode": country ISO code (returned if simple=FALSE)
+#' @return "countryName": country name (returned if simple=FALSE)
+#' @return "userDisplayName": first and last name of the observer (returned if simple=FALSE) 
+#' @return "firstName": observer's first name (returned if simple=FALSE)
+#' @return "lastName": observer's last name (returned if simple=FALSE)
+#' @return "subID": submission ID (returned if simple=FALSE)
+#' @return "obsID": observation ID (returned if simple=FALSE)
+#' @return "checklistID": checklist ID (returned if simple=FALSE)
+#' @return "presenceNoted": 'true' if user marked presence but did not count the
+#'   number of birds. 'false' otherwise (returned if simple=FALSE)
 #' @export
 #' @examples \dontrun{
 #' ebirdloc(locID = c('L99381','L99382'))
@@ -46,7 +62,7 @@
 #' @references \url{http://ebird.org/}
 
 ebirdloc <-  function(locID, species=NULL, back = NULL, max = NULL, locale = NULL, 
-  provisional = FALSE, sleep = 0, ...) 
+  provisional = FALSE, simple = TRUE, sleep = 0, ...) 
 {
   if (length(locID) > 10) {
     stop('Too many locations (max. 10)')
@@ -65,7 +81,8 @@ ebirdloc <-  function(locID, species=NULL, back = NULL, max = NULL, locale = NUL
     r=locID, back=back, maxResults=max,
     locale=locale
   ))
-  if(provisional) args$includeProvisional <- 'true'
+  if (provisional) args$includeProvisional <- 'true'
+  if (!simple) args$detail <- 'full'
   
   ebird_GET(url, args, ...)
 }
