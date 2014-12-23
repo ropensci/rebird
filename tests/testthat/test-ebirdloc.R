@@ -13,6 +13,8 @@ test_that("ebirdloc works correctly", {
   
   simpler <- ebirdloc('L99381', max = 1, simple = TRUE)
   lesssimpler <- ebirdloc('L99381', max = 1, simple = FALSE)
-  expect_equal(dim(simpler), c(1,11))
-  expect_equal(dim(lesssimpler), c(1,25))
+  expect_less_than(NCOL(simpler), 15)
+  expect_that(NCOL(simpler), not(is_less_than(8)))
+  expect_less_than(NCOL(lesssimpler), 30)
+  expect_that(NCOL(lesssimpler), not(is_less_than(10)))
 })
