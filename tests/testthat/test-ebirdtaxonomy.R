@@ -7,8 +7,8 @@ test_that("ebirdtaxonomy works correctly", {
   expect_is(out, "data.frame")
   expect_is(out2, "data.frame")
   
-  expect_equal(ncol(out), 3)
-  expect_equal(ncol(out), 3)
+  expect_equal(ncol(out), 6)
+  expect_equal(ncol(out), 6)
   
   expect_is(out$comName, "character")
   expect_is(out$taxonID, "character")
