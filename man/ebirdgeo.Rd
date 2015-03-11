@@ -87,7 +87,7 @@ library('httr')
 ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=verbose())
 ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=user_agent("rebird"))
 ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=progress())
-ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=timeout(0.1))
+# ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=timeout(0.1))
 }
 }
 \author{

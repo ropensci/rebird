@@ -10,6 +10,23 @@ ebird_GET <- function(url, args, ...){
     warning(sprintf("%s", json[[1]]['errorMsg']))
     NA
   } else {
-    if(!is.list(json)) NA else rbind_all(lapply(json, data.frame, stringsAsFactors=FALSE))    
+    if(!is.list(json)) { 
+      return(NA) 
+    } else {
+      json <- lapply(json, function(x) lapply(x, function(a) {
+        if(length(a) == 0) { 
+          NA 
+        } else if(length(a) > 1) {
+          paste0(a, collapse = ",")
+        } else {
+          if(is(a, "list")) {
+            a[[1]]
+          } else {
+            a
+          }
+        }
+      }))
+      rbind_all(lapply(json, data.frame, stringsAsFactors=FALSE))
+    }
   }
 }
