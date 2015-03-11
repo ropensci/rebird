@@ -32,10 +32,7 @@ Then load the package
 library("rebird")
 ```
 
-## Examples
-
-
-### Sightings at location determined by latitude/longitude
+## Sightings at location determined by latitude/longitude
 
 Search for bird occurrences by latitude and longitude point
 
@@ -43,7 +40,7 @@ Search for bird occurrences by latitude and longitude point
 ebirdgeo(species = 'spinus tristis', lat = 42, lng = -76)
 ```
 
-### Recent observations at a region
+## Recent observations at a region
 
 Search for bird occurrences by region and species name
 
@@ -52,18 +49,18 @@ ebirdregion(region = 'US', species = 'Setophaga caerulescens')
 ```
 
 
-### Recent observations at hotspots
+## Recent observations at hotspots
 
-Search for bird occurrences by region and species name
+Search for bird occurrences by region
 
 ```{r ebirdhotspot}
-ebirdhotspot(locID = c('L99381','L99382'), species = 'larus delawarensis')
+ebirdhotspot(locID = c('L99381','L99382'))
 ```
 
 
 ## Meta
 
-* Please report any issues or bugs](https://github.com/ropensci/rebird/issues).
+* Please [report any issues or bugs](https://github.com/ropensci/rebird/issues).
 * License: MIT
 * Get citation information for `rebird` in R doing `citation(package = 'rebird')`
 
@@ -73,4 +70,4 @@ This package is part of a richer suite called [spocc - Species Occurrence Data](
 
 ---
 
-[![](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![ropensci_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
