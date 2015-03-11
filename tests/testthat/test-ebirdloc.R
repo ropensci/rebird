@@ -18,3 +18,14 @@ test_that("ebirdloc works correctly", {
   expect_less_than(NCOL(lesssimpler), 30)
   expect_that(NCOL(lesssimpler), not(is_less_than(10)))
 })
+
+
+test_that("ebirdloc fails correctly", {
+  mssg <- "You have supplied an invalid species category"
+  expect_error(ebirdloc(), "argument \"locID\" is missing")
+  expect_error(ebirdloc(locID = c('L99381','L99382','L99381','L99382','L99381','L99382',
+                          'L99381','L99382','L99381','L99382','L99382')), 
+               "Too many locations")
+  expect_error(ebirdloc(locID = 'L99381', config=timeout(0.02)), "Operation timed out")
+  expect_error(suppressWarnings(ebirdloc(locID = 'L99381', sleep = "adf")), "invalid 'time' value")
+})

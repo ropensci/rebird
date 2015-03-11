@@ -56,7 +56,7 @@
 #' @export
 #' @examples \dontrun{
 #' ebirdloc(locID = c('L99381','L99382'))
-#' ebirdloc('L99381', 'larus delawarensis', max=10, provisional=TRUE)
+#' ebirdloc('L99381', 'Branta canadensis', provisional=TRUE)
 #' }
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
 #' @references \url{http://ebird.org/}
@@ -65,7 +65,7 @@ ebirdloc <-  function(locID, species=NULL, back = NULL, max = NULL, locale = NUL
   provisional = FALSE, simple = TRUE, sleep = 0, ...) 
 {
   if (length(locID) > 10) {
-    stop('Too many locations (max. 10)')
+    stop('Too many locations (max. 10)', call. = FALSE)
   }
 
   Sys.sleep(sleep)
