@@ -100,7 +100,7 @@ of locations (including non-hotspots).
 \examples{
 \dontrun{
 ebirdloc(locID = c('L99381','L99382'))
-ebirdloc('L99381', 'larus delawarensis', max=10, provisional=TRUE)
+ebirdloc('L99381', 'Branta canadensis', provisional=TRUE)
 }
 }
 \author{
