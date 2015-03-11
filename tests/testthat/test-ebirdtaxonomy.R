@@ -18,5 +18,5 @@ test_that("ebirdtaxonomy fails correctly", {
   expect_error(ebirdtaxonomy("asf"), mssg)
   expect_error(ebirdtaxonomy(2), mssg)
   
-  expect_error(ebirdtaxonomy("spuh", config=timeout(0.02)), "Operation timed out")
+  expect_error(ebirdtaxonomy("spuh", config=timeout(0.02)))
 })
