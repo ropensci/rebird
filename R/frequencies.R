@@ -12,7 +12,7 @@
 #'
 #' @examples
 get_freq <- function(loctype, loc, startyear, endyear, startmonth, endmonth) {
-  if (loctype == "county") {
+  if (loctype == "counties") {
     args <- list(cmd = "getChart", displayType = "download", getLocations = loctype, 
                counties = loc, bYear = startyear, eYear = endyear, 
                bMonth = startmonth, eMonth = endmonth)
