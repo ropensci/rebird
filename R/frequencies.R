@@ -3,11 +3,11 @@
 #' @param loctype String with location type. Either "states", "counties", 
 #'   or "hotspots".
 #' @param loc String with location identifier. If querying states 
-#'   or provinces then the two letter country code followed by the 
+#'   or provinces, the two letter country code followed by the 
 #'   two letter state code and separated by "-" (e.g. "US-NY"). 
 #'   If querying counties, is as in states/provinces, but appending 
-#'   county identifier after a dash.For counties in the US, 
-#'   the county codes are 3-digit numbers specific to each state 
+#'   county identifier after a dash. For counties in the US, 
+#'   the county codes is a 3-digit number specific to each state 
 #'   (e.g. Bronx County: "US-NY-005"). For counties in Canada, 
 #'   county codes are two-letter identifiers (e.g. Metro Vancouver:
 #'   "CA-BC-GV"). 
