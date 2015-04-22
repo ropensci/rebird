@@ -15,10 +15,13 @@
 #'   number prepended with an "L" (e.g. "L196159"). All these codes
 #'   can be found by looking at the URL in the Explore Data eBird
 #'   page (http://ebird.org/ebird/GuideMe?cmd=changeLocation).
-#' @param startyear Starting year for query. (Default to 1900?)
-#' @param endyear Ending year for query. (Default t format(Sys.Date(), %Y)?) 
-#' @param startmonth Starting month for query as an integer (1-12). (Default to 1?)
-#' @param endmonth Ending month for query as an integer (1-12). (Default to 12?)
+#' @param startyear Starting year for query. Defaults to 1900.
+#' @param endyear Ending year for query. Defaults to current year 
+#'   specified by Sys.Date().
+#' @param startmonth Starting month for query as an integer (1-12). 
+#'   Defaults to January.
+#' @param endmonth Ending month for query as an integer (1-12).
+#'   Defaults to December.
 #' @param long Logical, Should output be in long format? Defaults 
 #'   to TRUE. If FALSE then output will be in wide format.
 #'
@@ -43,8 +46,9 @@
 #'    Sebastian Pardo \email{sebpardo@@gmail.com}
 #' @references \url{http://ebird.org/}
 
-get_freq <- function(loctype, loc, startyear, endyear, startmonth, 
-                     endmonth, long=TRUE) {
+get_freq <- function(loctype, loc, startyear = 1900, 
+                     endyear = format(Sys.Date(), "%Y")
+                     , startmonth = 1, endmonth = 12, long=TRUE) {
   args1 <- list(cmd = "getChart", displayType = "download", 
                 getLocations = loctype)
   args3 <- list(bYear = startyear, eYear = endyear, bMonth = startmonth, 
