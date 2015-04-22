@@ -20,7 +20,8 @@ Roxygen: list(wrap = FALSE)
 Imports:
     jsonlite,
     httr,
-    dplyr
+    dplyr,
+    tidyr
 Suggests:
     knitr,
     testthat
