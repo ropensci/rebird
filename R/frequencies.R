@@ -40,15 +40,15 @@
 #' @examples \dontrun{
 #' get_freq("states", "US-NY", 2014, 2014, 1, 12)
 #' get_freq("counties", "CA-BC-GV", 1900, 2015, 1, 3)
-#' get_freq("hotspots", "L196159", 1900, 2015, 1, 12, long=FALSE)
+#' get_freq("hotspots", "L196159", long=FALSE)
 #' }
 #' @author Andy Teucher \email{andy.teucher@@gmail.com},
 #'    Sebastian Pardo \email{sebpardo@@gmail.com}
 #' @references \url{http://ebird.org/}
 
 get_freq <- function(loctype, loc, startyear = 1900, 
-                     endyear = format(Sys.Date(), "%Y")
-                     , startmonth = 1, endmonth = 12, long=TRUE) {
+                     endyear = format(Sys.Date(), "%Y"),
+                     startmonth = 1, endmonth = 12, long = TRUE) {
   args1 <- list(cmd = "getChart", displayType = "download", 
                 getLocations = loctype)
   args3 <- list(bYear = startyear, eYear = endyear, bMonth = startmonth, 
@@ -66,10 +66,7 @@ get_freq <- function(loctype, loc, startyear = 1900,
   args <- c(args1, args2, args3)
   url <- "http://ebird.org/ebird/BarChart"
   ret <- GET(url, query = args)
-  stop_for_status(ret)  # This is probably pointless as even with
-                        # incorrect queries that return no observations
-                        # the request is still successful with status
-                        # code: 200
+  stop_for_status(ret)
   asChar <- readBin(ret$content, "character")
   freq <- read.delim(text = asChar, skip = 12, 
                      stringsAsFactors = FALSE)[,-50]
@@ -84,4 +81,3 @@ get_freq <- function(loctype, loc, startyear = 1900,
   } else
   freq_long
 }
-
