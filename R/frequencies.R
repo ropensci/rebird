@@ -75,15 +75,15 @@ get_freq <- function(loctype, loc, startyear = 1900,
   freq <- read.delim(text = asChar, skip = 12, 
                      stringsAsFactors = FALSE)[,-50]
   names(freq) <- c("Species", sapply(month.abb, paste ,1:4, sep="-"))
-  freq_long <- gather(freq[-1,], "mo_qt", "Freq", 2:length(freq), 
-                             convert = TRUE)
-  ss <- gather(freq[1,-1], key = "mo_qt", value = "sample_size", 
-                      convert = TRUE)
-  freq_long <- merge(freq_long, ss, by = "mo_qt")
   if (long == FALSE) {
-    freq
+    return(freq)
   } else {
-  freq_long
+    freq_long <- gather(freq[-1,], "mo_qt", "Freq", 2:length(freq), 
+                        convert = TRUE)
+    ss <- gather(freq[1,-1], key = "mo_qt", value = "sample_size", 
+                 convert = TRUE)
+    freq_long <- merge(freq_long, ss, by = "mo_qt")
+    freq_long
   }
 }
 
