@@ -1,8 +1,8 @@
 reBird
 ======
 
-[![Build Status](https://api.travis-ci.org/ropensci/rebird.png)](https://travis-ci.org/ropensci/rebird)  
-[![Build status](https://ci.appveyor.com/api/projects/status/9jee0co6w09faiop)](https://ci.appveyor.com/project/karthik/rebird)
+[![Build Status](https://api.travis-ci.org/ropensci/rebird.png)](https://travis-ci.org/ropensci/rebird)
+[![Build status](https://ci.appveyor.com/api/projects/status/s3dobn991c20t2kg?svg=true)](https://ci.appveyor.com/project/sckott/rebird)
 [![Coverage Status](https://coveralls.io/repos/ropensci/rebird/badge.svg)](https://coveralls.io/r/ropensci/rebird)
 
 `reBird` is a package to interface with the eBird webservices.
@@ -65,7 +65,7 @@ ebirdhotspot(locID = c('L99381','L99382'))
 * Get citation information for `rebird` in R doing `citation(package = 'rebird')`
 
 ---
-  
+
 This package is part of a richer suite called [spocc - Species Occurrence Data](https://github.com/ropensci/spocc), along with several other packages, that provide access to occurrence records from multiple databases. We recommend using `spocc` as the primary R interface to `rebird` unless your needs are limited to this single source.
 
 ---
