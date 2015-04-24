@@ -63,6 +63,9 @@ get_freq <- function(loctype, loc, startyear = 1900,
     args2 <- list(states = loc)
   }
   else stop("Not a valid location type")
+  if (loctype != "hotspots") 
+    if (!eloc_check(loctype, loc)) stop("Specified location doesn't exist")
+  
   args <- c(args1, args2, args3)
   url <- "http://ebird.org/ebird/BarChart"
   ret <- GET(url, query = args)
