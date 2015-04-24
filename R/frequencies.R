@@ -87,6 +87,12 @@ get_freq <- function(loctype, loc, startyear = 1900,
   }
 }
 
+
+#' Check if a location type is valid
+#'
+#' @param loctype one of: 'country', 'states', 'counties'
+#' @param loc the location code. See \link{get_freq} documentation for examples
+#' @keywords internal
 eloc_check <- function(loctype, loc) {
   
   url <- "http://ebird.org/ws1.1/ref/location/list"
