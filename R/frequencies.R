@@ -74,7 +74,7 @@ get_freq <- function(loctype, loc, startyear = 1900,
   asChar <- readBin(ret$content, "character")
   freq <- read.delim(text = asChar, skip = 12, 
                      stringsAsFactors = FALSE)[,-50]
-  if (loctype == "hotspots" & nrow(freq) == 1) {
+  if (loctype == "hotspots" && all(is.na(freq[, -1]))) {
     warning("No observations returned, check hotspot code")
   } 
   names(freq) <- c("Species", sapply(month.abb, paste ,1:4, sep="-"))
