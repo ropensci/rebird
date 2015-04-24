@@ -55,16 +55,17 @@ get_freq <- function(loctype, loc, startyear = 1900,
                 eMonth = endmonth)
   if (loctype == "counties") {
     args2 <- list(counties = loc)
-  } else
-  if (loctype == "hotspots") {
+  } else if (loctype == "hotspots") {
     args2 <- list(hotspots = loc)
-  } else
-  if (loctype == "states") {
+  } else if (loctype == "states") {
     args2 <- list(states = loc)
+  } else {
+    stop("Not a valid location type")
   }
-  else stop("Not a valid location type")
-  if (loctype != "hotspots") 
+  
+  if (loctype != "hotspots") {
     if (!eloc_check(loctype, loc)) stop("Specified location doesn't exist")
+  }
   
   args <- c(args1, args2, args3)
   url <- "http://ebird.org/ebird/BarChart"
@@ -81,8 +82,9 @@ get_freq <- function(loctype, loc, startyear = 1900,
   freq_long <- merge(freq_long, ss, by = "mo_qt")
   if (long == FALSE) {
     freq
-  } else
+  } else {
   freq_long
+  }
 }
 
 eloc_check <- function(loctype, loc) {
@@ -99,6 +101,9 @@ eloc_check <- function(loctype, loc) {
   } else {
     stop("loctype must be one of 'country', 'states', 'counties'")
   }
+  
   r <- GET(url, query = args)
+  stop_for_status(r)
+  
   loc %in% content(r)[, paste0(toupper(args$rtype), "_CODE")]
 }
