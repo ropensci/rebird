@@ -75,7 +75,7 @@ get_freq <- function(loctype, loc, startyear = 1900,
   freq <- read.delim(text = asChar, skip = 12, 
                      stringsAsFactors = FALSE)[,-50]
   names(freq) <- c("Species", sapply(month.abb, paste ,1:4, sep="-"))
-  if (long == FALSE) {
+  if (!long) {
     return(freq)
   } else {
     freq_long <- gather(freq[-1,], "mo_qt", "Freq", 2:length(freq), 
