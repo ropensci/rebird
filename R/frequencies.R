@@ -46,7 +46,7 @@
 #'    Sebastian Pardo \email{sebpardo@@gmail.com}
 #' @references \url{http://ebird.org/}
 
-get_freq <- function(loctype, loc, startyear = 1900, 
+ebirdfreq <- function(loctype, loc, startyear = 1900, 
                      endyear = format(Sys.Date(), "%Y"),
                      startmonth = 1, endmonth = 12, long = TRUE) {
   args1 <- list(cmd = "getChart", displayType = "download", 
@@ -64,7 +64,7 @@ get_freq <- function(loctype, loc, startyear = 1900,
   }
   
   if (loctype != "hotspots") {
-    if (!eloc_check(loctype, loc)) stop("Specified location doesn't exist")
+    if (!ebirdloccheck(loctype, loc)) stop("Specified location doesn't exist")
   }
   
   args <- c(args1, args2, args3)
@@ -91,9 +91,9 @@ get_freq <- function(loctype, loc, startyear = 1900,
 #' Check if a location type is valid
 #'
 #' @param loctype one of: 'country', 'states', 'counties'
-#' @param loc the location code. See \link{get_freq} documentation for examples
+#' @param loc the location code. See \link{ebirdfreq} documentation for examples
 #' @keywords internal
-eloc_check <- function(loctype, loc) {
+ebirdloccheck <- function(loctype, loc) {
   
   url <- "http://ebird.org/ws1.1/ref/location/list"
   
