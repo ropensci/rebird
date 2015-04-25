@@ -74,6 +74,9 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
   asChar <- readBin(ret$content, "character")
   freq <- read.delim(text = asChar, skip = 12, 
                      stringsAsFactors = FALSE)[,-50]
+  if (loctype == "hotspots" && all(is.na(freq[, -1]))) {
+    warning("No observations returned, check hotspot code")
+  } 
   names(freq) <- c("Species", sapply(month.abb, paste ,1:4, sep="-"))
   if (!long) {
     return(freq)
@@ -90,8 +93,8 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
 
 #' Check if a location type is valid
 #'
-#' @param loctype one of: 'country', 'states', 'counties'
-#' @param loc the location code. See \link{ebirdfreq} documentation for examples
+#' @param loctype One of: 'country', 'states', 'counties'
+#' @param loc The location code. See \link{get_freq} documentation for examples
 #' @keywords internal
 ebirdloccheck <- function(loctype, loc) {
   
