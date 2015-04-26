@@ -38,9 +38,9 @@
 #' @import tidyr httr
 #' @export
 #' @examples \dontrun{
-#' get_freq("states", "US-NY", 2014, 2014, 1, 12)
-#' get_freq("counties", "CA-BC-GV", 1900, 2015, 1, 3)
-#' get_freq("hotspots", "L196159", long=FALSE)
+#' ebirdfreq("states", "US-NY", 2014, 2014, 1, 12)
+#' ebirdfreq("counties", "CA-BC-GV", 1900, 2015, 1, 3)
+#' ebirdfreq("hotspots", "L196159", long=FALSE)
 #' }
 #' @author Andy Teucher \email{andy.teucher@@gmail.com},
 #'    Sebastian Pardo \email{sebpardo@@gmail.com}
