@@ -94,10 +94,26 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
 #' Check if a location type is valid
 #'
 #' @param loctype One of: 'country', 'states', 'counties'
-#' @param loc The location code. See \link{get_freq} documentation for examples
+#' @param loc The location code to be checked. A single location only,
+#'   unless \code{loctype = 'country'}.
+#' 
+#' @return A logical vector of the same length as \code{loc}.
 #' @keywords internal
+#' 
+#' @examples \dontrun{
+#' ebirdloccheck("country", c("US", "CA"))
+#' ebirdloccheck("states", "CA-BC")
+#' ebirdloccheck("counties","CA-BC-GV")
+#' }
+#' @author Sebastian Pardo \email{sebpardo@@gmail.com},
+#'    Andy Teucher \email{andy.teucher@@gmail.com}
+#' @references \url{http://ebird.org/}
+
 ebirdloccheck <- function(loctype, loc) {
-  
+
+  if (loctype != "country" && length(loc) > 1) {
+    stop("More than one location specified")
+  }
   url <- "http://ebird.org/ws1.1/ref/location/list"
   
   if (loctype == "country") { 
