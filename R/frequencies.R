@@ -49,10 +49,15 @@
 ebirdfreq <- function(loctype, loc, startyear = 1900, 
                      endyear = format(Sys.Date(), "%Y"),
                      startmonth = 1, endmonth = 12, long = TRUE) {
-  args1 <- list(cmd = "getChart", displayType = "download", 
-                getLocations = loctype)
-  args3 <- list(bYear = startyear, eYear = endyear, bMonth = startmonth, 
-                eMonth = endmonth)
+
+  if (!all(c(startmonth, endmonth) %in% 1:12)) {
+    stop("Invalid month provided (must be integer between 1 and 12)")
+  } else 
+  currentyear <- max(format(Sys.Date(), "%Y"), 2015)  
+  if (!all(c(startyear, endyear) %in% 1900:currentyear)) {
+    stop(paste0("Invalid year provided (must be integer between 1900 and ", currentyear, ")"))
+  } else
+  
   if (loctype == "counties") {
     args2 <- list(counties = loc)
   } else if (loctype == "hotspots") {
@@ -66,6 +71,11 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
   if (loctype != "hotspots") {
     if (!ebirdloccheck(loctype, loc)) stop("Specified location doesn't exist")
   }
+  
+  args1 <- list(cmd = "getChart", displayType = "download", 
+                getLocations = loctype)
+  args3 <- list(bYear = startyear, eYear = endyear, bMonth = startmonth, 
+                eMonth = endmonth)
   
   args <- c(args1, args2, args3)
   url <- "http://ebird.org/ebird/BarChart"
