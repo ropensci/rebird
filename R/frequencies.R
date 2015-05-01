@@ -49,6 +49,10 @@
 ebirdfreq <- function(loctype, loc, startyear = 1900, 
                      endyear = format(Sys.Date(), "%Y"),
                      startmonth = 1, endmonth = 12, long = TRUE) {
+  
+  if (!grepl("^L\\d{1,8}$", loc)) {
+    stop("Invalid hotspot code")
+  }
 
   if (!all(c(startmonth, endmonth) %in% 1:12)) {
     stop("Invalid month provided (must be integer between 1 and 12)")
