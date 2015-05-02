@@ -26,10 +26,10 @@
 #'   to TRUE. If FALSE then output will be in wide format.
 #'
 #' @return A data frame containing the collected information. If in long format:
-#' @return "mo_qt": month and week (eBird data divides each month by four weeks)
-#' @return "Species": species common name
-#' @return "Freq": proportion of times the species was seen in a specified week
-#' @return "sample_size" number of complete eBird checklists submitted for 
+#' @return "monthQt": month and week (eBird data divides each month by four weeks)
+#' @return "comName": species common name
+#' @return "frequency": proportion of times the species was seen in a specified week
+#' @return "sampleSize" number of complete eBird checklists submitted for 
 #'    specified given week
 #'  @return If in wide format, then first column is the species list and all
 #'   other columns are of individual weeks (four in each month). First row 
@@ -91,15 +91,15 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
   if (loctype == "hotspots" && all(is.na(freq[, -1]))) {
     warning("No observations returned, check hotspot code")
   } 
-  names(freq) <- c("Species", sapply(month.abb, paste ,1:4, sep="-"))
+  names(freq) <- c("comName", sapply(month.abb, paste ,1:4, sep="-"))
   if (!long) {
     return(freq)
   } else {
-    freq_long <- gather(freq[-1,], "mo_qt", "Freq", 2:length(freq), 
+    freq_long <- gather(freq[-1,], "monthQt", "frequency", 2:length(freq), 
                         convert = TRUE)
-    ss <- gather(freq[1,-1], key = "mo_qt", value = "sample_size", 
+    ss <- gather(freq[1,-1], key = "monthQt", value = "sampleSize", 
                  convert = TRUE)
-    freq_long <- merge(freq_long, ss, by = "mo_qt")
+    freq_long <- merge(freq_long, ss, by = "monthQt")
     tbl_df(freq_long)
   }
 }
