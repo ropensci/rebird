@@ -50,10 +50,6 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
                      endyear = format(Sys.Date(), "%Y"),
                      startmonth = 1, endmonth = 12, long = TRUE) {
   
-  if (!grepl("^L\\d{1,8}$", loc)) {
-    stop("Invalid hotspot code")
-  }
-
   if (!all(c(startmonth, endmonth) %in% 1:12)) {
     stop("Invalid month provided (must be integer between 1 and 12)")
   } else 
@@ -65,6 +61,9 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
   if (loctype == "counties") {
     args2 <- list(counties = loc)
   } else if (loctype == "hotspots") {
+    if (!grepl("^L\\d{1,8}$", loc)) {
+      stop("Invalid hotspot code")
+    } else
     args2 <- list(hotspots = loc)
   } else if (loctype == "states") {
     args2 <- list(states = loc)
