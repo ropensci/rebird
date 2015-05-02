@@ -42,13 +42,13 @@ Defaults to December.}
 \value{
 A data frame containing the collected information. If in long format:
 
-"mo_qt": month and week (eBird data divides each month by four weeks)
+"monthQt": month and week (eBird data divides each month by four weeks)
 
-"Species": species common name
+"comName": species common name
 
-"Freq": proportion of times the species was seen in a specified week
+"frequency": proportion of times the species was seen in a specified week
 
-"sample_size" number of complete eBird checklists submitted for
+"sampleSize" number of complete eBird checklists submitted for
    specified given week
 
 If in wide format, then first column is the species list and all
