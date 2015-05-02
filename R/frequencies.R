@@ -1,4 +1,4 @@
-#' Download historical frequencies of bird observations from eBird
+#' Download historical frequencies of bird observations from 
 #'
 #' @param loctype String with location type. Either "states", "counties", 
 #'   or "hotspots".
@@ -14,7 +14,7 @@
 #'   If querying hotspots then the unique identifier is a 6-digit
 #'   number prepended with an "L" (e.g. "L196159"). All these codes
 #'   can be found by looking at the URL in the Explore Data eBird
-#'   page (http://ebird.org/ebird/GuideMe?cmd=changeLocation).
+#'   page (http://.org//GuideMe?cmd=changeLocation).
 #' @param startyear Starting year for query. Defaults to 1900.
 #' @param endyear Ending year for query. Defaults to current year 
 #'   specified by Sys.Date().
@@ -73,7 +73,7 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
   }
   
   if (loctype != "hotspots") {
-    if (!ebirdloccheck(loctype, loc)) stop("Specified location doesn't exist")
+    if (!ebirdregioncheck(loctype, loc)) stop("Specified location doesn't exist")
   }
   
   args1 <- list(cmd = "getChart", displayType = "download", 
@@ -105,25 +105,25 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
 }
 
 
-#' Check if a location type is valid
+#' Check if a region type is valid
 #'
 #' @param loctype One of: 'country', 'states', 'counties'
 #' @param loc The location code to be checked. A single location only,
 #'   unless \code{loctype = 'country'}.
 #' 
 #' @return A logical vector of the same length as \code{loc}.
-#' @keywords internal
+#' @export
 #' 
 #' @examples \dontrun{
-#' ebirdloccheck("country", c("US", "CA"))
-#' ebirdloccheck("states", "CA-BC")
-#' ebirdloccheck("counties","CA-BC-GV")
+#' ebirdregioncheck("country", c("US", "CA"))
+#' ebirdregioncheck("states", "CA-BC")
+#' ebirdregioncheck("counties","CA-BC-GV")
 #' }
 #' @author Sebastian Pardo \email{sebpardo@@gmail.com},
 #'    Andy Teucher \email{andy.teucher@@gmail.com}
 #' @references \url{http://ebird.org/}
 
-ebirdloccheck <- function(loctype, loc) {
+ebirdregioncheck <- function(loctype, loc) {
 
   if (loctype != "country" && length(loc) > 1) {
     stop("More than one location specified")
