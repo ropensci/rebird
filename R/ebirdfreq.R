@@ -35,7 +35,7 @@
 #'   other columns are of individual weeks (four in each month). First row 
 #'   contains the number of complete checklists for each week.
 #'   
-#' @import tidyr httr
+#' @import tidyr httr dplyr
 #' @export
 #' @examples \dontrun{
 #' ebirdfreq("states", "US-NY", 2014, 2014, 1, 12)
@@ -86,8 +86,8 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
   ret <- GET(url, query = args)
   stop_for_status(ret)
   asChar <- readBin(ret$content, "character")
-  freq <- read.delim(text = asChar, skip = 12, 
-                     stringsAsFactors = FALSE)[,-50]
+  freq <- tbl_df(read.delim(text = asChar, skip = 12, 
+                     stringsAsFactors = FALSE)[,-50])
   if (loctype == "hotspots" && all(is.na(freq[, -1]))) {
     warning("No observations returned, check hotspot code")
   } 
@@ -100,7 +100,7 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
     ss <- gather(freq[1,-1], key = "mo_qt", value = "sample_size", 
                  convert = TRUE)
     freq_long <- merge(freq_long, ss, by = "mo_qt")
-    freq_long
+    tbl_df(freq_long)
   }
 }
 
