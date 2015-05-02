@@ -2,7 +2,7 @@
 % Please edit documentation in R/ebirdfreq.R
 \name{ebirdfreq}
 \alias{ebirdfreq}
-\title{Download historical frequencies of bird observations from}
+\title{Download historical frequencies of bird observations from eBird}
 \usage{
 ebirdfreq(loctype, loc, startyear = 1900, endyear = format(Sys.Date(),
   "\%Y"), startmonth = 1, endmonth = 12, long = TRUE)
@@ -23,7 +23,7 @@ county codes are two-letter identifiers (e.g. Metro Vancouver:
 If querying hotspots then the unique identifier is a 6-digit
 number prepended with an "L" (e.g. "L196159"). All these codes
 can be found by looking at the URL in the Explore Data eBird
-page (http://.org//GuideMe?cmd=changeLocation).}
+page (http://ebird.org//GuideMe?cmd=changeLocation).}
 
 \item{startyear}{Starting year for query. Defaults to 1900.}
 
@@ -56,7 +56,7 @@ If in wide format, then first column is the species list and all
   contains the number of complete checklists for each week.
 }
 \description{
-Download historical frequencies of bird observations from
+Download historical frequencies of bird observations from eBird
 }
 \examples{
 \dontrun{

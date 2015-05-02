@@ -1,4 +1,4 @@
-#' Download historical frequencies of bird observations from 
+#' Download historical frequencies of bird observations from eBird
 #'
 #' @param loctype String with location type. Either "states", "counties", 
 #'   or "hotspots".
@@ -14,7 +14,7 @@
 #'   If querying hotspots then the unique identifier is a 6-digit
 #'   number prepended with an "L" (e.g. "L196159"). All these codes
 #'   can be found by looking at the URL in the Explore Data eBird
-#'   page (http://.org//GuideMe?cmd=changeLocation).
+#'   page (http://ebird.org//GuideMe?cmd=changeLocation).
 #' @param startyear Starting year for query. Defaults to 1900.
 #' @param endyear Ending year for query. Defaults to current year 
 #'   specified by Sys.Date().
