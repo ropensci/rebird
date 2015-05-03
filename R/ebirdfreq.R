@@ -98,8 +98,8 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
                         convert = TRUE)
     ss <- gather(freq[1,-1], key = "monthQt", value = "sampleSize", 
                  convert = TRUE)
-    freq_long <- merge(freq_long, ss, by = "monthQt")
-    tbl_df(freq_long)
+    freq_long <- left_join(freq_long, ss, by = "monthQt")
+    freq_long
   }
 }
 
