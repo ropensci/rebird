@@ -47,50 +47,46 @@
 #' @references \url{http://ebird.org/}
 
 ebirdfreq <- function(loctype, loc, startyear = 1900, 
-                     endyear = format(Sys.Date(), "%Y"),
-                     startmonth = 1, endmonth = 12, long = TRUE) {
+                      endyear = format(Sys.Date(), "%Y"),
+                      startmonth = 1, endmonth = 12, long = TRUE) {
   
   if (!all(c(startmonth, endmonth) %in% 1:12)) {
-    stop("Invalid month provided (must be integer between 1 and 12)")
-  } else 
-  currentyear <- max(format(Sys.Date(), "%Y"), 2015)  
-  if (!all(c(startyear, endyear) %in% 1900:currentyear)) {
-    stop(paste0("Invalid year provided (must be integer between 1900 and ", currentyear, ")"))
-  } else
+    stop("Invalid month(s) provided (must be integer between 1 and 12)")
+  }
   
-  if (loctype == "counties") {
-    args2 <- list(counties = loc)
-  } else if (loctype == "hotspots") {
-    if (!grepl("^L\\d{1,8}$", loc)) {
-      stop("Invalid hotspot code")
-    } else
-    args2 <- list(hotspots = loc)
-  } else if (loctype == "states") {
-    args2 <- list(states = loc)
+  currentyear <- format(Sys.Date(), "%Y")
+  if (!all(c(startyear, endyear) %in% 1900:currentyear)) {
+    stop(paste0("Invalid year(s) provided (must be integer between 1900 and ", currentyear, ")"))
+  }
+
+  if (loctype == "hotspots") {
+    if (!grepl("^L\\d{1,8}$", loc)) stop("Invalid hotspot code")
+  } else if (loctype %in% c("counties", "states")) {
+    if (!ebirdregioncheck(loctype, loc)) stop("Specified location doesn't exist")
   } else {
     stop("Not a valid location type")
   }
   
-  if (loctype != "hotspots") {
-    if (!ebirdregioncheck(loctype, loc)) stop("Specified location doesn't exist")
-  }
+  args <- list(cmd = "getChart", displayType = "download", 
+               getLocations = loctype, loctypename = loc, 
+               bYear = startyear, eYear = endyear, bMonth = startmonth, 
+               eMonth = endmonth)
+  # Rename the loctypename placeholder with loctype
+  names(args)[names(args) == "loctypename"] <- loctype
   
-  args1 <- list(cmd = "getChart", displayType = "download", 
-                getLocations = loctype)
-  args3 <- list(bYear = startyear, eYear = endyear, bMonth = startmonth, 
-                eMonth = endmonth)
-  
-  args <- c(args1, args2, args3)
   url <- "http://ebird.org/ebird/BarChart"
   ret <- GET(url, query = args)
   stop_for_status(ret)
   asChar <- readBin(ret$content, "character")
   freq <- tbl_df(read.delim(text = asChar, skip = 12, 
-                     stringsAsFactors = FALSE)[,-50])
+                            stringsAsFactors = FALSE)[,-50])
+  
   if (loctype == "hotspots" && all(is.na(freq[, -1]))) {
     warning("No observations returned, check hotspot code")
-  } 
+  }
+  
   names(freq) <- c("comName", sapply(month.abb, paste ,1:4, sep="-"))
+  
   if (!long) {
     return(freq)
   } else {
