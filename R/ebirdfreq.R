@@ -24,6 +24,7 @@
 #'   Defaults to December.
 #' @param long Logical, Should output be in long format? Defaults 
 #'   to TRUE. If FALSE then output will be in wide format.
+#' @param ... Curl options passed on to \code{\link[httr]{GET}} 
 #'
 #' @return A data frame containing the collected information. If in long format:
 #' @return "monthQt": month and week (eBird data divides each month by four weeks)
@@ -48,7 +49,7 @@
 
 ebirdfreq <- function(loctype, loc, startyear = 1900, 
                       endyear = format(Sys.Date(), "%Y"),
-                      startmonth = 1, endmonth = 12, long = TRUE) {
+                      startmonth = 1, endmonth = 12, long = TRUE, ...) {
   
   if (!all(c(startmonth, endmonth) %in% 1:12)) {
     stop("Invalid month(s) provided (must be integer between 1 and 12)")
@@ -75,7 +76,7 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
   names(args)[names(args) == "loctypename"] <- loctype
   
   url <- "http://ebird.org/ebird/BarChart"
-  ret <- GET(url, query = args)
+  ret <- GET(url, query = args, ...)
   stop_for_status(ret)
   asChar <- readBin(ret$content, "character")
   freq <- tbl_df(read.delim(text = asChar, skip = 12, 
