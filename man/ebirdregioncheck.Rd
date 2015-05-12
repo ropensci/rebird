@@ -4,13 +4,15 @@
 \alias{ebirdregioncheck}
 \title{Check if a region type is valid}
 \usage{
-ebirdregioncheck(loctype, loc)
+ebirdregioncheck(loctype, loc, ...)
 }
 \arguments{
 \item{loctype}{One of: 'country', 'states', 'counties'}
 
 \item{loc}{The location code to be checked. A single location only,
-  unless \code{loctype = 'country'}.}
+unless \code{loctype = 'country'}.}
+
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A logical vector of the same length as \code{loc}.

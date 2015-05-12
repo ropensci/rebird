@@ -5,7 +5,7 @@
 \title{Download historical frequencies of bird observations from eBird}
 \usage{
 ebirdfreq(loctype, loc, startyear = 1900, endyear = format(Sys.Date(),
-  "\%Y"), startmonth = 1, endmonth = 12, long = TRUE)
+  "\%Y"), startmonth = 1, endmonth = 12, long = TRUE, ...)
 }
 \arguments{
 \item{loctype}{String with location type. Either "states", "counties",
@@ -37,7 +37,9 @@ Defaults to January.}
 Defaults to December.}
 
 \item{long}{Logical, Should output be in long format? Defaults
-  to TRUE. If FALSE then output will be in wide format.}
+to TRUE. If FALSE then output will be in wide format.}
+
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 A data frame containing the collected information. If in long format:
