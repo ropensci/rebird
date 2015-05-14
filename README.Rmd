@@ -59,6 +59,15 @@ ebirdhotspot(locID = c('L99381','L99382'))
 ```
 
 
+## Frequency of observations at hotspots or regions
+
+Obtain historical frequencies of bird occurrences by hotspot or region
+
+```{r ebirdfreq}
+ebirdfreq(loctype = 'hotspots', loc = 'L196159')
+```
+
+
 ## Meta
 
 * Please [report any issues or bugs](https://github.com/ropensci/rebird/issues).

@@ -1,7 +1,7 @@
 Package: rebird
 Version: 0.1.5.99
 Date: 2014-10-31
-Title: R Client for the eBird Database of Bird Observations.
+Title: R Client for the eBird Database of Bird Observations
 Description: A programmatic client for the eBird database, including functions
     for searching for bird observations by geographic location (latitude,
     longitude), eBird hotspots, location identifiers, by notable sightings, by
@@ -12,7 +12,9 @@ Authors@R: c(person("Rafael", "Maia", role = c("aut", "cre"),
     person("Scott", "Chamberlain", role = "aut",
     email = "myrmecocystus@gmail.com"),
     person("Andy", "Teucher", role = "aut",
-    email = "andy.teucher@gmail.com"))
+    email = "andy.teucher@gmail.com"), 
+    person("Sebastian", "Pardo", role = "aut",
+    email = "sebpardo@gmail.com"))
 URL: http://github.com/ropensci/rebird
 BugReports: http://github.com/ropensci/rebird/issues
 VignetteBuilder: knitr
@@ -20,7 +22,8 @@ Roxygen: list(wrap = FALSE)
 Imports:
     jsonlite,
     httr,
-    dplyr
+    dplyr,
+    tidyr
 Suggests:
     knitr,
     testthat
