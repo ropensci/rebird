@@ -24,7 +24,9 @@ This package provides an R interface to the recent eBird database.
 }
 \author{
 Rafael Maia \email{rm72@zips.uakron.edu},
-Scott Chamberlain \email{myrmecocystus@gmail.com}, Andy Teucher \email{andy.teucher@gmail.com}
+Scott Chamberlain \email{myrmecocystus@gmail.com},
+Andy Teucher \email{andy.teucher@gmail.com},
+Sebastian Pardo \email{sebpardo@gmail.com}
 }
 \keyword{package}
 

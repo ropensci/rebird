@@ -12,7 +12,9 @@ Authors@R: c(person("Rafael", "Maia", role = c("aut", "cre"),
     person("Scott", "Chamberlain", role = "aut",
     email = "myrmecocystus@gmail.com"),
     person("Andy", "Teucher", role = "aut",
-    email = "andy.teucher@gmail.com"))
+    email = "andy.teucher@gmail.com"), 
+    person("Sebastian", "Pardo", role = "aut",
+    email = "sebpardo@gmail.com"))
 URL: http://github.com/ropensci/rebird
 BugReports: http://github.com/ropensci/rebird/issues
 VignetteBuilder: knitr

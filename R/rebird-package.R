@@ -15,7 +15,9 @@
 #' @docType package
 #' @title rebird: an R package for access to the eBird database.
 #' @author  Rafael Maia \email{rm72@@zips.uakron.edu}, 
-#' Scott Chamberlain \email{myrmecocystus@@gmail.com}, Andy Teucher \email{andy.teucher@@gmail.com}
+#' Scott Chamberlain \email{myrmecocystus@@gmail.com}, 
+#' Andy Teucher \email{andy.teucher@@gmail.com}, 
+#' Sebastian Pardo \email{sebpardo@@gmail.com}
 #' @keywords package
 #' @examples #see functions.
 
