@@ -1,6 +1,8 @@
 context("ebirdregioncheck")
 
 test_that("ebirdregioncheck works correctly", {
+  skip_on_cran()
+  
   expect_is(ebirdregioncheck("country", "CA"), "logical")
   expect_equal(ebirdregioncheck("country", "CA"), TRUE)
   expect_equal(ebirdregioncheck("states", "CA-BC"), TRUE)
@@ -13,6 +15,8 @@ test_that("ebirdregioncheck works correctly", {
 })
 
 test_that("ebirdregioncheck fails correctly", {
+  skip_on_cran()
+  
   expect_error(ebirdregioncheck())
   expect_error(ebirdregioncheck("country"))
   expect_error(ebirdregioncheck("foo", "CA-BC-ZZ"))

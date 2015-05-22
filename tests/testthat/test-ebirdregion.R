@@ -1,6 +1,8 @@
 context("ebirdregion")
 
 test_that("ebirdregion works correctly", {
+  skip_on_cran()
+  
   out <- ebirdregion(region = 'US', species = 'Setophaga caerulescens', max = 50)
   expect_is(out, "data.frame")
   expect_equal(NCOL(out), 11)

@@ -1,6 +1,8 @@
 context("ebirdfreq")
 
 test_that("ebirdfreq works correctly", {
+  skip_on_cran()
+  
   long <- ebirdfreq("counties", "CA-BC-GV")
   wide <- ebirdfreq("counties", "CA-BC-GV", long=FALSE)
   expect_is(long, "data.frame")
@@ -16,6 +18,8 @@ test_that("ebirdfreq works correctly", {
 })
 
 test_that("ebirdfreq fails correctly", {
+  skip_on_cran()
+  
   expect_error(ebirdfreq())
   expect_error(ebirdfreq("foo"))
   expect_error(ebirdfreq("hotspots", "foo123"), "Invalid hotspot code")

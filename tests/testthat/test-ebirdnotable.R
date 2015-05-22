@@ -1,6 +1,8 @@
 context("ebirdnotable")
 
 test_that("ebirdnotable works correctly", {
+  skip_on_cran()
+  
   out <- ebirdnotable(lat=42, lng=-70, max = 40)
   expect_is(out, "data.frame")
   expect_equal(dim(out), c(40,11))

@@ -1,6 +1,8 @@
 context("ebirdloc")
 
 test_that("ebirdloc works correctly", {
+  skip_on_cran()
+  
   out <- ebirdloc(c('L99381','L99382'))
   expect_is(out, "data.frame")
   expect_is(out$comName, "character")
@@ -19,6 +21,8 @@ test_that("ebirdloc works correctly", {
 
 
 test_that("ebirdloc fails correctly", {
+  skip_on_cran()
+  
   mssg <- "You have supplied an invalid species category"
   expect_error(ebirdloc(), "argument \"locID\" is missing")
   expect_error(ebirdloc(locID = c('L99381','L99382','L99381','L99382','L99381','L99382',

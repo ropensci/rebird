@@ -1,6 +1,8 @@
 context("ebirdtaxonomy")
 
 test_that("ebirdtaxonomy works correctly", {
+  skip_on_cran()
+  
   out <- ebirdtaxonomy("domestic")
   out2 <- ebirdtaxonomy(cat=c("spuh", "slash"))
   
@@ -14,6 +16,8 @@ test_that("ebirdtaxonomy works correctly", {
 })
 
 test_that("ebirdtaxonomy fails correctly", {
+  skip_on_cran()
+  
   mssg <- "You have supplied an invalid species category"
   expect_error(ebirdtaxonomy("asf"), mssg)
   expect_error(ebirdtaxonomy(2), mssg)
