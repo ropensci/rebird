@@ -22,8 +22,7 @@ Roxygen: list(wrap = FALSE)
 Imports:
     jsonlite,
     httr,
-    dplyr,
-    tidyr
+    dplyr
 Suggests:
     knitr,
     testthat

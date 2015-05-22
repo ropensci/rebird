@@ -36,7 +36,7 @@
 #'   other columns are of individual weeks (four in each month). First row 
 #'   contains the number of complete checklists for each week.
 #'   
-#' @import tidyr httr dplyr
+#' @import httr dplyr
 #' @export
 #' @examples \dontrun{
 #' ebirdfreq("states", "US-NY", 2014, 2014, 1, 12)
@@ -91,12 +91,13 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
   if (!long) {
     return(freq)
   } else {
-    freq_long <- gather(freq[-1,], "monthQt", "frequency", 2:length(freq), 
-                        convert = TRUE)
-    ss <- gather(freq[1,-1], key = "monthQt", value = "sampleSize", 
-                 convert = TRUE)
+    freq_long <- reshape(data.frame(freq[-1, ]), varying = 2:49, direction = "long", 
+                         v.names = "frequency", idvar = "comName", 
+                         timevar = "monthQt", times = names(freq)[2:49])
+    ss <- data.frame(sampleSize = unlist(freq[1, -1]))
+    ss$monthQt <- rownames(ss)
     freq_long <- left_join(freq_long, ss, by = "monthQt")
-    freq_long
+    tbl_df(freq_long)
   }
 }
 
