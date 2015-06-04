@@ -32,7 +32,7 @@
 ebirdtaxonomy <- function(cat=NULL, locale=NULL, ...){
   cats <- c("domestic", "form", "hybrid", "intergrade", "issf", "slash", "species", "spuh")
   
-  if (!all(sapply(cat, function(x) x %in% cats))) {
+  if (!all(vapply(cat, function(x) x %in% cats, FUN.VALUE = logical(1)))) {
     stop("You have supplied an invalid species category")
   }
   cat <- if(!is.null(cat)) cat <- paste0(cat, collapse = ",")

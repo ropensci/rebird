@@ -86,7 +86,8 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
     warning("No observations returned, check hotspot code")
   }
   
-  names(freq) <- c("comName", sapply(month.abb, paste ,1:4, sep="-"))
+  names(freq) <- c("comName", vapply(month.name, paste, FUN.VALUE = character(4), 
+                                     1:4, sep="-"))
   
   if (!long) {
     return(freq)
