@@ -7,5 +7,6 @@ man-roxygen
 ^\.Rproj\.user$
 CONTRIBUTING.md
 .gitattributes
-vignettees/margins.sty
+vignettes/margins.sty
 README.Rmd
+vignettes/figure/
