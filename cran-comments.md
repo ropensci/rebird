@@ -38,8 +38,9 @@ ebird_GET : <anonymous> : <anonymous>: no visible global function
   Undefined global functions or variables:
     is read.delim reshape
 
-  functions `is`, `read.delim`, and `reshape` are included in the `utils` 
-  and `stats` packages in base R.
+  Functions `is`, `read.delim`, and `reshape` are included in the `utils` 
+  and `stats` packages in base R, and this NOTE comes up only when 
+  using win-builder and running the devel version, not the current release.
 
 
 ## Downstream dependencies
