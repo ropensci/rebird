@@ -10,3 +10,4 @@ CONTRIBUTING.md
 vignettes/margins.sty
 README.Rmd
 vignettes/figure/
+cran-comments.md
