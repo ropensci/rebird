@@ -6,7 +6,7 @@
 ## R CMD check results
 There were no ERRORs or WARNINGs. 
 
-There were 3 NOTEs:
+There were 2 NOTEs:
 
 * checking CRAN incoming feasibility ... NOTE
 Maintainer: 'Sebastian Pardo <sebpardo@gmail.com>'
@@ -28,20 +28,6 @@ Possibly mis-spelled words in DESCRIPTION:
   No repository set, so cyclic dependency check skipped
 
   Setting repository is machine-dependent.
-
-
-* checking R code for possible problems ... NOTE
-ebird_GET : <anonymous> : <anonymous>: no visible global function
-  definition for 'is'
-  ebirdfreq: no visible global function definition for 'read.delim'
-  ebirdfreq: no visible global function definition for 'reshape'
-  Undefined global functions or variables:
-    is read.delim reshape
-
-  Functions `is`, `read.delim`, and `reshape` are included in the `utils` 
-  and `stats` packages in base R, and this NOTE comes up only when 
-  using win-builder and running the devel version, not the current release.
-
 
 ## Downstream dependencies
 I have also run R CMD check on downstream dependencies of rebird.
