@@ -20,6 +20,9 @@ BugReports: http://github.com/ropensci/rebird/issues
 VignetteBuilder: knitr
 Roxygen: list(wrap = FALSE)
 Imports:
+    methods,
+    utils,
+    stats,
     jsonlite,
     httr,
     dplyr
