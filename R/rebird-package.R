@@ -10,6 +10,10 @@
 #'
 #' This package provides an R interface to the recent eBird database.
 #'
+#' @importFrom methods is
+#' @importFrom utils read.delim
+#' @importFrom stats reshape
+#'
 #' @name rebird-package
 #' @aliases rebird
 #' @docType package
