@@ -3,8 +3,8 @@ context("nearestobs")
 test_that("nearestobs works correctly", {
   skip_on_cran()
   
-  out <- nearestobs('spizella arborea', 42, -76)
-  out2 <- nearestobs('spizella arborea', 42,-76, max=10, provisional=TRUE, hotspot=TRUE)
+  out <- nearestobs('branta canadensis', 42, -76)
+  out2 <- nearestobs('branta canadensis', 42,-76, max=10, provisional=TRUE, hotspot=TRUE)
   
   expect_is(out, "data.frame")
   expect_is(out2, "data.frame")

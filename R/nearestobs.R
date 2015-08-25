@@ -46,8 +46,8 @@
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
 #' @references \url{http://ebird.org/}
 #' @examples \dontrun{
-#' nearestobs('spizella arborea', 42, -76)
-#' nearestobs('spizella arborea', 42,-76, max=10, provisional=TRUE, hotspot=TRUE)
+#' nearestobs('branta canadensis', 42, -76)
+#' nearestobs('branta canadensis', 42, -76, max=10, provisional=TRUE, hotspot=TRUE)
 #' }
 
 nearestobs <-  function(species, lat = NULL, lng = NULL, back = NULL, max = NULL, locale = NULL, 

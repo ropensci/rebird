@@ -74,8 +74,8 @@ with observations of a species.
 }
 \examples{
 \dontrun{
-nearestobs('spizella arborea', 42, -76)
-nearestobs('spizella arborea', 42,-76, max=10, provisional=TRUE, hotspot=TRUE)
+nearestobs('branta canadensis', 42, -76)
+nearestobs('branta canadensis', 42, -76, max=10, provisional=TRUE, hotspot=TRUE)
 }
 }
 \author{
