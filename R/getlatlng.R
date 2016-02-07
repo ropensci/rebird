@@ -12,10 +12,10 @@
 #' @references \url{http://ipinfo.io}
 
 getlatlng <- function() {
-  locs <- content(GET("http://ipinfo.io"), as = "parsed")
+  locs <- jsonlite::fromJSON(content(GET("http://ipinfo.io"), as = "text", encoding = "UTF-8"))
   warning(paste("As a complete lat/long pair was not provided, your location", 
                 "was determined using your computer's public-facing IP", 
                 "address. This will likely not reflect your physical", 
-                "location if you are using a remote server or proxy."))
+                "location if you are using a remote server or proxy."), call. = FALSE)
   as.numeric(strsplit(locs$loc, ",")[[1]])
 }
