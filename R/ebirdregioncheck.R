@@ -31,12 +31,11 @@ ebirdregioncheck <- function(loctype, loc, ...) {
     args <- list(rtype = "subnational2",
                  subnational1Code = substr(loc, 1, 5)) 
   } else {
-    stop("loctype must be one of 'country', 'states', 'counties'")
+    stop("loctype must be one of 'country', 'states', 'counties'", call. = FALSE)
   }
   
   r <- GET(paste0(ebase(), "ref/location/list"), query = args, ...)
   stop_for_status(r)
-  
-  loc %in% content(r)[, paste0(toupper(args$rtype), "_CODE")]
+  tmp <- read.delim(text = content(r, "text", encoding = "UTF-8"), sep = ",", stringsAsFactors = FALSE)
+  loc %in% tmp[, paste0(toupper(args$rtype), "_CODE")]
 }
-
