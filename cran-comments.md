@@ -1,4 +1,4 @@
-As per Uwe's previous comment, now using CRAN master URL (<https://cran.r-project.org/package=rebird/>) instead to avoid canonical URL note. 
+As per Uwe's previous comment, now using CRAN master URL (<https://cran.r-project.org/package=rebird/>) to avoid canonical URL note. The NOTE regarding this issue is not coming up now when testing in win-builder devel version. 
 
 ## Test environments
 * local machine running Linux Ubuntu 14.04.4, R 3.2.4
