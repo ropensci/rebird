@@ -5,7 +5,7 @@ reBird
 [![Build status](https://ci.appveyor.com/api/projects/status/s3dobn991c20t2kg?svg=true)](https://ci.appveyor.com/project/sckott/rebird)
 [![Coverage Status](https://coveralls.io/repos/ropensci/rebird/badge.svg)](https://coveralls.io/r/ropensci/rebird)
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/rebird)](https://github.com/metacran/cranlogs.app)
-[![cran version](http://www.r-pkg.org/badges/version/rebird)](http://cran.rstudio.com/web/packages/rebird)
+[![cran version](http://www.r-pkg.org/badges/version/rebird)](https://cran.rstudio.com/package=rebird/)
 
 `reBird` is a package to interface with the eBird webservices.
 

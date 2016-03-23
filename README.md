@@ -5,7 +5,7 @@ reBird
 [![Build status](https://ci.appveyor.com/api/projects/status/s3dobn991c20t2kg?svg=true)](https://ci.appveyor.com/project/sckott/rebird)
 [![Coverage Status](https://coveralls.io/repos/ropensci/rebird/badge.svg)](https://coveralls.io/r/ropensci/rebird)
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/rebird)](https://github.com/metacran/cranlogs.app)
-[![cran version](http://www.r-pkg.org/badges/version/rebird)](http://cran.rstudio.com/web/packages/rebird)
+[![cran version](http://www.r-pkg.org/badges/version/rebird)](https://cran.rstudio.com/package=rebird/)
 
 `reBird` is a package to interface with the eBird webservices.
 
@@ -47,22 +47,24 @@ ebirdgeo(species = 'spinus tristis', lat = 42, lng = -76)
 ```
 
 ```
-## Source: local data frame [45 x 11]
+## Source: local data frame [22 x 11]
 ## 
-##               comName      lat       lng    locID
-## 1  American Goldfinch 42.09055 -76.06251  L837941
-## 2  American Goldfinch 42.20641 -75.83381  L212476
-## 3  American Goldfinch 42.08916 -75.90463  L197301
-## 4  American Goldfinch 42.12462 -76.22163 L3580318
-## 5  American Goldfinch 41.84560 -75.85645 L3254954
-## 6  American Goldfinch 42.08553 -76.03871 L2291049
-## 7  American Goldfinch 42.08182 -75.96821  L447646
-## 8  American Goldfinch 42.16490 -76.25615 L2149891
-## 9  American Goldfinch 41.76206 -75.90543 L1793977
-## 10 American Goldfinch 41.94141 -75.90484  L917161
-## ..                ...      ...       ...      ...
-## Variables not shown: locName (chr), locationPrivate (lgl), obsDt (chr),
-##   obsReviewed (lgl), obsValid (lgl), sciName (chr), howMany (int)
+##               obsDt       lng
+##               (chr)     (dbl)
+## 1  2016-03-22 15:50 -76.03871
+## 2  2016-03-22 09:35 -76.00722
+## 3  2016-03-21 08:10 -75.89760
+## 4  2016-03-20 11:00 -75.89836
+## 5  2016-03-20 08:00 -75.85645
+## 6  2016-03-20 07:30 -75.96821
+## 7  2016-03-20 07:00 -76.01614
+## 8  2016-03-19 16:45 -76.03404
+## 9  2016-03-19 10:52 -75.98304
+## 10 2016-03-19 10:50 -75.91689
+## ..              ...       ...
+## Variables not shown: locName (chr), obsValid (lgl), comName (chr),
+##   obsReviewed (lgl), sciName (chr), locationPrivate (lgl), howMany (int),
+##   lat (dbl), locID (chr)
 ```
 
 ## Recent observations at a region
@@ -75,22 +77,25 @@ ebirdregion(region = 'US', species = 'Setophaga caerulescens')
 ```
 
 ```
-## Source: local data frame [810 x 11]
+## Source: local data frame [12 x 11]
 ## 
-##                        comName howMany      lat       lng    locID
-## 1  Black-throated Blue Warbler       2 27.64145 -80.40593 L1943632
-## 2  Black-throated Blue Warbler      NA 26.11568 -80.23916  L614607
-## 3  Black-throated Blue Warbler       3 27.59746 -80.34379 L3605491
-## 4  Black-throated Blue Warbler       1 40.23749 -76.48787 L3602875
-## 5  Black-throated Blue Warbler       1 42.47123 -76.45924 L1133152
-## 6  Black-throated Blue Warbler       1 38.43480 -79.03610  L718652
-## 7  Black-throated Blue Warbler       1 43.23972 -74.51710  L618982
-## 8  Black-throated Blue Warbler       2 25.28024 -80.29740  L768468
-## 9  Black-throated Blue Warbler       1 40.16182 -74.13066  L291443
-## 10 Black-throated Blue Warbler       1 42.50105 -72.39450 L2073431
-## ..                         ...     ...      ...       ...      ...
-## Variables not shown: locName (chr), locationPrivate (lgl), obsDt (chr),
-##   obsReviewed (lgl), obsValid (lgl), sciName (chr)
+##               obsDt       lng                                      locName
+##               (chr)     (dbl)                                        (chr)
+## 1  2016-03-21 12:15 -81.36384           US-Florida-Lake Mary-Extended Stay
+## 2  2016-03-20 11:29 -80.31086                            A. D. Barnes Park
+## 3  2016-03-20 11:00 -81.54980                               Crooked Holler
+## 4  2016-03-20 09:53 -81.84061                     Dave  and  Tammy's House
+## 5  2016-03-19 17:20 -80.14181 Richardson Historic Park and Nature Preserve
+## 6  2016-03-19 10:00 -80.34860                              Cutler Wetlands
+## 7  2016-03-19 07:45 -80.44960                       Castellow Hammock Park
+## 8  2016-03-17 08:15 -80.17166                      Topeekeegee Yugnee Park
+## 9  2016-03-16 13:41 -80.82018                                  Long Key SP
+## 10 2016-03-12 09:48 -80.39846                                    Zoo Miami
+## 11 2016-03-11 11:36 -80.41000                 John Pennekamp Coral Reef SP
+## 12 2016-03-11 09:00 -80.15430                               Greynolds Park
+## Variables not shown: obsValid (lgl), comName (chr), obsReviewed (lgl),
+##   sciName (chr), locationPrivate (lgl), howMany (int), lat (dbl), locID
+##   (chr)
 ```
 
 
@@ -104,22 +109,23 @@ ebirdhotspot(locID = c('L99381','L99382'))
 ```
 
 ```
-## Source: local data frame [82 x 11]
+## Source: local data frame [99 x 11]
 ## 
-##                     comName      lat       lng  locID      locName
-## 1              Canada Goose 42.46229 -76.50185 L99381 Stewart Park
-## 2                   Mallard 42.46229 -76.50185 L99381 Stewart Park
-## 3          Common Merganser 42.46229 -76.50185 L99381 Stewart Park
-## 4          Great Blue Heron 42.46229 -76.50185 L99381 Stewart Park
-## 5          Ring-billed Gull 42.46229 -76.50185 L99381 Stewart Park
-## 6              Herring Gull 42.46229 -76.50185 L99381 Stewart Park
-## 7  Lesser Black-backed Gull 42.46229 -76.50185 L99381 Stewart Park
-## 8   Great Black-backed Gull 42.46229 -76.50185 L99381 Stewart Park
-## 9              Caspian Tern 42.46229 -76.50185 L99381 Stewart Park
-## 10            American Crow 42.46229 -76.50185 L99381 Stewart Park
-## ..                      ...      ...       ...    ...          ...
-## Variables not shown: locationPrivate (lgl), obsDt (chr), obsReviewed
-##   (lgl), obsValid (lgl), sciName (chr), howMany (int)
+##               obsDt       lng      locName obsValid           comName
+##               (chr)     (dbl)        (chr)    (lgl)             (chr)
+## 1  2016-03-23 08:23 -76.50375 Stewart Park     TRUE        Snow Goose
+## 2  2016-03-23 08:23 -76.50375 Stewart Park     TRUE      Canada Goose
+## 3  2016-03-23 08:23 -76.50375 Stewart Park     TRUE         Wood Duck
+## 4  2016-03-23 08:23 -76.50375 Stewart Park     TRUE           Mallard
+## 5  2016-03-23 08:23 -76.50375 Stewart Park     TRUE      Lesser Scaup
+## 6  2016-03-23 08:23 -76.50375 Stewart Park     TRUE  Hooded Merganser
+## 7  2016-03-23 08:23 -76.50375 Stewart Park     TRUE  Common Merganser
+## 8  2016-03-23 08:23 -76.50375 Stewart Park     TRUE        Ruddy Duck
+## 9  2016-03-23 08:23 -76.50375 Stewart Park     TRUE Pied-billed Grebe
+## 10 2016-03-23 08:23 -76.50375 Stewart Park     TRUE      Horned Grebe
+## ..              ...       ...          ...      ...               ...
+## Variables not shown: obsReviewed (lgl), sciName (chr), locationPrivate
+##   (lgl), howMany (int), lat (dbl), locID (chr)
 ```
 
 
@@ -133,20 +139,21 @@ ebirdfreq(loctype = 'hotspots', loc = 'L196159')
 ```
 
 ```
-## Source: local data frame [7,200 x 4]
+## Source: local data frame [8,304 x 4]
 ## 
-##    monthQt                             comName frequency sampleSize
-## 1    Apr-1         Greater White-fronted Goose    0.0000         16
-## 2    Apr-1                          Snow Goose    0.0000         16
-## 3    Apr-1                      Cackling Goose    0.0000         16
-## 4    Apr-1                        Canada Goose    0.3750         16
-## 5    Apr-1                      Trumpeter Swan    0.0625         16
-## 6    Apr-1                           Wood Duck    0.0625         16
-## 7    Apr-1                             Gadwall    0.0000         16
-## 8    Apr-1                     Eurasian Wigeon    0.1875         16
-## 9    Apr-1                     American Wigeon    1.0000         16
-## 10   Apr-1 Eurasian x American Wigeon (hybrid)    0.0000         16
-## ..     ...                                 ...       ...        ...
+##                        comName   monthQt frequency sampleSize
+##                          (chr)     (chr)     (dbl)      (dbl)
+## 1  Greater White-fronted Goose January-1 0.0000000         22
+## 2                   Snow Goose January-1 0.0000000         22
+## 3               Cackling Goose January-1 0.0000000         22
+## 4                 Canada Goose January-1 0.0000000         22
+## 5        Cackling/Canada Goose January-1 0.0000000         22
+## 6               Trumpeter Swan January-1 0.0000000         22
+## 7                    Wood Duck January-1 0.1818182         22
+## 8                      Gadwall January-1 0.0000000         22
+## 9              Eurasian Wigeon January-1 0.4090909         22
+## 10             American Wigeon January-1 1.0000000         22
+## ..                         ...       ...       ...        ...
 ```
 
 
