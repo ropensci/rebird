@@ -1,3 +1,10 @@
+rebird 0.3.0
+===================
+
+### MINOR IMPROVEMENTS AND BUG FIXES
+
+* Fix for `httr::content` after changes in httr v1.0.0 (#38).
+
 rebird 0.2
 ===================
 

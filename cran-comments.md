@@ -1,15 +1,13 @@
-Previous maintainer Rafael Maia <rm72@zips.uakron.edu> has emailed CRAN
-confirming the change of maintainer to Sebastian Pardo <sebpardo@gmail.com>.
-
 ## Test environments
-* local Linux Ubuntu install, R 3.2.1
+* local machine running Linux Ubuntu 14.04.4, R 3.2.4
 * win-builder (devel and release)
-
+* Windows Server 2012 R2 x64, R 3.2.4 on Appveyor
+* Ubuntu 12.04.5 LTS, R 3.2.4 or Travis-CI
 
 ## R CMD check results
 There were no ERRORs or WARNINGs. 
 
-There were 2 NOTEs:
+There was 1 NOTE:
 
 * checking CRAN incoming feasibility ... NOTE
 Maintainer: 'Sebastian Pardo <sebpardo@gmail.com>'
@@ -17,7 +15,7 @@ Maintainer: 'Sebastian Pardo <sebpardo@gmail.com>'
 License components with restrictions and base license permitting such:
   MIT + file LICENSE
 File 'LICENSE':
-  YEAR: 2015
+  YEAR: 2016
   COPYRIGHT HOLDER: Rafael Maia
 
 Possibly mis-spelled words in DESCRIPTION:
@@ -26,14 +24,6 @@ Possibly mis-spelled words in DESCRIPTION:
 
   Not mis-spellings.
 
-
-* checking package dependencies ... NOTE
-  No repository set, so cyclic dependency check skipped
-
-  Setting repository is machine-dependent.
-
 ## Downstream dependencies
 I have also run R CMD check on downstream dependencies of rebird.
 All packages that I could install passed.
-
-
