@@ -16,3 +16,6 @@ pandoc:
 rmd2md:
 		cd vignettes;\
 		mv rebird_vignette.md rebird_vignette.Rmd
+
+readme:
+		Rscript -e 'library(knitr); knit("README.Rmd")'
