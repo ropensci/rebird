@@ -24,6 +24,15 @@ Possibly mis-spelled words in DESCRIPTION:
 
   Not mis-spellings.
 
+Found the following (possibly) invalid URLs:
+  URL: https://cran.rstudio.com/package=rebird/
+    From: README.md
+    Status: 200
+    Message: OK
+    CRAN URL not in canonical form
+
+  This NOTE only comes up in the r-devel version test. Probably false positive as URL is in canonical form. I also ran the test without the slash (/) at the end of the URL and the NOTE still comes up.
+
 ## Downstream dependencies
 I have also run R CMD check on downstream dependencies of rebird.
 All packages that I could install passed.
