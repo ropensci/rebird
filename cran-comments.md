@@ -1,3 +1,5 @@
+As per Uwe's previous comment, now using CRAN master URL (<https://cran.r-project.org/package=rebird/>) instead to avoid canonical URL note. 
+
 ## Test environments
 * local machine running Linux Ubuntu 14.04.4, R 3.2.4
 * win-builder (devel and release)
@@ -23,15 +25,6 @@ Possibly mis-spelled words in DESCRIPTION:
   hotspots (7:23)
 
   Not mis-spellings.
-
-Found the following (possibly) invalid URLs:
-  URL: https://cran.rstudio.com/package=rebird/
-    From: README.md
-    Status: 200
-    Message: OK
-    CRAN URL not in canonical form
-
-  This NOTE only comes up in the r-devel version test. Probably false positive as URL is in canonical form. I also ran the test without the slash (/) at the end of the URL and the NOTE still comes up.
 
 ## Downstream dependencies
 I have also run R CMD check on downstream dependencies of rebird.
