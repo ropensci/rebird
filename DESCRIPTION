@@ -25,5 +25,6 @@ Imports:
     dplyr
 Suggests:
     knitr,
-    testthat
+    testthat,
+    covr
 RoxygenNote: 5.0.1
