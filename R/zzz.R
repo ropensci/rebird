@@ -26,7 +26,7 @@ ebird_GET <- function(url, args, ...){
           }
         }
       }))
-      tbl_df(bind_rows(lapply(json, data.frame, stringsAsFactors = FALSE)))
+      bind_rows(lapply(json, as_data_frame))
     }
   }
 }
