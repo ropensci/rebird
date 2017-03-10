@@ -13,8 +13,9 @@
 #'   "CA-BC-GV"). 
 #'   If querying hotspots then the unique identifier is a 6-digit
 #'   number prepended with an "L" (e.g. "L196159"). All these codes
-#'   can be found by looking at the URL in the Explore Data eBird
-#'   page (http://ebird.org//GuideMe?cmd=changeLocation).
+#'   can be found by looking at the URL in each respective
+#'   location/hotspot webpage (which are accessible through the 
+#'   "Explore Data" tab).
 #' @param startyear Starting year for query. Defaults to 1900.
 #' @param endyear Ending year for query. Defaults to current year 
 #'   specified by Sys.Date().
@@ -68,14 +69,10 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
     stop("Not a valid location type")
   }
   
-  args <- list(cmd = "getChart", displayType = "download", 
-               getLocations = loctype, loctypename = loc, 
-               bYear = startyear, eYear = endyear, bMonth = startmonth, 
-               eMonth = endmonth)
-  # Rename the loctypename placeholder with loctype
-  names(args)[names(args) == "loctypename"] <- loctype
-  
-  url <- "http://ebird.org/ebird/BarChart"
+  args <- list(r = loc, byr = startyear, eyr = endyear, bmo = startmonth, 
+               emo = endmonth, fmt = "tsv")
+
+  url <- "http://ebird.org/ebird/barchartData"
   ret <- GET(url, query = args, ...)
   stop_for_status(ret)
   asChar <- readBin(ret$content, "character")
@@ -101,4 +98,3 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
     tbl_df(freq_long)
   }
 }
-
