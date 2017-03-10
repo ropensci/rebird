@@ -25,7 +25,9 @@ test_that("ebirdfreq fails correctly", {
   expect_error(ebirdfreq("hotspots", "foo123"), "Invalid hotspot code")
   expect_error(ebirdfreq("country"), "Not a valid location type")
   expect_error(ebirdfreq("counties", "CA-BC-ZZ"), "Specified location doesn't exist")
-  expect_warning(ebirdfreq("hotspots", "L196159", 1901, 1902, long = FALSE), "No observations returned")
+  expect_error(ebirdfreq("hotspots", "L196159", 1901, 1902, long = FALSE), regexp = "^Internal Server Error \\(HTTP 500\\)\\.$")
+  # for some reason the following fails:
+  # expect_error(ebirdfreq("hotspots", "L196159", 1900, 1902, long = FALSE), "Internal Server Error (HTTP 500).")
   expect_error(ebirdfreq("foo", "CA-BC-ZZ"), "Not a valid location type")
 })
-
+ 
