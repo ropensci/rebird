@@ -22,8 +22,9 @@ county codes are two-letter identifiers (e.g. Metro Vancouver:
 "CA-BC-GV"). 
 If querying hotspots then the unique identifier is a 6-digit
 number prepended with an "L" (e.g. "L196159"). All these codes
-can be found by looking at the URL in the Explore Data eBird
-page (http://ebird.org//GuideMe?cmd=changeLocation).}
+can be found by looking at the URL in each respective
+location/hotspot webpage (which are accessible through the 
+"Explore Data" tab).}
 
 \item{startyear}{Starting year for query. Defaults to 1900.}
 
