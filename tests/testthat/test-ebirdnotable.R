@@ -16,7 +16,7 @@ test_that("ebirdnotable works correctly", {
   expect_equal(dim(simpler), c(40,11))
 #   expect_equal(dim(lesssimpler), c(40,24))
   
-  expect_more_than(
+  expect_gt(
     system.time(ebirdnotable(lat=42, lng=-70, max = 10, sleep = 1))[[3]]
     , 1)
 })
