@@ -6,3 +6,5 @@
 krlocal.R
 /.Rapp.history
 .DS_Store
+rebird-tests.R
+
