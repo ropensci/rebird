@@ -2,8 +2,8 @@
 % Please edit documentation in R/rebird-package.R
 \docType{package}
 \name{rebird-package}
-\alias{rebird}
 \alias{rebird-package}
+\alias{rebird}
 \title{rebird: an R package for access to the eBird database.}
 \description{
 An R package to interface with the eBird database.
@@ -29,4 +29,3 @@ Andy Teucher \email{andy.teucher@gmail.com},
 Sebastian Pardo \email{sebpardo@gmail.com}
 }
 \keyword{package}
-

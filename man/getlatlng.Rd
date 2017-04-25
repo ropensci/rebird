@@ -18,10 +18,9 @@ with observations of a species.
 getlatlng()
 }
 }
-\author{
-Andy Teucher \email{andy.teucher@gmail.com}
-}
 \references{
 \url{http://ipinfo.io}
 }
-
+\author{
+Andy Teucher \email{andy.teucher@gmail.com}
+}

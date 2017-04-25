@@ -78,10 +78,9 @@ nearestobs('branta canadensis', 42, -76)
 nearestobs('branta canadensis', 42, -76, max=10, provisional=TRUE, hotspot=TRUE)
 }
 }
-\author{
-Rafael Maia \email{rm72@zips.uakron.edu}
-}
 \references{
 \url{http://ebird.org/}
 }
-
+\author{
+Rafael Maia \email{rm72@zips.uakron.edu}
+}

@@ -75,10 +75,9 @@ ebirdhotspot(locID=c('L99381','L99382'), species='larus delawarensis')
 ebirdhotspot('L99381', max=10, provisional=TRUE)
 }
 }
-\author{
-Rafael Maia \email{rm72@zips.uakron.edu}
-}
 \references{
 \url{http://ebird.org/}
 }
-
+\author{
+Rafael Maia \email{rm72@zips.uakron.edu}
+}

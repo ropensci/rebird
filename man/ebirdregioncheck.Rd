@@ -27,11 +27,10 @@ ebirdregioncheck("states", "CA-BC")
 ebirdregioncheck("counties","CA-BC-GV")
 }
 }
+\references{
+\url{http://ebird.org/}
+}
 \author{
 Sebastian Pardo \email{sebpardo@gmail.com},
    Andy Teucher \email{andy.teucher@gmail.com}
 }
-\references{
-\url{http://ebird.org/}
-}
-

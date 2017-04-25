@@ -1,3 +1,11 @@
+rebird 0.4.0
+===================
+
+### MINOR IMPROVEMENTS AND BUG FIXES
+
+* Fix for `ebirdfreq` which stopped working due to changes on the eBird website (#52).
+* Replaced deprecated `dplyr::rbind_all` function with `dplyr::bind_rows` (#43).
+
 rebird 0.3.0
 ===================
 

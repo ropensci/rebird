@@ -124,10 +124,9 @@ ebirdnotable(region='US', max=10)
 ebirdnotable(region='US-OH', regtype='subnational1')
 }
 }
-\author{
-Rafael Maia \email{rm72@zips.uakron.edu}
-}
 \references{
 \url{http://ebird.org/}
 }
-
+\author{
+Rafael Maia \email{rm72@zips.uakron.edu}
+}
