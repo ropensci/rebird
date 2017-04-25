@@ -67,11 +67,10 @@ ebirdfreq("counties", "CA-BC-GV", 1900, 2015, 1, 3)
 ebirdfreq("hotspots", "L196159", long=FALSE)
 }
 }
+\references{
+\url{http://ebird.org/}
+}
 \author{
 Andy Teucher \email{andy.teucher@gmail.com},
    Sebastian Pardo \email{sebpardo@gmail.com}
 }
-\references{
-\url{http://ebird.org/}
-}
-

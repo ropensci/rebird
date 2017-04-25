@@ -103,10 +103,9 @@ ebirdloc(locID = c('L99381','L99382'))
 ebirdloc('L99381', 'Branta canadensis', provisional=TRUE)
 }
 }
-\author{
-Rafael Maia \email{rm72@zips.uakron.edu}
-}
 \references{
 \url{http://ebird.org/}
 }
-
+\author{
+Rafael Maia \email{rm72@zips.uakron.edu}
+}
