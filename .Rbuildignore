@@ -13,4 +13,4 @@ vignettes/figure/
 ^cran-comments.md$
 ^cran-comments\.md$
 ^rebird-tests.R$
-:
+^revdep$

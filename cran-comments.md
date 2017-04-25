@@ -1,7 +1,5 @@
-As per Uwe's previous comment, now using CRAN master URL (<https://cran.r-project.org/package=rebird/>) to avoid canonical URL note. The NOTE regarding this issue is not coming up now when testing in win-builder devel version. 
-
 ## Test environments
-* local machine running Linux Ubuntu 14.04.4, R 3.2.4
+* local machine running Linux Ubuntu 16.04 LTS, R 3.4.0
 * win-builder (devel and release)
 * Windows Server 2012 R2 x64, R 3.2.4 on Appveyor
 * Ubuntu 12.04.5 LTS, R 3.2.4 or Travis-CI
@@ -12,13 +10,6 @@ There were no ERRORs or WARNINGs.
 There was 1 NOTE:
 
 * checking CRAN incoming feasibility ... NOTE
-Maintainer: 'Sebastian Pardo <sebpardo@gmail.com>'
-
-License components with restrictions and base license permitting such:
-  MIT + file LICENSE
-File 'LICENSE':
-  YEAR: 2016
-  COPYRIGHT HOLDER: Rafael Maia
 
 Possibly mis-spelled words in DESCRIPTION:
   eBird (4:25, 5:44, 7:17)
