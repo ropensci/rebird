@@ -9,9 +9,9 @@ Description: A programmatic client for the eBird database, including functions
 License: MIT + file LICENSE
 Authors@R: c(
     person("Rafael", "Maia", role = "aut", email = "rm72@zips.uakron.edu"),
-    person("Scott", "Chamberlain", role = "aut", email = "myrmecocystus@gmail.com"),
+    person("Scott", "Chamberlain", role = "aut", email = "myrmecocystus@gmail.com", comment = c(ORCID = "orcid.org/0000-0003-1444-9135")),
     person("Andy", "Teucher", role = "aut", email = "andy.teucher@gmail.com"), 
-    person("Sebastian", "Pardo", role = c("aut", "cre"), email = "sebpardo@gmail.com")
+    person("Sebastian", "Pardo", role = c("aut", "cre"), email = "sebpardo@gmail.com", comment = c(ORCID = "orcid.org/0000-0002-4147-5796"))
     )
 URL: http://github.com/ropensci/rebird
 BugReports: http://github.com/ropensci/rebird/issues
@@ -28,3 +28,6 @@ Suggests:
     testthat,
     covr
 RoxygenNote: 6.0.1
+X-schema.org-applicationCategory: Data Access
+X-schema.org-keywords: birds, birding, ebird, database, data, biology, observations, sightings, ornithology
+X-schema.org-isPartOf: https://ropensci.org
