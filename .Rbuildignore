@@ -14,3 +14,4 @@ vignettes/figure/
 ^cran-comments\.md$
 ^rebird-tests.R$
 ^revdep$
+^codemeta\.json$
