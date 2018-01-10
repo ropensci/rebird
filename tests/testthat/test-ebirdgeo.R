@@ -5,7 +5,7 @@ test_that("ebirdgeo works correctly", {
   
   egeo <- ebirdgeo('spinus tristis',42,-76)
   expect_is(egeo, "data.frame")
-  expect_equal(ncol(egeo), 11)
+  expect_equal(NCOL(egeo), 12)
   expect_is(egeo$comName, "character")
   expect_is(egeo$howMany, "integer")
   expect_is(ebirdgeo(lat = 42, lng = -76, max=10, provisional=TRUE, hotspot=TRUE), "data.frame")

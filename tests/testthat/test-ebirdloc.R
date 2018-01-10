@@ -15,7 +15,7 @@ test_that("ebirdloc works correctly", {
   lesssimpler <- ebirdloc('L99381', max = 1, simple = FALSE)
   expect_lt(NCOL(simpler), 15)
   expect_gt(NCOL(simpler), 8)
-  expect_lt(NCOL(lesssimpler), 30)
+  expect_lt(NCOL(lesssimpler), 40)
   expect_gt(NCOL(lesssimpler), 10)
 })
 
