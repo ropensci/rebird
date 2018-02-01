@@ -28,6 +28,6 @@ test_that("ebirdloc fails correctly", {
   expect_error(ebirdloc(locID = c('L99381','L99382','L99381','L99382','L99381','L99382',
                           'L99381','L99382','L99381','L99382','L99382')), 
                "Too many locations")
-  expect_error(ebirdloc(locID = 'L99381', config=timeout(0.02)))
+  expect_error(ebirdloc(locID = 'L99381', config=timeout(0.001)))
   expect_error(suppressWarnings(ebirdloc(locID = 'L99381', sleep = "adf")), "invalid 'time' value")
 })
