@@ -54,8 +54,21 @@ Search for bird occurrences by latitude and longitude point
 
 ``` r
 ebirdgeo(species = 'spinus tristis', lat = 42, lng = -76)
-#> Warning in ebird_GET(url, args, ...): Unknown species: spinus%20tristis
-#> [1] NA
+#> # A tibble: 40 x 12
+#>      lng locName          howMany sciName  obsValid locationPrivate obsDt 
+#>    <dbl> <chr>              <int> <chr>    <lgl>    <lgl>           <chr> 
+#>  1 -75.8 Chenango Valley~       4 Spinus ~ TRUE     FALSE           2018-~
+#>  2 -76.1 US-New York-End~       4 Spinus ~ TRUE     TRUE            2018-~
+#>  3 -75.9 Salt Springs SP        5 Spinus ~ TRUE     FALSE           2018-~
+#>  4 -75.9 US-New York-Cas~       2 Spinus ~ TRUE     TRUE            2018-~
+#>  5 -75.9 Woodbourne Fore~      19 Spinus ~ TRUE     FALSE           2018-~
+#>  6 -75.9 Boland Pond            1 Spinus ~ TRUE     FALSE           2018-~
+#>  7 -76.0 Murphys Pits (r~       3 Spinus ~ TRUE     FALSE           2018-~
+#>  8 -76.0 Waterman--IBM G~      12 Spinus ~ TRUE     FALSE           2018-~
+#>  9 -75.9 Workwalk               2 Spinus ~ TRUE     TRUE            2018-~
+#> 10 -76.0 "Home "               13 Spinus ~ TRUE     TRUE            2018-~
+#> # ... with 30 more rows, and 5 more variables: obsReviewed <lgl>,
+#> #   comName <chr>, lat <dbl>, locID <chr>, locId <chr>
 ```
 
 ## Recent observations at a region
@@ -64,9 +77,21 @@ Search for bird occurrences by region and species name
 
 ``` r
 ebirdregion(region = 'US', species = 'Setophaga caerulescens')
-#> Warning in ebird_GET(url, args, ...): Unknown species: Setophaga
-#> %20caerulescens
-#> [1] NA
+#> # A tibble: 209 x 12
+#>      lng locName        howMany sciName    obsValid locationPrivate obsDt 
+#>    <dbl> <chr>            <int> <chr>      <lgl>    <lgl>           <chr> 
+#>  1 -80.2 Bill Baggs Ca~       9 Setophaga~ TRUE     FALSE           2018-~
+#>  2 -80.6 Lori Wilson P~       1 Setophaga~ TRUE     FALSE           2018-~
+#>  3 -80.1 Hugh Taylor B~       2 Setophaga~ TRUE     FALSE           2018-~
+#>  4 -80.0 Lantana Natur~       3 Setophaga~ TRUE     FALSE           2018-~
+#>  5 -80.1 Spanish River~       1 Setophaga~ TRUE     FALSE           2018-~
+#>  6 -81.8 Fort Zachary ~       1 Setophaga~ TRUE     FALSE           2018-~
+#>  7 -81.0 Embry-Riddle ~       1 Setophaga~ TRUE     FALSE           2018-~
+#>  8 -82.3 Paynes Prairi~       1 Setophaga~ TRUE     FALSE           2018-~
+#>  9 -80.2 Greynolds Park       4 Setophaga~ TRUE     FALSE           2018-~
+#> 10 -80.1 Orchard View         3 Setophaga~ TRUE     TRUE            2018-~
+#> # ... with 199 more rows, and 5 more variables: obsReviewed <lgl>,
+#> #   comName <chr>, lat <dbl>, locID <chr>, locId <chr>
 ```
 
 ## Recent observations at hotspots
