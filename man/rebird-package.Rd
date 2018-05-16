@@ -2,30 +2,32 @@
 % Please edit documentation in R/rebird-package.R
 \docType{package}
 \name{rebird-package}
-\alias{rebird-package}
 \alias{rebird}
-\title{rebird: an R package for access to the eBird database.}
+\alias{rebird-package}
+\title{rebird: R Client for the eBird Database of Bird Observations}
 \description{
-An R package to interface with the eBird database.
+A programmatic client for the eBird database, including functions
+for searching for bird observations by geographic location (latitude,
+longitude), eBird hotspots, location identifiers, by notable sightings, by
+region, and by taxonomic name.
 }
-\details{
-\tabular{ll}{
-Package: \tab rebird\cr
-Type: \tab Package\cr
-Version: \tab 0.1.2.99\cr
-Date: \tab 2014-10-31\cr
-License: \tab MIT\cr
-LazyLoad: \tab yes\cr}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{http://github.com/ropensci/rebird}
+  \item Report bugs at \url{http://github.com/ropensci/rebird/issues}
+}
 
-This package provides an R interface to the recent eBird database.
-}
-\examples{
-#see functions.
 }
 \author{
-Rafael Maia \email{rm72@zips.uakron.edu}, 
-Scott Chamberlain \email{myrmecocystus@gmail.com}, 
-Andy Teucher \email{andy.teucher@gmail.com}, 
-Sebastian Pardo \email{sebpardo@gmail.com}
+\strong{Maintainer}: Sebastian Pardo \email{sebpardo@gmail.com} (0000-0002-4147-5796)
+
+Authors:
+\itemize{
+  \item Rafael Maia \email{rm72@zips.uakron.edu}
+  \item Scott Chamberlain \email{myrmecocystus@gmail.com} (0000-0003-1444-9135)
+  \item Andy Teucher \email{andy.teucher@gmail.com}
 }
-\keyword{package}
+
+}
+\keyword{internal}
