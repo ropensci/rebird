@@ -6,8 +6,8 @@
 \usage{
 ebirdnotable(lat = NULL, lng = NULL, dist = NULL, locID = NULL,
   region = NULL, regtype = NULL, back = NULL, max = NULL,
-  locale = NULL, provisional = FALSE, hotspot = FALSE, simple = TRUE,
-  sleep = 0, ...)
+  locale = NULL, provisional = FALSE, hotspot = FALSE,
+  simple = TRUE, sleep = 0, ...)
 }
 \arguments{
 \item{lat}{Decimal latitude. value between -90.00 and 90.00, up to two

@@ -4,8 +4,9 @@
 \alias{ebirdloc}
 \title{Recent observations at a locality}
 \usage{
-ebirdloc(locID, species = NULL, back = NULL, max = NULL, locale = NULL,
-  provisional = FALSE, simple = TRUE, sleep = 0, ...)
+ebirdloc(locID, species = NULL, back = NULL, max = NULL,
+  locale = NULL, provisional = FALSE, simple = TRUE, sleep = 0,
+  ...)
 }
 \arguments{
 \item{locID}{(required) Vector containing code(s) for up to 10 regions of interest; 
