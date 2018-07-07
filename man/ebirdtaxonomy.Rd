@@ -10,10 +10,11 @@ ebirdtaxonomy(cat = NULL, locale = NULL, ...)
 \item{cat}{Species category. String or character vector with one of more of:
 "domestic", "form", "hybrid", "intergrade", "issf", "slash", "species", "spuh". 
 For more info about the meaning of species categories, see 
-\url{http://ebird.org/content/ebird/about/ebird-taxonomy}.}
+\url{https://help.ebird.org/customer/en/portal/articles/1006825-the-ebird-taxonomy}.}
 
 \item{locale}{Language/locale of response (when translations are available).
-See \url{http://java.sun.com/javase/6/docs/api/java/util/Locale.html}
+See \url{http://java.sun.com/javase/6/docs/api/java/util/Locale.html} and 
+\url{https://help.ebird.org/customer/portal/articles/1596582-common-name-translations-in-ebird} 
 (defaults to en_US).}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}

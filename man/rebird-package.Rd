@@ -7,9 +7,9 @@
 \title{rebird: R Client for the eBird Database of Bird Observations}
 \description{
 A programmatic client for the eBird database, including functions
-for searching for bird observations by geographic location (latitude,
-longitude), eBird hotspots, location identifiers, by notable sightings, by
-region, and by taxonomic name.
+    for searching for bird observations by geographic location (latitude,
+    longitude), eBird hotspots, location identifiers, by notable sightings, by
+    region, and by taxonomic name.
 }
 \seealso{
 Useful links:

@@ -1,3 +1,12 @@
+rebird 0.5.0
+===================
+
+### MINOR IMPROVEMENTS AND BUG FIXES
+
+* Now all API queries use https, which is needed to avoid double encoding urls (see #62).
+* Added information about [`auk`](https://github.com/CornellLabofOrnithology/auk), an R package that helps extracting and processing the whole eBird dataset (#60).
+* Updated package documentation (#61).
+
 rebird 0.4.0
 ===================
 

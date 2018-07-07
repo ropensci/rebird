@@ -38,6 +38,8 @@
 #'   contains the number of complete checklists for each week.
 #'   
 #' @import httr dplyr
+#' @importFrom utils read.delim
+#' @importFrom stats reshape
 #' @export
 #' @examples \dontrun{
 #' ebirdfreq("states", "US-NY", 2014, 2014, 1, 12)

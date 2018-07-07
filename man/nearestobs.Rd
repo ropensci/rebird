@@ -4,8 +4,9 @@
 \alias{nearestobs}
 \title{Nearest species sightings}
 \usage{
-nearestobs(species, lat = NULL, lng = NULL, back = NULL, max = NULL,
-  locale = NULL, provisional = FALSE, hotspot = FALSE, sleep = 0, ...)
+nearestobs(species, lat = NULL, lng = NULL, back = NULL,
+  max = NULL, locale = NULL, provisional = FALSE, hotspot = FALSE,
+  sleep = 0, ...)
 }
 \arguments{
 \item{species}{(required) Scientific name of the species of interest (not case
