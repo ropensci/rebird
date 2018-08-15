@@ -4,12 +4,12 @@ ebird_compact <- function(x) Filter(Negate(is.null), x)
 
 ebase <- function() 'https://ebird.org/ws2.0/'
 
-ebird_key <- Sys.getenv("EBIRD_KEY")
+get_key <- function() Sys.getenv("EBIRD_KEY")
 
 ebird_GET <- function(url, args, ...){
   tt <- GET(URLencode(url), 
             query = ebird_compact(args), 
-            config = add_headers("X-eBirdApiToken" = Sys.getenv("EBIRD_KEY")), 
+            config = add_headers("X-eBirdApiToken" = get_key()), 
             ...)
   
   ss <- content(tt, as = "text", encoding = "UTF-8")
