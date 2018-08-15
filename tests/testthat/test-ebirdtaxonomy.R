@@ -12,7 +12,7 @@ test_that("ebirdtaxonomy works correctly", {
   expect_is(out2, "tbl_df")
   
   expect_is(out$comName, "character")
-  expect_is(out$taxonID, "character")
+  expect_is(out$taxonOrder, "numeric")
 })
 
 test_that("ebirdtaxonomy fails correctly", {
