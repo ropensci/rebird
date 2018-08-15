@@ -9,8 +9,9 @@
 #' (e.g. "US"), "subnational1" (states/provinces, e.g. "US-NV") or
 #' "subnational" (counties, not yet implemented, e.g. "US-NY-109"). Default
 #' behavior is to try and match according to the region specified.
-#' @param species scientific name of the species of interest (not case
-#' sensitive). Defaults to NULL, in which case sightings for all species are returned.
+#' @param species eBird species code. See \code{\link{ebirdtaxonomy}} for a full
+#' list of scientific names, common names, and species codes. 
+#' Defaults to NULL, in which case sightings for all species are returned.
 #' See eBird taxonomy for more information:
 #' http://ebird.org/content/ebird/about/ebird-taxonomy
 #' @param back Number of days back to look for observations (between
@@ -45,7 +46,7 @@
 #' @return "sciName" species' scientific name
 #' @export
 #' @examples \dontrun{
-#' ebirdregion(region = 'US', species = 'Setophaga caerulescens')
+#' ebirdregion(region = 'US', species = 'btbwar')
 #' ebirdregion('US-OH', max=10, provisional=TRUE, hotspot=TRUE)
 #' }
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
@@ -55,19 +56,14 @@ ebirdregion <-  function(region, species = NULL, regtype = NULL, back = NULL, ma
   locale = NULL, provisional = FALSE, hotspot = FALSE, sleep = 0, ...)
 {
   Sys.sleep(sleep)
-  url <- paste0(ebase(), 'data/obs/', if(!is.null(species)) 'region_spp/recent' else 'region/recent')
+  url <- paste0(ebase(), 'data/obs/', region, '/recent/', species)
 
-  if(!is.null(regtype))
-    regtype <- match.arg(regtype, choices = c("country", "subnational1", "subnational2"))
-  if(!is.null(back)) back <- round(back)
+  if (!is.null(back)) back <- round(back)
 
-  args <- ebird_compact(list(
-    fmt='json', r=region, rtype=regtype,
-    sci=species, back=back,
-    maxResults=max, locale=locale
-  ))
-  if(provisional) args$includeProvisional <- 'true'
-  if(hotspot) args$hotspot <- 'true'
+  args <- list(back=back, maxResults=max, locale=locale)
+  
+  if (provisional) args$includeProvisional <- 'true'
+  if (hotspot) args$hotspot <- 'true'
   
   ebird_GET(url, args, ...)
 }
