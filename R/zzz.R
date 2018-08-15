@@ -7,9 +7,11 @@ ebase <- function() 'https://ebird.org/ws2.0/'
 ebird_key <- Sys.getenv("EBIRD_KEY")
 
 ebird_GET <- function(url, args, ...){
-  tt <- GET(URLencode(url), query = args, 
+  tt <- GET(URLencode(url), 
+            query = ebird_compact(args), 
             config = add_headers("X-eBirdApiToken" = Sys.getenv("EBIRD_KEY")), 
             ...)
+  
   ss <- content(tt, as = "text", encoding = "UTF-8")
   json <- jsonlite::fromJSON(ss, FALSE)
   if (tt$status_code > 202) {

@@ -37,6 +37,6 @@ ebirdtaxonomy <- function(cat=NULL, locale=NULL, ...){
     stop("You have supplied an invalid species category")
   }
   cat <- if(!is.null(cat)) cat <- paste0(cat, collapse = ",")
-  args <- ebird_compact(list(fmt='json', cat=cat, locale=locale))
+  args <- list(fmt='json', cat=cat, locale=locale)
   ebird_GET(paste0(ebase(), 'ref/taxonomy/ebird'), args, ...)
 }
