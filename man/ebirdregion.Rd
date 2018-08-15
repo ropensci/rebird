@@ -13,8 +13,9 @@ ebirdregion(region, species = NULL, regtype = NULL, back = NULL,
 For supported region and coding, see
 https://confluence.cornell.edu/display/CLOISAPI/eBird-1.1-RegionCodeReference}
 
-\item{species}{scientific name of the species of interest (not case
-sensitive). Defaults to NULL, in which case sightings for all species are returned.
+\item{species}{eBird species code. See \code{\link{ebirdtaxonomy}} for a full
+list of scientific names, common names, and species codes. 
+Defaults to NULL, in which case sightings for all species are returned.
 See eBird taxonomy for more information:
 http://ebird.org/content/ebird/about/ebird-taxonomy}
 
@@ -78,7 +79,7 @@ Returns the most recent sighting information reported in a given region.
 }
 \examples{
 \dontrun{
-ebirdregion(region = 'US', species = 'Setophaga caerulescens')
+ebirdregion(region = 'US', species = 'btbwar')
 ebirdregion('US-OH', max=10, provisional=TRUE, hotspot=TRUE)
 }
 }
