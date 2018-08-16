@@ -17,6 +17,9 @@
 #'    See \url{http://java.sun.com/javase/6/docs/api/java/util/Locale.html} and 
 #'    \url{https://help.ebird.org/customer/portal/articles/1596582-common-name-translations-in-ebird} 
 #'    (defaults to en_US).
+#' @param key ebird API key. You can obtain one from https://ebird.org/api/keygen.
+#'    We strongly recommend storing it in your \code{.Renviron} file as an 
+#'    enivronment variable called \code{EBIRD_KEY}.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return A data.frame containing the collected information:
 #' @return "comName": species' common name
@@ -30,7 +33,7 @@
 #' @author Andy Teucher \email{andy.teucher@@gmail.com}
 #' @references \url{http://ebird.org/}
 
-ebirdtaxonomy <- function(cat=NULL, locale=NULL, ...){
+ebirdtaxonomy <- function(cat=NULL, locale=NULL, key = NULL, ...){
   cats <- c("domestic", "form", "hybrid", "intergrade", "issf", "slash", "species", "spuh")
   
   if (!all(vapply(cat, function(x) x %in% cats, FUN.VALUE = logical(1)))) {
@@ -38,5 +41,5 @@ ebirdtaxonomy <- function(cat=NULL, locale=NULL, ...){
   }
   cat <- if(!is.null(cat)) cat <- paste0(cat, collapse = ",")
   args <- list(fmt='json', cat=cat, locale=locale)
-  ebird_GET(paste0(ebase(), 'ref/taxonomy/ebird'), args, ...)
+  ebird_GET(paste0(ebase(), 'ref/taxonomy/ebird'), args, key = key, ...)
 }

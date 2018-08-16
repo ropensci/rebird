@@ -18,9 +18,6 @@
 #'    1 and 30, defaults to 14).
 #' @param max Maximum number of result rows to return in this request
 #'    (between 1 and 10000, defaults to all)
-#' @param locale Language/locale of response (when translations are available).
-#'    See http://java.sun.com/javase/6/docs/api/java/util/Locale.html
-#'    (defaults to en_US)
 #' @param provisional Should flagged records that have not been reviewed
 #'    be included? (defaults to FALSE)
 #' @param hotspot Should results be limited to sightings at birding hotspots?
@@ -28,7 +25,7 @@
 #' @param sleep Time (in seconds) before function sends API call (defaults to
 #'    zero.  Set to higher number if you are using this function in a loop with
 #'    many API calls).
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @inheritParams ebirdtaxonomy
 #' @return A data.frame containing the collected information:
 #' @return "comName": species common name
 #' @return "howMany": number of individuals observed, NA if only presence was noted
@@ -53,7 +50,7 @@
 #' @references \url{http://ebird.org/}
 
 ebirdregion <-  function(region, species = NULL, regtype = NULL, back = NULL, max = NULL, 
-  locale = NULL, provisional = FALSE, hotspot = FALSE, sleep = 0, ...)
+  locale = NULL, provisional = FALSE, hotspot = FALSE, sleep = 0, key = NULL, ...)
 {
   Sys.sleep(sleep)
   url <- paste0(ebase(), 'data/obs/', region, '/recent/', species)
@@ -65,5 +62,5 @@ ebirdregion <-  function(region, species = NULL, regtype = NULL, back = NULL, ma
   if (provisional) args$includeProvisional <- 'true'
   if (hotspot) args$hotspot <- 'true'
   
-  ebird_GET(url, args, ...)
+  ebird_GET(url, args, key = key, ...)
 }

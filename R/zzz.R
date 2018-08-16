@@ -4,12 +4,26 @@ ebird_compact <- function(x) Filter(Negate(is.null), x)
 
 ebase <- function() 'https://ebird.org/ws2.0/'
 
-get_key <- function() Sys.getenv("EBIRD_KEY")
+get_key <- function(key = NULL) {
+  if (!is.null(key)) return(key)
+  key <- Sys.getenv("EBIRD_KEY")
+  if (!nzchar(key)) {
+    stop(
+    "You must provide an API key from ebird.
+    You can pass it to the 'key' argument or store it as 
+    an environment variable called EBIRD_KEY in your .Renvrion file.
+    If you don't have a key, you can obtain one from:
+    https://ebird.org/api/keygen.", call. = FALSE
+    )
+  }
+  key
+}
 
-ebird_GET <- function(url, args, ...){
+ebird_GET <- function(url, args, key = NULL, ...){
+  
   tt <- GET(URLencode(url), 
             query = ebird_compact(args), 
-            config = add_headers("X-eBirdApiToken" = get_key()), 
+            config = add_headers("X-eBirdApiToken" = get_key(key)), 
             ...)
   
   ss <- content(tt, as = "text", encoding = "UTF-8")

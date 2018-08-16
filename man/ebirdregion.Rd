@@ -6,7 +6,7 @@
 \usage{
 ebirdregion(region, species = NULL, regtype = NULL, back = NULL,
   max = NULL, locale = NULL, provisional = FALSE, hotspot = FALSE,
-  sleep = 0, ...)
+  sleep = 0, key = NULL, ...)
 }
 \arguments{
 \item{region}{(required) Region code corresponding to selected region type.
@@ -31,8 +31,9 @@ behavior is to try and match according to the region specified.}
 (between 1 and 10000, defaults to all)}
 
 \item{locale}{Language/locale of response (when translations are available).
-See http://java.sun.com/javase/6/docs/api/java/util/Locale.html
-(defaults to en_US)}
+See \url{http://java.sun.com/javase/6/docs/api/java/util/Locale.html} and 
+\url{https://help.ebird.org/customer/portal/articles/1596582-common-name-translations-in-ebird} 
+(defaults to en_US).}
 
 \item{provisional}{Should flagged records that have not been reviewed
 be included? (defaults to FALSE)}
@@ -43,6 +44,10 @@ be included? (defaults to FALSE)}
 \item{sleep}{Time (in seconds) before function sends API call (defaults to
 zero.  Set to higher number if you are using this function in a loop with
 many API calls).}
+
+\item{key}{ebird API key. You can obtain one from https://ebird.org/api/keygen.
+We strongly recommend storing it in your \code{.Renviron} file as an 
+enivronment variable called \code{EBIRD_KEY}.}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
