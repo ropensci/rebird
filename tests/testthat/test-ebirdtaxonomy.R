@@ -24,3 +24,9 @@ test_that("ebirdtaxonomy fails correctly", {
   
   expect_error(ebirdtaxonomy("spuh", config=timeout(0.02)))
 })
+
+test_that_without_key("ebirdtaxonomy works without an API key", {
+  tax <- ebirdtaxonomy()
+  expect_is(tax, "data.frame")
+  expect_equal(ncol(tax), 14L)
+})

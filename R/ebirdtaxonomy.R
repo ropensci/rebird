@@ -19,7 +19,8 @@
 #'    (defaults to en_US).
 #' @param key ebird API key. You can obtain one from https://ebird.org/api/keygen.
 #'    We strongly recommend storing it in your \code{.Renviron} file as an 
-#'    enivronment variable called \code{EBIRD_KEY}.
+#'    enivronment variable called \code{EBIRD_KEY} to avoid having to constantly 
+#'    supply the key, and to avoid accidentally sharing it publicly.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return A data.frame containing the collected information:
 #' @return "comName": species' common name
@@ -41,5 +42,12 @@ ebirdtaxonomy <- function(cat=NULL, locale=NULL, key = NULL, ...){
   }
   cat <- if(!is.null(cat)) cat <- paste0(cat, collapse = ",")
   args <- list(fmt='json', cat=cat, locale=locale)
+  
+  # Allow not using a key for just this function, it's the only endpoint 
+  # that allows it
+  if (is.null(key) && !nzchar(Sys.getenv("EBIRD_KEY"))) {
+    key <- ""
+  }
+  
   ebird_GET(paste0(ebase(), 'ref/taxonomy/ebird'), args, key = key, ...)
 }
