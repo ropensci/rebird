@@ -9,9 +9,9 @@ get_key <- function(key = NULL) {
   key <- Sys.getenv("EBIRD_KEY")
   if (!nzchar(key)) {
     stop(
-    "You must provide an API key from ebird.
+    "You must provide an API key from eBird.
     You can pass it to the 'key' argument or store it as 
-    an environment variable called EBIRD_KEY in your .Renvrion file.
+    an environment variable called EBIRD_KEY in your .Renviron file.
     If you don't have a key, you can obtain one from:
     https://ebird.org/api/keygen.", call. = FALSE
     )
