@@ -48,6 +48,18 @@ Load the package
 library("rebird")
 ```
 
+API requests to eBird now require users to provide an API key, which is linked to your 
+eBird user account. 
+You can pass it to the 'key' argument in `rebird` functions, but we highly recommend
+storing it as an environment variable called EBIRD_KEY in your .Renviron file.
+If you don't have a key, you can obtain one from <https://ebird.org/api/keygen>.
+
+You can keep your .Renviron file in your global R home directory (`R.home()`), your user home
+directory (`Sys.getenv("HOME")`), or your current working directory (`getwd()`). Remember
+that .Renviron is loaded once when you begin R, so if you add your API key to the file you will
+have to restart your R session. See <https://csgillespie.github.io/efficientR/r-startup.html> for
+more information on R's startup files.
+
 ## Sightings at location determined by latitude/longitude
 
 Search for bird occurrences by latitude and longitude point
