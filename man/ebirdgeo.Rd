@@ -9,8 +9,7 @@ ebirdgeo(species = NULL, lat = NULL, lng = NULL, dist = NULL,
   hotspot = FALSE, sleep = 0, key = NULL, ...)
 }
 \arguments{
-\item{species}{Species code of the species of interest (not case
-sensitive). Scientific names can be specified if wrapped around the 
+\item{species}{Species code of the species of interest. Scientific names can be specified if wrapped around the 
 \code{\link{species_code}} function. Defaults to NULL, so sightings for all species are returned.
 See eBird taxonomy for more information:
 http://ebird.org/content/ebird/about/ebird-taxonomy}

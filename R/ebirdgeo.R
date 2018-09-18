@@ -4,8 +4,7 @@
 #' species of bird reported within the number of days specified and reported in 
 #' the specified area.
 #'
-#' @param species Species code of the species of interest (not case
-#'    sensitive). Scientific names can be specified if wrapped around the 
+#' @param species Species code of the species of interest. Scientific names can be specified if wrapped around the 
 #'    \code{\link{species_code}} function. Defaults to NULL, so sightings for all species are returned.
 #'    See eBird taxonomy for more information:
 #'    http://ebird.org/content/ebird/about/ebird-taxonomy
