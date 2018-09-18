@@ -23,7 +23,8 @@ ebird_GET <- function(url, args, key = NULL, ...){
   
   tt <- GET(URLencode(url), 
             query = ebird_compact(args), 
-            config = add_headers("X-eBirdApiToken" = get_key(key)), 
+            add_headers("X-eBirdApiToken" = get_key(key)), # removed config = add_headers(...
+                                                           # to allow config = to be specified in ...
             ...)
   
   ss <- content(tt, as = "text", encoding = "UTF-8")
