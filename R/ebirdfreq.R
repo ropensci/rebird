@@ -66,13 +66,13 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
   if (loctype == "hotspots") {
     if (!grepl("^L\\d{1,8}$", loc)) stop("Invalid hotspot code")
   } else if (loctype %in% c("counties", "states")) {
-    if (!ebirdregioncheck(loctype, loc)) stop("Specified location doesn't exist")
+    # if (!ebirdregioncheck(loctype, loc)) stop("Specified location doesn't exist")
   } else {
     stop("Not a valid location type")
   }
   
-  args <- list(r = loc, byr = startyear, eyr = endyear, bmo = startmonth, 
-               emo = endmonth, fmt = "tsv")
+  args <- list(r = loc, bmo = startmonth, emo = endmonth, byr = startyear, 
+               eyr = endyear, personal = "false", fmt = "tsv")
 
   url <- "http://ebird.org/ebird/barchartData"
   ret <- GET(url, query = args, ...)
