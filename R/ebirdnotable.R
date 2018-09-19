@@ -1,4 +1,4 @@
-#' Notable sightings
+#' Recent nearby notable observations 
 #'
 #' Returns the most recent notable observations by either latitude/longitude,
 #' hotspot or location ID, or particular region.
@@ -38,45 +38,50 @@
 #' or region be passed to the function. Multiple entries will result in the most
 #' specific being used. If none is supplied, defaults to lat/lng based on your IP.
 #' @return A data.frame containing the collected information:
+#' @return "speciesCode": species code
 #' @return "comName": species common name
-#' @return "howMany": number of individuals observed, NA if only presence was noted
-#' @return "lat": latitude of the location
-#' @return "lng": longitude of the location
+#' @return "sciName" species' scientific name
 #' @return "locID": unique identifier for the location
 #' @return "locName": location name
-#' @return "locationPrivate": TRUE if location is not a birding hotspot
 #' @return "obsDt": observation date formatted according to ISO 8601
 #'    (e.g. 'YYYY-MM-DD', or 'YYYY-MM-DD hh:mm'). Hours and minutes are excluded
 #'    if the observer did not report an observation time.
-#' @return "obsReviewed": TRUE if observation has been reviewed, FALSE otherwise
+#' @return "howMany": number of individuals observed, NA if only presence was noted
+#' @return "lat": latitude of the location
+#' @return "lng": longitude of the location
 #' @return "obsValid": TRUE if observation has been deemed valid by either the
+#' @return "obsReviewed": TRUE if observation has been reviewed, FALSE otherwise
+#' @return "locationPrivate": TRUE if location is not a birding hotspot
 #'    automatic filters or a regional viewer, FALSE otherwise
-#' @return "sciName" species' scientific name
 #' @return "subnational2Code": county code (returned if simple=FALSE)
 #' @return "subnational2Name": county name (returned if simple=FALSE)
 #' @return "subnational1Code": state/province ISO code (returned if simple=FALSE)
 #' @return "subnational1Name": state/province name (returned if simple=FALSE)
 #' @return "countryCode": country ISO code (returned if simple=FALSE)
 #' @return "countryName": country name (returned if simple=FALSE)
-#' @return "firstName": observer's first name (returned if simple=FALSE)
-#' @return "lastName": observer's last name (returned if simple=FALSE)
+#' @return "userDisplayName": observer's eBird username (returned if simple=FALSE)
 #' @return "subID": submission ID (returned if simple=FALSE)
 #' @return "obsID": observation ID (returned if simple=FALSE)
 #' @return "checklistID": checklist ID (returned if simple=FALSE)
 #' @return "presenceNoted": 'true' if user marked presence but did not count the
 #'   number of birds. 'false' otherwise (returned if simple=FALSE)
+#' @return "firstName": observer's first name (returned if simple=FALSE)
+#' @return "lastName": observer's last name (returned if simple=FALSE)
 #' @export
 #' @examples \dontrun{
 #' ebirdnotable(lat=42, lng=-70)
 #' ebirdnotable(region='US', max=10)
-#' ebirdnotable(region='US-OH', regtype='subnational1')
+#' ebirdnotable(region='US-OH')
+#' ebirdnotable(region='CA-NS-HL')
+#' ebirdnotable(locID = c('L275836','L124345'))
 #' }
-#' @author Rafael Maia \email{rm72@@zips.uakron.edu}
+#' @author Rafael Maia \email{rm72@@zips.uakron.edu},
+#'    Sebastian Pardo \email{sebpardo@@gmail.com}
 #' @references \url{http://ebird.org/}
 
 ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL, locID = NULL, region = NULL, 
-  regtype = NULL, back = NULL, max = NULL, locale = NULL, provisional = FALSE, hotspot = FALSE, 
-  simple=TRUE, sleep = 0, ...) 
+  back = NULL, max = NULL, provisional = FALSE, hotspot = FALSE, 
+  simple=TRUE, sleep = 0, key  = NULL, ...) 
 {
   Sys.sleep(sleep)
 
@@ -88,7 +93,7 @@ ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL, locID = NULL, reg
     back <- round(back)
   }
 
-  args <- list(fmt='json', back=back, maxResults=max, locale=locale)
+  args <- list(back = back, maxResults = max)
   if (provisional) args$includeProvisional <- 'true'
   if (hotspot) args$hotspot <- 'true'
   if (!simple) args$detail <- 'full'
@@ -110,19 +115,17 @@ ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL, locID = NULL, reg
       locID <- locID[1:10]
       warning("You supplied > 10 locations, using the first 10")
     }
-    url <- paste0(ebase(), 'data/notable/loc/recent')
-    args$r <- locID
+    if (length(locID) > 1) {
+      args$r <- paste(locID, collapse = ",")
+    }
+    url <- paste0(ebase(), 'data/obs/', locID[1], '/recent/notable')
   } else if (!is.null(region)) {
     loctype <- "region"
-    url <- paste0(ebase(), 'data/notable/region/recent')
-    args$r <- region
-    if (!is.null(regtype)) {
-      args$rtype <- regtype
-    }
+    url <- paste0(ebase(), 'data/obs/', region, '/recent/notable')
   } else {
     # Get IP location information from http://freegeoip.net
     loctype <- "lat/lng"
-    loc <- fromJSON(readLines("http://freegeoip.net/json/", warn=FALSE))
+    loc <- fromJSON(readLines("http://freegeoip.net/json/", warn = FALSE))
     lat <- loc$latitude
     lng <- loc$longitude
     warning(paste("As no location was provided, your location",
@@ -133,7 +136,7 @@ ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL, locID = NULL, reg
   }
 
   if (loctype == "lat/lng") {
-    url <- paste0(ebase(), 'data/notable/geo/recent')
+    url <- paste0(ebase(), 'data/obs/geo/recent/notable')
     args$lat <- lat
     args$lng <- lng
     if (!is.null(dist)) {
@@ -149,7 +152,7 @@ ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL, locID = NULL, reg
     warning(paste0("You supplied more than one location type, using the most",
                    "specific (", loctype, ")"))
   }
-
   args <- ebird_compact(args)
-  ebird_GET(url, args, ...)
+  ebird_GET(url, args, key = key, ...)
 }
+
