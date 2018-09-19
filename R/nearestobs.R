@@ -50,7 +50,8 @@
 #'    automatic filters or a regional viewer, FALSE otherwise
 #' @return "sciName" species' scientific name
 #' 
-#' @author Rafael Maia \email{rm72@@zips.uakron.edu}
+#' @author Rafael Maia \email{rm72@@zips.uakron.edu},
+#'    Sebastian Pardo \email{sebpardo@@gmail.com}
 #' @references \url{http://ebird.org/}
 #' @examples \dontrun{
 #' nearestobs('cangoo', 42, -76) # Canada Goose
