@@ -1,4 +1,5 @@
 #' @importFrom methods is
+#' @importFrom utils URLencode
 
 ebird_compact <- function(x) Filter(Negate(is.null), x)
 

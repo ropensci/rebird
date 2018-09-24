@@ -11,19 +11,12 @@
 #' @param region Region code corresponding to selected region type.
 #' For supported region and coding, see
 #' https://confluence.cornell.edu/display/CLOISAPI/eBird-1.1-RegionCodeReference
-#' @param regtype Region type you are interested in. can be "country"
-#' (e.g. "US"), "subnational1" (states/provinces, e.g. "US-NV") or
-#' "subnational2" (counties, not yet implemented, e.g. "US-NY-109"). Default
-#' behavior is to try and match according to the region specified.
 #' @param dist Distance defining radius of interest from given lat/lng in
 #'    kilometers (between 0 and 50, defaults to 25)
 #' @param back Number of days back to look for observations (between
 #'    1 and 30, defaults to 14).
 #' @param max Maximum number of result rows to return in this request
 #'    (between 1 and 10000, defaults to all).
-#' @param locale Language/locale of response (when translations are available).
-#'    See http://java.sun.com/javase/6/docs/api/java/util/Locale.html
-#'    (defaults to en_US).
 #' @param provisional Should flagged records that have not been reviewed
 #'    be included? (defaults to FALSE)
 #' @param hotspot Should results be limited to sightings at birding hotspots?
@@ -33,6 +26,9 @@
 #' @param sleep Time (in seconds) before function sends API call (defaults to
 #'    zero.  Set to higher number if you are using this function in a loop with
 #'    many API calls).
+#' @param key ebird API key. You can obtain one from https://ebird.org/api/keygen.
+#'    We strongly recommend storing it in your \code{.Renviron} file as an 
+#'    enivronment variable called \code{EBIRD_KEY}.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @note \code{ebirdnotable} requires that either latitude/longitude, location ID,
 #' or region be passed to the function. Multiple entries will result in the most
