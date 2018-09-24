@@ -93,5 +93,6 @@ nearestobs(species_code('branta canadensis'), 42, -76, max=10, provisional=TRUE,
 \url{http://ebird.org/}
 }
 \author{
-Rafael Maia \email{rm72@zips.uakron.edu}
+Rafael Maia \email{rm72@zips.uakron.edu},
+   Sebastian Pardo \email{sebpardo@gmail.com}
 }
