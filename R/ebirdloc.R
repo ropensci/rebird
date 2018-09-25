@@ -23,6 +23,9 @@
 #' @param sleep Time (in seconds) before function sends API call (defaults to
 #'    zero.  Set to higher number if you are using this function in a loop with 
 #'    many API calls).
+#' @param key ebird API key. You can obtain one from https://ebird.org/api/keygen.
+#'    We strongly recommend storing it in your \code{.Renviron} file as an 
+#'    enivronment variable called \code{EBIRD_KEY}.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return A data.frame containing the collected information:
 #' @return "comName": species common name
@@ -62,8 +65,9 @@
 #' @references \url{http://ebird.org/}
 
 ebirdloc <-  function(locID, species=NULL, back = NULL, max = NULL, locale = NULL, 
-  provisional = FALSE, simple = TRUE, sleep = 0, ...) 
-{
+  provisional = FALSE, simple = TRUE, sleep = 0, key = NULL, ...) {
+  .Deprecated(new = "ebirdregion", 
+              msg = "Deprecated: 'ebirdloc' will be removed in the next version of rebird as it might not be suported in the new eBird API. Use 'ebirdregion' instead.")
   if (length(locID) > 10) {
     stop('Too many locations (max. 10)', call. = FALSE)
   }
@@ -84,5 +88,5 @@ ebirdloc <-  function(locID, species=NULL, back = NULL, max = NULL, locale = NUL
   if (provisional) args$includeProvisional <- 'true'
   if (!simple) args$detail <- 'full'
   
-  ebird_GET(url, args, ...)
+  ebird_GET(url, args, key = key, ...)
 }
