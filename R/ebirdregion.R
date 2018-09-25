@@ -1,16 +1,14 @@
-#' Recent observations at a region
+#' Recent observations at a region or hotspot
 #' 
-#' Returns the most recent sighting information reported in a given region.
+#' Returns the most recent sighting information reported in a given region or hotspot.
 #' 
-#' @param region (required) Region code corresponding to selected region type.
-#' For supported region and coding, see
-#' https://confluence.cornell.edu/display/CLOISAPI/eBird-1.1-RegionCodeReference
-#' @param regtype Region type you are interested in. can be "country"
-#' (e.g. "US"), "subnational1" (states/provinces, e.g. "US-NV") or
-#' "subnational" (counties, not yet implemented, e.g. "US-NY-109"). Default
-#' behavior is to try and match according to the region specified.
+#' @param loc (required) Region code or locID (for hotspots). Region code can
+#' be country code (e.g. "US"), subnational1 (states/provinces, e.g. "US-NV"), or
+#' subnational2 code (counties, e.g. "CA-BC-GV").
 #' @param species eBird species code. See \code{\link{ebirdtaxonomy}} for a full
-#' list of scientific names, common names, and species codes. 
+#' list of scientific names, common names, and species codes. Alternatively, 
+#' you can wrap the scientific name in the \code{\link{species_code}} function 
+#' which will return the eBird species code.
 #' Defaults to NULL, in which case sightings for all species are returned.
 #' See eBird taxonomy for more information:
 #' http://ebird.org/content/ebird/about/ebird-taxonomy
@@ -43,17 +41,19 @@
 #' @return "sciName" species' scientific name
 #' @export
 #' @examples \dontrun{
-#' ebirdregion(region = 'US', species = 'btbwar')
-#' ebirdregion('US-OH', max=10, provisional=TRUE, hotspot=TRUE)
+#' ebirdregion(loc = 'US', species = 'btbwar')
+#' ebirdregion(loc = 'US', species = species_code('Setophaga caerulescens')) # same as above
+#' ebirdregion(loc = 'L196159', species = 'bkcchi', back = 30)
+#' ebirdregion('US-OH', max = 10, provisional = TRUE, hotspot = TRUE)
 #' }
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu}
 #' @references \url{http://ebird.org/}
 
-ebirdregion <-  function(region, species = NULL, regtype = NULL, back = NULL, max = NULL, 
+ebirdregion <-  function(loc, species = NULL, back = NULL, max = NULL, 
   locale = NULL, provisional = FALSE, hotspot = FALSE, sleep = 0, key = NULL, ...)
 {
   Sys.sleep(sleep)
-  url <- paste0(ebase(), 'data/obs/', region, '/recent/', species)
+  url <- paste0(ebase(), 'data/obs/', loc, '/recent/', species)
 
   if (!is.null(back)) back <- round(back)
 
