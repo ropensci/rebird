@@ -18,13 +18,13 @@
 #'    Andy Teucher \email{andy.teucher@@gmail.com}
 #' @references \url{http://ebird.org/}
 
-ebirdregioncheck <- function(loc, ...) {
+ebirdregioncheck <- function(loc, key = NULL, ...) {
   .Deprecated(new = "ebirdregioninfo", 
               msg = "Deprecated: 'ebirdregioncheck' will be removed in the next version of rebird. Use 'ebirdregioninfo' instead.")
   if (length(loc) > 1) {
     stop("More than one location specified")
   }
-  out <- try(ebirdregioninfo(loc, ...), silent = TRUE)
+  out <- try(ebirdregioninfo(loc, key = key, ...), silent = TRUE)
   if ("try-error" %in% class(out) && 
       !grepl("No region with code", out) &&   # To avoid error when using "HTTP 404" as location
       grepl("HTTP [403|400]", out)) stop(out) # HTTP error codes that should 

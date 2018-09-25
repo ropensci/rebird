@@ -4,16 +4,16 @@
 \alias{ebirdregioncheck}
 \title{Check if a region type is valid}
 \usage{
-ebirdregioncheck(loc, ...)
+ebirdregioncheck(loc, key = NULL, ...)
 }
 \arguments{
 \item{loc}{The location code to be checked.}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
-
 \item{key}{ebird API key. You can obtain one from https://ebird.org/api/keygen.
 We strongly recommend storing it in your \code{.Renviron} file as an 
 enivronment variable called \code{EBIRD_KEY}.}
+
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
 Logical.
