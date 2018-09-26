@@ -21,11 +21,11 @@ knitr::opts_chunk$set(
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/rebird)](https://github.com/metacran/cranlogs.app)
 [![cran version](http://www.r-pkg.org/badges/version/rebird)](https://cran.r-project.org/package=rebird/)
 
-`reBird` is a package to interface with the eBird webservices.
+`rebird` is a package to interface with the eBird webservices.
 
 eBird is a real-time, online bird checklist program. For more information, visit their website: http://www.ebird.org
 
-The API for the eBird webservices can be accessed here: https://confluence.cornell.edu/display/CLOISAPI/eBird+API+1.1
+The API for the eBird webservices can be accessed here: https://documenter.getpostman.com/view/664302/ebird-api-20/2HTbHW
 
 ## Install
 
@@ -51,6 +51,8 @@ Load the package:
 library("rebird")
 ```
 
+The [eBird API server](https://documenter.getpostman.com/view/664302/ebird-api-20/2HTbHW) 
+has been updated and thus there are a couple major changes in the way `rebird` works.
 API requests to eBird now require users to provide an API key, which is linked to your 
 eBird user account. 
 You can pass it to the 'key' argument in `rebird` functions, but we highly recommend
@@ -63,12 +65,24 @@ that .Renviron is loaded once when you start R, so if you add your API key to th
 have to restart your R session. See <https://csgillespie.github.io/efficientR/r-startup.html> for
 more information on R's startup files.
 
+Furthermore, functions now use species codes, rather than scientific names, for species-specific requests.
+We've made the switch easy by providing the `species_code` function, which converts a scientific name to
+its species code:
+
+```{r speciescode}
+species_code('sula variegata')
+```
+
+The `species_code` function can be called within other `rebird` functions, or the species code 
+can be specified directly.
+
+
 ## Sightings at location determined by latitude/longitude
 
 Search for bird occurrences by latitude and longitude point
 
 ```{r ebirdgeo1}
-ebirdgeo(species = 'spinus tristis', lat = 42, lng = -76)
+ebirdgeo(species = species_code('spinus tristis'), lat = 42, lng = -76)
 ```
 
 ## Recent observations at a region
@@ -76,16 +90,16 @@ ebirdgeo(species = 'spinus tristis', lat = 42, lng = -76)
 Search for bird occurrences by region and species name
 
 ```{r ebirdregion1}
-ebirdregion(region = 'US', species = 'Setophaga caerulescens')
+ebirdregion(loc = 'US', species = 'btbwar')
 ```
 
 
 ## Recent observations at hotspots
 
-Search for bird occurrences by region
+Search for bird occurrences by a given hotspot
 
 ```{r ebirdhotspot}
-ebirdhotspot(locID = c('L99381','L99382'))
+ebirdregion(loc = 'L99381')
 ```
 
 
@@ -95,6 +109,28 @@ Obtain historical frequencies of bird occurrences by hotspot or region
 
 ```{r ebirdfreq}
 ebirdfreq(loctype = 'hotspots', loc = 'L196159')
+```
+
+### Recent notable sightings
+
+Search for notable sightings at a given latitude and longitude
+
+```{r ebirdnotable1}
+ebirdnotable(lat = 42, lng = -70)
+```
+
+or a region
+
+```{r ebirdnotable2}
+ebirdnotable(locID = 'US-NY-109')
+```
+
+## Information on a given region
+
+Obtain detailed information on any valid eBird region
+
+```{r ebirdregioninfo}
+ebirdregioninfo("CA-BC-GV")
 ```
 
 # `rebird` and other packages
