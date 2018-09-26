@@ -1,5 +1,11 @@
 #' @importFrom methods is
 #' @importFrom utils URLencode
+#' @importFrom dplyr bind_rows
+#' @importFrom dplyr as_data_frame
+#' @importFrom httr GET
+#' @importFrom httr add_headers
+#' @importFrom httr content
+#' @importFrom jsonlite fromJSON
 
 ebird_compact <- function(x) Filter(Negate(is.null), x)
 
@@ -29,7 +35,7 @@ ebird_GET <- function(url, args, key = NULL, ...){
             ...)
   
   ss <- content(tt, as = "text", encoding = "UTF-8")
-  json <- jsonlite::fromJSON(ss, FALSE)
+  json <- fromJSON(ss, FALSE)
   if (tt$status_code > 202) {
     warning(sprintf("%s", json[[1]]['errorMsg']))
     NA

@@ -37,9 +37,12 @@
 #'   other columns are of individual weeks (four in each month). First row 
 #'   contains the number of complete checklists for each week.
 #'   
-#' @import httr dplyr
 #' @importFrom utils read.delim
 #' @importFrom stats reshape
+#' @importFrom dplyr left_join
+#' @importFrom dplyr tbl_df
+#' @importFrom httr GET
+#' @importFrom httr stop_for_status
 #' @export
 #' @examples \dontrun{
 #' ebirdfreq("states", "US-NY", 2014, 2014, 1, 12)
@@ -86,7 +89,7 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
   }
   
   names(freq) <- c("comName", vapply(month.name, paste, FUN.VALUE = character(4), 
-                                     1:4, sep="-"))
+                                     1:4, sep = "-"))
   
   if (!long) {
     return(freq)

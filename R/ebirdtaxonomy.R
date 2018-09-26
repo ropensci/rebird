@@ -6,7 +6,6 @@
 #' take a scientific name. Any taxon not in this category will be rejected by 
 #' these services at this time.
 #' 
-#' @import jsonlite httr dplyr
 #' @export
 #' 
 #' @param cat Species category. String or character vector with one of more of:
