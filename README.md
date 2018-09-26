@@ -1,88 +1,90 @@
----
-output: github_document
----
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-
-
 # rebird: wrapper to the eBird API
 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
-[![Build Status](https://api.travis-ci.org/ropensci/rebird.png)](https://travis-ci.org/ropensci/rebird)
-[![Build status](https://ci.appveyor.com/api/projects/status/s3dobn991c20t2kg?svg=true)](https://ci.appveyor.com/project/sckott/rebird)
-[![Coverage Status](https://coveralls.io/repos/ropensci/rebird/badge.svg)](https://coveralls.io/r/ropensci/rebird)
-[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/rebird)](https://github.com/metacran/cranlogs.app)
-[![cran version](http://www.r-pkg.org/badges/version/rebird)](https://cran.r-project.org/package=rebird/)
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Build
+Status](https://api.travis-ci.org/ropensci/rebird.png)](https://travis-ci.org/ropensci/rebird)
+[![Build
+status](https://ci.appveyor.com/api/projects/status/s3dobn991c20t2kg?svg=true)](https://ci.appveyor.com/project/sckott/rebird)
+[![Coverage
+Status](https://coveralls.io/repos/ropensci/rebird/badge.svg)](https://coveralls.io/r/ropensci/rebird)
+[![rstudio mirror
+downloads](http://cranlogs.r-pkg.org/badges/rebird)](https://github.com/metacran/cranlogs.app)
+[![cran
+version](http://www.r-pkg.org/badges/version/rebird)](https://cran.r-project.org/package=rebird/)
 
 `rebird` is a package to interface with the eBird webservices.
 
-eBird is a real-time, online bird checklist program. For more information, visit their website: http://www.ebird.org
+eBird is a real-time, online bird checklist program. For more
+information, visit their website: <http://www.ebird.org>
 
-The API for the eBird webservices can be accessed here: https://documenter.getpostman.com/view/664302/ebird-api-20/2HTbHW
+The API for the eBird webservices can be accessed here:
+<https://documenter.getpostman.com/view/664302/ebird-api-20/2HTbHW>
 
 ## Install
 
 You can install the stable version from CRAN
 
-
-```r
+``` r
 install.packages("rebird")
 ```
 
 Or the development version from Github
 
-
-```r
+``` r
 install.packages("devtools")
 devtools::install_github("ropensci/rebird")
 ```
-
 
 # Direct use of `rebird`
 
 Load the package:
 
-
-```r
+``` r
 library("rebird")
 ```
 
-The [eBird API server](https://documenter.getpostman.com/view/664302/ebird-api-20/2HTbHW) 
-has been updated and thus there are a couple major changes in the way `rebird` works.
-API requests to eBird now require users to provide an API key, which is linked to your 
-eBird user account. 
-You can pass it to the 'key' argument in `rebird` functions, but we highly recommend
-storing it as an environment variable called EBIRD_KEY in your .Renviron file.
-If you don't have a key, you can obtain one from <https://ebird.org/api/keygen>.
+The [eBird API
+server](https://documenter.getpostman.com/view/664302/ebird-api-20/2HTbHW)
+has been updated and thus there are a couple major changes in the way
+`rebird` works. API requests to eBird now require users to provide an
+API key, which is linked to your eBird user account. You can pass it to
+the ‘key’ argument in `rebird` functions, but we highly recommend
+storing it as an environment variable called EBIRD\_KEY in your
+.Renviron file. If you don’t have a key, you can obtain one from
+<https://ebird.org/api/keygen>.
 
-You can keep your .Renviron file in your global R home directory (`R.home()`), your user's home
-directory (`Sys.getenv("HOME")`), or your current working directory (`getwd()`). Remember
-that .Renviron is loaded once when you start R, so if you add your API key to the file you will
-have to restart your R session. See <https://csgillespie.github.io/efficientR/r-startup.html> for
-more information on R's startup files.
+You can keep your .Renviron file in your global R home directory
+(`R.home()`), your user’s home directory (`Sys.getenv("HOME")`), or your
+current working directory (`getwd()`). Remember that .Renviron is loaded
+once when you start R, so if you add your API key to the file you will
+have to restart your R session. See
+<https://csgillespie.github.io/efficientR/r-startup.html> for more
+information on R’s startup files.
 
-Furthermore, functions now use species codes, rather than scientific names, for species-specific requests.
-We've made the switch easy by providing the `species_code` function, which converts a scientific name to
-its species code:
+Furthermore, functions now use species codes, rather than scientific
+names, for species-specific requests. We’ve made the switch easy by
+providing the `species_code` function, which converts a scientific name
+to its species code:
 
-
-```r
+``` r
 species_code('sula variegata')
 #> Peruvian Booby (Sula variegata): perboo1
 #> [1] "perboo1"
 ```
 
-The `species_code` function can be called within other `rebird` functions, or the species code 
-can be specified directly.
-
+The `species_code` function can be called within other `rebird`
+functions, or the species code can be specified directly.
 
 ## Sightings at location determined by latitude/longitude
 
 Search for bird occurrences by latitude and longitude point
 
-
-```r
+``` r
 ebirdgeo(species = species_code('spinus tristis'), lat = 42, lng = -76)
 #> American Goldfinch (Spinus tristis): amegfi
 #> # A tibble: 45 x 12
@@ -106,10 +108,9 @@ ebirdgeo(species = species_code('spinus tristis'), lat = 42, lng = -76)
 
 Search for bird occurrences by region and species name
 
-
-```r
+``` r
 ebirdregion(loc = 'US', species = 'btbwar')
-#> # A tibble: 1,043 x 12
+#> # A tibble: 1,042 x 12
 #>    speciesCode comName  sciName  locId  locName  obsDt howMany   lat   lng
 #>    <chr>       <chr>    <chr>    <chr>  <chr>    <chr>   <int> <dbl> <dbl>
 #>  1 btbwar      Black-t… Setopha… L1334… Ox Bow … 2018…       1  41.6 -85.9
@@ -122,17 +123,15 @@ ebirdregion(loc = 'US', species = 'btbwar')
 #>  8 btbwar      Black-t… Setopha… L6960… Dunham … 2018…       1  40.7 -74.6
 #>  9 btbwar      Black-t… Setopha… L1657… Black R… 2018…       1  40.2 -75.5
 #> 10 btbwar      Black-t… Setopha… L8654… Acadia … 2018…       1  44.3 -68.1
-#> # ... with 1,033 more rows, and 3 more variables: obsValid <lgl>,
+#> # ... with 1,032 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
-
 
 ## Recent observations at hotspots
 
 Search for bird occurrences by a given hotspot
 
-
-```r
+``` r
 ebirdregion(loc = 'L99381')
 #> # A tibble: 63 x 12
 #>    speciesCode comName   sciName   locId locName obsDt howMany   lat   lng
@@ -151,13 +150,11 @@ ebirdregion(loc = 'L99381')
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
-
 ## Frequency of observations at hotspots or regions
 
 Obtain historical frequencies of bird occurrences by hotspot or region
 
-
-```r
+``` r
 ebirdfreq(loctype = 'hotspots', loc = 'L196159')
 #> # A tibble: 9,072 x 4
 #>    comName                     monthQt   frequency sampleSize
@@ -179,8 +176,7 @@ ebirdfreq(loctype = 'hotspots', loc = 'L196159')
 
 Search for notable sightings at a given latitude and longitude
 
-
-```r
+``` r
 ebirdnotable(lat = 42, lng = -70)
 #> # A tibble: 773 x 12
 #>    speciesCode comName  sciName  locId locName   obsDt howMany   lat   lng
@@ -201,8 +197,7 @@ ebirdnotable(lat = 42, lng = -70)
 
 or a region
 
-
-```r
+``` r
 ebirdnotable(locID = 'US-NY-109')
 #> # A tibble: 67 x 12
 #>    speciesCode comName  sciName  locId  locName  obsDt howMany   lat   lng
@@ -225,8 +220,7 @@ ebirdnotable(locID = 'US-NY-109')
 
 Obtain detailed information on any valid eBird region
 
-
-```r
+``` r
 ebirdregioninfo("CA-BC-GV")
 #> # A tibble: 1 x 5
 #>   region                                     minX  maxX  minY  maxY
@@ -238,20 +232,32 @@ ebirdregioninfo("CA-BC-GV")
 
 ## How to use `rebird`
 
-This package is part of a richer suite called [spocc - Species Occurrence Data](https://github.com/ropensci/spocc), along with several other packages, that provide access to occurrence records from multiple databases. We recommend using `spocc` as the primary R interface to `rebird` unless your needs are limited to this single source.
+This package is part of a richer suite called [spocc - Species
+Occurrence Data](https://github.com/ropensci/spocc), along with several
+other packages, that provide access to occurrence records from multiple
+databases. We recommend using `spocc` as the primary R interface to
+`rebird` unless your needs are limited to this single source.
 
 ## `auk` vs. `rebird`
 
-Those interested in eBird data may also want to consider [`auk`](https://github.com/CornellLabofOrnithology/auk), an R package that helps extracting and processing the whole eBird dataset. The functions in `rebird` are faster but mostly limited to accessing recent (i.e. within the last 30 days) observations, although `ebirdfreq()` does provide historical frequency of observation data. In contrast, `auk` gives access to the full set of ~ 500 million eBird observations. For most ecological applications, users will require `auk`; however, for some use cases, e.g. building tools for birders, `rebird` provides a quicker and easier way to access data. `rebird` and `auk` are both part of the rOpenSci project.
-
+Those interested in eBird data may also want to consider
+[`auk`](https://github.com/CornellLabofOrnithology/auk), an R package
+that helps extracting and processing the whole eBird dataset. The
+functions in `rebird` are faster but mostly limited to accessing recent
+(i.e. within the last 30 days) observations, although `ebirdfreq()` does
+provide historical frequency of observation data. In contrast, `auk`
+gives access to the full set of ~ 500 million eBird observations. For
+most ecological applications, users will require `auk`; however, for
+some use cases, e.g. building tools for birders, `rebird` provides a
+quicker and easier way to access data. `rebird` and `auk` are both part
+of the rOpenSci project.
 
 ## Meta
 
-* Please [report any issues or bugs](https://github.com/ropensci/rebird/issues).
-* License: MIT
-* Get citation information for `rebird` in R doing `citation(package = 'rebird')`
+  - Please [report any issues or
+    bugs](https://github.com/ropensci/rebird/issues).
+  - License: MIT
+  - Get citation information for `rebird` in R doing `citation(package =
+    'rebird')`
 
-
-[![ropensci_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
-
-
+[![ropensci\_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
