@@ -111,7 +111,7 @@ Obtain historical frequencies of bird occurrences by hotspot or region
 ebirdfreq(loctype = 'hotspots', loc = 'L196159')
 ```
 
-### Recent notable sightings
+## Recent notable sightings
 
 Search for notable sightings at a given latitude and longitude
 
@@ -133,15 +133,54 @@ Obtain detailed information on any valid eBird region
 ebirdregioninfo("CA-BC-GV")
 ```
 
-# `rebird` and other packages
+## `rebird` and other packages
 
-## How to use `rebird`
+### How to use `rebird`
 
 This package is part of a richer suite called [spocc - Species Occurrence Data](https://github.com/ropensci/spocc), along with several other packages, that provide access to occurrence records from multiple databases. We recommend using `spocc` as the primary R interface to `rebird` unless your needs are limited to this single source.
 
-## `auk` vs. `rebird`
+### `auk` vs. `rebird`
 
 Those interested in eBird data may also want to consider [`auk`](https://github.com/CornellLabofOrnithology/auk), an R package that helps extracting and processing the whole eBird dataset. The functions in `rebird` are faster but mostly limited to accessing recent (i.e. within the last 30 days) observations, although `ebirdfreq()` does provide historical frequency of observation data. In contrast, `auk` gives access to the full set of ~ 500 million eBird observations. For most ecological applications, users will require `auk`; however, for some use cases, e.g. building tools for birders, `rebird` provides a quicker and easier way to access data. `rebird` and `auk` are both part of the rOpenSci project.
+
+## API requests covered by `rebird`
+
+The 2.0 APIs have considerably been expanded from the previous version, and `rebird` only covers some of them.  The webservices covered are listed below; if you'd like to contribute wrappers to APIs not yet covered by this package, feel free to submit a pull request!
+
+### data/obs
+- [x] Recent observations in a region: `ebirdregion()`
+- [x] Recent notable observations in a region: `ebirdnotable()`
+- [x] Recent observations of a species in a region: `ebirdregion()`
+- [x] Recent nearby observations: `ebirdgeo()` 
+- [x] Recent nearby observations of a species: `ebirdgeo()`
+- [x] Nearest observations of a species: `nearestobs()`
+- [x] Recent nearby notable observations: `ebirdnotable()`
+- [ ] Historic observations on a date
+
+### product
+- [ ]   Top 100
+- [ ]     Checklist feed on a date
+- [ ]     Recent checklists feed
+- [ ]  Regional statistics on a date
+- [ ]     View Checklist BETA
+
+### ref/geo
+ - [ ]    Adjacent Regions
+
+### ref/hotspot
+ - [ ]     Hotspots in a region
+ - [ ]     Nearby hotspots
+
+### ref/taxonomy
+ - [x]     eBird Taxonomy: `ebirdtaxonomy()`
+ - [ ]     Taxonomic Forms
+ - [ ]     Taxonomy Versions
+ - [ ]     Taxonomic Groups
+
+### ref/region
+ - [ ]     Hotspot Info
+ - [x]    Region Info: `ebirdregioninfo()`
+ - [ ]     Sub Region List
 
 
 ## Meta

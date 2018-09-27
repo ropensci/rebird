@@ -90,16 +90,16 @@ ebirdgeo(species = species_code('spinus tristis'), lat = 42, lng = -76)
 #> # A tibble: 45 x 12
 #>    speciesCode comName  sciName  locId locName   obsDt howMany   lat   lng
 #>    <chr>       <chr>    <chr>    <chr> <chr>     <chr>   <int> <dbl> <dbl>
-#>  1 amegfi      America… Spinus … L495… Binghamt… 2018…       1  42.1 -76.0
-#>  2 amegfi      America… Spinus … L527… R Tee Go… 2018…       1  42.2 -75.9
-#>  3 amegfi      America… Spinus … L795… US-New Y… 2018…       7  42.1 -76.0
-#>  4 amegfi      America… Spinus … L978… Murphys … 2018…       5  42.1 -76.0
-#>  5 amegfi      America… Spinus … L209… Aquaterr… 2018…       9  42.0 -75.9
-#>  6 amegfi      America… Spinus … L320… Hillcres… 2018…       1  42.2 -75.9
-#>  7 amegfi      America… Spinus … L285… Camp Sus… 2018…       1  42.0 -75.9
-#>  8 amegfi      America… Spinus … L207… Workwalk  2018…       1  42.1 -75.9
-#>  9 amegfi      America… Spinus … L519… IBM Glen… 2018…       3  42.1 -76.0
-#> 10 amegfi      America… Spinus … L501… William … 2018…       2  42.1 -76.0
+#>  1 amegfi      America… Spinus … L447… Binghamt… 2018…       2  42.1 -76.0
+#>  2 amegfi      America… Spinus … L207… Workwalk  2018…       1  42.1 -75.9
+#>  3 amegfi      America… Spinus … L495… Binghamt… 2018…       1  42.1 -76.0
+#>  4 amegfi      America… Spinus … L527… R Tee Go… 2018…       1  42.2 -75.9
+#>  5 amegfi      America… Spinus … L795… US-New Y… 2018…       7  42.1 -76.0
+#>  6 amegfi      America… Spinus … L978… Murphys … 2018…       5  42.1 -76.0
+#>  7 amegfi      America… Spinus … L209… Aquaterr… 2018…       9  42.0 -75.9
+#>  8 amegfi      America… Spinus … L320… Hillcres… 2018…       1  42.2 -75.9
+#>  9 amegfi      America… Spinus … L285… Camp Sus… 2018…       1  42.0 -75.9
+#> 10 amegfi      America… Spinus … L519… IBM Glen… 2018…       3  42.1 -76.0
 #> # ... with 35 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
@@ -113,16 +113,16 @@ ebirdregion(loc = 'US', species = 'btbwar')
 #> # A tibble: 1,042 x 12
 #>    speciesCode comName  sciName  locId  locName  obsDt howMany   lat   lng
 #>    <chr>       <chr>    <chr>    <chr>  <chr>    <chr>   <int> <dbl> <dbl>
-#>  1 btbwar      Black-t… Setopha… L1334… Ox Bow … 2018…       1  41.6 -85.9
-#>  2 btbwar      Black-t… Setopha… L2785… Blue Sp… 2018…       1  28.9 -81.3
-#>  3 btbwar      Black-t… Setopha… L2139… CMCH     2018…       2  39.1 -74.8
-#>  4 btbwar      Black-t… Setopha… L1301… Ashland… 2018…       1  39.8 -75.7
-#>  5 btbwar      Black-t… Setopha… L1298… Lake On… 2018…       1  40.5 -75.9
-#>  6 btbwar      Black-t… Setopha… L5044… John He… 2018…       4  39.9 -75.3
-#>  7 btbwar      Black-t… Setopha… L5974… Cape Is… 2018…       1  38.9 -75.0
-#>  8 btbwar      Black-t… Setopha… L6960… Dunham … 2018…       1  40.7 -74.6
-#>  9 btbwar      Black-t… Setopha… L1657… Black R… 2018…       1  40.2 -75.5
-#> 10 btbwar      Black-t… Setopha… L8654… Acadia … 2018…       1  44.3 -68.1
+#>  1 btbwar      Black-t… Setopha… L3572… Cornell… 2018…       2  42.4 -76.5
+#>  2 btbwar      Black-t… Setopha… L7962… Pisgah … 2018…       1  36.2 -81.7
+#>  3 btbwar      Black-t… Setopha… L2785… Kiwanis… 2018…       1  27.0 -82.1
+#>  4 btbwar      Black-t… Setopha… L1109… Enchant… 2018…       3  25.9 -80.2
+#>  5 btbwar      Black-t… Setopha… L7814… Wissahi… 2018…       2  40.1 -75.2
+#>  6 btbwar      Black-t… Setopha… L5987… Codding… 2018…       2  42.3 -76.4
+#>  7 btbwar      Black-t… Setopha… L4023… Home - … 2018…       1  40.2 -75.4
+#>  8 btbwar      Black-t… Setopha… L5862… Indrio … 2018…       1  27.5 -80.4
+#>  9 btbwar      Black-t… Setopha… L1301… Ashland… 2018…       2  39.8 -75.7
+#> 10 btbwar      Black-t… Setopha… L1877… Pinecra… 2018…       1  27.3 -82.5
 #> # ... with 1,032 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
@@ -133,20 +133,20 @@ Search for bird occurrences by a given hotspot
 
 ``` r
 ebirdregion(loc = 'L99381')
-#> # A tibble: 63 x 12
+#> # A tibble: 64 x 12
 #>    speciesCode comName   sciName   locId locName obsDt howMany   lat   lng
 #>    <chr>       <chr>     <chr>     <chr> <chr>   <chr>   <int> <dbl> <dbl>
-#>  1 cangoo      Canada G… Branta c… L993… Stewar… 2018…      25  42.5 -76.5
-#>  2 mallar3     Mallard   Anas pla… L993… Stewar… 2018…      40  42.5 -76.5
-#>  3 commer      Common M… Mergus m… L993… Stewar… 2018…      16  42.5 -76.5
-#>  4 rocpig      Rock Pig… Columba … L993… Stewar… 2018…       8  42.5 -76.5
-#>  5 ribgul      Ring-bil… Larus de… L993… Stewar… 2018…      80  42.5 -76.5
-#>  6 hergul      Herring … Larus ar… L993… Stewar… 2018…      25  42.5 -76.5
+#>  1 wooduc      Wood Duck Aix spon… L993… Stewar… 2018…       4  42.5 -76.5
+#>  2 mallar3     Mallard   Anas pla… L993… Stewar… 2018…      16  42.5 -76.5
+#>  3 ambduc      American… Anas rub… L993… Stewar… 2018…       1  42.5 -76.5
+#>  4 rocpig      Rock Pig… Columba … L993… Stewar… 2018…       4  42.5 -76.5
+#>  5 ribgul      Ring-bil… Larus de… L993… Stewar… 2018…     110  42.5 -76.5
+#>  6 hergul      Herring … Larus ar… L993… Stewar… 2018…       1  42.5 -76.5
 #>  7 lbbgul      Lesser B… Larus fu… L993… Stewar… 2018…       1  42.5 -76.5
-#>  8 gbbgul      Great Bl… Larus ma… L993… Stewar… 2018…       8  42.5 -76.5
-#>  9 doccor      Double-c… Phalacro… L993… Stewar… 2018…     600  42.5 -76.5
-#> 10 grbher3     Great Bl… Ardea he… L993… Stewar… 2018…       2  42.5 -76.5
-#> # ... with 53 more rows, and 3 more variables: obsValid <lgl>,
+#>  8 gbbgul      Great Bl… Larus ma… L993… Stewar… 2018…       5  42.5 -76.5
+#>  9 doccor      Double-c… Phalacro… L993… Stewar… 2018…     118  42.5 -76.5
+#> 10 grnher      Green He… Butoride… L993… Stewar… 2018…       1  42.5 -76.5
+#> # ... with 54 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
@@ -172,26 +172,26 @@ ebirdfreq(loctype = 'hotspots', loc = 'L196159')
 #> # ... with 9,062 more rows
 ```
 
-### Recent notable sightings
+## Recent notable sightings
 
 Search for notable sightings at a given latitude and longitude
 
 ``` r
 ebirdnotable(lat = 42, lng = -70)
-#> # A tibble: 773 x 12
+#> # A tibble: 802 x 12
 #>    speciesCode comName  sciName  locId locName   obsDt howMany   lat   lng
 #>    <chr>       <chr>    <chr>    <chr> <chr>     <chr>   <int> <dbl> <dbl>
-#>  1 horlar      Horned … Eremoph… L278… Rye Harb… 2018…       1  43.0 -70.7
-#>  2 redcro      Red Cro… Loxia c… L207… Moose Hi… 2018…       8  42.1 -71.2
-#>  3 ycnher      Yellow-… Nyctana… L382… Lake War… 2018…       1  42.4 -72.6
-#>  4 sancra      Sandhil… Antigon… L463… Highland… 2018…       1  43.9 -70.0
-#>  5 libher      Little … Egretta… L613… Colt SP   2018…       1  41.7 -71.3
-#>  6 eawpew      Eastern… Contopu… L724… 514 Racc… 2018…       1  43.4 -71.8
-#>  7 conwar      Connect… Opororn… L464… Westboro… 2018…       1  42.3 -71.6
-#>  8 ameoys      America… Haemato… L353… Scarboro… 2018…       2  43.5 -70.3
-#>  9 canwar      Canada … Cardell… L594… Marblehe… 2018…       1  42.5 -70.8
-#> 10 ycnher      Yellow-… Nyctana… L382… Lake War… 2018…       1  42.4 -72.6
-#> # ... with 763 more rows, and 3 more variables: obsValid <lgl>,
+#>  1 rthhum      Ruby-th… Archilo… L584… US-New H… 2018…       1  42.9 -71.0
+#>  2 ameoys      America… Haemato… L765… Basket I… 2018…       2  43.5 -70.4
+#>  3 rthhum      Ruby-th… Archilo… L497… stakeout… 2018…       1  42.3 -71.6
+#>  4 ycnher      Yellow-… Nyctana… L382… Lake War… 2018…       1  42.4 -72.6
+#>  5 ovenbi1     Ovenbird Seiurus… L168… Brenton … 2018…       1  41.5 -71.4
+#>  6 hoowar      Hooded … Setopha… L514… 000  31 … 2018…       1  43.3 -71.0
+#>  7 ycnher      Yellow-… Nyctana… L796… Mt. Warn… 2018…       1  42.4 -72.6
+#>  8 ycnher      Yellow-… Nyctana… L796… Lake War… 2018…       1  42.4 -72.6
+#>  9 ycnher      Yellow-… Nyctana… L796… Lake War… 2018…       1  42.4 -72.6
+#> 10 sora        Sora     Porzana… L420… Tiogue L… 2018…       1  41.7 -71.6
+#> # ... with 792 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
@@ -199,20 +199,20 @@ or a region
 
 ``` r
 ebirdnotable(locID = 'US-NY-109')
-#> # A tibble: 67 x 12
-#>    speciesCode comName  sciName  locId  locName  obsDt howMany   lat   lng
-#>    <chr>       <chr>    <chr>    <chr>  <chr>    <chr>   <int> <dbl> <dbl>
-#>  1 buggna      Blue-gr… Poliopt… L5156… Sapsuck… 2018…       1  42.5 -76.5
-#>  2 blkvul      Black V… Coragyp… L3982… 14## Ha… 2018…       1  42.5 -76.5
-#>  3 blkvul      Black V… Coragyp… L2866… Sapsuck… 2018…       1  42.5 -76.5
-#>  4 blkvul      Black V… Coragyp… L2123… Stevens… 2018…       1  42.4 -76.4
-#>  5 sora        Sora     Porzana… L5947… Ridgewa… 2018…       1  42.3 -76.4
-#>  6 conwar      Connect… Opororn… L4463… Durland… 2018…       1  42.4 -76.4
-#>  7 canwar      Canada … Cardell… L2817… Cornell… 2018…       1  42.5 -76.5
-#>  8 blkvul      Black V… Coragyp… L1498… Sapsuck… 2018…       1  42.5 -76.5
-#>  9 blkvul      Black V… Coragyp… L8779… Bluegra… 2018…       1  42.5 -76.5
-#> 10 comloo      Common … Gavia i… L3530… Salt Po… 2018…       1  42.5 -76.5
-#> # ... with 57 more rows, and 3 more variables: obsValid <lgl>,
+#> # A tibble: 71 x 12
+#>    speciesCode comName   sciName  locId locName  obsDt howMany   lat   lng
+#>    <chr>       <chr>     <chr>    <chr> <chr>    <chr>   <int> <dbl> <dbl>
+#>  1 buggna      Blue-gra… Poliopt… L177… Sapsuck… 2018…       1  42.5 -76.4
+#>  2 comgal1     Common G… Gallinu… L518… Hile Sc… 2018…       1  42.5 -76.4
+#>  3 buggna1     Blue-gra… Poliopt… L124… Sapsuck… 2018…       1  42.5 -76.5
+#>  4 buggna      Blue-gra… Poliopt… L515… Sapsuck… 2018…       1  42.5 -76.5
+#>  5 comnig      Common N… Chordei… L518… Hile Sc… 2018…       1  42.5 -76.4
+#>  6 blkvul      Black Vu… Coragyp… L398… 14## Ha… 2018…       1  42.5 -76.5
+#>  7 blkvul      Black Vu… Coragyp… L286… Sapsuck… 2018…       1  42.5 -76.5
+#>  8 blkvul      Black Vu… Coragyp… L212… Stevens… 2018…       1  42.4 -76.4
+#>  9 sora        Sora      Porzana… L594… Ridgewa… 2018…       1  42.3 -76.4
+#> 10 conwar      Connecti… Opororn… L446… Durland… 2018…       1  42.4 -76.4
+#> # ... with 61 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
@@ -228,9 +228,9 @@ ebirdregioninfo("CA-BC-GV")
 #> 1 Metro Vancouver, British Columbia, Canada -123. -122.  49.0  49.6
 ```
 
-# `rebird` and other packages
+## `rebird` and other packages
 
-## How to use `rebird`
+### How to use `rebird`
 
 This package is part of a richer suite called [spocc - Species
 Occurrence Data](https://github.com/ropensci/spocc), along with several
@@ -238,7 +238,7 @@ other packages, that provide access to occurrence records from multiple
 databases. We recommend using `spocc` as the primary R interface to
 `rebird` unless your needs are limited to this single source.
 
-## `auk` vs. `rebird`
+### `auk` vs. `rebird`
 
 Those interested in eBird data may also want to consider
 [`auk`](https://github.com/CornellLabofOrnithology/auk), an R package
@@ -251,6 +251,54 @@ most ecological applications, users will require `auk`; however, for
 some use cases, e.g. building tools for birders, `rebird` provides a
 quicker and easier way to access data. `rebird` and `auk` are both part
 of the rOpenSci project.
+
+## API requests covered by `rebird`
+
+The 2.0 APIs have considerably been expanded from the previous version,
+and `rebird` only covers some of them. The webservices covered are
+listed below; if you’d like to contribute wrappers to APIs not yet
+covered by this package, feel free to submit a pull request\!
+
+### data/obs
+
+  - \[x\] Recent observations in a region: `ebirdregion()`
+  - \[x\] Recent notable observations in a region: `ebirdnotable()`
+  - \[x\] Recent observations of a species in a region: `ebirdregion()`
+  - \[x\] Recent nearby observations: `ebirdgeo()`
+  - \[x\] Recent nearby observations of a species: `ebirdgeo()`
+  - \[x\] Nearest observations of a species: `nearestobs()`
+  - \[x\] Recent nearby notable observations: `ebirdnotable()`
+  - \[ \] Historic observations on a date
+
+### product
+
+  - \[ \] Top 100
+  - \[ \] Checklist feed on a date
+  - \[ \] Recent checklists feed
+  - \[ \] Regional statistics on a date
+  - \[ \] View Checklist BETA
+
+### ref/geo
+
+  - \[ \] Adjacent Regions
+
+### ref/hotspot
+
+  - \[ \] Hotspots in a region
+  - \[ \] Nearby hotspots
+
+### ref/taxonomy
+
+  - \[x\] eBird Taxonomy: `ebirdtaxonomy()`
+  - \[ \] Taxonomic Forms
+  - \[ \] Taxonomy Versions
+  - \[ \] Taxonomic Groups
+
+### ref/region
+
+  - \[ \] Hotspot Info
+  - \[x\] Region Info: `ebirdregioninfo()`
+  - \[ \] Sub Region List
 
 ## Meta
 
