@@ -1,41 +1,33 @@
 #' Check if a region type is valid
 #'
-#' @param loctype One of: 'country', 'states', 'counties'
-#' @param loc The location code to be checked. A single location only,
-#'   unless \code{loctype = 'country'}.
+#' @param loc The location code to be checked. 
+#' @param key ebird API key. You can obtain one from https://ebird.org/api/keygen.
+#'    We strongly recommend storing it in your \code{.Renviron} file as an 
+#'    environment variable called \code{EBIRD_KEY}.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}} 
 #'
-#' @return A logical vector of the same length as \code{loc}.
+#' @return Logical.
 #' @export
 #' 
 #' @examples \dontrun{
-#' ebirdregioncheck("country", c("US", "CA"))
-#' ebirdregioncheck("states", "CA-BC")
-#' ebirdregioncheck("counties","CA-BC-GV")
+#' ebirdregioncheck("US")
+#' ebirdregioncheck("CA-BC")
+#' ebirdregioncheck("CA-BC-GV")
 #' }
 #' @author Sebastian Pardo \email{sebpardo@@gmail.com},
 #'    Andy Teucher \email{andy.teucher@@gmail.com}
 #' @references \url{http://ebird.org/}
 
-ebirdregioncheck <- function(loctype, loc, ...) {
-
-  if (loctype != "country" && length(loc) > 1) {
+ebirdregioncheck <- function(loc, key = NULL, ...) {
+  .Deprecated(new = "ebirdregioninfo", 
+              msg = "Deprecated: 'ebirdregioncheck' will be removed in the next version of rebird. Use 'ebirdregioninfo' instead.")
+  if (length(loc) > 1) {
     stop("More than one location specified")
   }
-  
-  if (loctype == "country") { 
-    args <- list(rtype = "country")
-  } else if (loctype == "states") {
-    args <- list(rtype = "subnational1", countryCode = substr(loc, 1, 2)) 
-  } else if (loctype == "counties") {
-    args <- list(rtype = "subnational2",
-                 subnational1Code = substr(loc, 1, 5)) 
-  } else {
-    stop("loctype must be one of 'country', 'states', 'counties'", call. = FALSE)
-  }
-  
-  r <- GET(paste0(ebase(), "ref/location/list"), query = args, ...)
-  stop_for_status(r)
-  tmp <- read.delim(text = content(r, "text", encoding = "UTF-8"), sep = ",", stringsAsFactors = FALSE)
-  loc %in% tmp[, paste0(toupper(args$rtype), "_CODE")]
+  out <- try(ebirdregioninfo(loc, key = key, ...), silent = TRUE)
+  if ("try-error" %in% class(out) && 
+      !grepl("No region with code", out) &&   # To avoid error when using "HTTP 404" as location
+      grepl("HTTP [403|400]", out)) stop(out) # HTTP error codes that should 
+                                              # throw errors rather than return false
+  "tbl_df" %in% class(out)
 }

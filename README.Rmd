@@ -21,11 +21,11 @@ knitr::opts_chunk$set(
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/rebird)](https://github.com/metacran/cranlogs.app)
 [![cran version](http://www.r-pkg.org/badges/version/rebird)](https://cran.r-project.org/package=rebird/)
 
-`reBird` is a package to interface with the eBird webservices.
+`rebird` is a package to interface with the eBird webservices.
 
 eBird is a real-time, online bird checklist program. For more information, visit their website: http://www.ebird.org
 
-The API for the eBird webservices can be accessed here: https://confluence.cornell.edu/display/CLOISAPI/eBird+API+1.1
+The API for the eBird webservices can be accessed here: https://documenter.getpostman.com/view/664302/ebird-api-20/2HTbHW
 
 ## Install
 
@@ -45,18 +45,44 @@ devtools::install_github("ropensci/rebird")
 
 # Direct use of `rebird`
 
-Load the package
+Load the package:
 
 ```{r}
 library("rebird")
 ```
+
+The [eBird API server](https://documenter.getpostman.com/view/664302/ebird-api-20/2HTbHW) 
+has been updated and thus there are a couple major changes in the way `rebird` works.
+API requests to eBird now require users to provide an API key, which is linked to your 
+eBird user account. 
+You can pass it to the 'key' argument in `rebird` functions, but we highly recommend
+storing it as an environment variable called EBIRD_KEY in your .Renviron file.
+If you don't have a key, you can obtain one from <https://ebird.org/api/keygen>.
+
+You can keep your .Renviron file in your global R home directory (`R.home()`), your user's home
+directory (`Sys.getenv("HOME")`), or your current working directory (`getwd()`). Remember
+that .Renviron is loaded once when you start R, so if you add your API key to the file you will
+have to restart your R session. See <https://csgillespie.github.io/efficientR/r-startup.html> for
+more information on R's startup files.
+
+Furthermore, functions now use species codes, rather than scientific names, for species-specific requests.
+We've made the switch easy by providing the `species_code` function, which converts a scientific name to
+its species code:
+
+```{r speciescode}
+species_code('sula variegata')
+```
+
+The `species_code` function can be called within other `rebird` functions, or the species code 
+can be specified directly.
+
 
 ## Sightings at location determined by latitude/longitude
 
 Search for bird occurrences by latitude and longitude point
 
 ```{r ebirdgeo1}
-ebirdgeo(species = 'spinus tristis', lat = 42, lng = -76)
+ebirdgeo(species = species_code('spinus tristis'), lat = 42, lng = -76)
 ```
 
 ## Recent observations at a region
@@ -64,16 +90,24 @@ ebirdgeo(species = 'spinus tristis', lat = 42, lng = -76)
 Search for bird occurrences by region and species name
 
 ```{r ebirdregion1}
-ebirdregion(region = 'US', species = 'Setophaga caerulescens')
+ebirdregion(loc = 'US', species = 'btbwar')
 ```
 
 
 ## Recent observations at hotspots
 
-Search for bird occurrences by region
+Search for bird occurrences by a given hotspot
 
 ```{r ebirdhotspot}
-ebirdhotspot(locID = c('L99381','L99382'))
+ebirdregion(loc = 'L99381')
+```
+
+## Nearest observations of a species
+
+Search for a species' occurrences near a given latitude and longitude
+
+```{r nearestobs}
+nearestobs(species_code('branta canadensis'), 42, -76)
 ```
 
 
@@ -85,15 +119,76 @@ Obtain historical frequencies of bird occurrences by hotspot or region
 ebirdfreq(loctype = 'hotspots', loc = 'L196159')
 ```
 
-# `rebird` and other packages
+## Recent notable sightings
 
-## How to use `rebird`
+Search for notable sightings at a given latitude and longitude
+
+```{r ebirdnotable1}
+ebirdnotable(lat = 42, lng = -70)
+```
+
+or a region
+
+```{r ebirdnotable2}
+ebirdnotable(locID = 'US-NY-109')
+```
+
+## Information on a given region
+
+Obtain detailed information on any valid eBird region
+
+```{r ebirdregioninfo}
+ebirdregioninfo("CA-BC-GV")
+```
+
+## `rebird` and other packages
+
+### How to use `rebird`
 
 This package is part of a richer suite called [spocc - Species Occurrence Data](https://github.com/ropensci/spocc), along with several other packages, that provide access to occurrence records from multiple databases. We recommend using `spocc` as the primary R interface to `rebird` unless your needs are limited to this single source.
 
-## `auk` vs. `rebird`
+### `auk` vs. `rebird`
 
 Those interested in eBird data may also want to consider [`auk`](https://github.com/CornellLabofOrnithology/auk), an R package that helps extracting and processing the whole eBird dataset. The functions in `rebird` are faster but mostly limited to accessing recent (i.e. within the last 30 days) observations, although `ebirdfreq()` does provide historical frequency of observation data. In contrast, `auk` gives access to the full set of ~ 500 million eBird observations. For most ecological applications, users will require `auk`; however, for some use cases, e.g. building tools for birders, `rebird` provides a quicker and easier way to access data. `rebird` and `auk` are both part of the rOpenSci project.
+
+## API requests covered by `rebird`
+
+The 2.0 APIs have considerably been expanded from the previous version, and `rebird` only covers some of them.  The webservices covered are listed below; if you'd like to contribute wrappers to APIs not yet covered by this package, feel free to submit a pull request!
+
+### data/obs
+- [x] Recent observations in a region: `ebirdregion()`
+- [x] Recent notable observations in a region: `ebirdnotable()`
+- [x] Recent observations of a species in a region: `ebirdregion()`
+- [x] Recent nearby observations: `ebirdgeo()` 
+- [x] Recent nearby observations of a species: `ebirdgeo()`
+- [x] Nearest observations of a species: `nearestobs()`
+- [x] Recent nearby notable observations: `ebirdnotable()`
+- [ ] Historic observations on a date
+
+### product
+- [ ]   Top 100
+- [ ]     Checklist feed on a date
+- [ ]     Recent checklists feed
+- [ ]  Regional statistics on a date
+- [ ]     View Checklist BETA
+
+### ref/geo
+ - [ ]    Adjacent Regions
+
+### ref/hotspot
+ - [ ]     Hotspots in a region
+ - [ ]     Nearby hotspots
+
+### ref/taxonomy
+ - [x]     eBird Taxonomy: `ebirdtaxonomy()`
+ - [ ]     Taxonomic Forms
+ - [ ]     Taxonomy Versions
+ - [ ]     Taxonomic Groups
+
+### ref/region
+ - [ ]     Hotspot Info
+ - [x]    Region Info: `ebirdregioninfo()`
+ - [ ]     Sub Region List
 
 
 ## Meta

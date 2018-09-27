@@ -3,7 +3,7 @@ context("ebirdgeo")
 test_that("ebirdgeo works correctly", {
   skip_on_cran()
   
-  egeo <- ebirdgeo('spinus tristis',42,-76)
+  egeo <- ebirdgeo('amegfi',42,-76)
   expect_is(egeo, "data.frame")
   expect_gt(NCOL(egeo), 10)
   expect_is(egeo$locName, "character")

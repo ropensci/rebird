@@ -4,27 +4,28 @@
 \alias{ebirdregioncheck}
 \title{Check if a region type is valid}
 \usage{
-ebirdregioncheck(loctype, loc, ...)
+ebirdregioncheck(loc, key = NULL, ...)
 }
 \arguments{
-\item{loctype}{One of: 'country', 'states', 'counties'}
+\item{loc}{The location code to be checked.}
 
-\item{loc}{The location code to be checked. A single location only,
-unless \code{loctype = 'country'}.}
+\item{key}{ebird API key. You can obtain one from https://ebird.org/api/keygen.
+We strongly recommend storing it in your \code{.Renviron} file as an 
+environment variable called \code{EBIRD_KEY}.}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
-A logical vector of the same length as \code{loc}.
+Logical.
 }
 \description{
 Check if a region type is valid
 }
 \examples{
 \dontrun{
-ebirdregioncheck("country", c("US", "CA"))
-ebirdregioncheck("states", "CA-BC")
-ebirdregioncheck("counties","CA-BC-GV")
+ebirdregioncheck("US")
+ebirdregioncheck("CA-BC")
+ebirdregioncheck("CA-BC-GV")
 }
 }
 \references{

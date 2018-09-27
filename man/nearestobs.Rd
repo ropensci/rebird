@@ -2,22 +2,27 @@
 % Please edit documentation in R/nearestobs.R
 \name{nearestobs}
 \alias{nearestobs}
-\title{Nearest species sightings}
+\title{Recent nearby observations of a species}
 \usage{
-nearestobs(species, lat = NULL, lng = NULL, back = NULL,
-  max = NULL, locale = NULL, provisional = FALSE, hotspot = FALSE,
-  sleep = 0, ...)
+nearestobs(speciesCode, lat = NULL, lng = NULL, dist = NULL,
+  back = NULL, max = NULL, locale = NULL, provisional = FALSE,
+  hotspot = FALSE, sleep = 0, key = NULL, ...)
 }
 \arguments{
-\item{species}{(required) Scientific name of the species of interest (not case
-sensitive). See eBird taxonomy for more information:
+\item{speciesCode}{(required) Species code of the species of interest. 
+Scientific names can be specified if wrapped around the 
+\code{\link{species_code}} function. Defaults to NULL, so sightings for all species are returned.
+See eBird taxonomy for more information:
 http://ebird.org/content/ebird/about/ebird-taxonomy}
 
 \item{lat}{Decimal latitude. value between -90.00 and 90.00, up to two
-decimal places of precision. Defaults to latitude basd on IP.}
+decimal places of precision. Defaults to latitude based on IP.}
 
 \item{lng}{Decimal longitude. value between -180.00 and 180.00, up to
-two decimal places of precision. Defaults to longitude basd on IP.}
+two decimal places of precision. Defaults to longitude based on IP.}
+
+\item{dist}{Distance defining radius of interest from given lat/lng in
+kilometers (between 0 and 50, defaults to 25)}
 
 \item{back}{Number of days back to look for observations (between
 1 and 30, defaults to 14).}
@@ -38,6 +43,10 @@ be included? (defaults to FALSE).}
 \item{sleep}{Time (in seconds) before function sends API call (defaults to
 zero. Set to higher number if you are using this function in a loop with
 many API calls).}
+
+\item{key}{ebird API key. You can obtain one from https://ebird.org/api/keygen.
+We strongly recommend storing it in your \code{.Renviron} file as an 
+environment variable called \code{EBIRD_KEY}.}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
@@ -75,13 +84,15 @@ with observations of a species.
 }
 \examples{
 \dontrun{
-nearestobs('branta canadensis', 42, -76)
-nearestobs('branta canadensis', 42, -76, max=10, provisional=TRUE, hotspot=TRUE)
+nearestobs('cangoo', 42, -76) # Canada Goose
+nearestobs(species_code('branta canadensis'), 42, -76) # Same as above
+nearestobs(species_code('branta canadensis'), 42, -76, max=10, provisional=TRUE, hotspot=TRUE)
 }
 }
 \references{
 \url{http://ebird.org/}
 }
 \author{
-Rafael Maia \email{rm72@zips.uakron.edu}
+Rafael Maia \email{rm72@zips.uakron.edu},
+   Sebastian Pardo \email{sebpardo@gmail.com}
 }

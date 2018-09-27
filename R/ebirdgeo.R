@@ -4,14 +4,14 @@
 #' species of bird reported within the number of days specified and reported in 
 #' the specified area.
 #'
-#' @param species Scientific name of the species of interest (not case
-#'    sensitive). Defaults to NULL, so sightings for all species are returned.
+#' @param species Species code of the species of interest. Scientific names can be specified if wrapped around the 
+#'    \code{\link{species_code}} function. Defaults to NULL, so sightings for all species are returned.
 #'    See eBird taxonomy for more information:
 #'    http://ebird.org/content/ebird/about/ebird-taxonomy
 #' @param lat Decimal latitude. value between -90.00 and 90.00, up to two
-#'    decimal places of precision. Defaults to latitude basd on IP.
+#'    decimal places of precision. Defaults to latitude based on IP.
 #' @param lng Decimal longitude. value between -180.00 and 180.00, up to
-#'    two decimal places of precision. Defaults to longitude basd on IP.
+#'    two decimal places of precision. Defaults to longitude based on IP.
 #' @param dist Distance defining radius of interest from given lat/lng in
 #'    kilometers (between 0 and 50, defaults to 25)
 #' @param back Number of days back to look for observations (between
@@ -28,6 +28,9 @@
 #' @param sleep Time (in seconds) before function sends API call (defaults to
 #'    zero. Set to higher number if you are using this function in a loop with
 #'    many API calls).
+#' @param key ebird API key. You can obtain one from https://ebird.org/api/keygen.
+#'    We strongly recommend storing it in your \code{.Renviron} file as an 
+#'    environment variable called \code{EBIRD_KEY}.
 #'@param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return A data.frame containing the collected information:
 #' @return "comName": species common name
@@ -46,23 +49,24 @@
 #' @return "sciName" species' scientific name
 #' @export
 #' @examples \dontrun{
-#' ebirdgeo('spinus tristis', 42, -76)
+#' ebirdgeo('amegfi', 42, -76) # American Goldfinch
+#' ebirdgeo(species_code('spinus tristis'), 42, -76) # same as above
 #' ebirdgeo(lat=42, lng=-76, max=10, provisional=TRUE, hotspot=TRUE)
-#' ebirdgeo('Anas platyrhynchos', 39, -121, max=5)
+#' ebirdgeo(species_code('Anas platyrhynchos'), 39, -121, max=5)
 #' library('httr')
-#' ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=verbose())
-#' ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=user_agent("rebird"))
-#' ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=progress())
-#' # ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=timeout(0.1))
+#' ebirdgeo(species_code('Anas platyrhynchos'), 39, -121, max=5, config=verbose())
+#' ebirdgeo(species_code('Anas platyrhynchos'), 39, -121, max=5, config=progress())
+#' # ebirdgeo(species_code('Anas platyrhynchos'), 39, -121, max=5, config=timeout(0.1))
 #' }
-#' @author Rafael Maia \email{rm72@@zips.uakron.edu}
+#' @author Rafael Maia \email{rm72@@zips.uakron.edu},
+#'    Sebastian Pardo \email{sebpardo@@gmail.com}
 #' @references \url{http://ebird.org/}
 
 ebirdgeo <-  function(species = NULL, lat = NULL, lng = NULL, dist = NULL, back = NULL, max = NULL, 
-  locale = NULL, provisional = FALSE, hotspot = FALSE, sleep = 0, ...) 
+  locale = NULL, provisional = FALSE, hotspot = FALSE, sleep = 0, key = NULL, ...) 
 {
   Sys.sleep(sleep)
-  url <- paste0(ebase(), 'data/obs/', if(!is.null(species)) 'geo_spp/recent' else 'geo/recent')
+  url <- paste0(ebase(), 'data/obs/', if(!is.null(species)) paste0('geo/recent/',species) else 'geo/recent')
 
   geoloc <- c(lat,lng)
   if (is.null(geoloc)) geoloc <- getlatlng()
@@ -82,13 +86,13 @@ ebirdgeo <-  function(species = NULL, lat = NULL, lng = NULL, dist = NULL, back 
     back <- round(back)
   }
 
-  args <- ebird_compact(list(fmt='json', sci=species,
-                             lat=round(geoloc[1],2), lng=round(geoloc[2],2),
-                             dist=dist, back=back, maxResults=max,
-                             locale=locale
+  args <- ebird_compact(list(speciesCode = species,
+                             lat = round(geoloc[1], 2), lng = round(geoloc[2], 2),
+                             dist = dist, back = back, maxResults = max,
+                             sppLocale = locale
   ))
 
   if (provisional) args$includeProvisional <- 'true'
   if (hotspot) args$hotspot <- 'true'
-  ebird_GET(url, args, ...)
+  ebird_GET(url, args, key = key, ...)
 }

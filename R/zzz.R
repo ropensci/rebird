@@ -1,13 +1,41 @@
 #' @importFrom methods is
+#' @importFrom utils URLencode
+#' @importFrom dplyr bind_rows
+#' @importFrom dplyr as_data_frame
+#' @importFrom httr GET
+#' @importFrom httr add_headers
+#' @importFrom httr content
+#' @importFrom jsonlite fromJSON
 
 ebird_compact <- function(x) Filter(Negate(is.null), x)
 
-ebase <- function() 'https://ebird.org/ws1.1/'
+ebase <- function() 'https://ebird.org/ws2.0/'
 
-ebird_GET <- function(url, args, ...){
-  tt <- GET(url, query = args, ...)
+get_key <- function(key = NULL) {
+  if (!is.null(key)) return(key)
+  key <- Sys.getenv("EBIRD_KEY")
+  if (!nzchar(key)) {
+    stop(
+    "You must provide an API key from eBird.
+    You can pass it to the 'key' argument or store it as 
+    an environment variable called EBIRD_KEY in your .Renviron file.
+    If you don't have a key, you can obtain one from:
+    https://ebird.org/api/keygen.", call. = FALSE
+    )
+  }
+  key
+}
+
+ebird_GET <- function(url, args, key = NULL, ...){
+  
+  tt <- GET(URLencode(url), 
+            query = ebird_compact(args), 
+            add_headers("X-eBirdApiToken" = get_key(key)), # removed config = add_headers(...
+                                                           # to allow config = to be specified in ...
+            ...)
+  
   ss <- content(tt, as = "text", encoding = "UTF-8")
-  json <- jsonlite::fromJSON(ss, FALSE)
+  json <- fromJSON(ss, FALSE)
   if (tt$status_code > 202) {
     warning(sprintf("%s", json[[1]]['errorMsg']))
     NA

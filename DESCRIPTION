@@ -1,10 +1,11 @@
 Package: rebird
-Version: 0.5.0
+Version: 1.0.0
 Title: R Client for the eBird Database of Bird Observations
 Description: A programmatic client for the eBird database, including functions
     for searching for bird observations by geographic location (latitude,
     longitude), eBird hotspots, location identifiers, by notable sightings, by
     region, and by taxonomic name.
+Depends: R (>= 2.10)
 License: MIT + file LICENSE
 Authors@R: c(
     person("Rafael", "Maia", role = "aut", email = "rm72@zips.uakron.edu"),
@@ -21,12 +22,13 @@ Imports:
     stats,
     httr (>= 1.0.0),
     jsonlite,
-    dplyr
+    dplyr,
+    assertthat
 Suggests:
     knitr,
     testthat,
     covr
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 6.1.0
 X-schema.org-applicationCategory: Data Access
 X-schema.org-keywords: birds, birding, ebird, database, data, biology, observations, sightings, ornithology
 X-schema.org-isPartOf: https://ropensci.org

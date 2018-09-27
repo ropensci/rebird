@@ -6,19 +6,19 @@
 \usage{
 ebirdgeo(species = NULL, lat = NULL, lng = NULL, dist = NULL,
   back = NULL, max = NULL, locale = NULL, provisional = FALSE,
-  hotspot = FALSE, sleep = 0, ...)
+  hotspot = FALSE, sleep = 0, key = NULL, ...)
 }
 \arguments{
-\item{species}{Scientific name of the species of interest (not case
-sensitive). Defaults to NULL, so sightings for all species are returned.
+\item{species}{Species code of the species of interest. Scientific names can be specified if wrapped around the 
+\code{\link{species_code}} function. Defaults to NULL, so sightings for all species are returned.
 See eBird taxonomy for more information:
 http://ebird.org/content/ebird/about/ebird-taxonomy}
 
 \item{lat}{Decimal latitude. value between -90.00 and 90.00, up to two
-decimal places of precision. Defaults to latitude basd on IP.}
+decimal places of precision. Defaults to latitude based on IP.}
 
 \item{lng}{Decimal longitude. value between -180.00 and 180.00, up to
-two decimal places of precision. Defaults to longitude basd on IP.}
+two decimal places of precision. Defaults to longitude based on IP.}
 
 \item{dist}{Distance defining radius of interest from given lat/lng in
 kilometers (between 0 and 50, defaults to 25)}
@@ -42,6 +42,10 @@ be included? (defaults to FALSE).}
 \item{sleep}{Time (in seconds) before function sends API call (defaults to
 zero. Set to higher number if you are using this function in a loop with
 many API calls).}
+
+\item{key}{ebird API key. You can obtain one from https://ebird.org/api/keygen.
+We strongly recommend storing it in your \code{.Renviron} file as an 
+environment variable called \code{EBIRD_KEY}.}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
@@ -80,19 +84,20 @@ the specified area.
 }
 \examples{
 \dontrun{
-ebirdgeo('spinus tristis', 42, -76)
+ebirdgeo('amegfi', 42, -76) # American Goldfinch
+ebirdgeo(species_code('spinus tristis'), 42, -76) # same as above
 ebirdgeo(lat=42, lng=-76, max=10, provisional=TRUE, hotspot=TRUE)
-ebirdgeo('Anas platyrhynchos', 39, -121, max=5)
+ebirdgeo(species_code('Anas platyrhynchos'), 39, -121, max=5)
 library('httr')
-ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=verbose())
-ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=user_agent("rebird"))
-ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=progress())
-# ebirdgeo('Anas platyrhynchos', 39, -121, max=5, config=timeout(0.1))
+ebirdgeo(species_code('Anas platyrhynchos'), 39, -121, max=5, config=verbose())
+ebirdgeo(species_code('Anas platyrhynchos'), 39, -121, max=5, config=progress())
+# ebirdgeo(species_code('Anas platyrhynchos'), 39, -121, max=5, config=timeout(0.1))
 }
 }
 \references{
 \url{http://ebird.org/}
 }
 \author{
-Rafael Maia \email{rm72@zips.uakron.edu}
+Rafael Maia \email{rm72@zips.uakron.edu},
+   Sebastian Pardo \email{sebpardo@gmail.com}
 }
