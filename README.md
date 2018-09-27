@@ -110,7 +110,7 @@ Search for bird occurrences by region and species name
 
 ``` r
 ebirdregion(loc = 'US', species = 'btbwar')
-#> # A tibble: 1,042 x 12
+#> # A tibble: 1,041 x 12
 #>    speciesCode comName  sciName  locId  locName  obsDt howMany   lat   lng
 #>    <chr>       <chr>    <chr>    <chr>  <chr>    <chr>   <int> <dbl> <dbl>
 #>  1 btbwar      Black-t… Setopha… L3572… Cornell… 2018…       2  42.4 -76.5
@@ -123,7 +123,7 @@ ebirdregion(loc = 'US', species = 'btbwar')
 #>  8 btbwar      Black-t… Setopha… L5862… Indrio … 2018…       1  27.5 -80.4
 #>  9 btbwar      Black-t… Setopha… L1301… Ashland… 2018…       2  39.8 -75.7
 #> 10 btbwar      Black-t… Setopha… L1877… Pinecra… 2018…       1  27.3 -82.5
-#> # ... with 1,032 more rows, and 3 more variables: obsValid <lgl>,
+#> # ... with 1,031 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
@@ -147,6 +147,30 @@ ebirdregion(loc = 'L99381')
 #>  9 doccor      Double-c… Phalacro… L993… Stewar… 2018…     118  42.5 -76.5
 #> 10 grnher      Green He… Butoride… L993… Stewar… 2018…       1  42.5 -76.5
 #> # ... with 54 more rows, and 3 more variables: obsValid <lgl>,
+#> #   obsReviewed <lgl>, locationPrivate <lgl>
+```
+
+## Nearest observations of a species
+
+Search for a species’ occurrences near a given latitude and longitude
+
+``` r
+nearestobs(species_code('branta canadensis'), 42, -76)
+#> Canada Goose (Branta canadensis): cangoo
+#> # A tibble: 27 x 12
+#>    speciesCode comName  sciName  locId locName   obsDt howMany   lat   lng
+#>    <chr>       <chr>    <chr>    <chr> <chr>     <chr>   <int> <dbl> <dbl>
+#>  1 cangoo      Canada … Branta … L186… Cheri A.… 2018…       4  42.1 -75.9
+#>  2 cangoo      Canada … Branta … L207… Workwalk  2018…      26  42.1 -75.9
+#>  3 cangoo      Canada … Branta … L287… Vestal R… 2018…      49  42.1 -76.0
+#>  4 cangoo      Canada … Branta … L527… R Tee Go… 2018…      53  42.2 -75.9
+#>  5 cangoo      Canada … Branta … L728… State Ga… 2018…      23  41.9 -75.7
+#>  6 cangoo      Canada … Branta … L504… Rt. 12A … 2018…      65  42.2 -75.9
+#>  7 cangoo      Canada … Branta … L468… "Boland … 2018…      12  42.2 -75.9
+#>  8 cangoo      Canada … Branta … L285… Camp Sus… 2018…       2  42.0 -75.9
+#>  9 cangoo      Canada … Branta … L447… Binghamt… 2018…       2  42.1 -76.0
+#> 10 cangoo      Canada … Branta … L501… William … 2018…      50  42.1 -76.0
+#> # ... with 17 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 

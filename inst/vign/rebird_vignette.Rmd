@@ -86,6 +86,15 @@ ebirdregion(loc = 'L99381', species = species_code('larus delawarensis'),
 ```
 
 
+## Nearest observations of a species
+
+Search for a species' occurrences near a given latitude and longitude
+
+```{r nearestobs}
+nearestobs(species_code('branta canadensis'), 42, -76)
+```
+
+
 ### Recent observations at a region
 
 Search for bird occurrences by region and species name

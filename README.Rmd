@@ -102,6 +102,14 @@ Search for bird occurrences by a given hotspot
 ebirdregion(loc = 'L99381')
 ```
 
+## Nearest observations of a species
+
+Search for a species' occurrences near a given latitude and longitude
+
+```{r nearestobs}
+nearestobs(species_code('branta canadensis'), 42, -76)
+```
+
 
 ## Frequency of observations at hotspots or regions
 
