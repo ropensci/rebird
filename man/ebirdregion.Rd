@@ -5,8 +5,8 @@
 \title{Recent observations at a region or hotspot}
 \usage{
 ebirdregion(loc, species = NULL, back = NULL, max = NULL,
-  locale = NULL, provisional = FALSE, hotspot = FALSE, sleep = 0,
-  key = NULL, ...)
+  locale = NULL, provisional = FALSE, hotspot = FALSE,
+  simple = TRUE, sleep = 0, key = NULL, ...)
 }
 \arguments{
 \item{loc}{(required) Region code or locID (for hotspots). Region code can
@@ -37,6 +37,10 @@ be included? (defaults to FALSE)}
 
 \item{hotspot}{Should results be limited to sightings at birding hotspots?
 (defaults to FALSE).}
+
+\item{simple}{Logical. Whether to return a simple (TRUE, default) or detailed
+(FALSE) set of results fields. Detailed results are only available if 
+\code{loc} is a locID.}
 
 \item{sleep}{Time (in seconds) before function sends API call (defaults to
 zero.  Set to higher number if you are using this function in a loop with

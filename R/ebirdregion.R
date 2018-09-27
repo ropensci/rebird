@@ -20,6 +20,9 @@
 #'    be included? (defaults to FALSE)
 #' @param hotspot Should results be limited to sightings at birding hotspots?
 #'    (defaults to FALSE).
+#' @param simple Logical. Whether to return a simple (TRUE, default) or detailed
+#'    (FALSE) set of results fields. Detailed results are only available if 
+#'    \code{loc} is a locID.
 #' @param sleep Time (in seconds) before function sends API call (defaults to
 #'    zero.  Set to higher number if you are using this function in a loop with
 #'    many API calls).
@@ -50,7 +53,8 @@
 #' @references \url{http://ebird.org/}
 
 ebirdregion <-  function(loc, species = NULL, back = NULL, max = NULL, 
-  locale = NULL, provisional = FALSE, hotspot = FALSE, sleep = 0, key = NULL, ...)
+  locale = NULL, provisional = FALSE, hotspot = FALSE, simple = TRUE, 
+  sleep = 0, key = NULL, ...)
 {
   Sys.sleep(sleep)
   url <- paste0(ebase(), 'data/obs/', loc, '/recent/', species)
@@ -61,6 +65,7 @@ ebirdregion <-  function(loc, species = NULL, back = NULL, max = NULL,
   
   if (provisional) args$includeProvisional <- 'true'
   if (hotspot) args$hotspot <- 'true'
+  if (!simple) args$detail <- 'full'
   
   ebird_GET(url, args, key = key, ...)
 }
