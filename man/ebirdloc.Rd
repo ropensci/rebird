@@ -39,7 +39,7 @@ many API calls).}
 
 \item{key}{ebird API key. You can obtain one from https://ebird.org/api/keygen.
 We strongly recommend storing it in your \code{.Renviron} file as an 
-enivronment variable called \code{EBIRD_KEY}.}
+environment variable called \code{EBIRD_KEY}.}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }

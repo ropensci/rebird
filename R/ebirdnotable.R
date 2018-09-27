@@ -28,7 +28,7 @@
 #'    many API calls).
 #' @param key ebird API key. You can obtain one from https://ebird.org/api/keygen.
 #'    We strongly recommend storing it in your \code{.Renviron} file as an 
-#'    enivronment variable called \code{EBIRD_KEY}.
+#'    environment variable called \code{EBIRD_KEY}.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @note \code{ebirdnotable} requires that either latitude/longitude, location ID,
 #' or region be passed to the function. Multiple entries will result in the most

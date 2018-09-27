@@ -9,9 +9,9 @@
 #'    See eBird taxonomy for more information:
 #'    http://ebird.org/content/ebird/about/ebird-taxonomy
 #' @param lat Decimal latitude. value between -90.00 and 90.00, up to two
-#'    decimal places of precision. Defaults to latitude basd on IP.
+#'    decimal places of precision. Defaults to latitude based on IP.
 #' @param lng Decimal longitude. value between -180.00 and 180.00, up to
-#'    two decimal places of precision. Defaults to longitude basd on IP.
+#'    two decimal places of precision. Defaults to longitude based on IP.
 #' @param dist Distance defining radius of interest from given lat/lng in
 #'    kilometers (between 0 and 50, defaults to 25)
 #' @param back Number of days back to look for observations (between
@@ -30,7 +30,7 @@
 #'    many API calls).
 #' @param key ebird API key. You can obtain one from https://ebird.org/api/keygen.
 #'    We strongly recommend storing it in your \code{.Renviron} file as an 
-#'    enivronment variable called \code{EBIRD_KEY}.
+#'    environment variable called \code{EBIRD_KEY}.
 #'@param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return A data.frame containing the collected information:
 #' @return "comName": species common name

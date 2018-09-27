@@ -9,11 +9,11 @@ ebirdregioninfo(loc, format = "full", key = NULL, ...)
 \arguments{
 \item{loc}{The location code to be checked. A single location only.}
 
-\item{format}{Different options for displaying hieararchy of the region's name: [nameonly|namequal|detailed|detailednoqual|revdetailed|full], defaults to full.}
+\item{format}{Different options for displaying hierarchy of the region's name: [nameonly|namequal|detailed|detailednoqual|revdetailed|full], defaults to full.}
 
 \item{key}{ebird API key. You can obtain one from https://ebird.org/api/keygen.
 We strongly recommend storing it in your \code{.Renviron} file as an 
-enivronment variable called \code{EBIRD_KEY}.}
+environment variable called \code{EBIRD_KEY}.}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }

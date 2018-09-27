@@ -18,7 +18,7 @@
 #'    (defaults to en_US).
 #' @param key ebird API key. You can obtain one from https://ebird.org/api/keygen.
 #'    We strongly recommend storing it in your \code{.Renviron} file as an 
-#'    enivronment variable called \code{EBIRD_KEY} to avoid having to constantly 
+#'    environment variable called \code{EBIRD_KEY} to avoid having to constantly 
 #'    supply the key, and to avoid accidentally sharing it publicly.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return A data.frame containing the collected information:
