@@ -53,7 +53,7 @@
 ebirdhotspot <-  function(locID, species=NULL, back = NULL, max = NULL, locale = NULL, 
   provisional = FALSE, sleep = 0, key = NULL, ...) {
   .Deprecated(new = "ebirdregion", 
-              msg = "Deprecated: 'ebirdhotspot' will be removed in the next version of rebird as it might not be suported in the new eBird API. Use 'ebirdregion' instead.")
+              msg = "Deprecated: 'ebirdhotspot' will be removed in the next version of rebird as it might not be supported in the new eBird API. Use 'ebirdregion' instead.")
   if(length(locID) > 10) {
     stop('Too many locations (maximum 10)')
   }

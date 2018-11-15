@@ -67,7 +67,7 @@
 ebirdloc <-  function(locID, species=NULL, back = NULL, max = NULL, locale = NULL, 
   provisional = FALSE, simple = TRUE, sleep = 0, key = NULL, ...) {
   .Deprecated(new = "ebirdregion", 
-              msg = "Deprecated: 'ebirdloc' will be removed in the next version of rebird as it might not be suported in the new eBird API. Use 'ebirdregion' instead.")
+              msg = "Deprecated: 'ebirdloc' will be removed in the next version of rebird as it might not be supported in the new eBird API. Use 'ebirdregion' instead.")
   if (length(locID) > 10) {
     stop('Too many locations (max. 10)', call. = FALSE)
   }
