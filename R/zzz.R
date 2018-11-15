@@ -5,6 +5,8 @@
 #' @importFrom httr GET
 #' @importFrom httr add_headers
 #' @importFrom httr content
+#' @importFrom httr stop_for_status
+#' @importFrom httr http_error
 #' @importFrom jsonlite fromJSON
 
 ebird_compact <- function(x) Filter(Negate(is.null), x)
@@ -33,6 +35,16 @@ ebird_GET <- function(url, args, key = NULL, ...){
             add_headers("X-eBirdApiToken" = get_key(key)), # removed config = add_headers(...
                                                            # to allow config = to be specified in ...
             ...)
+
+  # Testing for errors and providing informative error messages
+  # if request contains error information, provide that error message
+  if (http_error(tt) & !is.raw(content(tt))) stop(paste(content(tt)$error[[1]], collapse = " -- "))
+  # if API key is invalid the API gives error 403 but doesn't provide content so there isn't an error message.
+  # Thus error message is specified below.
+  if (tt$status_code == 403 & is.raw(content(tt))) {
+    stop_for_status(tt, task = "connect to eBird API. Invalid token")
+  }
+  stop_for_status(tt)   # in case any cases fall through the cracks above
   
   ss <- content(tt, as = "text", encoding = "UTF-8")
   json <- fromJSON(ss, FALSE)
