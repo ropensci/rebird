@@ -14,8 +14,11 @@ test_that("nearestobs works correctly", {
   
   expect_is(out$comName, "character")
   expect_is(out$lng, "numeric")
+})
+
+test_that("ebirdloc fails correctly", {
+  skip_on_cran()
   
-  expect_warning(nearestobs('asf', 42, -76), "NULL")
-  
-  expect_equal(suppressWarnings(nearestobs("asf")), NA)
+  expect_error(suppressWarnings(nearestobs("asf")))
+  expect_error(nearestobs('asf', 42, -76))
 })

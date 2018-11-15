@@ -15,5 +15,5 @@ test_that("ebirdregion works correctly", {
   expect_equal(ncol(res), 12)
   
   expect_equal(ncol(ebirdregion(loc = 'US', species = 'coohaw')), 12)
-  expect_equal(ncol(ebirdregion(loc = 'L109339', species = 'amecro', simple = FALSE)), 28)
+  expect_equal(ncol(ebirdregion(loc = 'L109339', species = 'amecro', simple = FALSE)), 27)
 })

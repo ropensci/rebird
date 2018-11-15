@@ -8,5 +8,5 @@ test_that("ebirdhotspot works correctly", {
   expect_is(out$comName, "character")
   expect_warning(ebirdhotspot('L99381'))
   
-  expect_warning(ebirdhotspot(locID = 'L99381', back = 40))
+  expect_error(ebirdhotspot(locID = 'L99381', back = 40))
 })
