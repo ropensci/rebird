@@ -10,6 +10,7 @@ developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repo
 Status](https://api.travis-ci.org/ropensci/rebird.png)](https://travis-ci.org/ropensci/rebird)
 [![Build
 status](https://ci.appveyor.com/api/projects/status/s3dobn991c20t2kg?svg=true)](https://ci.appveyor.com/project/sckott/rebird)
+[![cran checks](https://cranchecks.info/badges/worst/rebird)](https://cranchecks.info/pkgs/rebird)
 [![Coverage
 Status](https://coveralls.io/repos/ropensci/rebird/badge.svg)](https://coveralls.io/r/ropensci/rebird)
 [![rstudio mirror
