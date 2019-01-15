@@ -180,3 +180,12 @@ Obtain information on any region
 ```{r ebirdregioninfo}
 ebirdregioninfo(loc = 'CA-BC-GV')
 ```
+
+### Information on a given hotspot
+
+Obtain detailed information on any valid eBird hotspot
+
+```{r ebirdhotspotinfo}
+ebirdhotspotinfo("L99381")
+ebirdhotspotinfo("L99381")$hierarchical.name
+```

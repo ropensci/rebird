@@ -142,6 +142,16 @@ Obtain detailed information on any valid eBird region
 ebirdregioninfo("CA-BC-GV")
 ```
 
+## Information on a given hotspot
+
+Obtain detailed information on any valid eBird hotspot
+
+```{r ebirdhotspotinfo}
+ebirdhotspotinfo("L99381")
+ebirdhotspotinfo("L99381")$hierarchical.name
+```
+
+
 ## `rebird` and other packages
 
 ### How to use `rebird`
@@ -187,7 +197,7 @@ The 2.0 APIs have considerably been expanded from the previous version, and `reb
  - [ ]     Taxonomic Groups
 
 ### ref/region
- - [ ]     Hotspot Info
+ - [x]     Hotspot Info: `ebirdhotspotinfo()`
  - [x]    Region Info: `ebirdregioninfo()`
  - [ ]     Sub Region List
 
