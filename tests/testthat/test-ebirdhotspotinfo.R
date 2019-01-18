@@ -18,6 +18,6 @@ test_that("ebirdhotspotinfo fails correctly", {
   skip_on_cran()
   
   expect_error(ebirdhotspotinfo())
-  expect_error(ebirdhotspotinfo("L00000"), "No hotspot with code")
+  expect_error(ebirdhotspotinfo("L00000"), "No such ID-HTTP 410. https://ebird.org/ws2.0/ref/hotspot/info/L00000")
 })
 

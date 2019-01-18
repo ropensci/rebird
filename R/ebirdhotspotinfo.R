@@ -21,14 +21,12 @@
 #' @return   "hierarchical.name":  Composite of name beginning with country name
 #' @return   "locID": "L99381"    The hotspot ID
 #' 
-#' @importFrom utils URLencode
-#' @importFrom httr status_code
 #' @export
 #' 
 #' @examples \dontrun{
 #' ebirdhotspotinfo("L99381")
 #' }
-#' @author Guy Babineau \email{guy.babineauo@@gmail.com},
+#' @author Guy Babineau \email{guy.babineau@@gmail.com},
 #' @references \url{http://ebird.org/}
 
 ebirdhotspotinfo <- function(locId, key = NULL, ...) {
@@ -36,25 +34,8 @@ ebirdhotspotinfo <- function(locId, key = NULL, ...) {
     stop("More than one hotspot specified")
   }
   
-  
   url <- paste0(ebase(), "ref/hotspot/info/", locId)
-  tt <- GET(URLencode(url), 
-            add_headers("X-eBirdApiToken" = get_key(key)), ...)
-  
-  library('httr')
-# Status code 410 indicates not found
-  if(status_code(tt)==410 ) stop(paste("No hotspot with code", locId))
-
-# Status code 200 indicates success. No other values are expected
-  if(status_code(tt)!=200 ) stop(paste("Non success value for", locId))
-  
-  stop_for_status(tt)
-  ss <- content(tt, as = "text", encoding = "UTF-8")
-  json <- jsonlite::fromJSON(ss, FALSE)
-  
-  if (length(json) == 0) stop(paste("Unexpected error", locId))
-  
-  df <- as_data_frame(t(rapply(json, unlist))) 
+  df=ebird_GET(url,list(),key = key, ...)
   names(df) <- c("locId", "name", "latitude", "longitude", "countryCode", 
                  "countryName","subnational1Name","subNational1Code",
                  "Subnational2Code","subnational2Name",

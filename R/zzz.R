@@ -29,7 +29,7 @@ get_key <- function(key = NULL) {
 }
 
 ebird_GET <- function(url, args, key = NULL, ...){
-  
+
   tt <- GET(URLencode(url), 
             query = ebird_compact(args), 
             add_headers("X-eBirdApiToken" = get_key(key)), # removed config = add_headers(...
@@ -44,8 +44,14 @@ ebird_GET <- function(url, args, key = NULL, ...){
   if (tt$status_code == 403 & is.raw(content(tt))) {
     stop_for_status(tt, task = "connect to eBird API. Invalid token")
   }
-  stop_for_status(tt)   # in case any cases fall through the cracks above
   
+  # Status code 410 indicates not found
+  if(status_code(tt)==410 ) {
+    stop(paste("No such ID-HTTP 410.",url))
+  }
+
+  stop_for_status(tt)   # in case any cases fall through the cracks above
+
   ss <- content(tt, as = "text", encoding = "UTF-8")
   json <- fromJSON(ss, FALSE)
   if (tt$status_code > 202) {
@@ -55,21 +61,26 @@ ebird_GET <- function(url, args, key = NULL, ...){
     if (!is.list(json)) { 
       return(NA) 
     } else {
-      json <- lapply(json, function(x) lapply(x, function(a) {
-        if (length(a) == 0) { 
-          NA 
-        } else if (length(a) > 1) {
-          paste0(a, collapse = ",")
-        } else {
-          if (is(a, "list")) {
-            a[[1]]
+      if(is.list(json[[1]])) { 
+        json <- lapply(json, function(x) lapply(x, function(a) {
+          if (length(a) == 0) { 
+            NA 
+          } else if (length(a) > 1) {
+            paste0(a, collapse = ",")
           } else {
-            a
+            if (is(a, "list")) {
+              a[[1]]
+            } else {
+              a
+            }
           }
-        }
-      }))
-      bind_rows(lapply(json, as_data_frame))
-    }
+        }))
+        bind_rows(lapply(json, as_data_frame))
+      }
+      else {
+        as_data_frame(t(rapply(json,unlist)))
+      }
+     }
   }
 }
 
