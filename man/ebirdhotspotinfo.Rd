@@ -56,5 +56,5 @@ ebirdhotspotinfo("L99381")
 \url{http://ebird.org/}
 }
 \author{
-Guy Babineau \email{guy.babineauo@gmail.com},
+Guy Babineau \email{guy.babineau@gmail.com},
 }
