@@ -46,7 +46,7 @@ ebird_GET <- function(url, args, key = NULL, ...){
   }
   
   # Status code 410 indicates not found
-  if(status_code(tt)==410 ) {
+  if(tt$status_code==410 ) {
     stop(paste("No such ID-HTTP 410.",url))
   }
 
