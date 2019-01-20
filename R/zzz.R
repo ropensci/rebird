@@ -61,7 +61,7 @@ ebird_GET <- function(url, args, key = NULL, ...){
     if (!is.list(json)) { 
       return(NA) 
     } else {
-      if(is.list(json[[1]])) { 
+      if(length(json)==0 || is.list(json[[1]])) { 
         json <- lapply(json, function(x) lapply(x, function(a) {
           if (length(a) == 0) { 
             NA 
