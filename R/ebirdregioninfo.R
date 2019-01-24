@@ -1,16 +1,25 @@
-#' Region info
+#' Region and hotspot info
 #'
-#@param loctype One of: 'country', 'states', 'counties'
-#' @param loc The location code to be checked. A single location only.
-#' @param format Different options for displaying hierarchy of the region's name: [nameonly|namequal|detailed|detailednoqual|revdetailed|full], defaults to full.
-#' @param key ebird API key. You can obtain one from https://ebird.org/api/keygen.
+#' @param loc The location or hotspot code to be checked. A single location only.
+#' @param format Different options for displaying hierarchy of the region's name: [nameonly|namequal|detailed|detailednoqual|revdetailed|full], defaults to full. Not used for hotspots.
+#' @param key eBird API key. You can obtain one from https://ebird.org/api/keygen.
 #'    We strongly recommend storing it in your \code{.Renviron} file as an 
 #'    environment variable called \code{EBIRD_KEY}.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}} 
 #'
-#' @return A data frame containing:
+#' @return When region is a hotspot, a data frame (with some redundant information) containing:
+#' @return "locId", "locID": hotspot ID
+#' @return "name", "locName": hotspot name
+#' @return "latitude", "longitude", "lat", "long": hotspot latitude and longitude (point location)
+#' @return "countryCode", "countryName": code and name of the country where hotspot is located
+#' @return "subnational1Code", "subnational1Name": code and name of the subnational1 area (e.g. state or province) where hotspot is located
+#' @return "subnational2Code", "subnational2Name": code and name of the subnational2 area (e.g. county) where hotspot is located
+#' @return "isHotspot": logical, whether region is a hotspot (should always be TRUE)
+#' @return "hierarchicalName": full hotspot name including subnational1, subnational2, and country info
+#' 
+#' @return When region is a subnational1, subnational2, or country code, a data frame containing:
 #' @return "region": name of the region, varies depending on value of "format" provided
-#' @return "minX", "maxX", "minY", "minY": lat/long bounds of the region 
+#' @return "bounds.minX", "bounds.maxX", "bounds.minY", "bounds.maxY": lat/long bounds of the region 
 #' 
 #' @importFrom utils URLencode
 #' @export
@@ -18,6 +27,8 @@
 #' @examples \dontrun{
 #' ebirdregioninfo("US")
 #' ebirdregioninfo("CA-BC-GV")
+#' ebirdregioninfo("CA-BC-GV", format = "revdetailed") # reverse order of region name
+#' ebirdregioninfo("L196159")
 #' }
 #' @author Sebastian Pardo \email{sebpardo@@gmail.com},
 #'    Andy Teucher \email{andy.teucher@@gmail.com}
@@ -30,7 +41,10 @@ ebirdregioninfo <- function(loc, format = "full", key = NULL, ...) {
   
   args <- list(regionNameFormat = format) 
   
-  url <- paste0(ebase(), "ref/region/info/", loc)
+  regtype <- "region" 
+  if (grepl("^L[0-9]+$", loc)) regtype <- "hotspot" # check whether `loc` is a hotspot
+  
+  url <- paste0(ebase(), "ref/", regtype, "/info/", loc)
   
   tt <- GET(URLencode(url), 
             query = ebird_compact(args), 
@@ -42,7 +56,8 @@ ebirdregioninfo <- function(loc, format = "full", key = NULL, ...) {
   if (length(json) == 0) stop(paste("No region with code", loc))
   
   df <- as_data_frame(t(rapply(json, unlist))) 
-  names(df) <- c("region", "minX", "maxX", "minY", "maxY")
-  df[,2:5] <- sapply(df[,2:5], as.numeric)
+  # rename column name for region info (defaults to "result")
+  if (names(df)[1] == "result") names(df)[1] <- "region" 
+  
   df
 }
