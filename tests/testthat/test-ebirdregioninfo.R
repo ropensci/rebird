@@ -12,15 +12,15 @@ test_that("ebirdregioninfo works correctly", {
   expect_is(us$region, "character")
   expect_is(us$bounds.minX, "numeric")
 
-  us <- ebirdregioninfo("L99381")
+  sp <- ebirdregioninfo("L99381")
   
-  expect_is(us, "data.frame")
-  expect_equal(us$name, "Stewart Park")
-  expect_equal(NROW(us), 1)
-  expect_equal(NCOL(us), 16)
-  expect_is(us$name, "character")
-  expect_is(us$latitude, "numeric")
-  expect_is(us$longitude, "numeric")
+  expect_is(sp, "data.frame")
+  expect_equal(sp$name, "Stewart Park")
+  expect_equal(NROW(sp), 1)
+  expect_equal(NCOL(sp), 16)
+  expect_is(sp$name, "character")
+  expect_is(sp$latitude, "numeric")
+  expect_is(sp$longitude, "numeric")
 })
 
 test_that("ebirdregioninfo fails correctly", {
