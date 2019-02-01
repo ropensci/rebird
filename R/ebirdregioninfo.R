@@ -23,7 +23,7 @@
 #' 
 #' @importFrom utils URLencode
 #' @importFrom dplyr as_tibble
-#' @importFrom purrr flatten
+#' @importFrom dplyr bind_cols
 #' @importFrom jsonlite fromJSON
 #' @importFrom httr content
 #' @importFrom httr stop_for_status
@@ -73,10 +73,14 @@ ebirdregioninfo <- function(loc, format = "full", key = NULL, ...) {
   json <- jsonlite::fromJSON(ss, FALSE)
   if (length(json) == 0) stop(paste("No region with code", loc))
   
-  df <- as_tibble(purrr::flatten(json))
-
+  if (regtype == "hotspot") {
+    df <- as_tibble(json)
+  } else {
+    df <- bind_cols(lapply(json, as_tibble)) 
+  }
+  
   # rename column name for region info (defaults to "result") 
-  if (names(df)[1] == "result") {
+  if (names(df)[1] == "value") {
     names(df)[1] <- "region" 
   } 
   
