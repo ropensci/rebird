@@ -19,9 +19,14 @@
 #' 
 #' @return When region is a subnational1, subnational2, or country code, a data frame containing:
 #' @return "region": name of the region, varies depending on value of "format" provided
-#' @return "bounds.minX", "bounds.maxX", "bounds.minY", "bounds.maxY": lat/long bounds of the region 
+#' @return "minX", "maxX", "minY", "maxY": lat/long bounds of the region 
 #' 
 #' @importFrom utils URLencode
+#' @importFrom dplyr as_tibble
+#' @importFrom purrr flatten
+#' @importFrom jsonlite fromJSON
+#' @importFrom httr content
+#' @importFrom httr stop_for_status
 #' @export
 #' 
 #' @examples \dontrun{
@@ -52,7 +57,7 @@ ebirdregioninfo <- function(loc, format = "full", key = NULL, ...) {
             add_headers("X-eBirdApiToken" = get_key(key)), ...)
   
   if (tt$status_code == 410) {
-    stop(paste("No such hotspot.",loc))
+    stop(paste("No such hotspot:", loc))
   }
   stop_for_status(tt)
   
@@ -60,24 +65,12 @@ ebirdregioninfo <- function(loc, format = "full", key = NULL, ...) {
   json <- jsonlite::fromJSON(ss, FALSE)
   if (length(json) == 0) stop(paste("No region with code", loc))
   
-  df <- as_data_frame(t(rapply(json, unlist))) 
+  df <- as_tibble(purrr::flatten(json))
+
   # rename column name for region info (defaults to "result") 
   if (names(df)[1] == "result") {
     names(df)[1] <- "region" 
   } 
-  # set numeric and logical types correctly
-  if (regtype== "region") {
-    df[,2:5] <- sapply(df[,2:5], as.numeric)
-  } else if (regtype == "hotspot") {
-    df[,3:4] <- sapply(df[,3:4], as.numeric)
-    if (df[11] == "TRUE") {
-      df[11]<- TRUE
-    } else {
-      df[11]<- FALSE
-    }
-    df[,13:14] <- sapply(df[,13:14], as.numeric)
-  } else {
-    stop("invalid regtype")
-  }
+  
   df
 }

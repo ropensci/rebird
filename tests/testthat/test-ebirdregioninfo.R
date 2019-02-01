@@ -30,6 +30,6 @@ test_that("ebirdregioninfo fails correctly", {
   expect_error(ebirdregioninfo("foo"), "Internal Server Error \\(HTTP 500\\).")
   expect_error(ebirdregioninfo("CA-BC-ZZ"), "No region with code")
 
-  expect_error(ebirdregioninfo("L00000"), "No such hotspot. L00000")
+  expect_error(ebirdregioninfo("L00000"), "No such hotspot")
 })
 
