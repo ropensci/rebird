@@ -27,9 +27,10 @@ test_that("ebirdregioninfo fails correctly", {
   skip_on_cran()
   
   expect_error(ebirdregioninfo())
-  expect_error(ebirdregioninfo("foo"), "Internal Server Error \\(HTTP 500\\).")
+  expect_error(ebirdregioninfo("foo"), "500 -- http.status.500")
   expect_error(ebirdregioninfo("CA-BC-ZZ"), "No region with code")
-
+  expect_error(ebirdregioninfo("US", key = "foo"), "Forbidden \\(HTTP 403\\)")
+  
   expect_error(ebirdregioninfo("L00000"), "No such hotspot")
 })
 
