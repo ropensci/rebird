@@ -110,7 +110,7 @@ Search for bird occurrences by region and species name
 
 ```r
 ebirdregion(loc = 'US', species = 'btbwar')
-#> # A tibble: 26 x 12
+#> # A tibble: 24 x 12
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl>
 #>  1 btbwar      Black-… Setoph… L835… My yard 2019…       1  39.9 -74.8
@@ -123,7 +123,7 @@ ebirdregion(loc = 'US', species = 'btbwar')
 #>  8 btbwar      Black-… Setoph… L850… Martin… 2019…       1  25.8 -80.2
 #>  9 btbwar      Black-… Setoph… L707… Fakaha… 2019…       1  26.1 -81.4
 #> 10 btbwar      Black-… Setoph… L191… Villag… 2019…       1  25.5 -80.5
-#> # … with 16 more rows, and 3 more variables: obsValid <lgl>,
+#> # … with 14 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
@@ -135,7 +135,7 @@ Search for bird occurrences by a given hotspot
 
 ```r
 ebirdregion(loc = 'L99381')
-#> # A tibble: 21 x 12
+#> # A tibble: 19 x 12
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl>
 #>  1 commer      Common… Mergus… L993… Stewar… 2019…      50  42.5 -76.5
@@ -148,8 +148,17 @@ ebirdregion(loc = 'L99381')
 #>  8 bkcchi      Black-… Poecil… L993… Stewar… 2019…       1  42.5 -76.5
 #>  9 eursta      Europe… Sturnu… L993… Stewar… 2019…       1  42.5 -76.5
 #> 10 houspa      House … Passer… L993… Stewar… 2019…       1  42.5 -76.5
-#> # … with 11 more rows, and 3 more variables: obsValid <lgl>,
-#> #   obsReviewed <lgl>, locationPrivate <lgl>
+#> 11 cangoo      Canada… Branta… L993… Stewar… 2019…    1000  42.5 -76.5
+#> 12 redhea      Redhead Aythya… L993… Stewar… 2019…    1000  42.5 -76.5
+#> 13 ribgul      Ring-b… Larus … L993… Stewar… 2019…       1  42.5 -76.5
+#> 14 gbbgul      Great … Larus … L993… Stewar… 2019…       2  42.5 -76.5
+#> 15 baleag      Bald E… Haliae… L993… Stewar… 2019…       1  42.5 -76.5
+#> 16 rethaw      Red-ta… Buteo … L993… Stewar… 2019…       1  42.5 -76.5
+#> 17 amecro      Americ… Corvus… L993… Stewar… 2019…       2  42.5 -76.5
+#> 18 mallar3     Mallard Anas p… L993… Stewar… 2019…       1  42.5 -76.5
+#> 19 hergul      Herrin… Larus … L993… Stewar… 2019…       2  42.5 -76.5
+#> # … with 3 more variables: obsValid <lgl>, obsReviewed <lgl>,
+#> #   locationPrivate <lgl>
 ```
 
 ## Nearest observations of a species
@@ -218,20 +227,20 @@ Search for notable sightings at a given latitude and longitude
 
 ```r
 ebirdnotable(lat = 42, lng = -70)
-#> # A tibble: 1,479 x 12
+#> # A tibble: 1,423 x 12
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl>
-#>  1 yebcha      Yellow… Icteri… L853… Walker… 2019…       1  42.0 -70.0
-#>  2 laplon      Laplan… Calcar… L466… Dillan… 2019…       1  42.9 -72.3
-#>  3 evegro      Evenin… Coccot… L853… Old Tr… 2019…       6  42.0 -70.0
-#>  4 evegro      Evenin… Coccot… L207… North … 2019…       8  42.2 -70.7
-#>  5 laplon      Laplan… Calcar… L382… Honey … 2019…       2  42.3 -72.6
-#>  6 laplon      Laplan… Calcar… L382… Honey … 2019…       2  42.3 -72.6
-#>  7 truswa      Trumpe… Cygnus… L716… Milfor… 2019…       1  42.2 -71.5
-#>  8 blkvul      Black … Coragy… L853… Blacks… 2019…       1  42.0 -71.5
-#>  9 bohwax      Bohemi… Bombyc… L853… 157 So… 2019…       1  41.9 -70.7
-#> 10 redcro      Red Cr… Loxia … L849… Bound … 2019…      15  42.0 -70.1
-#> # … with 1,469 more rows, and 3 more variables: obsValid <lgl>,
+#>  1 buffle      Buffle… Buceph… L849… Bondsv… 2019…       2  42.2 -72.3
+#>  2 bohwax      Bohemi… Bombyc… L853… 157 So… 2019…       1  41.9 -70.7
+#>  3 bohwax      Bohemi… Bombyc… L853… 157 So… 2019…       1  41.9 -70.7
+#>  4 kineid      King E… Somate… L466… Scusse… 2019…       1  41.8 -70.5
+#>  5 kineid      King E… Somate… L466… Scusse… 2019…       1  41.8 -70.5
+#>  6 y00478      Icelan… Larus … L667… 1777 M… 2019…       2  42.6 -71.2
+#>  7 kineid      King E… Somate… L193… Sandwi… 2019…       1  41.8 -70.5
+#>  8 rinduc      Ring-n… Aythya… L853… 3 Pond… 2019…       3  44.1 -69.5
+#>  9 grycat      Gray C… Dumete… L251… Horn P… 2019…       1  42.5 -71.2
+#> 10 ruckin      Ruby-c… Regulu… L853… 17 N W… 2019…       1  41.4 -71.7
+#> # … with 1,413 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
@@ -240,7 +249,7 @@ or a region
 
 ```r
 ebirdnotable(locID = 'US-NY-109')
-#> # A tibble: 32 x 12
+#> # A tibble: 28 x 12
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl>
 #>  1 blkvul      Black … Coragy… L179… Taugha… 2019…       3  42.5 -76.6
@@ -253,11 +262,11 @@ ebirdnotable(locID = 'US-NY-109')
 #>  8 evegro3     Evenin… Coccot… L653… 600-63… 2019…       3  42.4 -76.3
 #>  9 evegro3     Evenin… Coccot… L653… 600-63… 2019…       3  42.4 -76.3
 #> 10 evegro      Evenin… Coccot… L598… Midlin… 2019…       3  42.4 -76.3
-#> # … with 22 more rows, and 3 more variables: obsValid <lgl>,
+#> # … with 18 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
-## Information on a given region
+## Information on a given region or hotspot
 
 Obtain detailed information on any valid eBird region
 
@@ -268,6 +277,17 @@ ebirdregioninfo("CA-BC-GV")
 #>   region                                     minX  maxX  minY  maxY
 #>   <chr>                                     <dbl> <dbl> <dbl> <dbl>
 #> 1 Metro Vancouver, British Columbia, Canada -123. -122.  49.0  49.6
+```
+
+or hotspot
+
+
+```r
+ebirdregioninfo("L196159")
+#> # A tibble: 1 x 5
+#>   region                                    minX  maxX  minY  maxY
+#>   <chr>                                    <dbl> <dbl> <dbl> <dbl>
+#> 1 Vancouver--Trout Lake (John Hendry Park) -123. -123.  49.2  49.3
 ```
 
 ## `rebird` and other packages
