@@ -10,7 +10,7 @@ test_that("ebirdregioninfo works correctly", {
   expect_equal(NROW(us), 1)
   expect_equal(NCOL(us), 5)
   expect_is(us$region, "character")
-  expect_is(us$bounds.minX, "numeric")
+  expect_is(us$minX, "numeric")
 
   sp <- ebirdregioninfo("L99381")
   
