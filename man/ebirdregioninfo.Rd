@@ -2,35 +2,55 @@
 % Please edit documentation in R/ebirdregioninfo.R
 \name{ebirdregioninfo}
 \alias{ebirdregioninfo}
-\title{Region info}
+\title{Region and hotspot info}
 \usage{
 ebirdregioninfo(loc, format = "full", key = NULL, ...)
 }
 \arguments{
-\item{loc}{The location code to be checked. A single location only.}
+\item{loc}{The location or hotspot code to be checked. A single location only.}
 
-\item{format}{Different options for displaying hierarchy of the region's name: [nameonly|namequal|detailed|detailednoqual|revdetailed|full], defaults to full.}
+\item{format}{Different options for displaying hierarchy of the region's name: [nameonly|namequal|detailed|detailednoqual|revdetailed|full], defaults to full. Not used for hotspots.}
 
-\item{key}{ebird API key. You can obtain one from https://ebird.org/api/keygen.
+\item{key}{eBird API key. You can obtain one from https://ebird.org/api/keygen.
 We strongly recommend storing it in your \code{.Renviron} file as an 
 environment variable called \code{EBIRD_KEY}.}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
-A data frame containing:
+When region is a hotspot, a data frame (with some redundant information) containing:
+
+"locId", "locID": hotspot ID
+
+"name", "locName": hotspot name
+
+"latitude", "longitude", "lat", "long": hotspot latitude and longitude (point location)
+
+"countryCode", "countryName": code and name of the country where hotspot is located
+
+"subnational1Code", "subnational1Name": code and name of the subnational1 area (e.g. state or province) where hotspot is located
+
+"subnational2Code", "subnational2Name": code and name of the subnational2 area (e.g. county) where hotspot is located
+
+"isHotspot": logical, whether region is a hotspot (should always be TRUE)
+
+"hierarchicalName": full hotspot name including subnational1, subnational2, and country info
+
+When region is a subnational1, subnational2, or country code, a data frame containing:
 
 "region": name of the region, varies depending on value of "format" provided
 
-"minX", "maxX", "minY", "minY": lat/long bounds of the region
+"minX", "maxX", "minY", "maxY": lat/long bounds of the region
 }
 \description{
-Region info
+Region and hotspot info
 }
 \examples{
 \dontrun{
 ebirdregioninfo("US")
 ebirdregioninfo("CA-BC-GV")
+ebirdregioninfo("CA-BC-GV", format = "revdetailed") # reverse order of region name
+ebirdregioninfo("L196159")
 }
 }
 \references{
@@ -38,5 +58,6 @@ ebirdregioninfo("CA-BC-GV")
 }
 \author{
 Sebastian Pardo \email{sebpardo@gmail.com},
-   Andy Teucher \email{andy.teucher@gmail.com}
+   Andy Teucher \email{andy.teucher@gmail.com},
+   Guy Babineau \email{guy.babineau@gmail.com}
 }
