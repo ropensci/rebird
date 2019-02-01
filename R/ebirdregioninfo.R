@@ -31,7 +31,8 @@
 #' ebirdregioninfo("L196159")
 #' }
 #' @author Sebastian Pardo \email{sebpardo@@gmail.com},
-#'    Andy Teucher \email{andy.teucher@@gmail.com}
+#'    Andy Teucher \email{andy.teucher@@gmail.com},
+#'    Guy Babineau \email{guy.babineau@@gmail.com}
 #' @references \url{http://ebird.org/}
 
 ebirdregioninfo <- function(loc, format = "full", key = NULL, ...) {
@@ -49,6 +50,10 @@ ebirdregioninfo <- function(loc, format = "full", key = NULL, ...) {
   tt <- GET(URLencode(url), 
             query = ebird_compact(args), 
             add_headers("X-eBirdApiToken" = get_key(key)), ...)
+  
+  if (tt$status_code == 410) {
+    stop(paste("No such hotspot.",loc))
+  }
   stop_for_status(tt)
   
   ss <- content(tt, as = "text", encoding = "UTF-8")
@@ -56,8 +61,23 @@ ebirdregioninfo <- function(loc, format = "full", key = NULL, ...) {
   if (length(json) == 0) stop(paste("No region with code", loc))
   
   df <- as_data_frame(t(rapply(json, unlist))) 
-  # rename column name for region info (defaults to "result")
-  if (names(df)[1] == "result") names(df)[1] <- "region" 
-  
+  # rename column name for region info (defaults to "result") 
+  if (names(df)[1] == "result") {
+    names(df)[1] <- "region" 
+  } 
+  # set numeric and logical types correctly
+  if (regtype== "region") {
+    df[,2:5] <- sapply(df[,2:5], as.numeric)
+  } else if (regtype == "hotspot") {
+    df[,3:4] <- sapply(df[,3:4], as.numeric)
+    if (df[11] == "TRUE") {
+      df[11]<- TRUE
+    } else {
+      df[11]<- FALSE
+    }
+    df[,13:14] <- sapply(df[,13:14], as.numeric)
+  } else {
+    stop("invalid regtype")
+  }
   df
 }
