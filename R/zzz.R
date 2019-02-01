@@ -1,7 +1,7 @@
 #' @importFrom methods is
 #' @importFrom utils URLencode
 #' @importFrom dplyr bind_rows
-#' @importFrom dplyr as_data_frame
+#' @importFrom dplyr as_tibble
 #' @importFrom httr GET
 #' @importFrom httr add_headers
 #' @importFrom httr content
@@ -68,7 +68,7 @@ ebird_GET <- function(url, args, key = NULL, ...){
           }
         }
       }))
-      bind_rows(lapply(json, as_data_frame))
+      bind_rows(lapply(json, as_tibble))
     }
   }
 }
