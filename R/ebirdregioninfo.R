@@ -56,6 +56,14 @@ ebirdregioninfo <- function(loc, format = "full", key = NULL, ...) {
             query = ebird_compact(args), 
             add_headers("X-eBirdApiToken" = get_key(key)), ...)
   
+  # Testing for errors and providing informative error messages
+  # if request contains error information, provide that error message
+  if (http_error(tt) & !is.raw(content(tt))) stop(paste(content(tt)$error[[1]], collapse = " -- "))
+  # if API key is invalid the API gives error 403 but doesn't provide content so there isn't an error message.
+  # Thus error message is specified below.
+  if (tt$status_code == 403 & is.raw(content(tt))) {
+    stop_for_status(tt, task = "connect to eBird API. Invalid token")
+  }
   if (tt$status_code == 410) {
     stop(paste("No such hotspot:", loc))
   }
