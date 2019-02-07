@@ -6,7 +6,6 @@ knit:
 
 move:
 		cp inst/vign/rebird_vignette.md vignettes;\
-		cp -r inst/vign/figure/ vignettes/
 
 pandoc:
 		cd vignettes;\
