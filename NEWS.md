@@ -1,3 +1,8 @@
+rebird 1.1.0
+===================
+
+* Updated `ebirdregioninfo()` to also provide information of hotspots (thanks @gbabineau, #72).
+
 rebird 1.0.0
 ===================
 
