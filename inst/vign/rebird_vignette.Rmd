@@ -173,10 +173,16 @@ Search for hybrid species only
 ebirdtaxonomy(cat = "hybrid")
 ```
 
-### Check eBird region
+## Information on a given region or hotspot
 
-Obtain information on any region 
+Obtain detailed information on any valid eBird region
 
-```{r ebirdregioninfo}
-ebirdregioninfo(loc = 'CA-BC-GV')
+```{r ebirdregioninfo1}
+ebirdregioninfo("CA-BC-GV")
+```
+
+or hotspot
+
+```{r ebirdregioninfo2}
+ebirdregioninfo("L196159")
 ```
