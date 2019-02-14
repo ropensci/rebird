@@ -17,4 +17,5 @@ rmd2md:
 		mv rebird_vignette.md rebird_vignette.Rmd
 
 readme:
-		Rscript -e 'library(knitr); knit("README.Rmd")'
+		Rscript -e 'library(rmarkdown); render("README.Rmd", github_document(html_preview = FALSE))'
+
