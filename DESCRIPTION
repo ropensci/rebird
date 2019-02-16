@@ -1,5 +1,5 @@
 Package: rebird
-Version: 1.0.1
+Version: 1.0.2
 Title: R Client for the eBird Database of Bird Observations
 Description: A programmatic client for the eBird database, including functions
     for searching for bird observations by geographic location (latitude,
@@ -11,6 +11,7 @@ Authors@R: c(
     person("Rafael", "Maia", role = "aut", email = "rm72@zips.uakron.edu"),
     person("Scott", "Chamberlain", role = "aut", email = "myrmecocystus@gmail.com", comment = c(ORCID = "0000-0003-1444-9135")),
     person("Andy", "Teucher", role = "aut", email = "andy.teucher@gmail.com"), 
+    person("Guy", "Babineau", role = "ctb", email = "guy.babineau@gmail.com"),
     person("Sebastian", "Pardo", role = c("aut", "cre"), email = "sebpardo@gmail.com", comment = c(ORCID = "0000-0002-4147-5796"))
     )
 URL: http://github.com/ropensci/rebird

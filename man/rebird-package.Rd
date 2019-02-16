@@ -29,5 +29,10 @@ Authors:
   \item Andy Teucher \email{andy.teucher@gmail.com}
 }
 
+Other contributors:
+\itemize{
+  \item Guy Babineau \email{guy.babineau@gmail.com} [contributor]
+}
+
 }
 \keyword{internal}

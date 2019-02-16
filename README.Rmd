@@ -134,12 +134,18 @@ or a region
 ebirdnotable(locID = 'US-NY-109')
 ```
 
-## Information on a given region
+## Information on a given region or hotspot
 
 Obtain detailed information on any valid eBird region
 
-```{r ebirdregioninfo}
+```{r ebirdregioninfo1}
 ebirdregioninfo("CA-BC-GV")
+```
+
+or hotspot
+
+```{r ebirdregioninfo2}
+ebirdregioninfo("L196159")
 ```
 
 ## `rebird` and other packages
@@ -187,7 +193,7 @@ The 2.0 APIs have considerably been expanded from the previous version, and `reb
  - [ ]     Taxonomic Groups
 
 ### ref/region
- - [ ]     Hotspot Info
+ - [x]     Hotspot Info: `ebirdregioninfo()`
  - [x]    Region Info: `ebirdregioninfo()`
  - [ ]     Sub Region List
 

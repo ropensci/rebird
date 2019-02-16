@@ -6,7 +6,6 @@ knit:
 
 move:
 		cp inst/vign/rebird_vignette.md vignettes;\
-		cp -r inst/vign/figure/ vignettes/
 
 pandoc:
 		cd vignettes;\
@@ -18,4 +17,5 @@ rmd2md:
 		mv rebird_vignette.md rebird_vignette.Rmd
 
 readme:
-		Rscript -e 'library(knitr); knit("README.Rmd")'
+		Rscript -e 'library(rmarkdown); render("README.Rmd", github_document(html_preview = FALSE))'
+
