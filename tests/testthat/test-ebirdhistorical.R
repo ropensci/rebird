@@ -53,7 +53,7 @@ test_that("ebirdhistorical works correctly", {
   
   expect_error(ebirdhistorical(loc = 'US-VA-003', date=Sys.Date()+1), "date must be in the past")
 
-  expect_error(ebirdhistorical(loc = 'US-VA-003', '1066-10-16'), "date must be on or after 1900-01-01")
+  expect_error(ebirdhistorical(loc = 'US-VA-003', '1066-10-16'), "date must be on or after 1800-01-01")
 
   expect_error(suppressWarnings(ebirdhistorical(locID = 'L99381', date='2017-03-19', sleep = "adf")), "invalid 'time' value")
 

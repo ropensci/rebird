@@ -74,8 +74,8 @@ ebirdhistorical <-  function(loc, date, sortKey = 'mrec', categories = 'all',
   if (Sys.Date()<historicDate) {
     stop(paste0("date must be in the past"))
   }
-  if (historicDate<'1900-01-01'){
-    stop(paste0("date must be on or after 1900-01-01"))
+  if (historicDate<'1800-01-01'){
+    stop(paste0("date must be on or after 1800-01-01"))
   }
   Sys.sleep(sleep)
 
