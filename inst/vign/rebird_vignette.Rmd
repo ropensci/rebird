@@ -162,14 +162,14 @@ ebirdnotable(locID = 'US-NY-109')
 
 Search for historic observations on a date at a region 
 
-```{r ebirdhistoricobs1}
-ebirdhistoricobs(loc = 'US-VA-003', date='2019-02-14',max=10)
+```{r ebirdhistorical1}
+ebirdhistorical(loc = 'US-VA-003', date='2019-02-14',max=10)
 ```
 
 or set of hotspots
 
-```{r ebirdhistoricobs2}
-ebirdhistoricobs(loc = 'L196159', date='2019-02-14', fieldSet='full')
+```{r ebirdhistorical2}
+ebirdhistorical(loc = 'L196159', date='2019-02-14', fieldSet='full')
 ```
 
 ### eBird taxonomy
