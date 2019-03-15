@@ -2,6 +2,7 @@
 
 export(ebirdfreq)
 export(ebirdgeo)
+export(ebirdhistorical)
 export(ebirdhotspot)
 export(ebirdloc)
 export(ebirdnotable)

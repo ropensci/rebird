@@ -134,6 +134,22 @@ or a region
 ebirdnotable(locID = 'US-NY-109')
 ```
 
+## Historic Observations
+
+Search for historic observations on a date at a region 
+
+```{r ebirdhistorical1}
+ebirdhistorical(loc = 'US-VA-003', date='2019-02-14',max=10)
+
+```
+
+or set of hotspots
+
+```{r ebirdhistorical2}
+ebirdhistorical(loc = 'L196159', date='2019-02-14', fieldSet='full')
+
+```
+
 ## Information on a given region or hotspot
 
 Obtain detailed information on any valid eBird region
@@ -170,7 +186,7 @@ The 2.0 APIs have considerably been expanded from the previous version, and `reb
 - [x] Recent nearby observations of a species: `ebirdgeo()`
 - [x] Nearest observations of a species: `nearestobs()`
 - [x] Recent nearby notable observations: `ebirdnotable()`
-- [ ] Historic observations on a date
+- [x] Historic observations on a date: `ebirdhistorical()`
 
 ### product
 - [ ]   Top 100
