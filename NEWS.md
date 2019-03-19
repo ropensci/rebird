@@ -2,6 +2,7 @@ rebird 1.1.0
 ===================
 
 * Updated `ebirdregioninfo()` to also provide information of hotspots (thanks @gbabineau, #72).
+* Added `ebirdhistorical()` which provides historic observations on a date at a region or hotspot (thanks @gbabineau, #74).
 
 rebird 1.0.0
 ===================
