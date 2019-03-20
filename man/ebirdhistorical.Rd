@@ -2,14 +2,14 @@
 % Please edit documentation in R/ebirdhistorical.R
 \name{ebirdhistorical}
 \alias{ebirdhistorical}
-\title{Historic observations on a date at a region or set of hotspots}
+\title{Historic observations on a date at a region or hotspot}
 \usage{
 ebirdhistorical(loc, date, sortKey = "mrec", categories = "all",
   max = 10000, fieldSet = "simple", provisional = FALSE,
   limitToHotspots = FALSE, sleep = 0, key = NULL, ...)
 }
 \arguments{
-\item{loc}{(required) Region code or locID (for hotspots). Region code can
+\item{loc}{(required) Region code or locID (if a hotspot). Region code can
 be country code (e.g. "US"), subnational1 code (states/provinces, e.g. "US-NV"), or
 subnational2 code (counties, e.g. "US-VA-003").}
 
@@ -17,17 +17,17 @@ subnational2 code (counties, e.g. "US-VA-003").}
 to ISO 8601 (e.g. 'YYYY-MM-DD', or 'YYYY-MM-DD hh:mm'). Hours and minutes 
 are excluded.}
 
-\item{sortKey}{[mrec | create] - Whether to order results by latest 
+\item{sortKey}{[mrec|create] Whether to order results by latest 
 observation date or by latest creation date. The default is by observation date.}
 
-\item{categories}{- [domestic|form|hybrid|intergrade|issf|slash|species|spuh] 
-Theis is useful for limiting results to certain taxonomic categories. The 
+\item{categories}{[domestic|form|hybrid|intergrade|issf|slash|species|spuh] 
+This is useful for limiting results to certain taxonomic categories. The 
 default is all. Multiple categories may be comma-separated.}
 
 \item{max}{Maximum number of result rows to return in this request.
 (A number between 1 and 10000. The default is 10000)}
 
-\item{fieldSet}{[simple|full]  This is set to restrict results to either all 
+\item{fieldSet}{[simple|full] This is set to restrict results to either all 
 or a subset of sighting fields. The default is simple.}
 
 \item{provisional}{Should flagged records that have not been reviewed
@@ -40,11 +40,11 @@ The default is FALSE.}
 zero. Set this to a higher number if you are using this function in a loop with
 many API calls.}
 
-\item{key}{ebird API key. You can obtain one from https://ebird.org/api/keygen.
+\item{key}{eBird API key. You can obtain one from https://ebird.org/api/keygen.
 We strongly recommend storing it in your \code{.Renviron} file as an 
 environment variable called \code{EBIRD_KEY}.}
 
-\item{...}{Curl options passed on to \code{\link[httr]{GET}}}
+\item{...}{Curl options passed on to \code{\link[httr]{GET}}.}
 }
 \value{
 A data.frame containing the collected information:
@@ -102,7 +102,7 @@ A data.frame containing the collected information:
 "lastName": observer's last name (returned if simple=FALSE)
 }
 \description{
-Returns sighting information reported in a given region or set of hotspots
+Returns sighting information reported in a given region or hotspot
 }
 \examples{
 \dontrun{

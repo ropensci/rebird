@@ -1,21 +1,21 @@
-#' Historic observations on a date at a region or set of hotspots
+#' Historic observations on a date at a region or hotspot
 #' 
-#' Returns sighting information reported in a given region or set of hotspots
+#' Returns sighting information reported in a given region or hotspot
 #' 
-#' @param loc (required) Region code or locID (for hotspots). Region code can
+#' @param loc (required) Region code or locID (if a hotspot). Region code can
 #'    be country code (e.g. "US"), subnational1 code (states/provinces, e.g. "US-NV"), or
 #'    subnational2 code (counties, e.g. "US-VA-003").
 #' @param date (required) Date of historic observation date formatted according 
 #'    to ISO 8601 (e.g. 'YYYY-MM-DD', or 'YYYY-MM-DD hh:mm'). Hours and minutes 
 #'    are excluded.
-#' @param sortKey  [mrec | create] - Whether to order results by latest 
+#' @param sortKey [mrec|create] Whether to order results by latest 
 #'    observation date or by latest creation date. The default is by observation date.
-#' @param categories  - [domestic|form|hybrid|intergrade|issf|slash|species|spuh] 
-#'    Theis is useful for limiting results to certain taxonomic categories. The 
+#' @param categories [domestic|form|hybrid|intergrade|issf|slash|species|spuh] 
+#'    This is useful for limiting results to certain taxonomic categories. The 
 #'    default is all. Multiple categories may be comma-separated.
 #' @param max Maximum number of result rows to return in this request.
 #'    (A number between 1 and 10000. The default is 10000)
-#' @param  fieldSet [simple|full]  This is set to restrict results to either all 
+#' @param  fieldSet [simple|full] This is set to restrict results to either all 
 #'     or a subset of sighting fields. The default is simple.
 #' @param provisional Should flagged records that have not been reviewed
 #'    be included? 
@@ -24,10 +24,10 @@
 #' @param sleep Time (in seconds) before function sends API call. The defaults is
 #'    zero. Set this to a higher number if you are using this function in a loop with
 #'    many API calls.
-#' @param key ebird API key. You can obtain one from https://ebird.org/api/keygen.
+#' @param key eBird API key. You can obtain one from https://ebird.org/api/keygen.
 #'    We strongly recommend storing it in your \code{.Renviron} file as an 
 #'    environment variable called \code{EBIRD_KEY}.
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}.
 #' @return A data.frame containing the collected information:
 #' @return "speciesCode": species codes
 #' @return "comName": species common names
