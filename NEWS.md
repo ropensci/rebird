@@ -1,8 +1,10 @@
 rebird 1.1.0
 ===================
 
+* Updated internal taxonomy to reflect changes in the [2019 Taxonomy Update](https://ebird.org/news/2019-ebird-taxonomy-update) (#76). 
 * Updated `ebirdregioninfo()` to also provide information of hotspots (thanks @gbabineau, #72).
 * Added `ebirdhistorical()` which provides historic observations on a date at a region or hotspot (thanks @gbabineau, #74).
+* Fixed broken API links in README (thanks @mfoos, #75).
 
 rebird 1.0.0
 ===================
