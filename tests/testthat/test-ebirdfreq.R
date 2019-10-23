@@ -24,8 +24,8 @@ test_that("ebirdfreq fails correctly", {
   expect_error(ebirdfreq("foo"))
   expect_error(ebirdfreq("hotspots", "foo123"), "Invalid hotspot code")
   expect_error(ebirdfreq("country"), "Not a valid location type")
-  expect_error(ebirdfreq("counties", "CA-BC-ZZ"), "Internal Server Error \\(HTTP 500\\).")
-  expect_error(ebirdfreq("hotspots", "L196159", 1900, 1902, long = FALSE), "Internal Server Error \\(HTTP 500\\).")
+  expect_error(ebirdfreq("counties", "CA-BC-ZZ"), class = "http_500")
+  expect_error(ebirdfreq("hotspots", "L196159", 1900, 1902, long = FALSE), class = "http_500")
   expect_error(ebirdfreq("foo", "CA-BC-ZZ"), "Not a valid location type")
 })
  
