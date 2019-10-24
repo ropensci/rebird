@@ -89,7 +89,7 @@ Search for bird occurrences by latitude and longitude point
 ``` r
 ebirdgeo(species = species_code('spinus tristis'), lat = 42, lng = -76)
 #> American Goldfinch (Spinus tristis): amegfi
-#> # A tibble: 26 x 12
+#> # A tibble: 24 x 12
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl>
 #>  1 amegfi      Americ… Spinus… L100… Bare V… 2019…       7  41.8 -75.9
@@ -102,7 +102,7 @@ ebirdgeo(species = species_code('spinus tristis'), lat = 42, lng = -76)
 #>  8 amegfi      Americ… Spinus… L217… Vestal  2019…      11  42.1 -76.0
 #>  9 amegfi      Americ… Spinus… L211… Tri-Ci… 2019…       2  42.1 -76.1
 #> 10 amegfi      Americ… Spinus… L166… Chugnu… 2019…      NA  42.1 -76.0
-#> # … with 16 more rows, and 3 more variables: obsValid <lgl>,
+#> # … with 14 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
@@ -112,20 +112,20 @@ Search for bird occurrences by region and species name
 
 ``` r
 ebirdregion(loc = 'US', species = 'btbwar')
-#> # A tibble: 1,493 x 12
+#> # A tibble: 1,428 x 12
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl>
-#>  1 btbwar      Black-… Setoph… L668… Naples… 2019…       1  26.1 -81.7
-#>  2 btbwar      Black-… Setoph… L399… Florid… 2019…       1  26.4 -80.1
-#>  3 btbwar      Black-… Setoph… L900… 1301 S… 2019…       2  26.3 -80.1
-#>  4 btbwar      Black-… Setoph… L486… Union … 2019…       1  40.7 -74.0
-#>  5 btbwar      Black-… Setoph… L100… "Parki… 2019…       1  26.1 -80.1
-#>  6 btbwar      Black-… Setoph… L685… Hillsb… 2019…       2  26.3 -80.2
-#>  7 btbwar      Black-… Setoph… L616… Lake L… 2019…       3  35.9 -78.7
-#>  8 btbwar      Black-… Setoph… L871… Eno Ri… 2019…       1  36.1 -79.0
-#>  9 btbwar      Black-… Setoph… L994… Jupite… 2019…       1  27.0 -80.1
-#> 10 btbwar      Black-… Setoph… L127… Hugh T… 2019…       1  26.1 -80.1
-#> # … with 1,483 more rows, and 3 more variables: obsValid <lgl>,
+#>  1 btbwar      Black-… Setoph… L100… 3907 B… 2019…       2  30.3 -81.7
+#>  2 btbwar      Black-… Setoph… L681… Mariti… 2019…       2  28.3 -80.6
+#>  3 btbwar      Black-… Setoph… L108… Jarvis… 2019…       1  32.2 -80.7
+#>  4 btbwar      Black-… Setoph… L100… "Parki… 2019…       2  26.1 -80.1
+#>  5 btbwar      Black-… Setoph… L616… Lake L… 2019…       2  35.9 -78.7
+#>  6 btbwar      Black-… Setoph… L127… Fort Z… 2019…       1  24.5 -81.8
+#>  7 btbwar      Black-… Setoph… L344… Paynes… 2019…       1  29.6 -82.3
+#>  8 btbwar      Black-… Setoph… L207… Wellfl… 2019…       1  41.9 -70.0
+#>  9 btbwar      Black-… Setoph… L643… 234 SW… 2019…       2  26.1 -80.2
+#> 10 btbwar      Black-… Setoph… L766… Kendal… 2019…       3  25.7 -80.4
+#> # … with 1,418 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
@@ -135,20 +135,20 @@ Search for bird occurrences by a given hotspot
 
 ``` r
 ebirdregion(loc = 'L99381')
-#> # A tibble: 68 x 12
+#> # A tibble: 67 x 12
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl>
-#>  1 cangoo      Canada… Branta… L993… Stewar… 2019…       8  42.5 -76.5
-#>  2 mallar3     Mallard Anas p… L993… Stewar… 2019…      25  42.5 -76.5
-#>  3 ribgul      Ring-b… Larus … L993… Stewar… 2019…      30  42.5 -76.5
-#>  4 hergul      Herrin… Larus … L993… Stewar… 2019…      35  42.5 -76.5
-#>  5 gbbgul      Great … Larus … L993… Stewar… 2019…       6  42.5 -76.5
-#>  6 doccor      Double… Phalac… L993… Stewar… 2019…     250  42.5 -76.5
-#>  7 rebwoo      Red-be… Melane… L993… Stewar… 2019…       1  42.5 -76.5
-#>  8 dowwoo      Downy … Dryoba… L993… Stewar… 2019…       3  42.5 -76.5
-#>  9 norfli      Northe… Colapt… L993… Stewar… 2019…       1  42.5 -76.5
-#> 10 blujay      Blue J… Cyanoc… L993… Stewar… 2019…       8  42.5 -76.5
-#> # … with 58 more rows, and 3 more variables: obsValid <lgl>,
+#>  1 cangoo      Canada… Branta… L993… Stewar… 2019…       6  42.5 -76.5
+#>  2 mallar3     Mallard Anas p… L993… Stewar… 2019…       5  42.5 -76.5
+#>  3 redhea      Redhead Aythya… L993… Stewar… 2019…       1  42.5 -76.5
+#>  4 commer      Common… Mergus… L993… Stewar… 2019…       6  42.5 -76.5
+#>  5 ribgul      Ring-b… Larus … L993… Stewar… 2019…      80  42.5 -76.5
+#>  6 hergul      Herrin… Larus … L993… Stewar… 2019…      10  42.5 -76.5
+#>  7 lbbgul      Lesser… Larus … L993… Stewar… 2019…       1  42.5 -76.5
+#>  8 gbbgul      Great … Larus … L993… Stewar… 2019…       1  42.5 -76.5
+#>  9 doccor      Double… Phalac… L993… Stewar… 2019…     200  42.5 -76.5
+#> 10 amecro      Americ… Corvus… L993… Stewar… 2019…       1  42.5 -76.5
+#> # … with 57 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
@@ -159,20 +159,20 @@ Search for a species’ occurrences near a given latitude and longitude
 ``` r
 nearestobs(species_code('branta canadensis'), 42, -76)
 #> Canada Goose (Branta canadensis): cangoo
-#> # A tibble: 36 x 12
+#> # A tibble: 35 x 12
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl>
-#>  1 cangoo      Canada… Branta… L147… Quaker… 2019…       2  42.0 -75.9
-#>  2 cangoo      Canada… Branta… L978… Murphy… 2019…      NA  42.1 -76.0
-#>  3 cangoo      Canada… Branta… L207… Workwa… 2019…       4  42.1 -75.9
-#>  4 cangoo      Canada… Branta… L245… Water … 2019…      20  42.1 -75.9
-#>  5 cangoo      Canada… Branta… L274… River … 2019…      25  42.1 -76.0
-#>  6 cangoo      Canada… Branta… L255… Wall S… 2019…       1  42.1 -75.9
-#>  7 cangoo      Canada… Branta… L446… PA-SQ-… 2019…      25  41.8 -75.9
-#>  8 cangoo      Canada… Branta… L179… Joyce … 2019…       6  41.8 -75.9
-#>  9 cangoo      Canada… Branta… L246… Martin… 2019…       2  42.1 -75.9
-#> 10 cangoo      Canada… Branta… L166… Chugnu… 2019…      40  42.1 -76.0
-#> # … with 26 more rows, and 3 more variables: obsValid <lgl>,
+#>  1 cangoo      Canada… Branta… L207… Workwa… 2019…       1  42.1 -75.9
+#>  2 cangoo      Canada… Branta… L465… "Bingh… 2019…     120  42.1 -75.9
+#>  3 cangoo      Canada… Branta… L274… River … 2019…      20  42.1 -76.0
+#>  4 cangoo      Canada… Branta… L255… Wall S… 2019…       1  42.1 -75.9
+#>  5 cangoo      Canada… Branta… L147… Quaker… 2019…       2  42.0 -75.9
+#>  6 cangoo      Canada… Branta… L978… Murphy… 2019…      NA  42.1 -76.0
+#>  7 cangoo      Canada… Branta… L245… Water … 2019…      20  42.1 -75.9
+#>  8 cangoo      Canada… Branta… L446… PA-SQ-… 2019…      25  41.8 -75.9
+#>  9 cangoo      Canada… Branta… L179… Joyce … 2019…       6  41.8 -75.9
+#> 10 cangoo      Canada… Branta… L186… Cheri … 2019…      30  42.1 -75.9
+#> # … with 25 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
@@ -204,20 +204,20 @@ Search for notable sightings at a given latitude and longitude
 
 ``` r
 ebirdnotable(lat = 42, lng = -70)
-#> # A tibble: 1,710 x 12
+#> # A tibble: 1,747 x 12
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl>
-#>  1 buhvir      Blue-h… Vireo … L100… 92–98 … 2019…       1  42.4 -72.6
-#>  2 yebcuc      Yellow… Coccyz… L167… Rachel… 2019…       1  43.4 -70.4
-#>  3 redhea      Redhead Aythya… L131… Sabatt… 2019…       1  44.1 -70.1
-#>  4 pinwar      Pine W… Setoph… L345… Home    2019…       1  42.3 -72.4
-#>  5 comgal1     Common… Gallin… L100… Trusto… 2019…       1  41.4 -71.6
-#>  6 tufduc      Tufted… Aythya… L100… Trusto… 2019…       1  41.4 -71.6
-#>  7 grycat      Gray C… Dumete… L271… Dahl W… 2019…       1  44.0 -71.1
-#>  8 trokin      Tropic… Tyrann… L593… Rock M… 2019…       1  42.4 -71.2
-#>  9 reevir1     Red-ey… Vireo … L813… P. J. … 2019…       1  41.7 -70.9
-#> 10 wessan      Wester… Calidr… L830… Plum I… 2019…       1  42.8 -70.8
-#> # … with 1,700 more rows, and 3 more variables: obsValid <lgl>,
+#>  1 chiswi      Chimne… Chaetu… L392… North … 2019…      11  41.3 -70.1
+#>  2 leasan      Least … Calidr… L707… Hell's… 2019…       2  42.7 -72.5
+#>  3 semsan      Semipa… Calidr… L707… Hell's… 2019…       1  42.7 -72.5
+#>  4 pinwar      Pine W… Setoph… L280… Herman… 2019…       1  42.3 -72.3
+#>  5 trokin      Tropic… Tyrann… L593… Rock M… 2019…       1  42.4 -71.2
+#>  6 trokin      Tropic… Tyrann… L593… Rock M… 2019…       1  42.4 -71.2
+#>  7 trokin      Tropic… Tyrann… L593… Rock M… 2019…       1  42.4 -71.2
+#>  8 rehwoo      Red-he… Melane… L633… Burley… 2019…       1  43.1 -71.0
+#>  9 trokin      Tropic… Tyrann… L593… Rock M… 2019…       1  42.4 -71.2
+#> 10 reevir1     Red-ey… Vireo … L207… Manome… 2019…       1  41.9 -70.5
+#> # … with 1,737 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
@@ -225,20 +225,20 @@ or a region
 
 ``` r
 ebirdnotable(locID = 'US-NY-109')
-#> # A tibble: 49 x 12
+#> # A tibble: 55 x 12
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl>
-#>  1 blkvul      Black … Coragy… L212… Steven… 2019…       2  42.4 -76.4
-#>  2 blkvul      Black … Coragy… L212… Steven… 2019…       2  42.4 -76.4
-#>  3 whevir      White-… Vireo … L100… Monroe… 2019…       1  42.4 -76.5
-#>  4 whevir      White-… Vireo … L542… Norths… 2019…       1  42.4 -76.5
-#>  5 whevir      White-… Vireo … L100… 101–19… 2019…       1  42.4 -76.5
-#>  6 andduc1     Andean… Oxyura… L100… Bogota  2019…       2  42.5 -76.5
-#>  7 whtdov1     White-… Leptot… L100… Bogota  2019…      11  42.5 -76.5
-#>  8 whtdov      White-… Leptot… L100… Bogota  2019…       3  42.5 -76.5
-#>  9 wfwduc1     White-… Dendro… L100… Bogota  2019…       1  42.5 -76.5
-#> 10 musduc      Muscov… Cairin… L100… Bogota  2019…       3  42.5 -76.5
-#> # … with 39 more rows, and 3 more variables: obsValid <lgl>,
+#>  1 woothr      Wood T… Hyloci… L281… Cornel… 2019…       1  42.5 -76.5
+#>  2 whevir      White-… Vireo … L100… 210 Fi… 2019…       1  42.4 -76.5
+#>  3 whevir      White-… Vireo … L100… 204 Fi… 2019…       1  42.4 -76.5
+#>  4 norpar      Northe… Setoph… L100… stakeo… 2019…       1  42.4 -76.5
+#>  5 whevir      White-… Vireo … L100… stakeo… 2019…       1  42.4 -76.5
+#>  6 whevir      White-… Vireo … L100… stakeo… 2019…       1  42.4 -76.5
+#>  7 norpar      Northe… Setoph… L100… 118 Fi… 2019…       1  42.4 -76.5
+#>  8 whevir      White-… Vireo … L100… 118 Fi… 2019…       1  42.4 -76.5
+#>  9 whevir      White-… Vireo … L100… 201–29… 2019…       1  42.4 -76.5
+#> 10 whevir      White-… Vireo … L100… 201–29… 2019…       1  42.4 -76.5
+#> # … with 45 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
@@ -398,5 +398,9 @@ covered by this package, feel free to submit a pull request\!
   - License: MIT
   - Get citation information for `rebird` in R doing `citation(package =
     'rebird')`
+  - Please note that the ‘rebird’ project is released with a
+    [Contributor Code of
+    Conduct](https://github.com/ropensci/rebird/blob/master/CODE_OF_CONDUCT.md).
+    By contributing to this project, you agree to abide by its terms.
 
 [![ropensci\_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)

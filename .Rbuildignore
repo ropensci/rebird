@@ -16,3 +16,4 @@ vignettes/figure/
 ^revdep$
 ^codemeta\.json$
 ^data-raw$
+^CODE_OF_CONDUCT\.md$
