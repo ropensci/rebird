@@ -1,13 +1,15 @@
 rebird 1.1.0
 ===================
 
+* Updated internal taxonomy to reflect changes in the [2019 Taxonomy Update](https://ebird.org/news/2019-ebird-taxonomy-update) (#76). 
 * Updated `ebirdregioninfo()` to also provide information of hotspots (thanks @gbabineau, #72).
 * Added `ebirdhistorical()` which provides historic observations on a date at a region or hotspot (thanks @gbabineau, #74).
+* Fixed broken API links in README (thanks @mfoos, #75).
 
 rebird 1.0.0
 ===================
 
-This version switches all functions over the the [new eBird API](https://documenter.getpostman.com/view/664302/ebird-api-20/2HTbHW), given that the one previously used by `rebird` will be retired on October 1st. As such, many of the functions in `rebird` have changed, and the previous versions of the package will not work correctly.
+This version switches all functions over the the [new eBird API](https://documenter.getpostman.com/view/664302/S1ENwy59?version=latest), given that the one previously used by `rebird` will be retired on October 1st. As such, many of the functions in `rebird` have changed, and the previous versions of the package will not work correctly.
 
 ### Breaking changes
 

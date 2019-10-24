@@ -25,7 +25,7 @@ eBird is a real-time, online bird checklist program. For more
 information, visit their website: <http://www.ebird.org>
 
 The API for the eBird webservices can be accessed here:
-<https://documenter.getpostman.com/view/664302/ebird-api-20/2HTbHW>
+<https://documenter.getpostman.com/view/664302/S1ENwy59?version=latest>
 
 ## Install
 
@@ -51,7 +51,7 @@ library("rebird")
 ```
 
 The [eBird API
-server](https://documenter.getpostman.com/view/664302/ebird-api-20/2HTbHW)
+server](https://documenter.getpostman.com/view/664302/S1ENwy59?version=latest)
 has been updated and thus there are a couple major changes in the way
 `rebird` works. API requests to eBird now require users to provide an
 API key, which is linked to your eBird user account. You can pass it to
@@ -89,29 +89,21 @@ Search for bird occurrences by latitude and longitude point
 ``` r
 ebirdgeo(species = species_code('spinus tristis'), lat = 42, lng = -76)
 #> American Goldfinch (Spinus tristis): amegfi
-#> # A tibble: 18 x 12
+#> # A tibble: 24 x 12
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl>
-#>  1 amegfi      Americ… Spinus… L116… Bruce … 2019…       1  41.9 -75.8
-#>  2 amegfi      Americ… Spinus… L465… US-New… 2019…       1  42.2 -75.9
-#>  3 amegfi      Americ… Spinus… L884… 469–59… 2019…       2  41.8 -75.9
-#>  4 amegfi      Americ… Spinus… L217… Vestal  2019…       2  42.1 -76.0
-#>  5 amegfi      Americ… Spinus… L870… 325 De… 2019…       1  42.2 -76.0
-#>  6 amegfi      Americ… Spinus… L209… Aquate… 2019…       1  42.0 -75.9
-#>  7 amegfi      Americ… Spinus… L229… Imperi… 2019…       1  42.1 -76.0
-#>  8 amegfi      Americ… Spinus… L212… Chenan… 2019…       1  42.2 -75.8
-#>  9 amegfi      Americ… Spinus… L885… 5051–5… 2019…       2  42.1 -76.3
-#> 10 amegfi      Americ… Spinus… L978… Murphy… 2019…       6  42.1 -76.0
-#> 11 amegfi      Americ… Spinus… L275… "Home " 2019…       5  42.1 -76.0
-#> 12 amegfi      Americ… Spinus… L179… Joyce … 2019…       2  41.8 -75.9
-#> 13 amegfi      Americ… Spinus… L884… 5126–5… 2019…       1  42.1 -76.3
-#> 14 amegfi      Americ… Spinus… L620… Univer… 2019…       1  42.1 -76.0
-#> 15 amegfi      Americ… Spinus… L320… Hillcr… 2019…       2  42.2 -75.9
-#> 16 amegfi      Americ… Spinus… L197… esther… 2019…       4  42.1 -75.9
-#> 17 amegfi      Americ… Spinus… L447… Bingha… 2019…       1  42.1 -76.0
-#> 18 amegfi      Americ… Spinus… L207… Workwa… 2019…       2  42.1 -75.9
-#> # … with 3 more variables: obsValid <lgl>, obsReviewed <lgl>,
-#> #   locationPrivate <lgl>
+#>  1 amegfi      Americ… Spinus… L100… Bare V… 2019…       7  41.8 -75.9
+#>  2 amegfi      Americ… Spinus… L447… Bingha… 2019…       6  42.1 -76.0
+#>  3 amegfi      Americ… Spinus… L275… "Home " 2019…       1  42.1 -76.0
+#>  4 amegfi      Americ… Spinus… L505… Boland… 2019…       1  42.2 -75.9
+#>  5 amegfi      Americ… Spinus… L351… Anson … 2019…      25  42.1 -76.1
+#>  6 amegfi      Americ… Spinus… L524… Victor… 2019…       3  42.1 -76.0
+#>  7 amegfi      Americ… Spinus… L846… 31 Pul… 2019…       2  42.2 -76.2
+#>  8 amegfi      Americ… Spinus… L217… Vestal  2019…      11  42.1 -76.0
+#>  9 amegfi      Americ… Spinus… L211… Tri-Ci… 2019…       2  42.1 -76.1
+#> 10 amegfi      Americ… Spinus… L166… Chugnu… 2019…      NA  42.1 -76.0
+#> # … with 14 more rows, and 3 more variables: obsValid <lgl>,
+#> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
 ## Recent observations at a region
@@ -120,20 +112,20 @@ Search for bird occurrences by region and species name
 
 ``` r
 ebirdregion(loc = 'US', species = 'btbwar')
-#> # A tibble: 37 x 12
+#> # A tibble: 1,428 x 12
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl>
-#>  1 btbwar      Black-… Setoph… L835… Florid… 2019…       1  25.8 -80.4
-#>  2 btbwar      Black-… Setoph… L127… J. N. … 2019…       1  26.4 -82.1
-#>  3 btbwar      Black-… Setoph… L129… Lantan… 2019…       1  26.6 -80.0
-#>  4 btbwar      Black-… Setoph… L835… My yard 2019…       1  39.9 -74.8
-#>  5 btbwar      Black-… Setoph… L127… Mead B… 2019…       1  28.6 -81.4
-#>  6 btbwar      Black-… Setoph… L127… Castel… 2019…       1  25.6 -80.5
-#>  7 btbwar      Black-… Setoph… L200… A. D. … 2019…       1  25.7 -80.3
-#>  8 btbwar      Black-… Setoph… L246… Green … 2019…       1  26.5 -80.2
-#>  9 btbwar      Black-… Setoph… L885… 2–198 … 2019…       1  26.6 -80.1
-#> 10 btbwar      Black-… Setoph… L507… Bay St… 2019…       1  27.2 -82.5
-#> # … with 27 more rows, and 3 more variables: obsValid <lgl>,
+#>  1 btbwar      Black-… Setoph… L100… 3907 B… 2019…       2  30.3 -81.7
+#>  2 btbwar      Black-… Setoph… L681… Mariti… 2019…       2  28.3 -80.6
+#>  3 btbwar      Black-… Setoph… L108… Jarvis… 2019…       1  32.2 -80.7
+#>  4 btbwar      Black-… Setoph… L100… "Parki… 2019…       2  26.1 -80.1
+#>  5 btbwar      Black-… Setoph… L616… Lake L… 2019…       2  35.9 -78.7
+#>  6 btbwar      Black-… Setoph… L127… Fort Z… 2019…       1  24.5 -81.8
+#>  7 btbwar      Black-… Setoph… L344… Paynes… 2019…       1  29.6 -82.3
+#>  8 btbwar      Black-… Setoph… L207… Wellfl… 2019…       1  41.9 -70.0
+#>  9 btbwar      Black-… Setoph… L643… 234 SW… 2019…       2  26.1 -80.2
+#> 10 btbwar      Black-… Setoph… L766… Kendal… 2019…       3  25.7 -80.4
+#> # … with 1,418 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
@@ -143,20 +135,20 @@ Search for bird occurrences by a given hotspot
 
 ``` r
 ebirdregion(loc = 'L99381')
-#> # A tibble: 77 x 12
+#> # A tibble: 67 x 12
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl>
-#>  1 cangoo      Canada… Branta… L993… Stewar… 2019…     750  42.5 -76.5
-#>  2 wooduc      Wood D… Aix sp… L993… Stewar… 2019…       5  42.5 -76.5
-#>  3 amewig      Americ… Mareca… L993… Stewar… 2019…       2  42.5 -76.5
-#>  4 mallar3     Mallard Anas p… L993… Stewar… 2019…      60  42.5 -76.5
-#>  5 ambduc      Americ… Anas r… L993… Stewar… 2019…      18  42.5 -76.5
-#>  6 norpin      Northe… Anas a… L993… Stewar… 2019…       2  42.5 -76.5
-#>  7 gnwtea      Green-… Anas c… L993… Stewar… 2019…       2  42.5 -76.5
-#>  8 redhea      Redhead Aythya… L993… Stewar… 2019…       3  42.5 -76.5
-#>  9 rinduc      Ring-n… Aythya… L993… Stewar… 2019…      48  42.5 -76.5
-#> 10 lessca      Lesser… Aythya… L993… Stewar… 2019…      40  42.5 -76.5
-#> # … with 67 more rows, and 3 more variables: obsValid <lgl>,
+#>  1 cangoo      Canada… Branta… L993… Stewar… 2019…       6  42.5 -76.5
+#>  2 mallar3     Mallard Anas p… L993… Stewar… 2019…       5  42.5 -76.5
+#>  3 redhea      Redhead Aythya… L993… Stewar… 2019…       1  42.5 -76.5
+#>  4 commer      Common… Mergus… L993… Stewar… 2019…       6  42.5 -76.5
+#>  5 ribgul      Ring-b… Larus … L993… Stewar… 2019…      80  42.5 -76.5
+#>  6 hergul      Herrin… Larus … L993… Stewar… 2019…      10  42.5 -76.5
+#>  7 lbbgul      Lesser… Larus … L993… Stewar… 2019…       1  42.5 -76.5
+#>  8 gbbgul      Great … Larus … L993… Stewar… 2019…       1  42.5 -76.5
+#>  9 doccor      Double… Phalac… L993… Stewar… 2019…     200  42.5 -76.5
+#> 10 amecro      Americ… Corvus… L993… Stewar… 2019…       1  42.5 -76.5
+#> # … with 57 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
@@ -167,20 +159,20 @@ Search for a species’ occurrences near a given latitude and longitude
 ``` r
 nearestobs(species_code('branta canadensis'), 42, -76)
 #> Canada Goose (Branta canadensis): cangoo
-#> # A tibble: 69 x 12
+#> # A tibble: 35 x 12
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl>
-#>  1 cangoo      Canada… Branta… L166… Chugnu… 2019…      10  42.1 -76.0
-#>  2 cangoo      Canada… Branta… L274… River … 2019…      NA  42.1 -76.0
-#>  3 cangoo      Canada… Branta… L504… Rt. 12… 2019…      30  42.2 -75.9
-#>  4 cangoo      Canada… Branta… L271… Flemin… 2019…      26  42.2 -76.2
-#>  5 cangoo      Canada… Branta… L201… Conflu… 2019…      10  42.1 -76.3
-#>  6 cangoo      Canada… Branta… L100… Brick … 2019…      12  42.1 -76.2
-#>  7 cangoo      Canada… Branta… L234… Lockhe… 2019…      75  42.1 -76.2
-#>  8 cangoo      Canada… Branta… L255… Wall S… 2019…       3  42.1 -75.9
-#>  9 cangoo      Canada… Branta… L978… Murphy… 2019…      25  42.1 -76.0
-#> 10 cangoo      Canada… Branta… L582… New Mi… 2019…       6  41.9 -75.7
-#> # … with 59 more rows, and 3 more variables: obsValid <lgl>,
+#>  1 cangoo      Canada… Branta… L207… Workwa… 2019…       1  42.1 -75.9
+#>  2 cangoo      Canada… Branta… L465… "Bingh… 2019…     120  42.1 -75.9
+#>  3 cangoo      Canada… Branta… L274… River … 2019…      20  42.1 -76.0
+#>  4 cangoo      Canada… Branta… L255… Wall S… 2019…       1  42.1 -75.9
+#>  5 cangoo      Canada… Branta… L147… Quaker… 2019…       2  42.0 -75.9
+#>  6 cangoo      Canada… Branta… L978… Murphy… 2019…      NA  42.1 -76.0
+#>  7 cangoo      Canada… Branta… L245… Water … 2019…      20  42.1 -75.9
+#>  8 cangoo      Canada… Branta… L446… PA-SQ-… 2019…      25  41.8 -75.9
+#>  9 cangoo      Canada… Branta… L179… Joyce … 2019…       6  41.8 -75.9
+#> 10 cangoo      Canada… Branta… L186… Cheri … 2019…      30  42.1 -75.9
+#> # … with 25 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
@@ -190,7 +182,7 @@ Obtain historical frequencies of bird occurrences by hotspot or region
 
 ``` r
 ebirdfreq(loctype = 'hotspots', loc = 'L196159')
-#> # A tibble: 9,216 x 4
+#> # A tibble: 9,408 x 4
 #>    comName                     monthQt   frequency sampleSize
 #>    <chr>                       <chr>         <dbl>      <dbl>
 #>  1 Snow Goose                  January-1     0             33
@@ -203,7 +195,7 @@ ebirdfreq(loctype = 'hotspots', loc = 'L196159')
 #>  8 Blue-winged Teal            January-1     0             33
 #>  9 Cinnamon Teal               January-1     0             33
 #> 10 Blue-winged/Cinnamon Teal   January-1     0             33
-#> # … with 9,206 more rows
+#> # … with 9,398 more rows
 ```
 
 ## Recent notable sightings
@@ -212,20 +204,20 @@ Search for notable sightings at a given latitude and longitude
 
 ``` r
 ebirdnotable(lat = 42, lng = -70)
-#> # A tibble: 959 x 12
+#> # A tibble: 1,747 x 12
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl>
-#>  1 gwfgoo      Greate… Anser … L511… Meadow… 2019…       1  42.4 -72.5
-#>  2 treswa      Tree S… Tachyc… L150… Crane … 2019…       2  42.8 -71.0
-#>  3 ruckin      Ruby-c… Regulu… L345… Home    2019…       1  42.3 -72.4
-#>  4 yesfli      Northe… Colapt… L357… Scarbo… 2019…       1  43.6 -70.4
-#>  5 gwfgoo      Greate… Anser … L511… Meadow… 2019…       2  42.4 -72.5
-#>  6 cacgoo1     Cackli… Branta… L511… Meadow… 2019…       1  42.4 -72.5
-#>  7 ruckin      Ruby-c… Regulu… L487… Dennis… 2019…       1  41.7 -70.3
-#>  8 yebsap      Yellow… Sphyra… L487… Dennis… 2019…       1  41.7 -70.3
-#>  9 chispa      Chippi… Spizel… L673… Nashua… 2019…       1  42.7 -71.5
-#> 10 evegro      Evenin… Coccot… L357… Dunbac… 2019…       1  42.4 -71.2
-#> # … with 949 more rows, and 3 more variables: obsValid <lgl>,
+#>  1 chiswi      Chimne… Chaetu… L392… North … 2019…      11  41.3 -70.1
+#>  2 leasan      Least … Calidr… L707… Hell's… 2019…       2  42.7 -72.5
+#>  3 semsan      Semipa… Calidr… L707… Hell's… 2019…       1  42.7 -72.5
+#>  4 pinwar      Pine W… Setoph… L280… Herman… 2019…       1  42.3 -72.3
+#>  5 trokin      Tropic… Tyrann… L593… Rock M… 2019…       1  42.4 -71.2
+#>  6 trokin      Tropic… Tyrann… L593… Rock M… 2019…       1  42.4 -71.2
+#>  7 trokin      Tropic… Tyrann… L593… Rock M… 2019…       1  42.4 -71.2
+#>  8 rehwoo      Red-he… Melane… L633… Burley… 2019…       1  43.1 -71.0
+#>  9 trokin      Tropic… Tyrann… L593… Rock M… 2019…       1  42.4 -71.2
+#> 10 reevir1     Red-ey… Vireo … L207… Manome… 2019…       1  41.9 -70.5
+#> # … with 1,737 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
@@ -233,20 +225,20 @@ or a region
 
 ``` r
 ebirdnotable(locID = 'US-NY-109')
-#> # A tibble: 92 x 12
+#> # A tibble: 55 x 12
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl>
-#>  1 osprey      Osprey  Pandio… L996… Myers … 2019…       1  42.5 -76.6
-#>  2 evegro      Evenin… Coccot… L123… Boyer … 2019…       2  42.3 -76.3
-#>  3 snoowl1     Snowy … Bubo s… L887… 86 Dat… 2019…       1  42.6 -76.6
-#>  4 snoowl1     Snowy … Bubo s… L887… Dates … 2019…       1  42.6 -76.6
-#>  5 snoowl1     Snowy … Bubo s… L701… Dates … 2019…       1  42.6 -76.6
-#>  6 osprey1     Osprey… Pandio… L996… Myers … 2019…       1  42.5 -76.6
-#>  7 osprey1     Osprey… Pandio… L996… Myers … 2019…       1  42.5 -76.6
-#>  8 osprey1     Osprey… Pandio… L996… Myers … 2019…       1  42.5 -76.6
-#>  9 snoowl1     Snowy … Bubo s… L887… 1–115 … 2019…       1  42.6 -76.6
-#> 10 snoowl1     Snowy … Bubo s… L887… 86 Dat… 2019…       1  42.6 -76.6
-#> # … with 82 more rows, and 3 more variables: obsValid <lgl>,
+#>  1 woothr      Wood T… Hyloci… L281… Cornel… 2019…       1  42.5 -76.5
+#>  2 whevir      White-… Vireo … L100… 210 Fi… 2019…       1  42.4 -76.5
+#>  3 whevir      White-… Vireo … L100… 204 Fi… 2019…       1  42.4 -76.5
+#>  4 norpar      Northe… Setoph… L100… stakeo… 2019…       1  42.4 -76.5
+#>  5 whevir      White-… Vireo … L100… stakeo… 2019…       1  42.4 -76.5
+#>  6 whevir      White-… Vireo … L100… stakeo… 2019…       1  42.4 -76.5
+#>  7 norpar      Northe… Setoph… L100… 118 Fi… 2019…       1  42.4 -76.5
+#>  8 whevir      White-… Vireo … L100… 118 Fi… 2019…       1  42.4 -76.5
+#>  9 whevir      White-… Vireo … L100… 201–29… 2019…       1  42.4 -76.5
+#> 10 whevir      White-… Vireo … L100… 201–29… 2019…       1  42.4 -76.5
+#> # … with 45 more rows, and 3 more variables: obsValid <lgl>,
 #> #   obsReviewed <lgl>, locationPrivate <lgl>
 ```
 
@@ -255,7 +247,7 @@ ebirdnotable(locID = 'US-NY-109')
 Search for historic observations on a date at a region
 
 ``` r
-ebirdhistorical(loc = 'US-VA-003', date='2019-02-14',max=10)
+ebirdhistorical(loc = 'US-VA-003', date = '2019-02-14',max = 10)
 #> # A tibble: 10 x 12
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl>
@@ -273,10 +265,10 @@ ebirdhistorical(loc = 'US-VA-003', date='2019-02-14',max=10)
 #> #   locationPrivate <lgl>
 ```
 
-or set of hotspots
+or a hotspot
 
 ``` r
-ebirdhistorical(loc = 'L196159', date='2019-02-14', fieldSet='full')
+ebirdhistorical(loc = 'L196159', date = '2019-02-14', fieldSet = 'full')
 #> # A tibble: 14 x 27
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl>
@@ -299,7 +291,7 @@ ebirdhistorical(loc = 'L196159', date='2019-02-14', fieldSet='full')
 #> #   subnational1Code <chr>, subnational1Name <chr>, countryCode <chr>,
 #> #   countryName <chr>, userDisplayName <chr>, subId <chr>, obsId <chr>,
 #> #   checklistId <chr>, presenceNoted <lgl>, hasComments <lgl>,
-#> #   hasRichMedia <lgl>, lastName <chr>, firstName <chr>
+#> #   firstName <chr>, lastName <chr>, hasRichMedia <lgl>
 ```
 
 ## Information on a given region or hotspot
@@ -360,44 +352,44 @@ covered by this package, feel free to submit a pull request\!
 
 ### data/obs
 
-  - \[x\] Recent observations in a region: `ebirdregion()`
-  - \[x\] Recent notable observations in a region: `ebirdnotable()`
-  - \[x\] Recent observations of a species in a region: `ebirdregion()`
-  - \[x\] Recent nearby observations: `ebirdgeo()`
-  - \[x\] Recent nearby observations of a species: `ebirdgeo()`
-  - \[x\] Nearest observations of a species: `nearestobs()`
-  - \[x\] Recent nearby notable observations: `ebirdnotable()`
-  - \[x\] Historic observations on a date: `ebirdhistorical()`
+  - [x] Recent observations in a region: `ebirdregion()`
+  - [x] Recent notable observations in a region: `ebirdnotable()`
+  - [x] Recent observations of a species in a region: `ebirdregion()`
+  - [x] Recent nearby observations: `ebirdgeo()`
+  - [x] Recent nearby observations of a species: `ebirdgeo()`
+  - [x] Nearest observations of a species: `nearestobs()`
+  - [x] Recent nearby notable observations: `ebirdnotable()`
+  - [x] Historic observations on a date: `ebirdhistorical()`
 
 ### product
 
-  - \[ \] Top 100
-  - \[ \] Checklist feed on a date
-  - \[ \] Recent checklists feed
-  - \[ \] Regional statistics on a date
-  - \[ \] View Checklist BETA
+  - [ ] Top 100
+  - [ ] Checklist feed on a date
+  - [ ] Recent checklists feed
+  - [ ] Regional statistics on a date
+  - [ ] View Checklist BETA
 
 ### ref/geo
 
-  - \[ \] Adjacent Regions
+  - [ ] Adjacent Regions
 
 ### ref/hotspot
 
-  - \[ \] Hotspots in a region
-  - \[ \] Nearby hotspots
+  - [ ] Hotspots in a region
+  - [ ] Nearby hotspots
 
 ### ref/taxonomy
 
-  - \[x\] eBird Taxonomy: `ebirdtaxonomy()`
-  - \[ \] Taxonomic Forms
-  - \[ \] Taxonomy Versions
-  - \[ \] Taxonomic Groups
+  - [x] eBird Taxonomy: `ebirdtaxonomy()`
+  - [ ] Taxonomic Forms
+  - [ ] Taxonomy Versions
+  - [ ] Taxonomic Groups
 
 ### ref/region
 
-  - \[x\] Hotspot Info: `ebirdregioninfo()`
-  - \[x\] Region Info: `ebirdregioninfo()`
-  - \[ \] Sub Region List
+  - [x] Hotspot Info: `ebirdregioninfo()`
+  - [x] Region Info: `ebirdregioninfo()`
+  - [ ] Sub Region List
 
 ## Meta
 
@@ -406,5 +398,9 @@ covered by this package, feel free to submit a pull request\!
   - License: MIT
   - Get citation information for `rebird` in R doing `citation(package =
     'rebird')`
+  - Please note that the ‘rebird’ project is released with a
+    [Contributor Code of
+    Conduct](https://github.com/ropensci/rebird/blob/master/CODE_OF_CONDUCT.md).
+    By contributing to this project, you agree to abide by its terms.
 
 [![ropensci\_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)

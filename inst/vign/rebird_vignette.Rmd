@@ -30,7 +30,7 @@ library("rebird")
 
 ## Usage
 
-The [eBird API server](https://documenter.getpostman.com/view/664302/ebird-api-20/2HTbHW) 
+The [eBird API server](https://documenter.getpostman.com/view/664302/S1ENwy59?version=latest) 
 has been updated and thus there are a couple major changes in the way `rebird` works.
 API requests to eBird now require users to provide an API key, which is linked to your 
 eBird user account. 
