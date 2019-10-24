@@ -17,3 +17,4 @@ vignettes/figure/
 ^codemeta\.json$
 ^data-raw$
 ^CODE_OF_CONDUCT\.md$
+^\.github$
