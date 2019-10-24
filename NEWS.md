@@ -9,7 +9,7 @@ rebird 1.1.0
 rebird 1.0.0
 ===================
 
-This version switches all functions over the the [new eBird API](https://documenter.getpostman.com/view/664302/ebird-api-20/2HTbHW), given that the one previously used by `rebird` will be retired on October 1st. As such, many of the functions in `rebird` have changed, and the previous versions of the package will not work correctly.
+This version switches all functions over the the [new eBird API](https://documenter.getpostman.com/view/664302/S1ENwy59?version=latest), given that the one previously used by `rebird` will be retired on October 1st. As such, many of the functions in `rebird` have changed, and the previous versions of the package will not work correctly.
 
 ### Breaking changes
 
