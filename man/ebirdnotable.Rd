@@ -58,7 +58,7 @@ A data.frame containing the collected information:
 
 "sciName" species' scientific name
 
-"locID": unique identifier for the location
+"locId": unique identifier for the location
 
 "locName": location name
 
@@ -79,6 +79,8 @@ A data.frame containing the collected information:
 "locationPrivate": TRUE if location is not a birding hotspot
    automatic filters or a regional viewer, FALSE otherwise
 
+"subId": submission ID
+
 "subnational2Code": county code (returned if simple=FALSE)
 
 "subnational2Name": county name (returned if simple=FALSE)
@@ -92,8 +94,6 @@ A data.frame containing the collected information:
 "countryName": country name (returned if simple=FALSE)
 
 "userDisplayName": observer's eBird username (returned if simple=FALSE)
-
-"subID": submission ID (returned if simple=FALSE)
 
 "obsID": observation ID (returned if simple=FALSE)
 

@@ -2,8 +2,6 @@
 #'
 #' Returns the most recent and nearest reported sighting information
 #' with observations of a species.
-#'
-#' @export
 #' 
 #' @param speciesCode (required) Species code of the species of interest. 
 #'    Scientific names can be specified if wrapped around the 
@@ -35,20 +33,23 @@
 #'    environment variable called \code{EBIRD_KEY}.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return A data.frame containing the collected information:
+#' @return "speciesCode": species code
 #' @return "comName": species common name
-#' @return "howMany": number of individuals observed, NA if only presence was noted
-#' @return "lat": latitude of the location.
-#' @return "lng": longitude of the location.
-#' @return "locID": unique identifier for the location
+#' @return "sciName" species' scientific name
+#' @return "locId": unique identifier for the location
 #' @return "locName": location name
-#' @return "locationPrivate": TRUE if location is not a birding hotspot
 #' @return "obsDt": observation date formatted according to ISO 8601
 #'    (e.g. 'YYYY-MM-DD', or 'YYYY-MM-DD hh:mm'). Hours and minutes are excluded
 #'    if the observer did not report an observation time.
-#' @return "obsReviewed": TRUE if observation has been reviewed, FALSE otherwise
+#' @return "howMany": number of individuals observed, NA if only presence was noted
+#' @return "lat": latitude of the location.
+#' @return "lng": longitude of the location.
 #' @return "obsValid": TRUE if observation has been deemed valid by either the
 #'    automatic filters or a regional viewer, FALSE otherwise
-#' @return "sciName" species' scientific name
+#' @return "obsReviewed": TRUE if observation has been reviewed, FALSE otherwise
+#' @return "locationPrivate": TRUE if location is not a birding hotspot
+#' @return "subId": submission ID
+#' @export
 #' 
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu},
 #'    Sebastian Pardo \email{sebpardo@@gmail.com}

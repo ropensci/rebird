@@ -9,8 +9,8 @@ test_that("nearestobs works correctly", {
   expect_is(out, "data.frame")
   expect_is(out2, "data.frame")
   
-  expect_equal(NCOL(out), 12)
-  expect_equal(NCOL(out2), 12)
+  expect_equal(NCOL(out), 13)
+  expect_equal(NCOL(out2), 13)
   
   expect_is(out$comName, "character")
   expect_is(out$lng, "numeric")

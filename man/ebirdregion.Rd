@@ -56,7 +56,19 @@ supply the key, and to avoid accidentally sharing it publicly.}
 \value{
 A data.frame containing the collected information:
 
+"speciesCode": species code
+
 "comName": species common name
+
+"sciName" species' scientific name
+
+"locID": unique identifier for the location
+
+"locName": location name
+
+"obsDt": observation date formatted according to ISO 8601
+   (e.g. 'YYYY-MM-DD', or 'YYYY-MM-DD hh:mm'). Hours and minutes are excluded
+   if the observer did not report an observation time.
 
 "howMany": number of individuals observed, NA if only presence was noted
 
@@ -64,22 +76,14 @@ A data.frame containing the collected information:
 
 "lng": longitude of the location
 
-"locID": unique identifier for the location
-
-"locName": location name
-
-"locationPrivate": TRUE if location is not a birding hotspot
-
-"obsDt": observation date formatted according to ISO 8601
-   (e.g. 'YYYY-MM-DD', or 'YYYY-MM-DD hh:mm'). Hours and minutes are excluded
-   if the observer did not report an observation time.
-
-"obsReviewed": TRUE if observation has been reviewed, FALSE otherwise
-
 "obsValid": TRUE if observation has been deemed valid by either the
    automatic filters or a regional viewer, FALSE otherwise
 
-"sciName" species' scientific name
+"obsReviewed": TRUE if observation has been reviewed, FALSE otherwise
+
+"locationPrivate": TRUE if location is not a birding hotspot
+
+"subId": submission ID
 }
 \description{
 Returns the most recent sighting information reported in a given region or hotspot.

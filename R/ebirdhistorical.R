@@ -37,7 +37,7 @@
 #' @return "obsDt": observation date formatted according to ISO 8601 
 #'    (e.g. 'YYYY-MM-DD', or 'YYYY-MM-DD hh:mm'). Hours and minutes are excluded 
 #'    if the observer did not report an observation time
-#' @return "howMany": count of species in the observation  
+#' @return "howMany": "howMany": number of individuals observed, NA if only presence was noted  
 #' @return "obsValid": TRUE if observation has been deemed valid by either the 
 #'    automatic filters or a regional viewer, FALSE otherwise
 #' @return "obsReviewed": TRUE if observation has been reviewed, FALSE otherwise
