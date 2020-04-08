@@ -30,8 +30,7 @@
 #' @return "loc": delimited string of location descriptors
 #' @export
 #' @examples \dontrun{
-#' ebirdhistorical(loc = 'US-VA-003', date='2019-02-14',max=10)
-#' ebirdhistorical(loc = 'L196159', date='2019-02-14', fieldSet='full')
+#' ebirdchecklistfeed(loc = "L207391", date = "2020-03-24", max = 10)
 #' }
 #' @author Marianna Foos \email{marianna.foos@@gmail.com}
 #' @references \url{http://ebird.org/}
