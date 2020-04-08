@@ -453,7 +453,7 @@ ebirdnotable(locID = 'US-NY-109')
 
 ### Historic Observations
 
-Search for historic observations on a date at a region 
+Obtain a list of species reported on a specific date in a given region 
 
 
 ```r

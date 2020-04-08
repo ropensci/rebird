@@ -1,5 +1,5 @@
 Package: rebird
-Version: 1.1.0
+Version: 1.1.1
 Title: R Client for the eBird Database of Bird Observations
 Description: A programmatic client for the eBird database, including functions
     for searching for bird observations by geographic location (latitude,

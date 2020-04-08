@@ -1,6 +1,6 @@
 #' Historic observations on a date at a region or hotspot
 #' 
-#' Returns sighting information reported in a given region or hotspot
+#' Returns a list of taxa reported in a given region or hotspot on a specific date
 #' 
 #' @param loc (required) Region code or locID (if a hotspot). Region code can
 #'    be country code (e.g. "US"), subnational1 code (states/provinces, e.g. "US-NV"), or
@@ -32,15 +32,17 @@
 #' @return "speciesCode": species codes
 #' @return "comName": species common names
 #' @return "sciName" species' scientific names
-#' @return "locID": unique identifier for the locations
+#' @return "locId": unique identifier for the locations
 #' @return "locName": location name
 #' @return "obsDt": observation date formatted according to ISO 8601 
 #'    (e.g. 'YYYY-MM-DD', or 'YYYY-MM-DD hh:mm'). Hours and minutes are excluded 
 #'    if the observer did not report an observation time
+#' @return "howMany": count of species in the observation  
 #' @return "obsValid": TRUE if observation has been deemed valid by either the 
 #'    automatic filters or a regional viewer, FALSE otherwise
 #' @return "obsReviewed": TRUE if observation has been reviewed, FALSE otherwise
 #' @return "locationPrivate": TRUE if location is not a birding hotspot
+#' @return "subID": submission ID 
 #' @return "subnational2Code": county code (returned if simple=FALSE)
 #' @return "subnational2Name": county name (returned if simple=FALSE)
 #' @return "subnational1Code": state/province ISO code (returned if simple=FALSE)
@@ -48,7 +50,6 @@
 #' @return "countryCode": country ISO code (returned if simple=FALSE)
 #' @return "countryName": country name (returned if simple=FALSE)
 #' @return "userDisplayName": first and last name of the observer (returned if simple=FALSE) 
-#' @return "subID": submission ID (returned if simple=FALSE)
 #' @return "obsID": observation ID (returned if simple=FALSE)
 #' @return "checklistID": checklist ID (returned if simple=FALSE)
 #' @return "presenceNoted": 'true' if user marked presence but did not count the
