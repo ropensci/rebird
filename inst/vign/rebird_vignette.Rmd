@@ -199,3 +199,11 @@ or hotspot
 ```{r ebirdregioninfo2}
 ebirdregioninfo("L196159")
 ```
+
+## Checklist Feed
+
+Obtain a list of checklists submitted on a given date at a region or hotspot
+
+```{r ebirdchecklistfeed}
+ebirdchecklistfeed(loc = "L207391", date = "2020-03-24", max = 5)
+```
