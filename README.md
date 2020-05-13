@@ -382,7 +382,7 @@ covered by this package, feel free to submit a pull request\!
 ### product
 
   - [ ] Top 100
-  - [x] Checklist feed on a date
+  - [x] Checklist feed on a date: `ebirdchecklistfeed()`
   - [ ] Recent checklists feed
   - [ ] Regional statistics on a date
   - [ ] View Checklist BETA
