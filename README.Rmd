@@ -198,7 +198,7 @@ The 2.0 APIs have considerably been expanded from the previous version, and `reb
 
 ### product
 - [ ]   Top 100
-- [x]     Checklist feed on a date
+- [x]     Checklist feed on a date: `ebirdchecklistfeed()`
 - [ ]     Recent checklists feed
 - [ ]  Regional statistics on a date
 - [ ]     View Checklist BETA
