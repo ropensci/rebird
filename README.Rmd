@@ -164,6 +164,19 @@ or hotspot
 ebirdregioninfo("L196159")
 ```
 
+Obtain a list of eBird codes for all species recorded in a region
+
+```{r ebirdregionspecies1}
+ebirdregionspecies("GB-ENG-LND")
+```
+
+or a hotspot
+
+```{r ebirdregionspecies2}
+ebirdregionspecies("L5803024")
+```
+
+
 ## Checklist Feed
 
 Obtain a list of checklists submitted on a given date at a region or hotspot
@@ -194,14 +207,15 @@ The 2.0 APIs have considerably been expanded from the previous version, and `reb
 - [x] Recent nearby observations of a species: `ebirdgeo()`
 - [x] Nearest observations of a species: `nearestobs()`
 - [x] Recent nearby notable observations: `ebirdnotable()`
+- [ ] Recent checklists feed
 - [x] Historic observations on a date: `ebirdhistorical()`
 
 ### product
-- [ ]   Top 100
-- [x]     Checklist feed on a date: `ebirdchecklistfeed()`
-- [ ]     Recent checklists feed
-- [ ]  Regional statistics on a date
-- [ ]     View Checklist BETA
+- [ ] Top 100
+- [x] Checklist feed on a date: `ebirdchecklistfeed()`
+- [ ] Regional statistics on a date
+- [x] Species list for a region: `ebirdregionspecies()`
+- [ ] View Checklist BETA
 
 ### ref/geo
  - [ ]    Adjacent Regions
