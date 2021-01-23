@@ -28,7 +28,8 @@
 #' localSpecies <- ebirdregionspecies("L5803024") # specific hotspot
 #' inner_join(localSpecies, taxonomy)
 #' }
-#'
+#' @author David Bradnum \email{david.bradnum@@gmail.com}
+#' @references \url{http://ebird.org/}
 ebirdregionspecies <- function(location, key = NULL, ...) {
   if (length(location) > 1) {
     stop("More than one location specified")
