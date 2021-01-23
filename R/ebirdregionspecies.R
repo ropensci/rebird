@@ -30,21 +30,21 @@
 #' }
 #'
 ebirdregionspecies <- function(location, key = NULL, ...) {
-  url <- paste0(ebase(), "product/spplist/", location)
-
   if (length(location) > 1) {
     stop("More than one location specified")
   }
 
+  if (nchar(as.character(location)) == 0) {
+    stop("No location provided")
+  }
+
+  url <- paste0(ebase(), "product/spplist/", location)
+
   args <- list()
 
-  tt <- GET(URLencode(url),
-    query = ebird_compact(args),
-    add_headers("X-eBirdApiToken" = get_key(key))
-  )
+  result <- ebird_GET(url, args, key = key, ...)
 
-  ss <- content(tt, as = "text", encoding = "UTF-8")
-  json <- fromJSON(ss, T)
+  colnames(result) <- "speciesCode"
 
-  tibble(speciesCode = json)
+  result
 }

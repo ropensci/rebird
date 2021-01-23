@@ -25,5 +25,6 @@ test_that("ebirdregionspecies fails correctly", {
   skip_on_cran()
 
   expect_error(suppressWarnings(ebirdregionspecies()))
+  expect_error(suppressWarnings(ebirdregionspecies("")))
   expect_error(suppressWarnings(ebirdregionspecies(c("GB", "FR"))))
 })

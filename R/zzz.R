@@ -68,7 +68,22 @@ ebird_GET <- function(url, args, key = NULL, ...){
           }
         }
       }))
-      bind_rows(lapply(json, as_tibble))
+      
+      # at least one API call returns a json structure where each element 
+      # contains a single, unnamed string. This case isn't handled by as_tibble()
+      # so detect and deal with it separately.
+      unnamedSingleValues <- all(sapply(
+        json,
+        function(x) {
+          length(x) == 1 & length(names(x)) == 0
+        }
+      ))
+      
+      if (unnamedSingleValues) {
+        as_tibble(unlist(json))
+      } else {
+        bind_rows(lapply(json, as_tibble))
+      }
     }
   }
 }
