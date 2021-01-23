@@ -393,8 +393,9 @@ covered by this package, feel free to submit a pull request\!
 
 ### ref/hotspot
 
-  - [ ] Hotspots in a region
-  - [ ] Nearby hotspots
+  - [x] Hotspots in a region: `ebirdhotspotlist()`
+  - [x] Nearby hotspots: `ebirdhotspotlist()`
+  - [ ] Hotspot info
 
 ### ref/taxonomy
 
