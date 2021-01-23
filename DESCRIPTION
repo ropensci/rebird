@@ -14,6 +14,7 @@ Authors@R: c(
     person("Andy", "Teucher", role = "aut", email = "andy.teucher@gmail.com"), 
     person("Guy", "Babineau", role = "ctb", email = "guy.babineau@gmail.com"),
     person("Marianna", "Foos", role = "ctb", email = "marianna.foos@gmail.com"),
+    person("David", "Bradnum", role = "ctb", email = "david.bradnum@gmail.com"),
     person("Sebastian", "Pardo", role = c("aut", "cre"), email = "sebpardo@gmail.com", comment = c(ORCID = "0000-0002-4147-5796"))
     )
 URL: https://docs.ropensci.org/rebird, http://github.com/ropensci/rebird

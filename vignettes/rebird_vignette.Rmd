@@ -599,6 +599,53 @@ ebirdregioninfo("L196159")
 ## #   lng <dbl>, hierarchicalName <chr>, locID <chr>
 ```
 
+
+Obtain a list of eBird codes for all species recorded in a region
+
+```r
+ebirdregionspecies("GB-ENG-LND")
+```
+
+```
+## # A tibble: 304 x 1
+##    speciesCode
+##    <chr>      
+##  1 bahgoo     
+##  2 snogoo     
+##  3 gragoo     
+##  4 gwfgoo     
+##  5 tunbeg1    
+##  6 pifgoo     
+##  7 brant      
+##  8 bargoo     
+##  9 cangoo     
+## 10 rebgoo1    
+## # ... with 294 more rows
+```
+
+or a hotspot
+
+```r
+ebirdregionspecies("L5803024")
+```
+
+```
+## # A tibble: 156 x 1
+## speciesCode
+## <chr>
+##   1 gragoo
+## 2 gwfgoo
+## 3 bargoo
+## 4 cangoo
+## 5 mutswa
+## 6 egygoo
+## 7 comshe
+## 8 manduc
+## 9 gargan
+## 10 norsho
+## # ... with 146 more rows
+```
+
 ## Checklist Feed
 
 Obtain a list of checklists submitted on a given date at a region or hotspot
