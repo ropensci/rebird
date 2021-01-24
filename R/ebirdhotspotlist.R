@@ -30,7 +30,6 @@
 #' @return "latestObsDt": Date of latest observation
 #' @return "numSpeciesAllTime": Total number of species recorded in the hotspot
 #' @export
-#' @importFrom dplyr select
 #' @examples
 #' \dontrun{
 #' ebirdhotspotlist("CA-NS-HL")
@@ -103,10 +102,5 @@ ebirdhotspotlist <- function(regionCode = NULL, lat = NULL, lng = NULL, dist = N
   res <- ebird_GET(url, args = args, key = key, ...)
 
   # remove locID column which is currently returned in duplicate by the API
-  colToRemove <- "locID"
-  if (colToRemove %in% names(res)) {
-    res <- select(res, -colToRemove)
-  }
-
-  res
+  res[, !names(res) == "locID"]
 }
