@@ -102,7 +102,8 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
     authenticate via the API to do so. This function will be reinstated
     when the frequency data become available through the API. In the meantime, 
     you can paste the url above in your browser to obtain the web download of 
-    the frequency data for the desired location an date."
+    the frequency data for the desired location an date. See
+    https://github.com/ropensci/rebird/issues/82 for more information."
   )
   
   ret <- GET(url, query = args, ...)
