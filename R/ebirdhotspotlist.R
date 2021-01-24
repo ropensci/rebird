@@ -75,9 +75,6 @@ ebirdhotspotlist <- function(regionCode = NULL, lat = NULL, lng = NULL, dist = N
       stop("Please provide a longitude between -180 and 180 degrees.")
     }
 
-    lat <- round(geoloc[1], 2)
-    lng <- round(geoloc[2], 2)
-
     if (!is.null(dist)) {
       if (dist > 500) {
         dist <- 500
@@ -86,7 +83,10 @@ ebirdhotspotlist <- function(regionCode = NULL, lat = NULL, lng = NULL, dist = N
       dist <- round(dist)
     }
 
-    url <- paste0(ebase(), "ref/hotspot/geo?lat=", lat, "&lng=", lng)
+    url <- paste0(ebase(), 
+                  "ref/hotspot/geo?lat=", round(geoloc[1], 2), 
+                  "&lng=", round(geoloc[2], 2))
+    
     args <- ebird_compact(list(fmt = "json", back = back, dist = dist))
   } else {
     if (nchar(as.character(regionCode)) == 0) {
