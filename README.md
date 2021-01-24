@@ -429,7 +429,7 @@ covered by this package, feel free to submit a pull request\!
 
   - [x] Hotspot Info: `ebirdregioninfo()`
   - [x] Region Info: `ebirdregioninfo()`
-  - [x] Sub Region List
+  - [x] Sub Region List `ebirdsubregionlist()`
 
 ## Meta
 

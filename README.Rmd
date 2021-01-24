@@ -238,7 +238,7 @@ The 2.0 APIs have considerably been expanded from the previous version, and `reb
 ### ref/region
  - [x]     Hotspot Info: `ebirdregioninfo()`
  - [x]     Region Info: `ebirdregioninfo()`
- - [x]     Sub Region List
+ - [x]     Sub Region List `ebirdsubregionlist()`
 
 
 ## Meta
