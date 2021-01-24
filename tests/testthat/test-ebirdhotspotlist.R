@@ -41,6 +41,8 @@ test_that("ebirdhotspotlist fails correctly", {
   expect_error(ebirdhotspotlist(lat = 51.5, lng = 0, dist = -1))
 })
 
-test_that("ebirdhotspotlist doesn't work with dummy API key", {
+test_that_without_key("ebirdhotspotinfo doesn't work with dummy API key", {
+
+  expect_error(ebirdhotspotlist("CA-NS-YA")) # Doesn't work without API key
   expect_error(ebirdhotspotlist("CA-NS-YA", key = "foobar"))
 })
