@@ -3,9 +3,9 @@
 #' @param regionType The type of region to search for. Must be one of 'country',
 #'  'subnational1' or 'subnational2'.
 #' @param parentRegionCode The region to search within. Must be a valid 
-#' country or subnational1 code, or 'world'. (The latter is only valid when 
-#' searching for regionType of 'country').
-#' @param key ebird API key. You can obtain one from https://ebird.org/api/keygen.
+#' country or subnational1 code. If `regionType` is 'country' then this 
+#' parameter is ignored (since the search will automatically be world-wide).
+#' @param key eBird API key. You can obtain one from https://ebird.org/api/keygen.
 #'    We strongly recommend storing it in your \code{.Renviron} file as an
 #'    environment variable called \code{EBIRD_KEY}.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
@@ -17,7 +17,7 @@
 #' @export
 #'
 #' @examples \dontrun{
-#' ebirdsubregionlist("country", "world")
+#' ebirdsubregionlist("country")
 #' ebirdsubregionlist("subnational1", "US")
 #' ebirdsubregionlist("subnational2", "US-NY")
 #' }
@@ -28,9 +28,7 @@ ebirdsubregionlist <- function(regionType = c("country", "subnational1", "subnat
   regionType <- match.arg(regionType)
 
   if (regionType == "country") {
-    if (parentRegionCode != "world") {
-      stop("Invalid input: can only choose regionType of 'country' with parentRegionCode of 'world'.")
-    }
+    parentRegionCode = "world"
   } else {
     # check whether region code exists
     invisible(ebirdregioninfo(parentRegionCode, key = key))

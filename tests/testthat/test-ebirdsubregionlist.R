@@ -3,7 +3,7 @@ context("ebirdsubregionlist")
 test_that("ebirdsubregionlist works correctly", {
   skip_on_cran()
   
-  countries = ebirdsubregionlist("country", "world")
+  countries = ebirdsubregionlist("country")
   
   expect_is(countries, "data.frame")
   expect_is(countries, "tbl_df")
@@ -27,7 +27,6 @@ test_that("ebirdsubregionlist works correctly", {
 test_that("ebirdsubregionlist fails correctly", {
   skip_on_cran()
   
-  expect_error(ebirdsubregionlist("country", "US"))
   expect_error(ebirdsubregionlist("foo", "US"))
   expect_error(ebirdsubregionlist("subnational1", "foo"))
   expect_error(ebirdsubregionlist("subnational2", c("US-NY","US-NV")))
