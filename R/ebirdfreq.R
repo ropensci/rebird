@@ -1,4 +1,15 @@
 #' Download historical frequencies of bird observations from eBird
+#' 
+#' *NOTE: Currently disabled.* 
+#' 
+#' @details This function was the only `rebird` function to not use 
+#' the API and formulated a url-based query instead. Now you need to 
+#' be logged into eBird to download the frequency data, but we can't 
+#' authenticate through R, so this function does not work. This 
+#' functionality is likely to be added to the API in the future, 
+#' so we are keeping the function in the meantime, but it throws 
+#' an informative error, and provides the constructed url to 
+#' obtain the frequency data manually through your browser.
 #'
 #' @param loctype String with location type. Either "states", "counties", 
 #'   or "hotspots".
@@ -27,6 +38,9 @@
 #'   to TRUE. If FALSE then output will be in wide format.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}} 
 #'
+#' @return *This function currently returns an error, but also provides
+#' the constructed url to manually obtain the datafor the location and
+#' dates requested through your browser.*
 #' @return A data frame containing the collected information. If in long format:
 #' @return "monthQt": month and week (eBird data divides each month by four weeks)
 #' @return "comName": species common name
@@ -43,7 +57,9 @@
 #' @importFrom dplyr tbl_df
 #' @importFrom httr GET
 #' @importFrom httr stop_for_status
+#' @importFrom httr modify_url
 #' @export
+#' @md
 #' @examples \dontrun{
 #' ebirdfreq("states", "US-NY", 2014, 2014, 1, 12)
 #' ebirdfreq("counties", "CA-BC-GV", 1900, 2015, 1, 3)
@@ -78,6 +94,18 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
                eyr = endyear, personal = "false", fmt = "tsv")
 
   url <- "http://ebird.org/ebird/barchartData"
+  url_full <- modify_url(url, query = args)
+  message(url_full)
+  stop(
+    "This function has been made temporarily defunct as you now need to be 
+    logged into the eBird website to download frequency data, but we cannot 
+    authenticate via the API to do so. This function will be reinstated
+    when the frequency data become available through the API. In the meantime, 
+    you can paste the url above in your browser to obtain the web download of 
+    the frequency data for the desired location and date. See
+    https://github.com/ropensci/rebird/issues/82 for more information."
+  )
+  
   ret <- GET(url, query = args, ...)
   stop_for_status(ret)
   asChar <- readBin(ret$content, "character")
