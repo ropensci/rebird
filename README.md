@@ -320,6 +320,27 @@ ebirdregioninfo("L196159")
 #> #   lng <dbl>, hierarchicalName <chr>, locID <chr>
 ```
 
+Obtain a list of all subregions within an eBird region
+
+``` r
+ebirdsubregionlist("subnational1","US")
+#> # A tibble: 51 x 2
+#>    code  name                
+#>    <chr> <chr>               
+#>  1 US-AL Alabama             
+#>  2 US-AK Alaska              
+#>  3 US-AZ Arizona             
+#>  4 US-AR Arkansas            
+#>  5 US-CA California          
+#>  6 US-CO Colorado            
+#>  7 US-CT Connecticut         
+#>  8 US-DE Delaware            
+#>  9 US-DC District of Columbia
+#> 10 US-FL Florida             
+#> # ... with 41 more rows
+```
+
+
 ## Checklist Feed
 
 Obtain a list of checklists submitted on a given date at a region or
@@ -408,7 +429,7 @@ covered by this package, feel free to submit a pull request\!
 
   - [x] Hotspot Info: `ebirdregioninfo()`
   - [x] Region Info: `ebirdregioninfo()`
-  - [ ] Sub Region List
+  - [x] Sub Region List
 
 ## Meta
 

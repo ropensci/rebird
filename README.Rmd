@@ -176,6 +176,11 @@ or a hotspot
 ebirdregionspecies("L5803024")
 ```
 
+Obtain a list of all subregions within an eBird region
+
+```{r ebirdsubregionlist}
+ebirdsubregionlist("subnational1","US")
+```
 
 ## Checklist Feed
 
@@ -232,8 +237,8 @@ The 2.0 APIs have considerably been expanded from the previous version, and `reb
 
 ### ref/region
  - [x]     Hotspot Info: `ebirdregioninfo()`
- - [x]    Region Info: `ebirdregioninfo()`
- - [ ]     Sub Region List
+ - [x]     Region Info: `ebirdregioninfo()`
+ - [x]     Sub Region List
 
 
 ## Meta
