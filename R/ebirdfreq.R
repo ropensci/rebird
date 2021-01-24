@@ -101,7 +101,7 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
     logged into the eBird website to download frequency data, but we cannot 
     authenticate via the API to do so. This function will be reinstated
     when the frequency data become available through the API. In the meantime, 
-    you can paste the url above in your browser to obtain the web dowload of 
+    you can paste the url above in your browser to obtain the web download of 
     the frequency data for the desired location an date."
   )
   
