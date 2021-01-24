@@ -5,9 +5,11 @@
 #' @param regionCode The country, subnational1 or subnational2 code. If `regionCode` is provided then 
 #' latitude and longitude are ignored.
 #' @param lat Decimal latitude. value between -90.00 and 90.00, up to two
-#'    decimal places of precision. 
+#'    decimal places of precision. Defaults to latitude based on IP if neither `regionCode` 
+#'    nor `lat` and `lng` are provided. 
 #' @param lng Decimal longitude. value between -180.00 and 180.00, up to
-#'    two decimal places of precision.
+#'    two decimal places of precision. Defaults to longitude based on IP if neither `regionCode` 
+#'    nor `lat` and `lng` are provided.
 #' @param dist The search radius from the given set of coordinates, in kilometers (between 0 and 500, defaults to 25).
 #' @param back Only fetch hotspots which have been visited up to 'back' days ago (defaults to `NULL`).
 #' @param sleep Time (in seconds) before function sends API call (defaults to
@@ -18,7 +20,7 @@
 #'    environment variable called \code{EBIRD_KEY}.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @return A data.frame with ten columns containing:
-#' @return "locID": unique identifier for the hotspot
+#' @return "locId": unique identifier for the hotspot
 #' @return "locName": hotspot name
 #' @return "countryCode": country code
 #' @return "subnational1Code": subnational1 code (state/province level)
