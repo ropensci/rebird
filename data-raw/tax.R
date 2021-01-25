@@ -5,10 +5,7 @@
 # the eBird taxonomy update is completed, but in the event you need
 # to update the taxonomy yourself you can do so by running the code below.
 
-library(dplyr)
+library(rebird)
 
-tax <- rebird::ebirdtaxonomy(cat = c("domestic", "form", "hybrid", 
-                              "intergrade", "issf", "slash", "species", "spuh")) %>%
-  tbl_df()
-
+tax <- ebirdtaxonomy()
 usethis::use_data(tax, overwrite = TRUE, internal = TRUE)
