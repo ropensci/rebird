@@ -32,6 +32,9 @@ ebirdsubregionlist <- function(regionType = c("country", "subnational1", "subnat
   } else {
     # check whether region code exists
     invisible(ebirdregioninfo(parentRegionCode, key = key))
+    if (grepl("[A-Z]{2}-[A-Z]{2,3}-[A-Z0-9]{2,3}", parentRegionCode)) {
+      stop("Value of 'parentRegionCode' is subnational2. Change to subnational1 or country code.")
+    }
   }
   
   url <- paste0(ebase(), "ref/region/list/", regionType, "/", parentRegionCode)
