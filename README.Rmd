@@ -77,6 +77,21 @@ species_code('sula variegata')
 The `species_code` function can be called within other `rebird` functions, or the species code 
 can be specified directly.
 
+## eBird Taxonomy
+
+The eBird taxonomy is internally stored in `rebird` and can be called using
+
+```{r tax}
+rebird:::tax
+```
+
+While the internal taxonomy is kept up to date with each package release, it could
+be outdated if a new taxonomy is made available before the package is updated.
+You can obtain the full eBird taxonomy by
+
+```{r taxonomy, eval=FALSE}
+new_tax <- ebirdtaxonomy()
+```
 
 ## Sightings at location determined by latitude/longitude
 
@@ -111,14 +126,15 @@ Search for a species' occurrences near a given latitude and longitude
 nearestobs(species_code('branta canadensis'), 42, -76)
 ```
 
-
+<!--
 ## Frequency of observations at hotspots or regions
 
 Obtain historical frequencies of bird occurrences by hotspot or region
 
 ```{r ebirdfreq}
-ebirdfreq(loctype = 'hotspots', loc = 'L196159')
+# ebirdfreq(loctype = 'hotspots', loc = 'L196159')
 ```
+-->
 
 ## Recent notable sightings
 
@@ -164,7 +180,7 @@ or hotspot
 ebirdregioninfo("L196159")
 ```
 
-Obtain a list of eBird codes for all species recorded in a region
+Obtain a list of eBird species codes for all species recorded in a region
 
 ```{r ebirdregionspecies1}
 ebirdregionspecies("GB-ENG-LND")
@@ -190,6 +206,21 @@ Obtain a list of checklists submitted on a given date at a region or hotspot
 ebirdchecklistfeed(loc = "L207391", date = "2020-03-24", max = 5)
 ```
 
+## Hotspots in a region or nearby coordinates
+
+Obtain a list of hotspots within a region
+
+```{r ebirdhotspotlist1}
+ebirdhotspotlist("CA-NS-HL")
+```
+
+or within a radius of up to 50 kilometers, from a given set of coordinates.
+
+```{r ebirdhotspotlist2}
+ebirdhotspotlist(lat = 30, lng = -90, dist = 10)
+```
+
+
 ## `rebird` and other packages
 
 ### How to use `rebird`
@@ -205,6 +236,7 @@ Those interested in eBird data may also want to consider [`auk`](https://github.
 The 2.0 APIs have considerably been expanded from the previous version, and `rebird` only covers some of them.  The webservices covered are listed below; if you'd like to contribute wrappers to APIs not yet covered by this package, feel free to submit a pull request!
 
 ### data/obs
+
 - [x] Recent observations in a region: `ebirdregion()`
 - [x] Recent notable observations in a region: `ebirdnotable()`
 - [x] Recent observations of a species in a region: `ebirdregion()`
@@ -226,8 +258,9 @@ The 2.0 APIs have considerably been expanded from the previous version, and `reb
  - [ ]    Adjacent Regions
 
 ### ref/hotspot
- - [ ]     Hotspots in a region
- - [ ]     Nearby hotspots
+ - [x] Hotspots in a region: `ebirdhotspotlist()`
+ - [x] Nearby hotspots: `ebirdhotspotlist()`
+ - [x] Hotspot Info: `ebirdregioninfo()`
 
 ### ref/taxonomy
  - [x]     eBird Taxonomy: `ebirdtaxonomy()`
@@ -236,7 +269,6 @@ The 2.0 APIs have considerably been expanded from the previous version, and `reb
  - [ ]     Taxonomic Groups
 
 ### ref/region
- - [x]     Hotspot Info: `ebirdregioninfo()`
  - [x]     Region Info: `ebirdregioninfo()`
  - [x]     Sub Region List `ebirdsubregionlist()`
 

@@ -55,7 +55,23 @@ species_code('sula variegata')
 The `species_code` function can be called within other `rebird` functions, or the species code 
 can be specified directly.
 
-### Sightings at location determined by latitude/longitude
+## eBird Taxonomy
+
+The eBird taxonomy is internally stored in `rebird` and can be called using
+
+```{r tax}
+rebird:::tax
+```
+
+While the internal taxonomy is kept up to date with each package release, it could
+be outdated if a new taxonomy is made available before the package is updated.
+You can obtain the full eBird taxonomy by
+
+```{r taxonomy, eval=FALSE}
+new_tax <- ebirdtaxonomy()
+```
+
+## Sightings at location determined by latitude/longitude
 
 Search for bird occurrences by latitude and longitude point
 
@@ -63,28 +79,22 @@ Search for bird occurrences by latitude and longitude point
 ebirdgeo(species = species_code('spinus tristis'), lat = 42, lng = -76)
 ```
 
-Same, but with additional parameter settings, returning only 10 records, including provisional records, and hotspot records. 
+## Recent observations at a region
 
-```{r ebirdgeo2}
-ebirdgeo(lat = 42, lng = -76, max = 10, includeProvisional = TRUE, hotspot = TRUE)
+Search for bird occurrences by region and species name
+
+```{r ebirdregion1}
+ebirdregion(loc = 'US', species = 'btbwar')
 ```
 
 
-### Recent sightings from location IDs
+## Recent observations at hotspots
 
-Search for bird occurrences for in a hotspot using its ID
+Search for bird occurrences by a given hotspot
 
-```{r ebirdloc1}
+```{r ebirdhotspot}
 ebirdregion(loc = 'L99381')
 ```
-
-Search by location ID and species name, as well as some additional parameter settings 
-
-```{r ebirdloc2}
-ebirdregion(loc = 'L99381', species = species_code('larus delawarensis'), 
-         max = 10, provisional = TRUE, hotspot = TRUE)
-```
-
 
 ## Nearest observations of a species
 
@@ -94,57 +104,17 @@ Search for a species' occurrences near a given latitude and longitude
 nearestobs(species_code('branta canadensis'), 42, -76)
 ```
 
+<!--
+## Frequency of observations at hotspots or regions
 
-### Recent observations at a region
+Obtain historical frequencies of bird occurrences by hotspot or region
 
-Search for bird occurrences by region and species name
-
-```{r ebirdregion1}
-ebirdregion(loc = 'US', species = species_code('Setophaga caerulescens'))
+```{r ebirdfreq}
+# ebirdfreq(loctype = 'hotspots', loc = 'L196159')
 ```
+-->
 
-Search by location ID and species name, as well as some additional parameter settings. Note that we use `US-OH` to represent Ohio within the US.
-
-```{r ebirdregion2}
-ebirdregion(loc = 'US-OH', max = 10, provisional = TRUE, hotspot = TRUE)
-```
-
-
-### Frequency of observations at hotspots or regions
-
-Obtain historical frequencies of bird occurrences at a given hotspot
-
-```{r ebirdfreq1}
-ebirdfreq(loctype = 'hotspots', loc = 'L196159')
-```
-
-Same, but in wide format (for making bar charts)
-
-```{r ebirdfreq2}
-ebirdfreq(loctype = 'hotspots', loc = 'L196159', long = FALSE)
-```
-
-Obtain frequency data for a given state
-
-```{r ebirdfreq3}
-ebirdfreq(loctype = 'states', loc = 'CA-BC')
-```
-
-Or county
-
-```{r ebirdfreq4}
-ebirdfreq(loctype = 'counties', loc = 'CA-BC-GV')
-```
-
-Obtain frequency data within a range of years and months
-
-```{r ebirdfreq5}
-ebirdfreq(loctype = 'hotspots', loc = 'L196159', startyear = 2010,
-          endyear = 2014, startmonth = 1, endmonth = 3)
-```
-
-
-### Recent notable sightings
+## Recent notable sightings
 
 Search for notable sightings at a given latitude and longitude
 
@@ -158,32 +128,20 @@ or a region
 ebirdnotable(locID = 'US-NY-109')
 ```
 
-### Historic Observations
+## Historic Observations
 
 Obtain a list of species reported on a specific date in a given region 
 
 ```{r ebirdhistorical1}
-ebirdhistorical(loc = 'US-VA-003', date = '2019-02-14', max = 10)
+ebirdhistorical(loc = 'US-VA-003', date = '2019-02-14',max = 10)
+
 ```
 
 or a hotspot
 
 ```{r ebirdhistorical2}
 ebirdhistorical(loc = 'L196159', date = '2019-02-14', fieldSet = 'full')
-```
 
-### eBird taxonomy
-
-Returns a data.frame of all species in the eBird taxonomy for the given parameter inputs
-
-```{r ebirdtax1}
-ebirdtaxonomy()
-```
-
-Search for hybrid species only
-
-```{r ebirdtax2}
-ebirdtaxonomy(cat = "hybrid")
 ```
 
 ## Information on a given region or hotspot
@@ -200,10 +158,42 @@ or hotspot
 ebirdregioninfo("L196159")
 ```
 
+Obtain a list of eBird species codes for all species recorded in a region
+
+```{r ebirdregionspecies1}
+ebirdregionspecies("GB-ENG-LND")
+```
+
+or a hotspot
+
+```{r ebirdregionspecies2}
+ebirdregionspecies("L5803024")
+```
+
+Obtain a list of all subregions within an eBird region
+
+```{r ebirdsubregionlist}
+ebirdsubregionlist("subnational1","US")
+```
+
 ## Checklist Feed
 
 Obtain a list of checklists submitted on a given date at a region or hotspot
 
 ```{r ebirdchecklistfeed}
 ebirdchecklistfeed(loc = "L207391", date = "2020-03-24", max = 5)
+```
+
+## Hotspots in a region or nearby coordinates
+
+Obtain a list of hotspots within a region
+
+```{r ebirdhotspotlist1}
+ebirdhotspotlist("CA-NS-HL")
+```
+
+or within a radius of up to 50 kilometers, from a given set of coordinates.
+
+```{r ebirdhotspotlist2}
+ebirdhotspotlist(lat = 30, lng = -90, dist = 10)
 ```
