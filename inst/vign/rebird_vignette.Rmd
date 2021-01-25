@@ -41,8 +41,7 @@ If you don't have a key, you can obtain one from <https://ebird.org/api/keygen>.
 You can keep your .Renviron file in your global R home directory (`R.home()`), your user's home
 directory (`Sys.getenv("HOME")`), or your current working directory (`getwd()`). Remember
 that .Renviron is loaded once when you start R, so if you add your API key to the file you will
-have to restart your R session. See <https://csgillespie.github.io/efficientR/r-startup.html> for
-more information on R's startup files.
+have to restart your R session. See `?Startup` for more information on R's startup files.
 
 Furthermore, functions now use species codes, rather than scientific names, for species-specific requests.
 We've made the switch easy by providing the `species_code` function, which converts a scientific name to

@@ -29,7 +29,7 @@ you can wrap the scientific name in the \code{\link{species_code}} function
 which will return the eBird species code.
 Defaults to NULL, in which case sightings for all species are returned.
 See eBird taxonomy for more information:
-http://ebird.org/content/ebird/about/ebird-taxonomy}
+https://ebird.org/science/use-ebird-data/the-ebird-taxonomy}
 
 \item{back}{Number of days back to look for observations (between
 1 and 30, defaults to 14).}
@@ -39,7 +39,7 @@ http://ebird.org/content/ebird/about/ebird-taxonomy}
 
 \item{locale}{Language/locale of response (when translations are available).
 See \url{http://java.sun.com/javase/6/docs/api/java/util/Locale.html} and 
-\url{https://help.ebird.org/customer/portal/articles/1596582-common-name-translations-in-ebird} 
+\url{https://support.ebird.org/en/support/solutions/articles/48000804865-bird-names-in-ebird} 
 (defaults to en_US).}
 
 \item{provisional}{Should flagged records that have not been reviewed

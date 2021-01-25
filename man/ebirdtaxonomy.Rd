@@ -11,11 +11,11 @@ ebirdtaxonomy(cat = NULL, locale = NULL, key = NULL, ...)
 "domestic", "form", "hybrid", "intergrade", "issf", "slash", "species", "spuh". 
 If not specified, defaults to all.
 For more info about the meaning of species categories, see 
-\url{https://help.ebird.org/customer/en/portal/articles/1006825-the-ebird-taxonomy}.}
+\url{https://ebird.org/science/use-ebird-data/the-ebird-taxonomy}.}
 
 \item{locale}{Language/locale of response (when translations are available).
 See \url{http://java.sun.com/javase/6/docs/api/java/util/Locale.html} and 
-\url{https://help.ebird.org/customer/portal/articles/1596582-common-name-translations-in-ebird} 
+\url{https://support.ebird.org/en/support/solutions/articles/48000804865-bird-names-in-ebird} 
 (defaults to en_US).}
 
 \item{key}{eBird API key. You can obtain one from https://ebird.org/api/keygen.

@@ -11,7 +11,7 @@
 #' which will return the eBird species code.
 #' Defaults to NULL, in which case sightings for all species are returned.
 #' See eBird taxonomy for more information:
-#' http://ebird.org/content/ebird/about/ebird-taxonomy
+#' https://ebird.org/science/use-ebird-data/the-ebird-taxonomy
 #' @param back Number of days back to look for observations (between
 #'    1 and 30, defaults to 14).
 #' @param max Maximum number of result rows to return in this request
