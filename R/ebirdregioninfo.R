@@ -45,6 +45,10 @@ ebirdregioninfo <- function(loc, format = "full", key = NULL, ...) {
     stop("More than one location specified")
   }
   
+  if (nchar(as.character(loc)) == 0) {
+    stop("Location must not be empty")
+  }
+  
   args <- list(regionNameFormat = format) 
   
   regtype <- "region" 
