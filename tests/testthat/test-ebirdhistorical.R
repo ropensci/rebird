@@ -6,7 +6,7 @@ test_that("ebirdhistorical works correctly", {
   out <- ebirdhistorical(loc = 'US-VA-003', date = '2017-03-19')
   expect_is(out, "data.frame")
   expect_equal(ncol(out), 13)
-  expect_equal(nrow(out), 66)
+  expect_gt(nrow(out), 60)
   expect_equal(nrow(out), length(unique(out$speciesCode)))
 
   out2 <- ebirdhistorical(loc = 'US-VA-003', date = '2017-03-19',sortKey = 'mrec')
@@ -16,8 +16,8 @@ test_that("ebirdhistorical works correctly", {
 
   out2 <- ebirdhistorical(loc = 'US-VA-003', date = '2017-03-19', categories = 'all')
   expect_equal(out,out2)
-  out2 <- ebirdhistorical(loc = 'US-VA-003', date = '2017-03-19', categories = 'spuh')
-  expect_equal(nrow(out2), 1)
+  out2 <- ebirdhistorical(loc = 'US-VA', date = '2017-03-19', categories = 'hybrid')
+  expect_equal(nrow(out2), 2)
 
   out2 <- ebirdhistorical(loc = 'US-VA-003', date = '2017-03-19',max = 2)
   expect_equal(nrow(out2), 2)
