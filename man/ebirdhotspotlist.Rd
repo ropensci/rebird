@@ -4,18 +4,28 @@
 \alias{ebirdhotspotlist}
 \title{Hotspots in a region or nearby coordinates}
 \usage{
-ebirdhotspotlist(regionCode = NULL, lat = NULL, lng = NULL,
-  dist = NULL, back = NULL, sleep = 0, key = NULL, ...)
+ebirdhotspotlist(
+  regionCode = NULL,
+  lat = NULL,
+  lng = NULL,
+  dist = NULL,
+  back = NULL,
+  sleep = 0,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{regionCode}{The country, subnational1 or subnational2 code. If `regionCode` is provided then 
 latitude and longitude are ignored.}
 
 \item{lat}{Decimal latitude. value between -90.00 and 90.00, up to two
-decimal places of precision.}
+decimal places of precision. Defaults to latitude based on IP if neither `regionCode` 
+nor `lat` and `lng` are provided.}
 
 \item{lng}{Decimal longitude. value between -180.00 and 180.00, up to
-two decimal places of precision.}
+two decimal places of precision. Defaults to longitude based on IP if neither `regionCode` 
+nor `lat` and `lng` are provided.}
 
 \item{dist}{The search radius from the given set of coordinates, in kilometers (between 0 and 500, defaults to 25).}
 
@@ -25,7 +35,7 @@ two decimal places of precision.}
 zero. Set to higher number if you are using this function in a loop with
 many API calls).}
 
-\item{key}{ebird API key. You can obtain one from https://ebird.org/api/keygen.
+\item{key}{eBird API key. You can obtain one from https://ebird.org/api/keygen.
 We strongly recommend storing it in your \code{.Renviron} file as an 
 environment variable called \code{EBIRD_KEY}.}
 
@@ -34,7 +44,7 @@ environment variable called \code{EBIRD_KEY}.}
 \value{
 A data.frame with ten columns containing:
 
-"locID": unique identifier for the hotspot
+"locId": unique identifier for the hotspot
 
 "locName": hotspot name
 
@@ -51,8 +61,6 @@ A data.frame with ten columns containing:
 "latestObsDt": Date of latest observation
 
 "numSpeciesAllTime": Total number of species recorded in the hotspot
-
-"locID": unique identifier for the hotspot (redundant)
 }
 \description{
 Get the list of hotspots within a region, or within a radius of up to 50 kilometers, from a given set of coordinates.
@@ -70,5 +78,6 @@ ebirdhotspotlist("CA-NS-HL", config = verbose())
 \url{http://ebird.org/}
 }
 \author{
-Sebastian Pardo \email{sebpardo@gmail.com}
+Sebastian Pardo \email{sebpardo@gmail.com},
+   David Bradnum \email{dbradnum@gmail.com}
 }

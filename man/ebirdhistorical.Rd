@@ -4,9 +4,19 @@
 \alias{ebirdhistorical}
 \title{Historic observations on a date at a region or hotspot}
 \usage{
-ebirdhistorical(loc, date, sortKey = "mrec", categories = "all",
-  max = 10000, fieldSet = "simple", provisional = FALSE,
-  limitToHotspots = FALSE, sleep = 0, key = NULL, ...)
+ebirdhistorical(
+  loc,
+  date,
+  sortKey = "mrec",
+  categories = "all",
+  max = 10000,
+  fieldSet = "simple",
+  provisional = FALSE,
+  limitToHotspots = FALSE,
+  sleep = 0,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{loc}{(required) Region code or locID (if a hotspot). Region code can

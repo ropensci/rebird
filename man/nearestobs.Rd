@@ -4,9 +4,20 @@
 \alias{nearestobs}
 \title{Recent nearby observations of a species}
 \usage{
-nearestobs(speciesCode, lat = NULL, lng = NULL, dist = NULL,
-  back = NULL, max = NULL, locale = NULL, provisional = FALSE,
-  hotspot = FALSE, sleep = 0, key = NULL, ...)
+nearestobs(
+  speciesCode,
+  lat = NULL,
+  lng = NULL,
+  dist = NULL,
+  back = NULL,
+  max = NULL,
+  locale = NULL,
+  provisional = FALSE,
+  hotspot = FALSE,
+  sleep = 0,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{speciesCode}{(required) Species code of the species of interest. 

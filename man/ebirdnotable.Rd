@@ -4,9 +4,21 @@
 \alias{ebirdnotable}
 \title{Recent nearby notable observations}
 \usage{
-ebirdnotable(lat = NULL, lng = NULL, dist = NULL, locID = NULL,
-  region = NULL, back = NULL, max = NULL, provisional = FALSE,
-  hotspot = FALSE, simple = TRUE, sleep = 0, key = NULL, ...)
+ebirdnotable(
+  lat = NULL,
+  lng = NULL,
+  dist = NULL,
+  locID = NULL,
+  region = NULL,
+  back = NULL,
+  max = NULL,
+  provisional = FALSE,
+  hotspot = FALSE,
+  simple = TRUE,
+  sleep = 0,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{lat}{Decimal latitude. value between -90.00 and 90.00, up to two

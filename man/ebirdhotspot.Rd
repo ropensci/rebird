@@ -4,8 +4,17 @@
 \alias{ebirdhotspot}
 \title{Recent observations at hotspots}
 \usage{
-ebirdhotspot(locID, species = NULL, back = NULL, max = NULL,
-  locale = NULL, provisional = FALSE, sleep = 0, key = NULL, ...)
+ebirdhotspot(
+  locID,
+  species = NULL,
+  back = NULL,
+  max = NULL,
+  locale = NULL,
+  provisional = FALSE,
+  sleep = 0,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{locID}{(required) Vector containing code(s) for up to 10 regions of

@@ -9,4 +9,6 @@ krlocal.R
 rebird-tests.R
 revdep/
 mykey.txt
+ebird_*.txt
+hexlogo.R
 

@@ -4,9 +4,19 @@
 \alias{ebirdregion}
 \title{Recent observations at a region or hotspot}
 \usage{
-ebirdregion(loc, species = NULL, back = NULL, max = NULL,
-  locale = NULL, provisional = FALSE, hotspot = FALSE,
-  simple = TRUE, sleep = 0, key = NULL, ...)
+ebirdregion(
+  loc,
+  species = NULL,
+  back = NULL,
+  max = NULL,
+  locale = NULL,
+  provisional = FALSE,
+  hotspot = FALSE,
+  simple = TRUE,
+  sleep = 0,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{loc}{(required) Region code or locID (for hotspots). Region code can
@@ -46,7 +56,7 @@ be included? (defaults to FALSE)}
 zero.  Set to higher number if you are using this function in a loop with
 many API calls).}
 
-\item{key}{ebird API key. You can obtain one from https://ebird.org/api/keygen.
+\item{key}{eBird API key. You can obtain one from https://ebird.org/api/keygen.
 We strongly recommend storing it in your \code{.Renviron} file as an 
 environment variable called \code{EBIRD_KEY} to avoid having to constantly 
 supply the key, and to avoid accidentally sharing it publicly.}

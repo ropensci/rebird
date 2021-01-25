@@ -9,6 +9,7 @@ ebirdtaxonomy(cat = NULL, locale = NULL, key = NULL, ...)
 \arguments{
 \item{cat}{Species category. String or character vector with one of more of:
 "domestic", "form", "hybrid", "intergrade", "issf", "slash", "species", "spuh". 
+If not specified, defaults to all.
 For more info about the meaning of species categories, see 
 \url{https://help.ebird.org/customer/en/portal/articles/1006825-the-ebird-taxonomy}.}
 
@@ -17,7 +18,7 @@ See \url{http://java.sun.com/javase/6/docs/api/java/util/Locale.html} and
 \url{https://help.ebird.org/customer/portal/articles/1596582-common-name-translations-in-ebird} 
 (defaults to en_US).}
 
-\item{key}{ebird API key. You can obtain one from https://ebird.org/api/keygen.
+\item{key}{eBird API key. You can obtain one from https://ebird.org/api/keygen.
 We strongly recommend storing it in your \code{.Renviron} file as an 
 environment variable called \code{EBIRD_KEY} to avoid having to constantly 
 supply the key, and to avoid accidentally sharing it publicly.}
@@ -27,28 +28,51 @@ supply the key, and to avoid accidentally sharing it publicly.}
 \value{
 A data.frame containing the collected information:
 
-"comName": species' common name
+"sciName": Taxon's scientific name.
 
-"sciName": species' scientific name
+"comName": Taxon's common name.
 
-"taxonID": Taxonomic Concept identifier, note this is currently in test
+"speciesCode": Unique species code.
+
+"category": Taxon's species category.
+
+"taxonOrder": Numeric value determining the order in which taxonomic lists are presented.
+
+"bandingCodes": Taxon's ABA bandind code(s).
+
+"comNameCodes": Taxon's common name code(s).
+
+"sciNameCodes": Taxon's scientific name code(s).
+
+"order": Taxon's order.
+
+"familyComName": Family's common name.
+
+"familySciName": Family's scientific name.
+
+"reportAs": Species code to report taxon as.
+
+"extinct": Logical, whether the taxon is considered extinct.
+
+"extinctYear": Year taxon became extinct. Currently unavailable.
 }
 \description{
-Returns a data.frame of all species in the eBird taxonomy for the given 
-combination of categories. The default category is "species". Any taxon with 
+Returns a data.frame of all taxa in the eBird taxonomy for the given 
+combination of categories. Defaults to all categories. Any taxon with 
 the category of 'species' may be used as a parameter in service calls that 
-take a scientific name. Any taxon not in this category will be rejected by 
+take a species code. Any taxon not in this category will be rejected by 
 these services at this time.
 }
 \examples{
 \dontrun{
 ebirdtaxonomy()
-ebirdtaxonomy(cat=c("spuh", "slash")) 
+ebirdtaxonomy(cat = c("spuh", "slash")) 
 }
 }
 \references{
 \url{http://ebird.org/}
 }
 \author{
-Andy Teucher \email{andy.teucher@gmail.com}
+Andy Teucher \email{andy.teucher@gmail.com},
+   Sebastian Pardo \email{sebpardo@gmail.com}
 }

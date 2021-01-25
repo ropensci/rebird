@@ -1,3 +1,12 @@
+rebird 1.2.0
+===================
+
+- Added `ebirdsubregionlist()` which lists sub-regions within a specified region (thanks @dbradnum, #90).
+- Disabled `ebirdfreq()` (now throws an error) as the frequency data request can't be done through the website without logging in first, but might be added to the API in the near future (#88).
+- Added `ebirdhotspotlist()` which provides a list of hotspots in a region or nearby coordinates (#87).
+- Added `ebirdregionspecies()` which provides a list of species codes seen in a location (thanks @dbradnum, #86).
+- Added `ebirdchecklistfeed()` which provides a list of checklists submitted on a given date at a region or hotspot (thanks @mfoos, #79).
+
 rebird 1.1.0
 ===================
 

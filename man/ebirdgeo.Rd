@@ -4,9 +4,20 @@
 \alias{ebirdgeo}
 \title{Sightings at location determined by latitude/longitude}
 \usage{
-ebirdgeo(species = NULL, lat = NULL, lng = NULL, dist = NULL,
-  back = NULL, max = NULL, locale = NULL, provisional = FALSE,
-  hotspot = FALSE, sleep = 0, key = NULL, ...)
+ebirdgeo(
+  species = NULL,
+  lat = NULL,
+  lng = NULL,
+  dist = NULL,
+  back = NULL,
+  max = NULL,
+  locale = NULL,
+  provisional = FALSE,
+  hotspot = FALSE,
+  sleep = 0,
+  key = NULL,
+  ...
+)
 }
 \arguments{
 \item{species}{Species code of the species of interest. Scientific names can be specified if wrapped around the 
