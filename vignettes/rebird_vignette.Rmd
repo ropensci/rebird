@@ -1,9 +1,13 @@
-<!--
-%\VignetteEngine{knitr::docco_classic}
-%\VignetteIndexEntry{rebird vignette}
--->
-
-# Intro to the rebird package
+---
+title: Introduction to the rebird package
+author: Sebastian Pardo, Rafael Maia
+date: "2021-01-25"
+output: rmarkdown::html_vignette
+vignette: >
+    %\VignetteEngine{knitr::docco_classic}
+    %\VignetteIndexEntry{rebird vignette}
+    %\VignetteEncoding{UTF-8}
+---
 
 A programmatic interface to the eBird database. Find out more about eBird at [their website](http://ebird.org/home/).
 
@@ -246,20 +250,20 @@ ebirdnotable(lat = 42, lng = -70)
 ```
 
 ```
-## # A tibble: 3,754 x 13
+## # A tibble: 3,757 x 13
 ##    speciesCode comName sciName locId locName obsDt howMany   lat   lng obsValid
 ##    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl> <lgl>   
-##  1 rehwoo      Red-he… Melane… L133… Old Co… 2021…       1  43.2 -71.8 FALSE   
-##  2 amekes      Americ… Falco … L465… Rt. 12… 2021…       1  43.2 -71.7 FALSE   
-##  3 foxsp1      Fox Sp… Passer… L382… Yard    2021…       1  42.2 -71.3 FALSE   
-##  4 bnhcow      Brown-… Moloth… L382… Yard    2021…       1  42.2 -71.3 FALSE   
-##  5 blkvul      Black … Coragy… L133… 404 Sh… 2021…       3  41.7 -70.6 FALSE   
+##  1 y00478      Icelan… Larus … L340… Turner… 2021…       1  42.6 -72.6 FALSE   
+##  2 rehwoo      Red-he… Melane… L133… Old Co… 2021…       1  43.2 -71.8 FALSE   
+##  3 amekes      Americ… Falco … L465… Rt. 12… 2021…       1  43.2 -71.7 FALSE   
+##  4 foxsp1      Fox Sp… Passer… L382… Yard    2021…       1  42.2 -71.3 FALSE   
+##  5 bnhcow      Brown-… Moloth… L382… Yard    2021…       1  42.2 -71.3 FALSE   
 ##  6 blkvul      Black … Coragy… L133… 404 Sh… 2021…       3  41.7 -70.6 FALSE   
-##  7 comloo      Common… Gavia … L207… Fresh … 2021…       1  42.4 -71.2 FALSE   
-##  8 dickci      Dickci… Spiza … L251… Capisi… 2021…       1  43.7 -70.3 FALSE   
-##  9 wooduc      Wood D… Aix sp… L241… Calvar… 2021…       2  43.6 -70.3 FALSE   
-## 10 wooduc      Wood D… Aix sp… L241… Calvar… 2021…       2  43.6 -70.3 FALSE   
-## # … with 3,744 more rows, and 3 more variables: obsReviewed <lgl>,
+##  7 blkvul      Black … Coragy… L133… 404 Sh… 2021…       3  41.7 -70.6 FALSE   
+##  8 orcwar      Orange… Leioth… L885… Deep H… 2021…       1  41.4 -71.5 FALSE   
+##  9 comloo      Common… Gavia … L207… Fresh … 2021…       1  42.4 -71.2 FALSE   
+## 10 dickci      Dickci… Spiza … L251… Capisi… 2021…       1  43.7 -70.3 FALSE   
+## # … with 3,747 more rows, and 3 more variables: obsReviewed <lgl>,
 ## #   locationPrivate <lgl>, subId <chr>
 ```
 

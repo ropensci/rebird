@@ -1,9 +1,13 @@
-<!--
-%\VignetteEngine{knitr::docco_classic}
-%\VignetteIndexEntry{rebird vignette}
--->
-
-# Intro to the rebird package
+---
+title: Introduction to the rebird package
+author: Sebastian Pardo, Rafael Maia
+date: "2021-01-25"
+output: rmarkdown::html_vignette
+vignette: >
+    %\VignetteEngine{knitr::docco_classic}
+    %\VignetteIndexEntry{rebird vignette}
+    %\VignetteEncoding{UTF-8}
+---
 
 A programmatic interface to the eBird database. Find out more about eBird at [their website](http://ebird.org/home/).
 

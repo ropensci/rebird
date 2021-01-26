@@ -9,8 +9,8 @@ move:
 
 pandoc:
 		cd vignettes;\
-		pandoc -H margins.sty rebird_vignette.md -o rebird_vignette.pdf --highlight-style=tango;\
-		pandoc -H margins.sty rebird_vignette.md -o rebird_vignette.html --highlight-style=tango
+		pandoc -s -V geometry:margin=1in rebird_vignette.md -o rebird_vignette.html --highlight-style=tango;\
+		pandoc -s -V geometry:margin=1in rebird_vignette.md -o rebird_vignette.pdf --highlight-style=tango;\
 
 rmd2md:
 		cd vignettes;\
