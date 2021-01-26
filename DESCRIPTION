@@ -17,9 +17,9 @@ Authors@R: c(
     person("David", "Bradnum", role = "ctb", email = "david.bradnum@gmail.com"),
     person("Sebastian", "Pardo", role = c("aut", "cre"), email = "sebpardo@gmail.com", comment = c(ORCID = "0000-0002-4147-5796"))
     )
-URL: https://docs.ropensci.org/rebird, http://github.com/ropensci/rebird
-BugReports: http://github.com/ropensci/rebird/issues
-VignetteBuilder: knitr
+URL: https://docs.ropensci.org/rebird, https://github.com/ropensci/rebird
+BugReports: https://github.com/ropensci/rebird/issues
+VignetteBuilder: knitr, rmarkdown
 Imports:
     methods,
     utils,
@@ -30,6 +30,7 @@ Imports:
     assertthat
 Suggests:
     knitr,
+    markdown,
     rmarkdown,
     testthat,
     covr

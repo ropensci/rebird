@@ -26,7 +26,7 @@ install.packages("devtools")
 devtools::install_github("ropensci/rebird")
 ```
 
-Then load the package into the R sesssion
+Then load the package into the R session
 
 ```{r}
 library("rebird")
