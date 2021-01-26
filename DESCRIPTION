@@ -19,7 +19,7 @@ Authors@R: c(
     )
 URL: https://docs.ropensci.org/rebird, http://github.com/ropensci/rebird
 BugReports: http://github.com/ropensci/rebird/issues
-VignetteBuilder: knitr
+VignetteBuilder: rmarkdown
 Imports:
     methods,
     utils,
@@ -30,7 +30,6 @@ Imports:
     assertthat
 Suggests:
     knitr,
-    markdown,
     rmarkdown,
     testthat,
     covr
