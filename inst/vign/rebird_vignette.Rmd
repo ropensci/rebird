@@ -4,7 +4,7 @@ author: Sebastian Pardo, Rafael Maia
 date: "2021-01-25"
 output: rmarkdown::html_vignette
 vignette: >
-    %\VignetteEngine{knitr::docco_classic}
+    %\VignetteEngine{knitr::rmarkdown}
     %\VignetteIndexEntry{rebird vignette}
     %\VignetteEncoding{UTF-8}
 ---
