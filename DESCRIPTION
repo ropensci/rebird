@@ -19,7 +19,7 @@ Authors@R: c(
     )
 URL: https://docs.ropensci.org/rebird, http://github.com/ropensci/rebird
 BugReports: http://github.com/ropensci/rebird/issues
-VignetteBuilder: rmarkdown
+VignetteBuilder: knitr
 Imports:
     methods,
     utils,
