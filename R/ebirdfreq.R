@@ -39,7 +39,7 @@
 #' @param ... Curl options passed on to \code{\link[httr]{GET}} 
 #'
 #' @return *This function currently returns an error, but also provides
-#' the constructed url to manually obtain the datafor the location and
+#' the constructed url to manually obtain the data for the location and
 #' dates requested through your browser.*
 #' @return A data frame containing the collected information. If in long format:
 #' @return "monthQt": month and week (eBird data divides each month by four weeks)

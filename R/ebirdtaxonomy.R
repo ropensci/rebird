@@ -28,7 +28,7 @@
 #' @return "speciesCode": Unique species code.
 #' @return "category": Taxon's species category. 
 #' @return "taxonOrder": Numeric value determining the order in which taxonomic lists are presented.
-#' @return "bandingCodes": Taxon's ABA bandind code(s).
+#' @return "bandingCodes": Taxon's ABA banding code(s).
 #' @return "comNameCodes": Taxon's common name code(s).
 #' @return "sciNameCodes": Taxon's scientific name code(s).
 #' @return "order": Taxon's order.

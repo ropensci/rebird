@@ -38,7 +38,7 @@ A data.frame containing the collected information:
 
 "taxonOrder": Numeric value determining the order in which taxonomic lists are presented.
 
-"bandingCodes": Taxon's ABA bandind code(s).
+"bandingCodes": Taxon's ABA banding code(s).
 
 "comNameCodes": Taxon's common name code(s).
 

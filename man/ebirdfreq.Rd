@@ -52,7 +52,7 @@ to TRUE. If FALSE then output will be in wide format.}
 }
 \value{
 \emph{This function currently returns an error, but also provides
-the constructed url to manually obtain the datafor the location and
+the constructed url to manually obtain the data for the location and
 dates requested through your browser.}
 
 A data frame containing the collected information. If in long format:
