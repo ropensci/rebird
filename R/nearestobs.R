@@ -7,7 +7,7 @@
 #'    Scientific names can be specified if wrapped around the 
 #'    \code{\link{species_code}} function. Defaults to NULL, so sightings for all species are returned.
 #'    See eBird taxonomy for more information:
-#'    http://ebird.org/content/ebird/about/ebird-taxonomy
+#'    \url{https://ebird.org/science/use-ebird-data/the-ebird-taxonomy}.
 #' @param lat Decimal latitude. value between -90.00 and 90.00, up to two
 #'    decimal places of precision. Defaults to latitude based on IP.
 #' @param lng Decimal longitude. value between -180.00 and 180.00, up to
@@ -19,7 +19,7 @@
 #' @param max Maximum number of result rows to return in this request
 #'    (between 1 and 10000, defaults to all).
 #' @param locale Language/locale of response (when translations are available).
-#'    See http://java.sun.com/javase/6/docs/api/java/util/Locale.html
+#'    See \url{https://docs.oracle.com/javase/6/docs/api/java/util/Locale.html}
 #'    (defaults to en_US).
 #' @param provisional Should flagged records that have not been reviewed
 #'    be included? (defaults to FALSE).

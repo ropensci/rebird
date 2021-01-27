@@ -5,7 +5,7 @@
 
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
-developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/)
 [![Build
 Status](https://api.travis-ci.org/ropensci/rebird.png)](https://travis-ci.org/ropensci/rebird)
 [![Build
@@ -13,16 +13,16 @@ status](https://ci.appveyor.com/api/projects/status/s3dobn991c20t2kg?svg=true)](
 [![cran
 checks](https://cranchecks.info/badges/worst/rebird)](https://cranchecks.info/pkgs/rebird)
 [![Coverage
-Status](https://coveralls.io/repos/ropensci/rebird/badge.svg)](https://coveralls.io/r/ropensci/rebird)
+Status](https://coveralls.io/repos/ropensci/rebird/badge.svg)](https://coveralls.io/github/ropensci/rebird)
 [![rstudio mirror
-downloads](http://cranlogs.r-pkg.org/badges/rebird)](https://github.com/metacran/cranlogs.app)
+downloads](https://cranlogs.r-pkg.org/badges/rebird)](https://github.com/r-hub/cranlogs.app)
 [![cran
-version](http://www.r-pkg.org/badges/version/rebird)](https://cran.r-project.org/package=rebird/)
+version](https://www.r-pkg.org/badges/version/rebird)](https://cran.r-project.org/package=rebird/)
 
 `rebird` is a package to interface with the eBird webservices.
 
 eBird is a real-time, online bird checklist program. For more
-information, visit their website: <https://ebird.org>
+information, visit their website: <https://ebird.org/home>
 
 The API for the eBird webservices can be accessed here:
 <https://documenter.getpostman.com/view/664302/S1ENwy59?version=latest>
@@ -154,9 +154,9 @@ ebirdregion(loc = 'US', species = 'btbwar')
 #> # A tibble: 81 x 13
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng obsValid
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl> <lgl>   
-#>  1 btbwar      Black-… Setoph… L863… 104 7t… 2021…       1  32.0 -80.8 TRUE    
-#>  2 btbwar      Black-… Setoph… L407… Thomps… 2021…       1  38.9 -77.1 TRUE    
-#>  3 btbwar      Black-… Setoph… L577… Merrit… 2021…       1  28.6 -80.7 TRUE    
+#>  1 btbwar      Black-… Setoph… L577… Merrit… 2021…       1  28.6 -80.7 TRUE    
+#>  2 btbwar      Black-… Setoph… L863… 104 7t… 2021…       1  32.0 -80.8 TRUE    
+#>  3 btbwar      Black-… Setoph… L407… Thomps… 2021…       1  38.9 -77.1 TRUE    
 #>  4 btbwar      Black-… Setoph… L193… Rye     2021…       1  43.0 -70.8 TRUE    
 #>  5 btbwar      Black-… Setoph… L195… 1 My H… 2021…       1  27.0 -80.1 TRUE    
 #>  6 btbwar      Black-… Setoph… L104… Feathe… 2021…       1  25.6 -80.3 TRUE    
@@ -232,20 +232,20 @@ Search for notable sightings at a given latitude and longitude
 
 ``` r
 ebirdnotable(lat = 42, lng = -70)
-#> # A tibble: 3,676 x 13
+#> # A tibble: 3,578 x 13
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng obsValid
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl> <lgl>   
-#>  1 easpho      Easter… Sayorn… L352… Georgi… 2021…       1  40.9 -72.2 FALSE   
-#>  2 norsho      Northe… Spatul… L392… Jamaic… 2021…       2  42.3 -71.1 FALSE   
-#>  3 wooduc      Wood D… Aix sp… L241… Calvar… 2021…       2  43.6 -70.3 FALSE   
-#>  4 wooduc      Wood D… Aix sp… L241… Calvar… 2021…       2  43.6 -70.3 FALSE   
-#>  5 chispa      Chippi… Spizel… L133… 8 Old … 2021…       1  41.8 -72.8 TRUE    
-#>  6 norsho      Northe… Spatul… L392… Jamaic… 2021…       2  42.3 -71.1 TRUE    
-#>  7 chispa      Chippi… Spizel… L131… 02645,… 2021…      10  41.7 -70.1 FALSE   
-#>  8 ruckin      Ruby-c… Regulu… L251… Horn P… 2021…       1  42.5 -71.2 FALSE   
-#>  9 foxspa      Fox Sp… Passer… L251… Horn P… 2021…       2  42.5 -71.2 FALSE   
-#> 10 wooduc      Wood D… Aix sp… L241… Calvar… 2021…       2  43.6 -70.3 FALSE   
-#> # … with 3,666 more rows, and 3 more variables: obsReviewed <lgl>,
+#>  1 foxsp1      Fox Sp… Passer… L382… Yard    2021…       1  42.2 -71.3 FALSE   
+#>  2 foxsp1      Fox Sp… Passer… L276… Standi… 2021…       1  42.3 -71.3 FALSE   
+#>  3 reshaw      Red-sh… Buteo … L575… The 20… 2021…       1  44.2 -69.4 FALSE   
+#>  4 gadwal      Gadwall Mareca… L143… Holyok… 2021…       2  42.2 -72.6 FALSE   
+#>  5 lbbgul      Lesser… Larus … L106… Goulds… 2021…       1  42.2 -71.4 FALSE   
+#>  6 pinwar      Pine W… Setoph… L919… Northb… 2021…       1  42.1 -71.7 FALSE   
+#>  7 bnhcow      Brown-… Moloth… L825… Westwo… 2021…       1  42.2 -71.2 FALSE   
+#>  8 comred      Common… Acanth… L358… Fort H… 2021…       2  41.8 -70.0 FALSE   
+#>  9 redcro10    Red Cr… Loxia … L480… West B… 2021…       2  41.7 -70.4 FALSE   
+#> 10 foxsp1      Fox Sp… Passer… L276… Standi… 2021…       1  42.3 -71.3 FALSE   
+#> # … with 3,568 more rows, and 3 more variables: obsReviewed <lgl>,
 #> #   locationPrivate <lgl>, subId <chr>
 ```
 
@@ -256,16 +256,16 @@ ebirdnotable(locID = 'US-NY-109')
 #> # A tibble: 81 x 13
 #>    speciesCode comName sciName locId locName obsDt howMany   lat   lng obsValid
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl> <lgl>   
-#>  1 redcro      Red Cr… Loxia … L550… Cornel… 2021…       1  42.5 -76.5 FALSE   
-#>  2 yerwar      Yellow… Setoph… L351… Fuerte… 2021…       1  42.5 -76.5 FALSE   
-#>  3 redcro      Red Cr… Loxia … L123… Boyer … 2021…       5  42.3 -76.3 FALSE   
-#>  4 whwcro      White-… Loxia … L550… Cornel… 2021…       2  42.5 -76.5 FALSE   
-#>  5 x00684      Canvas… Aythya… L140… East S… 2021…       1  42.5 -76.5 FALSE   
+#>  1 blkvul      Black … Coragy… L212… Steven… 2021…       1  42.4 -76.4 FALSE   
+#>  2 redcro      Red Cr… Loxia … L550… Cornel… 2021…       1  42.5 -76.5 FALSE   
+#>  3 yerwar      Yellow… Setoph… L351… Fuerte… 2021…       1  42.5 -76.5 FALSE   
+#>  4 redcro      Red Cr… Loxia … L123… Boyer … 2021…       5  42.3 -76.3 FALSE   
+#>  5 whwcro      White-… Loxia … L550… Cornel… 2021…       2  42.5 -76.5 FALSE   
 #>  6 x00684      Canvas… Aythya… L140… East S… 2021…       1  42.5 -76.5 FALSE   
-#>  7 blksco2     Black … Melani… L353… Salt P… 2021…       1  42.5 -76.5 FALSE   
-#>  8 evegro      Evenin… Coccot… L133… 571 So… 2021…      17  42.3 -76.4 FALSE   
-#>  9 hoared2     Hoary … Acanth… L686… George… 2021…       1  42.5 -76.3 FALSE   
-#> 10 ruckin      Ruby-c… Regulu… L353… Salt P… 2021…       1  42.5 -76.5 TRUE    
+#>  7 x00684      Canvas… Aythya… L140… East S… 2021…       1  42.5 -76.5 FALSE   
+#>  8 blksco2     Black … Melani… L353… Salt P… 2021…       1  42.5 -76.5 FALSE   
+#>  9 evegro      Evenin… Coccot… L133… 571 So… 2021…      17  42.3 -76.4 FALSE   
+#> 10 hoared2     Hoary … Acanth… L686… George… 2021…       1  42.5 -76.3 FALSE   
 #> # … with 71 more rows, and 3 more variables: obsReviewed <lgl>,
 #> #   locationPrivate <lgl>, subId <chr>
 ```
@@ -556,4 +556,4 @@ covered by this package, feel free to submit a pull request\!
     Conduct](https://github.com/ropensci/rebird/blob/master/CODE_OF_CONDUCT.md).
     By contributing to this project, you agree to abide by its terms.
 
-[![ropensci\_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![ropensci\_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org/)

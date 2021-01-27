@@ -20,3 +20,4 @@ vignettes/figure/
 ^\.github$
 ^doc$
 ^Meta$
+^CRAN-RELEASE$

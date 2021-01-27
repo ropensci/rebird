@@ -14,17 +14,17 @@ knitr::opts_chunk$set(
 
 # rebird: wrapper to the eBird API
 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/)
 [![Build Status](https://api.travis-ci.org/ropensci/rebird.png)](https://travis-ci.org/ropensci/rebird)
 [![Build status](https://ci.appveyor.com/api/projects/status/s3dobn991c20t2kg?svg=true)](https://ci.appveyor.com/project/sckott/rebird)
 [![cran checks](https://cranchecks.info/badges/worst/rebird)](https://cranchecks.info/pkgs/rebird)
-[![Coverage Status](https://coveralls.io/repos/ropensci/rebird/badge.svg)](https://coveralls.io/r/ropensci/rebird)
-[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/rebird)](https://github.com/metacran/cranlogs.app)
-[![cran version](http://www.r-pkg.org/badges/version/rebird)](https://cran.r-project.org/package=rebird/)
+[![Coverage Status](https://coveralls.io/repos/ropensci/rebird/badge.svg)](https://coveralls.io/github/ropensci/rebird)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rebird)](https://github.com/r-hub/cranlogs.app)
+[![cran version](https://www.r-pkg.org/badges/version/rebird)](https://cran.r-project.org/package=rebird/)
 
 `rebird` is a package to interface with the eBird webservices.
 
-eBird is a real-time, online bird checklist program. For more information, visit their website: https://ebird.org
+eBird is a real-time, online bird checklist program. For more information, visit their website: https://ebird.org/home
 
 The API for the eBird webservices can be accessed here: https://documenter.getpostman.com/view/664302/S1ENwy59?version=latest
 
@@ -279,6 +279,6 @@ The 2.0 APIs have considerably been expanded from the previous version, and `reb
 * Get citation information for `rebird` in R doing `citation(package = 'rebird')`
 * Please note that the 'rebird' project is released with a [Contributor Code of Conduct][coc]. By contributing to this project, you agree to abide by its terms.
 
-[![ropensci_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+[![ropensci_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org/)
 
 [coc]: https://github.com/ropensci/rebird/blob/master/CODE_OF_CONDUCT.md
