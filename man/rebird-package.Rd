@@ -15,9 +15,9 @@ A programmatic client for the eBird database
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://docs.ropensci.org/rebird}
-  \item \url{http://github.com/ropensci/rebird}
-  \item Report bugs at \url{http://github.com/ropensci/rebird/issues}
+  \item \url{https://docs.ropensci.org/rebird/}
+  \item \url{https://github.com/ropensci/rebird}
+  \item Report bugs at \url{https://github.com/ropensci/rebird/issues}
 }
 
 }

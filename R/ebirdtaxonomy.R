@@ -14,7 +14,7 @@
 #'    For more info about the meaning of species categories, see 
 #'    \url{https://ebird.org/science/use-ebird-data/the-ebird-taxonomy}.
 #' @param locale Language/locale of response (when translations are available).
-#'    See \url{http://java.sun.com/javase/6/docs/api/java/util/Locale.html} and 
+#'    See \url{https://docs.oracle.com/javase/6/docs/api/java/util/Locale.html} and 
 #'    \url{https://support.ebird.org/en/support/solutions/articles/48000804865-bird-names-in-ebird} 
 #'    (defaults to en_US).
 #' @param key eBird API key. You can obtain one from https://ebird.org/api/keygen.

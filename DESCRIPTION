@@ -1,5 +1,5 @@
 Package: rebird
-Version: 1.1.6
+Version: 1.2.0
 Title: R Client for the eBird Database of Bird Observations
 Description: A programmatic client for the eBird database 
     (<https://ebird.org/home>), including functions for searching for bird 
@@ -17,9 +17,9 @@ Authors@R: c(
     person("David", "Bradnum", role = "ctb", email = "david.bradnum@gmail.com"),
     person("Sebastian", "Pardo", role = c("aut", "cre"), email = "sebpardo@gmail.com", comment = c(ORCID = "0000-0002-4147-5796"))
     )
-URL: https://docs.ropensci.org/rebird, https://github.com/ropensci/rebird
+URL: https://docs.ropensci.org/rebird/, https://github.com/ropensci/rebird
 BugReports: https://github.com/ropensci/rebird/issues
-VignetteBuilder: knitr, rmarkdown
+VignetteBuilder: knitr
 Imports:
     methods,
     utils,
@@ -30,7 +30,6 @@ Imports:
     assertthat
 Suggests:
     knitr,
-    markdown,
     rmarkdown,
     testthat,
     covr

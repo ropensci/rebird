@@ -38,7 +38,7 @@ https://ebird.org/science/use-ebird-data/the-ebird-taxonomy}
 (between 1 and 10000, defaults to all)}
 
 \item{locale}{Language/locale of response (when translations are available).
-See \url{http://java.sun.com/javase/6/docs/api/java/util/Locale.html} and 
+See \url{https://docs.oracle.com/javase/6/docs/api/java/util/Locale.html} and 
 \url{https://support.ebird.org/en/support/solutions/articles/48000804865-bird-names-in-ebird} 
 (defaults to en_US).}
 
