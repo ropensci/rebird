@@ -5,21 +5,18 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "rebird",
-  "description":
-    "A programmatic client for the eBird database, including functions\n    for searching for bird observations by geographic location (latitude,\n    longitude), eBird hotspots, location identifiers, by notable sightings, by\n    region, and by taxonomic name.",
+  "description": "A programmatic client for the eBird database \n    (<https://ebird.org/home>), including functions for searching for bird \n    observations by geographic location (latitude, longitude), eBird \n    hotspots, location identifiers, by notable sightings, by region, and by \n    taxonomic name.",
   "name": "rebird: R Client for the eBird Database of Bird Observations",
-  "codeRepository": "https://github.com/ropensci/rebird.git",
-  "issueTracker": "http://github.com/ropensci/rebird/issues",
-  "datePublished": "2016-04-25",
+  "codeRepository": "https://github.com/ropensci/rebird",
+  "issueTracker": "https://github.com/ropensci/rebird/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.4.0",
+  "version": "1.2.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.4.2",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.4.2 (2017-09-28)",
+  "runtimePlatform": "R version 4.0.3 (2020-10-10)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -38,7 +35,7 @@
       "givenName": "Scott",
       "familyName": "Chamberlain",
       "email": "myrmecocystus@gmail.com",
-      "@id": "orcid.org/0000-0003-1444-9135"
+      "@id": "https://orcid.org/0000-0003-1444-9135"
     },
     {
       "@type": "Person",
@@ -51,16 +48,18 @@
       "givenName": "Sebastian",
       "familyName": "Pardo",
       "email": "sebpardo@gmail.com",
-      "@id": "orcid.org/0000-0002-4147-5796"
+      "@id": "https://orcid.org/0000-0002-4147-5796"
     }
   ],
-  "maintainer": {
-    "@type": "Person",
-    "givenName": "Sebastian",
-    "familyName": "Pardo",
-    "email": "sebpardo@gmail.com",
-    "@id": "orcid.org/0000-0002-4147-5796"
-  },
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Sebastian",
+      "familyName": "Pardo",
+      "email": "sebpardo@gmail.com",
+      "@id": "https://orcid.org/0000-0002-4147-5796"
+    }
+  ],
   "softwareSuggestions": [
     {
       "@type": "SoftwareApplication",
@@ -69,9 +68,22 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rmarkdown",
+      "name": "rmarkdown",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
     },
     {
       "@type": "SoftwareApplication",
@@ -80,9 +92,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
     },
     {
       "@type": "SoftwareApplication",
@@ -91,12 +104,19 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=covr"
     }
   ],
   "softwareRequirements": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 2.10"
+    },
     {
       "@type": "SoftwareApplication",
       "identifier": "methods",
@@ -116,13 +136,14 @@
       "@type": "SoftwareApplication",
       "identifier": "httr",
       "name": "httr",
-      "version": "1.0.0",
+      "version": ">= 1.0.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=httr"
     },
     {
       "@type": "SoftwareApplication",
@@ -131,9 +152,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=jsonlite"
     },
     {
       "@type": "SoftwareApplication",
@@ -142,26 +164,53 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=dplyr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "assertthat",
+      "name": "assertthat",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=assertthat"
     }
   ],
   "applicationCategory": "DataAccess",
   "isPartOf": "https://ropensci.org",
-  "keywords": [
-    "birds",
-    "birding",
-    "ebird",
-    "database",
-    "data",
-    "biology",
-    "observations",
-    "sightings",
-    "ornithology"
+  "keywords": ["birds", "birding", "ebird", "database", "data", "biology", "observations", "sightings", "ornithology", "rstats", "ebird-api", "r", "ebird-webservices", "spocc", "r-package"],
+  "contIntegration": ["https://travis-ci.org/ropensci/rebird", "https://ci.appveyor.com/project/sckott/rebird", "https://coveralls.io/r/ropensci/rebird"],
+  "releaseNotes": "https://github.com/ropensci/rebird/blob/master/NEWS.md",
+  "readme": "https://github.com/ropensci/rebird/blob/master/README.md",
+  "fileSize": "45165.535KB",
+  "relatedLink": "https://docs.ropensci.org/rebird/",
+  "contributor": [
+    {
+      "@type": "Person",
+      "givenName": "Guy",
+      "familyName": "Babineau",
+      "email": "guy.babineau@gmail.com"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Marianna",
+      "familyName": "Foos",
+      "email": "marianna.foos@gmail.com"
+    },
+    {
+      "@type": "Person",
+      "givenName": "David",
+      "familyName": "Bradnum",
+      "email": "david.bradnum@gmail.com"
+    }
   ],
-  "contIntegration": "https://travis-ci.org/ropensci/rebird",
-  "releaseNotes": "https://github.com/ropensci/rebird.git/blob/master/NEWS.md",
-  "readme": "https://github.com/ropensci/rebird.git/blob/master/README.md",
-  "fileSize": "108.698KB"
+  "copyrightHolder": {},
+  "funder": {},
+  "developmentStatus": "http://www.repostatus.org/#active"
 }
