@@ -4,12 +4,12 @@ author: Sebastian Pardo, Rafael Maia
 date: "2021-01-25"
 output: rmarkdown::html_vignette
 vignette: >
-    %\VignetteIndexEntry{rebird vignette}
+    %\VignetteIndexEntry{Introduction to the rebird package}
     %\VignetteEngine{knitr::rmarkdown}
     %\VignetteEncoding{UTF-8}
 ---
 
-A programmatic interface to the eBird database. Find out more about eBird at [their website](http://ebird.org/home/).
+A programmatic interface to the eBird database. Find out more about eBird at [their website](https://ebird.org/home/).
 
 ## Installation
 
@@ -100,7 +100,7 @@ rebird:::tax
 
 While the internal taxonomy is kept up to date with each package release, it could
 be outdated if a new taxonomy is made available before the package is updated.
-You can obtain the full eBird taxonomy by
+You can obtain the latest eBird taxonomy by
 
 
 ```r
@@ -121,24 +121,26 @@ ebirdgeo(species = species_code('spinus tristis'), lat = 42, lng = -76)
 ```
 
 ```
-## # A tibble: 15 x 13
+## # A tibble: 17 x 13
 ##    speciesCode comName sciName locId locName obsDt howMany   lat   lng obsValid
 ##    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl> <lgl>   
-##  1 amegfi      Americ… Spinus… L197… "esthe… 2021…       1  42.1 -75.9 TRUE    
-##  2 amegfi      Americ… Spinus… L895… "Nowla… 2021…       2  42.1 -75.9 TRUE    
-##  3 amegfi      Americ… Spinus… L207… "Workw… 2021…       4  42.1 -75.9 TRUE    
-##  4 amegfi      Americ… Spinus… L133… "4457 … 2021…       2  42.0 -75.9 TRUE    
-##  5 amegfi      Americ… Spinus… L275… "Home " 2021…       8  42.1 -76.0 TRUE    
-##  6 amegfi      Americ… Spinus… L186… "Otsin… 2021…       1  42.1 -75.9 TRUE    
-##  7 amegfi      Americ… Spinus… L870… "325 D… 2021…       1  42.2 -76.0 TRUE    
-##  8 amegfi      Americ… Spinus… L121… "1312 … 2021…       3  42.1 -76.0 TRUE    
-##  9 amegfi      Americ… Spinus… L133… "216 W… 2021…       1  42.1 -76.0 TRUE    
-## 10 amegfi      Americ… Spinus… L524… "Victo… 2021…       4  42.1 -76.0 TRUE    
-## 11 amegfi      Americ… Spinus… L505… "Bolan… 2021…       1  42.2 -75.9 TRUE    
-## 12 amegfi      Americ… Spinus… L850… "Sandy… 2021…      20  42.1 -75.9 TRUE    
-## 13 amegfi      Americ… Spinus… L351… "Anson… 2021…      16  42.1 -76.1 TRUE    
-## 14 amegfi      Americ… Spinus… L270… "Gripp… 2021…       1  42.1 -76.1 TRUE    
-## 15 amegfi      Americ… Spinus… L564… "Kinne… 2021…       1  42.1 -76.2 TRUE    
+##  1 amegfi      Americ… Spinus… L133… "545 R… 2021…       8  42.0 -76.1 TRUE    
+##  2 amegfi      Americ… Spinus… L197… "esthe… 2021…      12  42.1 -75.9 TRUE    
+##  3 amegfi      Americ… Spinus… L275… "Home " 2021…       8  42.1 -76.0 TRUE    
+##  4 amegfi      Americ… Spinus… L109… "Hillc… 2021…       1  42.2 -75.9 TRUE    
+##  5 amegfi      Americ… Spinus… L186… "Otsin… 2021…       1  42.1 -75.9 TRUE    
+##  6 amegfi      Americ… Spinus… L895… "Nowla… 2021…       2  42.1 -75.9 TRUE    
+##  7 amegfi      Americ… Spinus… L207… "Workw… 2021…       4  42.1 -75.9 TRUE    
+##  8 amegfi      Americ… Spinus… L133… "4457 … 2021…       2  42.0 -75.9 TRUE    
+##  9 amegfi      Americ… Spinus… L870… "325 D… 2021…       1  42.2 -76.0 TRUE    
+## 10 amegfi      Americ… Spinus… L121… "1312 … 2021…       3  42.1 -76.0 TRUE    
+## 11 amegfi      Americ… Spinus… L133… "216 W… 2021…       1  42.1 -76.0 TRUE    
+## 12 amegfi      Americ… Spinus… L524… "Victo… 2021…       4  42.1 -76.0 TRUE    
+## 13 amegfi      Americ… Spinus… L505… "Bolan… 2021…       1  42.2 -75.9 TRUE    
+## 14 amegfi      Americ… Spinus… L850… "Sandy… 2021…      20  42.1 -75.9 TRUE    
+## 15 amegfi      Americ… Spinus… L351… "Anson… 2021…      16  42.1 -76.1 TRUE    
+## 16 amegfi      Americ… Spinus… L270… "Gripp… 2021…       1  42.1 -76.1 TRUE    
+## 17 amegfi      Americ… Spinus… L564… "Kinne… 2021…       1  42.1 -76.2 TRUE    
 ## # … with 3 more variables: obsReviewed <lgl>, locationPrivate <lgl>,
 ## #   subId <chr>
 ```
@@ -156,16 +158,16 @@ ebirdregion(loc = 'US', species = 'btbwar')
 ## # A tibble: 81 x 13
 ##    speciesCode comName sciName locId locName obsDt howMany   lat   lng obsValid
 ##    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl> <lgl>   
-##  1 btbwar      Black-… Setoph… L407… Thomps… 2021…       1  38.9 -77.1 TRUE    
-##  2 btbwar      Black-… Setoph… L577… Merrit… 2021…       1  28.6 -80.7 TRUE    
-##  3 btbwar      Black-… Setoph… L195… 1 My H… 2021…       1  27.0 -80.1 TRUE    
+##  1 btbwar      Black-… Setoph… L863… 104 7t… 2021…       1  32.0 -80.8 TRUE    
+##  2 btbwar      Black-… Setoph… L407… Thomps… 2021…       1  38.9 -77.1 TRUE    
+##  3 btbwar      Black-… Setoph… L577… Merrit… 2021…       1  28.6 -80.7 TRUE    
 ##  4 btbwar      Black-… Setoph… L193… Rye     2021…       1  43.0 -70.8 TRUE    
-##  5 btbwar      Black-… Setoph… L104… Feathe… 2021…       1  25.6 -80.3 TRUE    
-##  6 btbwar      Black-… Setoph… L324… Wither… 2021…       1  31.0 -82.9 TRUE    
-##  7 btbwar      Black-… Setoph… L128… Zoo Mi… 2021…       1  25.6 -80.4 TRUE    
-##  8 btbwar      Black-… Setoph… L992… Kendal… 2021…       1  25.7 -80.4 TRUE    
-##  9 btbwar      Black-… Setoph… L133… 603 S … 2021…       1  26.2 -98.2 TRUE    
-## 10 btbwar      Black-… Setoph… L133… West R… 2021…       1  43.0 -70.8 TRUE    
+##  5 btbwar      Black-… Setoph… L195… 1 My H… 2021…       1  27.0 -80.1 TRUE    
+##  6 btbwar      Black-… Setoph… L104… Feathe… 2021…       1  25.6 -80.3 TRUE    
+##  7 btbwar      Black-… Setoph… L324… Wither… 2021…       1  31.0 -82.9 TRUE    
+##  8 btbwar      Black-… Setoph… L128… Zoo Mi… 2021…       1  25.6 -80.4 TRUE    
+##  9 btbwar      Black-… Setoph… L992… Kendal… 2021…       1  25.7 -80.4 TRUE    
+## 10 btbwar      Black-… Setoph… L133… 603 S … 2021…       1  26.2 -98.2 TRUE    
 ## # … with 71 more rows, and 3 more variables: obsReviewed <lgl>,
 ## #   locationPrivate <lgl>, subId <chr>
 ```
@@ -215,13 +217,13 @@ nearestobs(species_code('branta canadensis'), 42, -76)
 ## # A tibble: 25 x 13
 ##    speciesCode comName sciName locId locName obsDt howMany   lat   lng obsValid
 ##    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl> <lgl>   
-##  1 cangoo      Canada… Branta… L809… Port D… 2021…      74  42.1 -75.9 TRUE    
-##  2 cangoo      Canada… Branta… L527… R Tee … 2021…     100  42.2 -75.9 TRUE    
-##  3 cangoo      Canada… Branta… L133… I-81 N… 2021…      45  42.1 -75.9 TRUE    
-##  4 cangoo      Canada… Branta… L109… Hillcr… 2021…      27  42.2 -75.9 TRUE    
-##  5 cangoo      Canada… Branta… L245… Water … 2021…       3  42.1 -75.9 TRUE    
-##  6 cangoo      Canada… Branta… L186… Cheri … 2021…      NA  42.1 -75.9 TRUE    
-##  7 cangoo      Canada… Branta… L186… Otsini… 2021…      80  42.1 -75.9 TRUE    
+##  1 cangoo      Canada… Branta… L109… Hillcr… 2021…      34  42.2 -75.9 TRUE    
+##  2 cangoo      Canada… Branta… L186… Otsini… 2021…     117  42.1 -75.9 TRUE    
+##  3 cangoo      Canada… Branta… L186… Cheri … 2021…       4  42.1 -75.9 TRUE    
+##  4 cangoo      Canada… Branta… L809… Port D… 2021…      74  42.1 -75.9 TRUE    
+##  5 cangoo      Canada… Branta… L527… R Tee … 2021…     100  42.2 -75.9 TRUE    
+##  6 cangoo      Canada… Branta… L133… I-81 N… 2021…      45  42.1 -75.9 TRUE    
+##  7 cangoo      Canada… Branta… L245… Water … 2021…       3  42.1 -75.9 TRUE    
 ##  8 cangoo      Canada… Branta… L116… Homest… 2021…     230  42.1 -76.0 TRUE    
 ##  9 cangoo      Canada… Branta… L106… IBM CC… 2021…       1  42.1 -76.0 TRUE    
 ## 10 cangoo      Canada… Branta… L273… Schnur… 2021…       2  42.1 -75.8 TRUE    
@@ -250,20 +252,20 @@ ebirdnotable(lat = 42, lng = -70)
 ```
 
 ```
-## # A tibble: 3,641 x 13
+## # A tibble: 3,681 x 13
 ##    speciesCode comName sciName locId locName obsDt howMany   lat   lng obsValid
 ##    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl> <lgl>   
-##  1 foxsp1      Fox Sp… Passer… L382… Yard    2021…       1  42.2 -71.3 FALSE   
-##  2 cacgoo1     Cackli… Branta… L842… UMass … 2021…       1  42.4 -72.5 FALSE   
-##  3 easpho      Easter… Sayorn… L133… Smith … 2021…       1  41.6 -71.0 FALSE   
-##  4 norgos      Northe… Accipi… L124… Nottin… 2021…       1  43.1 -71.1 FALSE   
-##  5 redcro      Red Cr… Loxia … L176… Airpor… 2021…       8  42.9 -72.3 FALSE   
-##  6 whwcro      White-… Loxia … L236… Murray… 2021…      13  43.3 -71.6 FALSE   
-##  7 wooduc      Wood D… Aix sp… L241… Calvar… 2021…       2  43.6 -70.3 FALSE   
-##  8 balori      Baltim… Icteru… L133… 85 Cyn… 2021…       1  41.7 -70.1 FALSE   
-##  9 wooduc      Wood D… Aix sp… L241… Calvar… 2021…       2  43.6 -70.3 FALSE   
-## 10 loeowl      Long-e… Asio o… L129… Salisb… 2021…       2  42.8 -70.8 FALSE   
-## # … with 3,631 more rows, and 3 more variables: obsReviewed <lgl>,
+##  1 foxsp1      Fox Sp… Passer… L276… Standi… 2021…       1  42.3 -71.3 FALSE   
+##  2 foxsp1      Fox Sp… Passer… L276… Standi… 2021…       1  42.3 -71.3 FALSE   
+##  3 easpho      Easter… Sayorn… L352… Georgi… 2021…       1  40.9 -72.2 FALSE   
+##  4 norsho      Northe… Spatul… L392… Jamaic… 2021…       2  42.3 -71.1 FALSE   
+##  5 wooduc      Wood D… Aix sp… L241… Calvar… 2021…       2  43.6 -70.3 FALSE   
+##  6 wooduc      Wood D… Aix sp… L241… Calvar… 2021…       2  43.6 -70.3 FALSE   
+##  7 chispa      Chippi… Spizel… L133… 8 Old … 2021…       1  41.8 -72.8 TRUE    
+##  8 norsho      Northe… Spatul… L392… Jamaic… 2021…       2  42.3 -71.1 TRUE    
+##  9 chispa      Chippi… Spizel… L131… 02645,… 2021…      10  41.7 -70.1 FALSE   
+## 10 ruckin      Ruby-c… Regulu… L251… Horn P… 2021…       1  42.5 -71.2 FALSE   
+## # … with 3,671 more rows, and 3 more variables: obsReviewed <lgl>,
 ## #   locationPrivate <lgl>, subId <chr>
 ```
 
@@ -278,16 +280,16 @@ ebirdnotable(locID = 'US-NY-109')
 ## # A tibble: 81 x 13
 ##    speciesCode comName sciName locId locName obsDt howMany   lat   lng obsValid
 ##    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl> <lgl>   
-##  1 yerwar      Yellow… Setoph… L351… Fuerte… 2021…       1  42.5 -76.5 FALSE   
-##  2 redcro      Red Cr… Loxia … L123… Boyer … 2021…       5  42.3 -76.3 FALSE   
-##  3 whwcro      White-… Loxia … L550… Cornel… 2021…       2  42.5 -76.5 FALSE   
-##  4 x00684      Canvas… Aythya… L140… East S… 2021…       1  42.5 -76.5 FALSE   
+##  1 redcro      Red Cr… Loxia … L550… Cornel… 2021…       1  42.5 -76.5 FALSE   
+##  2 yerwar      Yellow… Setoph… L351… Fuerte… 2021…       1  42.5 -76.5 FALSE   
+##  3 redcro      Red Cr… Loxia … L123… Boyer … 2021…       5  42.3 -76.3 FALSE   
+##  4 whwcro      White-… Loxia … L550… Cornel… 2021…       2  42.5 -76.5 FALSE   
 ##  5 x00684      Canvas… Aythya… L140… East S… 2021…       1  42.5 -76.5 FALSE   
-##  6 blksco2     Black … Melani… L353… Salt P… 2021…       1  42.5 -76.5 FALSE   
-##  7 evegro      Evenin… Coccot… L133… 571 So… 2021…      17  42.3 -76.4 FALSE   
-##  8 hoared2     Hoary … Acanth… L686… George… 2021…       1  42.5 -76.3 FALSE   
-##  9 ruckin      Ruby-c… Regulu… L353… Salt P… 2021…       1  42.5 -76.5 TRUE    
-## 10 blkvul      Black … Coragy… L131… 81 CR-… 2021…       1  42.4 -76.4 TRUE    
+##  6 x00684      Canvas… Aythya… L140… East S… 2021…       1  42.5 -76.5 FALSE   
+##  7 blksco2     Black … Melani… L353… Salt P… 2021…       1  42.5 -76.5 FALSE   
+##  8 evegro      Evenin… Coccot… L133… 571 So… 2021…      17  42.3 -76.4 FALSE   
+##  9 hoared2     Hoary … Acanth… L686… George… 2021…       1  42.5 -76.3 FALSE   
+## 10 ruckin      Ruby-c… Regulu… L353… Salt P… 2021…       1  42.5 -76.5 TRUE    
 ## # … with 71 more rows, and 3 more variables: obsReviewed <lgl>,
 ## #   locationPrivate <lgl>, subId <chr>
 ```
@@ -381,8 +383,8 @@ ebirdregioninfo("L196159")
 ##   <chr> <chr>    <dbl>     <dbl> <chr>       <chr>       <chr>           
 ## 1 L196… Vanc…     49.3     -123. CA          Canada      British Columbia
 ## # … with 9 more variables: subnational1Code <chr>, subnational2Code <chr>,
-## #   subnational2Name <chr>, isHotspot <lgl>, locID <chr>, locName <chr>,
-## #   lat <dbl>, lng <dbl>, hierarchicalName <chr>
+## #   subnational2Name <chr>, isHotspot <lgl>, locName <chr>, lat <dbl>,
+## #   lng <dbl>, hierarchicalName <chr>, locID <chr>
 ```
 
 Obtain a list of eBird species codes for all species recorded in a region

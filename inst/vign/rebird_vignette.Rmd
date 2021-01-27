@@ -4,12 +4,12 @@ author: Sebastian Pardo, Rafael Maia
 date: "2021-01-25"
 output: rmarkdown::html_vignette
 vignette: >
-    %\VignetteIndexEntry{rebird vignette}
+    %\VignetteIndexEntry{Introduction to the rebird package}
     %\VignetteEngine{knitr::rmarkdown}
     %\VignetteEncoding{UTF-8}
 ---
 
-A programmatic interface to the eBird database. Find out more about eBird at [their website](http://ebird.org/home/).
+A programmatic interface to the eBird database. Find out more about eBird at [their website](https://ebird.org/home/).
 
 ## Installation
 
@@ -68,7 +68,7 @@ rebird:::tax
 
 While the internal taxonomy is kept up to date with each package release, it could
 be outdated if a new taxonomy is made available before the package is updated.
-You can obtain the full eBird taxonomy by
+You can obtain the latest eBird taxonomy by
 
 ```{r taxonomy, eval=FALSE}
 new_tax <- ebirdtaxonomy()
