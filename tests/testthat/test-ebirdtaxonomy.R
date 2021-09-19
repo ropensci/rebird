@@ -28,5 +28,6 @@ test_that("ebirdtaxonomy fails correctly", {
 test_that_without_key("ebirdtaxonomy works without an API key", {
   tax <- ebirdtaxonomy()
   expect_is(tax, "data.frame")
-  expect_equal(ncol(tax), 14L)
+  expect_gte(ncol(tax), 12L)
 })
+
