@@ -1,9 +1,8 @@
 ## Test environments
 
-* local machine running Linux Ubuntu 18.04 LTS, R 4.0.3
+* local machine running Linux Ubuntu 18.04 LTS, R 4.1.0
 * win-builder (release and devel)
-* Linux Ubuntu 16.04.6 LTS running R 4.0.2 on travis-ci
-* Windows Server 2012 R2 x64 (build 9600) running R 4.0.3 on Appveyor
+* Windows Server 2012 R2 x64 (build 9600) running R 4.1.1 on Appveyor
 * R-hub
   * Windows Server 2008 R2 SP1, R-devel, 32/64 bit
   * Ubuntu Linux 20.04.1 LTS, R-release, GCC

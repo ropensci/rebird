@@ -1,3 +1,9 @@
+rebird 1.3.0
+===================
+
+- Updated `rebird`'s internal taxonomy after 2021 taxonomic update.
+- Fix tests.
+
 rebird 1.2.0
 ===================
 
