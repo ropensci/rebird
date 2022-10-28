@@ -29,7 +29,6 @@ ebirdchecklist <- function(subId, sleep = 0, key = NULL, ...) {
             ...)
 
   content(tt, as = "text", encoding = "UTF-8") %>%
-    fromJSON(FALSE) %>%
-    purrr::keep(!names(.) %in% c("subAux","subAuxAi")) %>%
-    as_tibble()
+    fromJSON() %>%
+    bind_rows()
 }
