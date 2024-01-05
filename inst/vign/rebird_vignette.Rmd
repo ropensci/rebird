@@ -63,7 +63,7 @@ can be specified directly.
 The eBird taxonomy is internally stored in `rebird` and can be called using
 
 ```{r tax}
-rebird:::tax
+rebird::tax
 ```
 
 While the internal taxonomy is kept up to date with each package release, it could

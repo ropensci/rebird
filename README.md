@@ -87,7 +87,7 @@ The eBird taxonomy is internally stored in `rebird` and can be called
 using
 
 ``` r
-rebird:::tax
+rebird::tax
 #> # A tibble: 16,513 x 14
 #>    sciName comName speciesCode category taxonOrder bandingCodes comNameCodes
 #>    <chr>   <chr>   <chr>       <chr>         <dbl> <chr>        <chr>       
