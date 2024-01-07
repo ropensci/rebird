@@ -5,7 +5,7 @@ test_that("ebirdhistorical works correctly", {
   
   out <- ebirdhistorical(loc = 'US-VA-003', date = '2017-03-19')
   expect_is(out, "data.frame")
-  expect_equal(ncol(out), 13)
+  expect_equal(ncol(out), 14)
   expect_gt(nrow(out), 60)
   expect_equal(nrow(out), length(unique(out$speciesCode)))
 
@@ -25,7 +25,7 @@ test_that("ebirdhistorical works correctly", {
   out7 <- ebirdhistorical(loc = 'US-VA-003', date = '2017-03-19',fieldSet = 'simple')
   expect_equal(out, out7)
   out8 <- ebirdhistorical(loc = 'US-VA-003', date = '2017-03-19',fieldSet = 'full')
-  expect_equal(ncol(out8), 27)
+  expect_equal(ncol(out8), 28)
   expect_equal(nrow(out8), length(unique(out8$speciesCode)))
   
   prov1 <- ebirdhistorical(loc = 'CA-NS-HL', "2019-09-09")

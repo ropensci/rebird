@@ -42,7 +42,8 @@
 #'    automatic filters or a regional viewer, FALSE otherwise
 #' @return "obsReviewed": TRUE if observation has been reviewed, FALSE otherwise
 #' @return "locationPrivate": TRUE if location is not a birding hotspot
-#' @return "subID": submission ID 
+#' @return "subID": submission ID
+#' @return "exoticCategory": exotic species category
 #' @return "subnational2Code": county code (returned if simple=FALSE)
 #' @return "subnational2Name": county name (returned if simple=FALSE)
 #' @return "subnational1Code": state/province ISO code (returned if simple=FALSE)
