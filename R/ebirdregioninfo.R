@@ -80,13 +80,10 @@ ebirdregioninfo <- function(loc, format = "full", key = NULL, ...) {
     df <- as_tibble(json)
   } else {
     if (! "result" %in% names(json)) stop(paste("No region with code", loc))
-    df <- bind_cols(lapply(json, as_tibble)) 
+    # rename column name for region info (defaults to "result")
+    df <- as_tibble(
+      c(region = json$result, json$bounds))
   }
-  
-  # rename column name for region info (defaults to "result") 
-  if (names(df)[1] == "value") {
-    names(df)[1] <- "region" 
-  } 
   
   df
 }
