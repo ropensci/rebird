@@ -50,6 +50,7 @@
 #' @return "locationPrivate": TRUE if location is not a birding hotspot
 #'    automatic filters or a regional viewer, FALSE otherwise
 #' @return "subId": submission ID
+#' @return "exoticCategory": Exotic category
 #' @return "subnational2Code": county code (returned if simple=FALSE)
 #' @return "subnational2Name": county name (returned if simple=FALSE)
 #' @return "subnational1Code": state/province ISO code (returned if simple=FALSE)
