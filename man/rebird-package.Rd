@@ -6,11 +6,7 @@
 \alias{rebird-package}
 \title{rebird: R Client for the eBird Database of Bird Observations}
 \description{
-A programmatic client for the eBird database 
-    (<https://ebird.org/home>), including functions for searching for bird 
-    observations by geographic location (latitude, longitude), eBird 
-    hotspots, location identifiers, by notable sightings, by region, and by 
-    taxonomic name.
+A programmatic client for the eBird database (\url{https://ebird.org/home}), including functions for searching for bird observations by geographic location (latitude, longitude), eBird hotspots, location identifiers, by notable sightings, by region, and by taxonomic name.
 }
 \seealso{
 Useful links:
