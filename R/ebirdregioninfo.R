@@ -75,11 +75,11 @@ ebirdregioninfo <- function(loc, format = "full", key = NULL, ...) {
   
   ss <- content(tt, as = "text", encoding = "UTF-8")
   json <- jsonlite::fromJSON(ss, FALSE)
-  if (! "result" %in% names(json)) stop(paste("No region with code", loc))
   
   if (regtype == "hotspot") {
     df <- as_tibble(json)
   } else {
+    if (! "result" %in% names(json)) stop(paste("No region with code", loc))
     df <- bind_cols(lapply(json, as_tibble)) 
   }
   
