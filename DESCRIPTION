@@ -38,3 +38,4 @@ X-schema.org-applicationCategory: Data Access
 X-schema.org-keywords: birds, birding, ebird, database, data, biology, observations, sightings, ornithology
 X-schema.org-isPartOf: https://ropensci.org
 Encoding: UTF-8
+LazyData: true

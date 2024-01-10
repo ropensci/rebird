@@ -76,7 +76,7 @@ The eBird taxonomy is internally stored in `rebird` and can be called using
 
 
 ```r
-rebird:::tax
+rebird::tax
 ```
 
 ```
