@@ -7,7 +7,7 @@ test_that("ebirdchecklistfeed succeeds reproducibly", {
   expect_is(out1, "data.frame")
   expect_is(out1$userDisplayName, "character")
   expect_equal(nrow(out1), 3)
-  expect_equal(ncol(out1), 8)
+  expect_equal(ncol(out1), 9)
 })
 
 test_that("ebirdchecklistfeed errors for bad input", {

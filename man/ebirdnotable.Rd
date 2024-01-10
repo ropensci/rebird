@@ -93,6 +93,8 @@ A data.frame containing the collected information:
 
 "subId": submission ID
 
+"exoticCategory": Exotic category
+
 "subnational2Code": county code (returned if simple=FALSE)
 
 "subnational2Name": county name (returned if simple=FALSE)

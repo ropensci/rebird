@@ -26,10 +26,10 @@ test_that("ebirdloc fails correctly", {
   expect_error(suppressWarnings(ebirdloc()))
   expect_error(suppressWarnings(ebirdloc(species = "asdf")))
   expect_error(suppressWarnings(ebirdloc(locID = "L99381", species = "asdf")))
-  expect_error(suppressWarnings(ebirdloc(), "argument \"locID\" is missing"))
+  expect_error(suppressWarnings(ebirdloc()), "argument \"locID\" is missing")
   expect_error(suppressWarnings(ebirdloc(locID = c('L99381','L99382','L99381','L99382','L99381','L99382',
-                          'L99381','L99382','L99381','L99382','L99382')), 
-               "Too many locations"))
+                          'L99381','L99382','L99381','L99382','L99382'))),
+               "Too many locations")
   expect_error(suppressWarnings(ebirdloc(locID = 'L99381', config=timeout(0.001))))
   expect_error(suppressWarnings(ebirdloc(locID = 'L99381', sleep = "adf")), "invalid 'time' value")
 })

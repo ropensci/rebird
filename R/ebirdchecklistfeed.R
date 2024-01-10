@@ -26,6 +26,7 @@
 #'    (e.g. 'YYYY-MM-DD', or 'YYYY-MM-DD hh:mm'). Hours and minutes are excluded 
 #'    if the observer did not report an observation time
 #' @return "obsTime": observation time (24hr)
+#' @return "isoObsDate": ISO observation date and time
 #' @return "subID": deprecated submission identifier
 #' @return "loc": delimited string of location descriptors
 #' @export
