@@ -3,9 +3,11 @@
 
 # rebird: wrapper to the eBird API
 
+<!-- badges: start -->
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/)
+[![R-CMD-check](https://github.com/ropensci/rebird/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/rebird/actions/workflows/R-CMD-check.yaml)
 [![Build
 Status](https://api.travis-ci.org/ropensci/rebird.png)](https://travis-ci.org/ropensci/rebird)
 [![Build
@@ -18,6 +20,7 @@ Status](https://coveralls.io/repos/ropensci/rebird/badge.svg)](https://coveralls
 downloads](https://cranlogs.r-pkg.org/badges/rebird)](https://github.com/r-hub/cranlogs.app)
 [![cran
 version](https://www.r-pkg.org/badges/version/rebird)](https://cran.r-project.org/package=rebird/)
+<!-- badges: end -->
 
 `rebird` is a package to interface with the eBird webservices.
 
