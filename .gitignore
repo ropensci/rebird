@@ -2,7 +2,6 @@
 .Rhistory
 .RData
 *.Rproj
-.gitattributes
 krlocal.R
 /.Rapp.history
 .DS_Store
