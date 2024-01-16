@@ -19,7 +19,7 @@ species_code <- function(sciname = NULL) {
   assertthat::assert_that(is.character(sciname))
   assertthat::assert_that(length(sciname) == 1) 
   
-  spp <- tax[which(tolower(tax$sciName) == tolower(sciname)), ]
+  spp <- rebird::tax[which(tolower(rebird::tax$sciName) == tolower(sciname)), ]
   
   if (nrow(spp) == 0) stop("No species in eBird taxonomy with matching scientific name.")
   
