@@ -2,6 +2,7 @@ context("ebirdsubregionlist")
 
 test_that("ebirdsubregionlist works correctly", {
   skip_on_cran()
+  skip_on_ci()
   
   countries = ebirdsubregionlist("country")
   

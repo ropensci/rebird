@@ -2,6 +2,7 @@ context("ebirdhistorical")
 
 test_that("ebirdhistorical works correctly", {
   skip_on_cran()
+  skip_on_ci()
   
   out <- ebirdhistorical(loc = 'US-VA-003', date = '2017-03-19')
   expect_is(out, "data.frame")

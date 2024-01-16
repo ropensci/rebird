@@ -2,6 +2,7 @@ context("ebirdhotspotlist")
 
 test_that("ebirdhotspotlist works correctly", {
   skip_on_cran()
+  skip_on_ci()
   
   out <- ebirdhotspotlist("CA-NS-YA")
   out2 <- ebirdhotspotlist(lat = 30, lng = -90, dist = 10)

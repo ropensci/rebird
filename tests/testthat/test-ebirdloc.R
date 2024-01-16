@@ -2,6 +2,7 @@ context("ebirdloc")
 
 test_that("ebirdloc works correctly", {
   skip_on_cran()
+  skip_on_ci()
   
   expect_warning(out <- ebirdloc(c('L99381','L99382')))
   expect_is(out, "data.frame")
