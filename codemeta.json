@@ -185,7 +185,7 @@
   "applicationCategory": "DataAccess",
   "isPartOf": "https://ropensci.org",
   "keywords": ["birds", "birding", "ebird", "database", "data", "biology", "observations", "sightings", "ornithology", "rstats", "ebird-api", "r", "ebird-webservices", "spocc", "r-package"],
-  "contIntegration": ["https://travis-ci.org/ropensci/rebird", "https://ci.appveyor.com/project/sckott/rebird", "https://coveralls.io/r/ropensci/rebird"],
+  "contIntegration": ["https://github.com/ropensci/rebird/blob/master/.github/workflows/R-CMD-check.yaml", "https://coveralls.io/r/ropensci/rebird"],
   "releaseNotes": "https://github.com/ropensci/rebird/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/rebird/blob/master/README.md",
   "fileSize": "45165.535KB",
