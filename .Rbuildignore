@@ -19,3 +19,4 @@ vignettes/figure/
 ^doc$
 ^Meta$
 ^CRAN-RELEASE$
+^codecov\.yml$
