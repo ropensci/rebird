@@ -46,7 +46,7 @@ jobs:
 
       - name: Create and populate .Renviron file
         run: |
-          echo "::add-mask::$MAPPED_EBIRD_KEY" >> ~/.Renviron
+          echo "EBIRD_KEY=::add-mask::$MAPPED_EBIRD_KEY" >> ~/.Renviron
         shell: bash
         env:
           MAPPED_EBIRD_KEY: ${{ secrets.EBIRD_KEY }}
