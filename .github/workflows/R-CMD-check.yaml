@@ -27,6 +27,7 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
+      MAPPED_EBIRD_KEY: ${{ secrets.EBIRD_KEY }}
 
     steps:
       - uses: actions/checkout@v3
@@ -48,8 +49,6 @@ jobs:
         run: |
           echo "EBIRD_KEY=::add-mask::$MAPPED_EBIRD_KEY" >> ~/.Renviron
         shell: bash
-        env:
-          MAPPED_EBIRD_KEY: ${{ secrets.EBIRD_KEY }}
 
       - uses: r-lib/actions/check-r-package@v2
         with:
