@@ -2,7 +2,6 @@ context("nearestobs")
 
 test_that("nearestobs works correctly", {
   skip_on_cran()
-  skip_on_ci()
   
   out <- nearestobs('cangoo', 42, -76)
   out2 <- nearestobs('cangoo', 42,-76, max=10, provisional=TRUE, hotspot=TRUE)

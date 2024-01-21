@@ -2,7 +2,6 @@ context("ebirdgeo")
 
 test_that("ebirdgeo works correctly", {
   skip_on_cran()
-  skip_on_ci()
   
   egeo <- ebirdgeo('amegfi',42,-76)
   expect_is(egeo, "data.frame")

@@ -2,7 +2,6 @@ context("ebirdchecklistfeed")
 
 test_that("ebirdchecklistfeed succeeds reproducibly", {
   skip_on_cran()
-  skip_on_ci()
   
   out1 <- ebirdchecklistfeed(loc = "L207391", date = "2020-03-24", max = 3)
   expect_is(out1, "data.frame")
@@ -13,7 +12,6 @@ test_that("ebirdchecklistfeed succeeds reproducibly", {
 
 test_that("ebirdchecklistfeed errors for bad input", {
   skip_on_cran()
-  skip_on_ci()
   
   expect_warning(ebirdchecklistfeed(loc = "L207391", date = "2020-03-24", max = 250))
   expect_error(ebirdchecklistfeed(loc = "L207391", date = "2121-03-25"))

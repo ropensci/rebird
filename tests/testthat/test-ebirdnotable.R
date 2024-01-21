@@ -2,7 +2,6 @@ context("ebirdnotable")
 
 test_that("ebirdnotable works correctly", {
   skip_on_cran()
-  skip_on_ci()
   
   out <- ebirdnotable(lat=42, lng=-70, max = 40)
   expect_is(out, "data.frame")

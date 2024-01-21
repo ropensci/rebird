@@ -44,6 +44,13 @@ jobs:
           extra-packages: any::rcmdcheck
           needs: check
 
+      - name: Create and populate .Renviron file
+        run: |
+          echo "::add-mask::$MAPPED_EBIRD_KEY" >> ~/.Renviron
+        shell: bash
+        env:
+          MAPPED_EBIRD_KEY: ${{ secrets.EBIRD_KEY }}
+
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true

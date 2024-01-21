@@ -2,7 +2,6 @@ context("ebirdregioninfo")
 
 test_that("ebirdregioninfo works correctly", {
   skip_on_cran()
-  skip_on_ci()
   
   us <- ebirdregioninfo("US")
   
@@ -26,7 +25,6 @@ test_that("ebirdregioninfo works correctly", {
 
 test_that("ebirdregioninfo fails correctly", {
   skip_on_cran()
-  skip_on_ci()
   
   expect_error(ebirdregioninfo())
   expect_error(ebirdregioninfo("foo"), class = "error")

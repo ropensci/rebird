@@ -2,7 +2,6 @@ context("ebirdregioncheck")
 
 test_that("ebirdregioncheck works correctly", {
   skip_on_cran()
-  skip_on_ci()
  
   expect_warning(expect_is(ebirdregioncheck("CA"), "logical"))
   expect_warning(expect_equal(ebirdregioncheck("CA"), TRUE))

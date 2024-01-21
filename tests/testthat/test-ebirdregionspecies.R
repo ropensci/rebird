@@ -2,7 +2,6 @@ context("ebirdregionspecies")
 
 test_that("ebirdregionspecies works correctly", {
   skip_on_cran()
-  skip_on_ci()
 
   eng <- ebirdregionspecies("GB-ENG")
   lon <- ebirdregionspecies("GB-ENG-LND")
