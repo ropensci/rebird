@@ -28,6 +28,7 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
       MAPPED_EBIRD_KEY: ${{ secrets.EBIRD_KEY }}
+      MAPPED_TEST_KEY: ${{ secrets.TEST_KEY }}
 
     steps:
       - uses: actions/checkout@v3
@@ -48,6 +49,7 @@ jobs:
       - name: Create and populate .Renviron file
         run: |
           echo "EBIRD_KEY=::add-mask::$MAPPED_EBIRD_KEY" >> ~/.Renviron
+          echo "TEST_KEY=$MAPPED_TEST_KEY" >> ~/.Renviron
         shell: bash
 
       - uses: r-lib/actions/check-r-package@v2
