@@ -44,6 +44,8 @@ A data.frame containing the collected information:
 
 "obsTime": observation time (24hr)
 
+"isoObsDate": ISO observation date and time
+
 "subID": deprecated submission identifier
 
 "loc": delimited string of location descriptors

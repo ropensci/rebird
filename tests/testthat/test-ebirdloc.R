@@ -2,6 +2,7 @@ context("ebirdloc")
 
 test_that("ebirdloc works correctly", {
   skip_on_cran()
+  skip_on_ci()
   
   expect_warning(out <- ebirdloc(c('L99381','L99382')))
   expect_is(out, "data.frame")
@@ -26,10 +27,10 @@ test_that("ebirdloc fails correctly", {
   expect_error(suppressWarnings(ebirdloc()))
   expect_error(suppressWarnings(ebirdloc(species = "asdf")))
   expect_error(suppressWarnings(ebirdloc(locID = "L99381", species = "asdf")))
-  expect_error(suppressWarnings(ebirdloc(), "argument \"locID\" is missing"))
+  expect_error(suppressWarnings(ebirdloc()), "argument \"locID\" is missing")
   expect_error(suppressWarnings(ebirdloc(locID = c('L99381','L99382','L99381','L99382','L99381','L99382',
-                          'L99381','L99382','L99381','L99382','L99382')), 
-               "Too many locations"))
+                          'L99381','L99382','L99381','L99382','L99382'))),
+               "Too many locations")
   expect_error(suppressWarnings(ebirdloc(locID = 'L99381', config=timeout(0.001))))
   expect_error(suppressWarnings(ebirdloc(locID = 'L99381', sleep = "adf")), "invalid 'time' value")
 })

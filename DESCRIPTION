@@ -1,5 +1,5 @@
 Package: rebird
-Version: 1.3.0
+Version: 1.3.9003
 Title: R Client for the eBird Database of Bird Observations
 Description: A programmatic client for the eBird database 
     (<https://ebird.org/home>), including functions for searching for bird 
@@ -33,8 +33,9 @@ Suggests:
     rmarkdown,
     testthat,
     covr
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
 X-schema.org-applicationCategory: Data Access
 X-schema.org-keywords: birds, birding, ebird, database, data, biology, observations, sightings, ornithology
 X-schema.org-isPartOf: https://ropensci.org
 Encoding: UTF-8
+LazyData: true

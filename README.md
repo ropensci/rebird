@@ -3,21 +3,20 @@
 
 # rebird: wrapper to the eBird API
 
+<!-- badges: start -->
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/)
-[![Build
-Status](https://api.travis-ci.org/ropensci/rebird.png)](https://travis-ci.org/ropensci/rebird)
-[![Build
-status](https://ci.appveyor.com/api/projects/status/s3dobn991c20t2kg?svg=true)](https://ci.appveyor.com/project/sckott/rebird)
-[![cran
-checks](https://cranchecks.info/badges/worst/rebird)](https://cranchecks.info/pkgs/rebird)
+[![R-CMD-check](https://github.com/ropensci/rebird/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/rebird/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/ropensci/rebird/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ropensci/rebird?branch=master)
 [![Coverage
 Status](https://coveralls.io/repos/ropensci/rebird/badge.svg)](https://coveralls.io/github/ropensci/rebird)
 [![rstudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/rebird)](https://github.com/r-hub/cranlogs.app)
 [![cran
 version](https://www.r-pkg.org/badges/version/rebird)](https://cran.r-project.org/package=rebird/)
+<!-- badges: end -->
 
 `rebird` is a package to interface with the eBird webservices.
 
@@ -87,7 +86,7 @@ The eBird taxonomy is internally stored in `rebird` and can be called
 using
 
 ``` r
-rebird:::tax
+rebird::tax
 #> # A tibble: 16,513 x 14
 #>    sciName comName speciesCode category taxonOrder bandingCodes comNameCodes
 #>    <chr>   <chr>   <chr>       <chr>         <dbl> <chr>        <chr>       

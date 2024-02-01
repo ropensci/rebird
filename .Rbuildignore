@@ -1,7 +1,5 @@
 .gitignore
 ^Makefile$
-.travis.yml
-appveyor.yml
 man-roxygen
 ^.*\.Rproj$
 ^\.Rproj\.user$
@@ -21,3 +19,4 @@ vignettes/figure/
 ^doc$
 ^Meta$
 ^CRAN-RELEASE$
+^codecov\.yml$

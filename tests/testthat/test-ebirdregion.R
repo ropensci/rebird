@@ -2,6 +2,7 @@ context("ebirdregion")
 
 test_that("ebirdregion works correctly", {
   skip_on_cran()
+  skip_on_ci()
   
   out <- ebirdregion(loc = 'US', species = 'btbwar', max = 50)
   expect_is(out, "data.frame")

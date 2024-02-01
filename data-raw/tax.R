@@ -8,4 +8,4 @@
 library(rebird)
 
 tax <- ebirdtaxonomy()
-usethis::use_data(tax, overwrite = TRUE, internal = TRUE)
+usethis::use_data(tax, overwrite = TRUE)
