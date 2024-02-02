@@ -5,10 +5,12 @@
 #'    We strongly recommend storing it in your \code{.Renviron} file as an
 #'    environment variable called \code{EBIRD_KEY}.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
+#' @param sleep Time (in seconds) before function sends API call (defaults to
+#'    zero. Set to higher number if you are using this function in a loop with
+#'    many API calls).
 #'
 #' @return A data.frame containing:
 #' @export
-#'
 #'
 #' @examples \dontrun{
 #' ebirdchecklist("S121423354")
@@ -28,7 +30,7 @@ ebirdchecklist <- function(subId, sleep = 0, key = NULL, ...) {
             # to allow config = to be specified in ...
             ...)
 
-  content(tt, as = "text", encoding = "UTF-8") %>%
-    fromJSON() %>%
+  content(tt, as = "text", encoding = "UTF-8") |>
+    fromJSON() |>
     bind_rows()
 }
