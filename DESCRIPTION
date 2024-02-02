@@ -33,7 +33,7 @@ Suggests:
     rmarkdown,
     testthat,
     covr
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 X-schema.org-applicationCategory: Data Access
 X-schema.org-keywords: birds, birding, ebird, database, data, biology, observations, sightings, ornithology
 X-schema.org-isPartOf: https://ropensci.org
