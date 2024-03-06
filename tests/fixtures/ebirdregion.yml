@@ -1,0 +1,167 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/US/recent/btbwar?back=15&maxResults=2
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '336'
+      content-type: application/json;charset=utf-8
+      date: Wed, 06 Mar 2024 06:57:32 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"btbwar","comName":"Black-throated Blue Warbler","sciName":"Setophaga
+        caerulescens","locId":"L10770376","locName":"Castle birds Palm Coast US-FL
+        29.58826, -81.19314","obsDt":"2024-03-03 14:09","howMany":1,"lat":29.588261,"lng":-81.193141,"obsValid":true,"obsReviewed":true,"locationPrivate":true,"subId":"S163617084"},{"speciesCode":"btbwar","comName":"Black-throated
+        Blue Warbler","sciName":"Setophaga caerulescens","locId":"L26784732","locName":"House
+        (26.015, -80.178)","obsDt":"2024-03-02 11:36","howMany":1,"lat":26.0148493,"lng":-80.1782751,"obsValid":true,"obsReviewed":false,"locationPrivate":true,"subId":"S163452021"}]'
+  recorded_at: 2024-03-06 07:01:01 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/US-OH/recent/?maxResults=3&includeProvisional=true&hotspot=true
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '420'
+      content-type: application/json;charset=utf-8
+      date: Wed, 06 Mar 2024 06:57:33 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"brdowl","comName":"Barred Owl","sciName":"Strix varia","locId":"L280336","locName":"Penitentiary
+        Glen Reservation","obsDt":"2024-03-05 20:00","howMany":1,"lat":41.6113006,"lng":-81.3315868,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S163844662"},{"speciesCode":"sheowl","comName":"Short-eared
+        Owl","sciName":"Asio flammeus","locId":"L3720251","locName":"Wecht Rd. (view
+        from roadside only)","obsDt":"2024-03-05 19:14","howMany":1,"lat":40.7848308,"lng":-81.6728783,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S163842142"},{"speciesCode":"amewoo","comName":"American
+        Woodcock","sciName":"Scolopax minor","locId":"L778903","locName":"Oakwoods
+        Nature Preserve","obsDt":"2024-03-05 19:00","howMany":2,"lat":41.0213713,"lng":-83.6894703,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S163849388"}]'
+  recorded_at: 2024-03-06 07:01:01 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/US-OR-029/recent/?maxResults=3
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '305'
+      content-type: application/json;charset=utf-8
+      date: Wed, 06 Mar 2024 06:57:35 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"cangoo","comName":"Canada Goose","sciName":"Branta
+        canadensis","locId":"L4445455","locName":"Agate Home","obsDt":"2024-03-05
+        14:20","howMany":2,"lat":42.46904,"lng":-122.85268,"obsValid":true,"obsReviewed":false,"locationPrivate":true,"subId":"S163833024"},{"speciesCode":"comrav","comName":"Common
+        Raven","sciName":"Corvus corax","locId":"L4445455","locName":"Agate Home","obsDt":"2024-03-05
+        14:20","howMany":2,"lat":42.46904,"lng":-122.85268,"obsValid":true,"obsReviewed":false,"locationPrivate":true,"subId":"S163833024"},{"speciesCode":"daejun","comName":"Dark-eyed
+        Junco","sciName":"Junco hyemalis","locId":"L4445455","locName":"Agate Home","obsDt":"2024-03-05
+        14:20","howMany":1,"lat":42.46904,"lng":-122.85268,"obsValid":true,"obsReviewed":false,"locationPrivate":true,"subId":"S163833024"}]'
+  recorded_at: 2024-03-06 07:01:01 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/L109339/recent/amecro?detail=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '435'
+      content-type: application/json;charset=utf-8
+      date: Wed, 06 Mar 2024 06:57:35 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"amecro","comName":"American Crow","sciName":"Corvus
+        brachyrhynchos","locId":"L109339","locName":"IRWD San Joaquin Marsh & Wildlife
+        Sanctuary, Irvine","obsDt":"2024-03-05 13:44","howMany":3,"lat":33.6637274,"lng":-117.8426814,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S163838266","subnational2Code":"US-CA-059","subnational2Name":"Orange","subnational1Code":"US-CA","subnational1Name":"California","countryCode":"US","countryName":"United
+        States","userDisplayName":"Julia Black","obsId":"OBS1971755573","checklistId":"CL25435","presenceNoted":false,"hasComments":false,"firstName":"Julia","lastName":"Black","hasRichMedia":false}]'
+  recorded_at: 2024-03-06 07:01:01 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
