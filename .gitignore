@@ -1,7 +1,6 @@
 .Rproj.user
 .Rhistory
 .RData
-*.Rproj
 krlocal.R
 /.Rapp.history
 .DS_Store
