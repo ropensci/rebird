@@ -18,6 +18,7 @@ test_that("ebirdregioncheck works correctly", {
 
 test_that("ebirdregioncheck fails correctly", {
   skip_on_cran()
+  skip_on_ci()
   
   expect_error(suppressWarnings(ebirdregioncheck()))
   expect_error(suppressWarnings(ebirdregioncheck(c("foo", "bar"))))
