@@ -2,6 +2,7 @@ context("ebirdtaxonomy")
 
 test_that("ebirdtaxonomy works correctly", {
   skip_on_cran()
+  skip_on_ci()
   
   out <- ebirdtaxonomy("domestic")
   out2 <- ebirdtaxonomy(cat=c("spuh", "slash"))
@@ -17,6 +18,7 @@ test_that("ebirdtaxonomy works correctly", {
 
 test_that("ebirdtaxonomy fails correctly", {
   skip_on_cran()
+  skip_on_ci()
   
   mssg <- "You have supplied an invalid species category"
   expect_error(ebirdtaxonomy("asf"), mssg)
@@ -26,6 +28,9 @@ test_that("ebirdtaxonomy fails correctly", {
 })
 
 test_that_without_key("ebirdtaxonomy works without an API key", {
+  skip_on_cran()
+  skip_on_ci()
+
   tax <- ebirdtaxonomy()
   expect_is(tax, "data.frame")
   expect_gte(ncol(tax), 12L)
