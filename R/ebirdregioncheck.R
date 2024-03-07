@@ -18,7 +18,7 @@
 #'    Andy Teucher \email{andy.teucher@@gmail.com}
 #' @references \url{http://ebird.org/}
 
-ebirdregioncheck <- function(loc, key = NULL, ...) {
+ebirdregioncheck <- function(loc, key = NULL, ...) { # nocov start
   .Deprecated(new = "ebirdregioninfo", 
               msg = "Deprecated: 'ebirdregioncheck' will be removed in the next version of rebird. Use 'ebirdregioninfo' instead.")
   if (length(loc) > 1) {
@@ -30,4 +30,4 @@ ebirdregioncheck <- function(loc, key = NULL, ...) {
       grepl("HTTP [403|400]", out)) stop(out) # HTTP error codes that should 
                                               # throw errors rather than return false
   "tbl_df" %in% class(out)
-}
+} # nocov end
