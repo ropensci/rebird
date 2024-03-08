@@ -120,16 +120,11 @@ ebirdnotable <-  function(lat = NULL, lng = NULL, dist = NULL, locID = NULL, reg
     loctype <- "region"
     url <- paste0(ebase(), 'data/obs/', region, '/recent/notable')
   } else {
-    # Get IP location information from http://freegeoip.net
+    # Get IP location
     loctype <- "lat/lng"
-    loc <- fromJSON(readLines("http://freegeoip.net/json/", warn = FALSE))
-    lat <- loc$latitude
-    lng <- loc$longitude
-    warning(paste("As no location was provided, your location",
-                  "was determined using your computer's public-facing IP",
-                  "address. This will likely not reflect your physical",
-                  "location if you are using a remote server or proxy.\n",
-                  "lat: ", lat, ", lng: ", lng))
+    loc <- getlatlng()
+    lat <- loc[1]
+    lng <- loc[2]
   }
 
   if (loctype == "lat/lng") {

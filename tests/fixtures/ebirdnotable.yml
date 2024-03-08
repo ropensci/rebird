@@ -1,0 +1,167 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/geo/recent/notable?maxResults=2&lat=42&lng=-70&dist=50
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '267'
+      content-type: application/json;charset=utf-8
+      date: Fri, 08 Mar 2024 03:26:09 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"bohwax","comName":"Bohemian Waxwing","sciName":"Bombycilla
+        garrulus","locId":"L810505","locName":"Water Street Marsh, Yarmouth","obsDt":"2024-03-07
+        16:00","howMany":1,"lat":41.7107104,"lng":-70.2602398,"obsValid":false,"obsReviewed":false,"locationPrivate":false,"subId":"S164045625"},{"speciesCode":"bohwax","comName":"Bohemian
+        Waxwing","sciName":"Bombycilla garrulus","locId":"L810505","locName":"Water
+        Street Marsh, Yarmouth","obsDt":"2024-03-07 16:00","howMany":1,"lat":41.7107104,"lng":-70.2602398,"obsValid":false,"obsReviewed":false,"locationPrivate":false,"subId":"S164043514"}]'
+  recorded_at: 2024-03-08 03:29:44 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/US-OH/recent/notable?maxResults=2&includeProvisional=true&hotspot=true&detail=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '578'
+      content-type: application/json;charset=utf-8
+      date: Fri, 08 Mar 2024 03:26:09 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"eargre","comName":"Eared Grebe","sciName":"Podiceps
+        nigricollis","locId":"L7999175","locName":"Nimisila Reservoir--Parking Lot
+        C1 and Boat Ramp","obsDt":"2024-03-07 17:32","howMany":1,"lat":40.9506612,"lng":-81.5262516,"obsValid":false,"obsReviewed":false,"locationPrivate":false,"subId":"S164030858","subnational2Code":"US-OH-153","subnational2Name":"Summit","subnational1Code":"US-OH","subnational1Name":"Ohio","countryCode":"US","countryName":"United
+        States","userDisplayName":"Hunter Hammil","obsId":"OBS1973514337","checklistId":"CL22255","presenceNoted":false,"hasComments":false,"firstName":"Hunter","lastName":"Hammil","hasRichMedia":false},{"speciesCode":"lbbgul","comName":"Lesser
+        Black-backed Gull","sciName":"Larus fuscus","locId":"L789247","locName":"Chippewa
+        Lake Park--Krabill Lodge","obsDt":"2024-03-07 16:45","howMany":1,"lat":41.0657629,"lng":-81.9162941,"obsValid":false,"obsReviewed":false,"locationPrivate":false,"subId":"S164035274","subnational2Code":"US-OH-103","subnational2Name":"Medina","subnational1Code":"US-OH","subnational1Name":"Ohio","countryCode":"US","countryName":"United
+        States","userDisplayName":"Henry  Trimpe","obsId":"OBS1973550890","checklistId":"CL25330","presenceNoted":false,"hasComments":false,"evidence":"P","firstName":"Henry","lastName":"Trimpe","hasRichMedia":true}]'
+  recorded_at: 2024-03-08 03:29:44 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/geo/recent/notable?back=30&maxResults=2&lat=42&lng=-70
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '364'
+      content-type: application/json;charset=utf-8
+      date: Fri, 08 Mar 2024 03:26:10 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"virrai2","comName":"Virginia Rail (Virginia)","sciName":"Rallus
+        limicola","locId":"L25205346","locName":"Hay Meadow marsh/Elm Brook & thickets,
+        Lincoln/Concord","obsDt":"2024-03-07 17:08","howMany":1,"lat":42.4600354,"lng":-71.3026765,"obsValid":true,"obsReviewed":true,"locationPrivate":true,"subId":"S164032414"},{"speciesCode":"retloo","comName":"Red-throated
+        Loon","sciName":"Gavia stellata","locId":"L753777","locName":"Mystic Lakes,
+        Medford","obsDt":"2024-03-07 16:52","howMany":1,"lat":42.4327062,"lng":-71.1490059,"obsValid":true,"obsReviewed":true,"locationPrivate":false,"subId":"S164031505"}]'
+  recorded_at: 2024-03-08 03:29:44 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/US-OH/recent/notable?maxResults=2&r=US-OH%2CUS-OH%2CUS-OH%2CUS-OH%2CUS-OH%2CUS-OH%2CUS-OH%2CUS-OH%2CUS-OH%2CUS-OH
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '364'
+      content-type: application/json;charset=utf-8
+      date: Fri, 08 Mar 2024 03:26:10 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"eargre","comName":"Eared Grebe","sciName":"Podiceps
+        nigricollis","locId":"L7999175","locName":"Nimisila Reservoir--Parking Lot
+        C1 and Boat Ramp","obsDt":"2024-03-07 17:32","howMany":1,"lat":40.9506612,"lng":-81.5262516,"obsValid":false,"obsReviewed":false,"locationPrivate":false,"subId":"S164030858"},{"speciesCode":"lbbgul","comName":"Lesser
+        Black-backed Gull","sciName":"Larus fuscus","locId":"L789247","locName":"Chippewa
+        Lake Park--Krabill Lodge","obsDt":"2024-03-07 16:45","howMany":1,"lat":41.0657629,"lng":-81.9162941,"obsValid":false,"obsReviewed":false,"locationPrivate":false,"subId":"S164035274"}]'
+  recorded_at: 2024-03-08 03:29:44 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
