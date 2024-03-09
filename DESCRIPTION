@@ -33,7 +33,8 @@ Suggests:
     rmarkdown,
     testthat,
     covr,
-    vcr (>= 0.6.0)
+    vcr (>= 0.6.0),
+    withr
 RoxygenNote: 7.3.1
 X-schema.org-applicationCategory: Data Access
 X-schema.org-keywords: birds, birding, ebird, database, data, biology, observations, sightings, ornithology
