@@ -1,0 +1,348 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/region/info/VA?regionNameFormat=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '168'
+      content-type: application/json;charset=utf-8
+      date: Sat, 09 Mar 2024 07:26:50 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '{"bounds":{"minX":12.445608,"maxX":12.458451,"minY":41.900112,"maxY":41.907551},"result":"Vatican
+        City (Holy See)","code":"VA","type":"country","longitude":12.4520295,"latitude":41.903831499999995}'
+  recorded_at: 2024-03-09 07:30:30 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/hotspot/VA?fmt=json
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '280'
+      content-type: application/json;charset=utf-8
+      date: Sat, 09 Mar 2024 07:26:50 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"locId":"L9447360","locName":"Cortile della Pigna","countryCode":"VA","subnational1Code":"VA-","lat":41.9058438,"lng":12.4545937,"latestObsDt":"2024-03-08
+        09:11","numSpeciesAllTime":28},{"locId":"L2281750","locName":"Gardens of Vatican
+        City","countryCode":"VA","subnational1Code":"VA-","lat":41.9035866,"lng":12.4501437,"latestObsDt":"2024-03-08
+        10:01","numSpeciesAllTime":40},{"locId":"L1107515","locName":"Piazza San Pietro","countryCode":"VA","subnational1Code":"VA-","lat":41.9022339,"lng":12.4564919,"latestObsDt":"2024-03-08
+        16:54","numSpeciesAllTime":41}]'
+  recorded_at: 2024-03-09 07:30:30 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/hotspot/geo?lat=37.7&lng=-123.01&fmt=json&dist=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '212'
+      content-type: application/json;charset=utf-8
+      date: Sat, 09 Mar 2024 07:26:51 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"locId":"L329116","locName":"Southeast Farallon Island (Farallon
+        Islands NWR, restricted access)","countryCode":"US","subnational1Code":"US-CA","subnational2Code":"US-CA-075","lat":37.69852,"lng":-123.002789,"latestObsDt":"2024-03-07
+        08:00","numSpeciesAllTime":435}]'
+  recorded_at: 2024-03-09 07:30:30 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/region/info/VA?regionNameFormat=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '168'
+      content-type: application/json;charset=utf-8
+      date: Sat, 09 Mar 2024 07:26:51 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '{"bounds":{"minX":12.445608,"maxX":12.458451,"minY":41.900112,"maxY":41.907551},"result":"Vatican
+        City (Holy See)","code":"VA","type":"country","longitude":12.4520295,"latitude":41.903831499999995}'
+  recorded_at: 2024-03-09 07:30:30 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/hotspot/VA?fmt=json&back=30
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '280'
+      content-type: application/json;charset=utf-8
+      date: Sat, 09 Mar 2024 07:26:51 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"locId":"L9447360","locName":"Cortile della Pigna","countryCode":"VA","subnational1Code":"VA-","lat":41.9058438,"lng":12.4545937,"latestObsDt":"2024-03-08
+        09:11","numSpeciesAllTime":28},{"locId":"L2281750","locName":"Gardens of Vatican
+        City","countryCode":"VA","subnational1Code":"VA-","lat":41.9035866,"lng":12.4501437,"latestObsDt":"2024-03-08
+        10:01","numSpeciesAllTime":40},{"locId":"L1107515","locName":"Piazza San Pietro","countryCode":"VA","subnational1Code":"VA-","lat":41.9022339,"lng":12.4564919,"latestObsDt":"2024-03-08
+        16:54","numSpeciesAllTime":41}]'
+  recorded_at: 2024-03-09 07:30:30 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/hotspot/geo?lat=0&lng=0&fmt=json&dist=500
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-length: '2'
+      content-type: application/json;charset=utf-8
+      date: Sat, 09 Mar 2024 07:26:51 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[]'
+  recorded_at: 2024-03-09 07:30:30 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/region/info/foobar?regionNameFormat=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 500
+      category: Server error
+      reason: Internal Server Error
+      message: 'Server error: (500) Internal Server Error'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '120'
+      content-type: application/json
+      date: Sat, 09 Mar 2024 07:26:52 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '{"errors":[{"status":"500","code":"http.status.500","title":"No message
+        found under code ''foobar'' for locale ''en_US''."}]}'
+  recorded_at: 2024-03-09 07:30:30 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/region/info/CA-NS-HA?regionNameFormat=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '139'
+      content-type: application/json;charset=utf-8
+      date: Sat, 09 Mar 2024 07:26:52 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '{"code":"CA-NS-HA","type":"subnational2","parent":{"result":"Nova Scotia,
+        Canada","code":"CA-NS","type":"subnational1","parent":{"result":"Canada","code":"CA","type":"country","longitude":0.0,"latitude":0.0},"longitude":0.0,"latitude":0.0},"longitude":0.0,"latitude":0.0}'
+  recorded_at: 2024-03-09 07:30:30 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/hotspot/geo?lat=51.5&lng=0&fmt=json&dist=-1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 400
+      category: Client error
+      reason: Bad Request
+      message: 'Client error: (400) Bad Request'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '150'
+      content-type: application/json
+      date: Sat, 09 Mar 2024 07:26:52 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '{"errors":[{"status":"400 BAD_REQUEST","code":"error.data.dist_out_of_range","title":"Field
+        dist of refHotspotCmd: Distance must be between 0 and 500"}]}'
+  recorded_at: 2024-03-09 07:30:30 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
