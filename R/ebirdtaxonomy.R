@@ -17,6 +17,8 @@
 #'    See \url{https://docs.oracle.com/javase/6/docs/api/java/util/Locale.html} and 
 #'    \url{https://support.ebird.org/en/support/solutions/articles/48000804865-bird-names-in-ebird} 
 #'    (defaults to en_US).
+#' @param species Character vector of eBird taxonomy species code(s). Limits query
+#'    results to only these taxa. Default is NULL, which does not limit taxa.
 #' @param key eBird API key. You can obtain one from https://ebird.org/api/keygen.
 #'    We strongly recommend storing it in your \code{.Renviron} file as an 
 #'    environment variable called \code{EBIRD_KEY} to avoid having to constantly 
@@ -46,14 +48,18 @@
 #'    Sebastian Pardo \email{sebpardo@@gmail.com}
 #' @references \url{http://ebird.org/}
 
-ebirdtaxonomy <- function(cat=NULL, locale=NULL, key = NULL, ...){
+ebirdtaxonomy <- function(cat=NULL, locale=NULL, species = NULL, key = NULL, ...){
   cats <- c("domestic", "form", "hybrid", "intergrade", "issf", "slash", "species", "spuh")
   
   if (!all(vapply(cat, function(x) x %in% cats, FUN.VALUE = logical(1)))) {
     stop("You have supplied an invalid species category")
   }
   cat <- if(!is.null(cat)) cat <- paste0(cat, collapse = ",")
-  args <- list(fmt='json', cat=cat, locale=locale)
+  if (!is.null(species) && (length(species) == 0 || any(is.na(species)))){
+    stop('Invalid species code(s)')
+  }
+  species <- if(!is.null(species)) species <- paste0(species, collapse = ",")
+  args <- list(fmt='json', cat=cat, locale=locale, species=species)
   
   # Allow not using a key for just this function, it's the only endpoint 
   # that allows it
