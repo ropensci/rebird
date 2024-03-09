@@ -1,0 +1,83 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/geo/recent/amegfi?speciesCode=amegfi&lat=42.45&lng=-76.5&dist=50&maxResults=2
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '322'
+      content-type: application/json;charset=utf-8
+      date: Sat, 09 Mar 2024 06:43:48 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"amegfi","comName":"American Goldfinch","sciName":"Spinus
+        tristis","locId":"L12963789","locName":"380 Snyder Hill Road Yard","obsDt":"2024-03-08
+        16:01","howMany":1,"lat":42.422177,"lng":-76.438978,"obsValid":true,"obsReviewed":false,"locationPrivate":true,"subId":"S164133162"},{"speciesCode":"amegfi","comName":"American
+        Goldfinch","sciName":"Spinus tristis","locId":"L22710256","locName":"Fall
+        Creek-West Campus loop","obsDt":"2024-03-08 15:31","howMany":7,"lat":42.446819,"lng":-76.495329,"obsValid":true,"obsReviewed":false,"locationPrivate":true,"subId":"S164139574"}]'
+  recorded_at: 2024-03-09 06:47:26 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/geo/recent?lat=42.45&lng=-76.5&back=30&maxResults=2&includeProvisional=true&hotspot=true
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '286'
+      content-type: application/json;charset=utf-8
+      date: Sat, 09 Mar 2024 06:43:48 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"haiwoo","comName":"Hairy Woodpecker","sciName":"Dryobates
+        villosus","locId":"L99398","locName":"Ithaca City Cemetery","obsDt":"2024-03-08
+        17:21","howMany":1,"lat":42.4447668,"lng":-76.4912709,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S164140884"},{"speciesCode":"blujay","comName":"Blue
+        Jay","sciName":"Cyanocitta cristata","locId":"L99398","locName":"Ithaca City
+        Cemetery","obsDt":"2024-03-08 17:21","howMany":1,"lat":42.4447668,"lng":-76.4912709,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S164140884"}]'
+  recorded_at: 2024-03-09 06:47:26 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
