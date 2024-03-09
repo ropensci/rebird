@@ -4,7 +4,7 @@
 \alias{ebirdtaxonomy}
 \title{eBird Taxonomy}
 \usage{
-ebirdtaxonomy(cat = NULL, locale = NULL, key = NULL, ...)
+ebirdtaxonomy(cat = NULL, locale = NULL, species = NULL, key = NULL, ...)
 }
 \arguments{
 \item{cat}{Species category. String or character vector with one of more of:
@@ -17,6 +17,9 @@ For more info about the meaning of species categories, see
 See \url{https://docs.oracle.com/javase/6/docs/api/java/util/Locale.html} and 
 \url{https://support.ebird.org/en/support/solutions/articles/48000804865-bird-names-in-ebird} 
 (defaults to en_US).}
+
+\item{species}{Character vector of eBird taxonomy species code(s). Limits query
+results to only these taxa. Default is NULL, which does not limit taxa.}
 
 \item{key}{eBird API key. You can obtain one from https://ebird.org/api/keygen.
 We strongly recommend storing it in your \code{.Renviron} file as an 
