@@ -1,0 +1,121 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/geo/recent/cangoo?lat=42.46&lng=-76.5&back=30&maxResults=2
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '333'
+      content-type: application/json;charset=utf-8
+      date: Thu, 14 Mar 2024 05:04:22 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"cangoo","comName":"Canada Goose","sciName":"Branta
+        canadensis","locId":"L109054","locName":"Goetchius Wetland Preserve (FLLT)--Flat
+        Iron","obsDt":"2024-03-13 19:07","howMany":5,"lat":42.3860243,"lng":-76.3019298,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S164745235"},{"speciesCode":"cangoo","comName":"Canada
+        Goose","sciName":"Branta canadensis","locId":"L693939","locName":"Mount Pleasant,
+        east hill","obsDt":"2024-03-13 18:24","howMany":1,"lat":42.4591964,"lng":-76.3726723,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S164738361"}]'
+  recorded_at: 2024-03-14 05:08:23 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/geo/recent/cangoo?lat=42.46&lng=-76.5&maxResults=2&includeProvisional=true&hotspot=true
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '333'
+      content-type: application/json;charset=utf-8
+      date: Thu, 14 Mar 2024 05:04:22 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"cangoo","comName":"Canada Goose","sciName":"Branta
+        canadensis","locId":"L109054","locName":"Goetchius Wetland Preserve (FLLT)--Flat
+        Iron","obsDt":"2024-03-13 19:07","howMany":5,"lat":42.3860243,"lng":-76.3019298,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S164745235"},{"speciesCode":"cangoo","comName":"Canada
+        Goose","sciName":"Branta canadensis","locId":"L693939","locName":"Mount Pleasant,
+        east hill","obsDt":"2024-03-13 18:24","howMany":1,"lat":42.4591964,"lng":-76.3726723,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S164738361"}]'
+  recorded_at: 2024-03-14 05:08:23 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/geo/recent/asf?lat=42&lng=-76
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 400
+      category: Client error
+      reason: Bad Request
+      message: 'Client error: (400) Bad Request'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '134'
+      content-type: application/json
+      date: Thu, 14 Mar 2024 05:04:22 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '{"errors":[{"status":"400 BAD_REQUEST","code":"error.data.unknown_species","title":"Field
+        sci of rawDataCmd: Unknown species: asf"}]}'
+  recorded_at: 2024-03-14 05:08:23 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
