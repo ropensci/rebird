@@ -22,6 +22,7 @@ vcr::use_cassette("ebirdchecklistfeed", {
     # Bad dates
     expect_error(ebirdchecklistfeed(loc = "L207391", date = "2121-03-25"))
     expect_error(ebirdchecklistfeed(loc = "L207391", date = "03-25-2020"))
+    expect_error(ebirdchecklistfeed(loc = "L207391", date = "1776-07-04"))
   })
   
 })

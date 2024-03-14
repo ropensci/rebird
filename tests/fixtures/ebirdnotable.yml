@@ -17,9 +17,9 @@ http_interactions:
     headers:
       cache-control: no-cache, no-store, max-age=0, must-revalidate
       content-encoding: gzip
-      content-length: '267'
+      content-length: '280'
       content-type: application/json;charset=utf-8
-      date: Fri, 08 Mar 2024 03:26:09 GMT
+      date: Thu, 14 Mar 2024 06:08:20 GMT
       expires: '0'
       pragma: no-cache
       server: Apache
@@ -33,12 +33,12 @@ http_interactions:
     body:
       encoding: ''
       file: no
-      string: '[{"speciesCode":"bohwax","comName":"Bohemian Waxwing","sciName":"Bombycilla
-        garrulus","locId":"L810505","locName":"Water Street Marsh, Yarmouth","obsDt":"2024-03-07
-        16:00","howMany":1,"lat":41.7107104,"lng":-70.2602398,"obsValid":false,"obsReviewed":false,"locationPrivate":false,"subId":"S164045625"},{"speciesCode":"bohwax","comName":"Bohemian
-        Waxwing","sciName":"Bombycilla garrulus","locId":"L810505","locName":"Water
-        Street Marsh, Yarmouth","obsDt":"2024-03-07 16:00","howMany":1,"lat":41.7107104,"lng":-70.2602398,"obsValid":false,"obsReviewed":false,"locationPrivate":false,"subId":"S164043514"}]'
-  recorded_at: 2024-03-08 03:29:44 GMT
+      string: '[{"speciesCode":"marwre","comName":"Marsh Wren","sciName":"Cistothorus
+        palustris","locId":"L5187014","locName":"Sandy Neck--Gate House","obsDt":"2024-03-13
+        16:30","howMany":1,"lat":41.735262,"lng":-70.3847694,"obsValid":false,"obsReviewed":false,"locationPrivate":false,"subId":"S164730275"},{"speciesCode":"greegr","comName":"Great
+        Egret","sciName":"Ardea alba","locId":"L5187014","locName":"Sandy Neck--Gate
+        House","obsDt":"2024-03-13 16:30","howMany":1,"lat":41.735262,"lng":-70.3847694,"obsValid":false,"obsReviewed":false,"locationPrivate":false,"subId":"S164730275"}]'
+  recorded_at: 2024-03-14 06:12:22 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
@@ -58,9 +58,9 @@ http_interactions:
     headers:
       cache-control: no-cache, no-store, max-age=0, must-revalidate
       content-encoding: gzip
-      content-length: '578'
+      content-length: '545'
       content-type: application/json;charset=utf-8
-      date: Fri, 08 Mar 2024 03:26:09 GMT
+      date: Thu, 14 Mar 2024 06:08:21 GMT
       expires: '0'
       pragma: no-cache
       server: Apache
@@ -74,14 +74,13 @@ http_interactions:
     body:
       encoding: ''
       file: no
-      string: '[{"speciesCode":"eargre","comName":"Eared Grebe","sciName":"Podiceps
-        nigricollis","locId":"L7999175","locName":"Nimisila Reservoir--Parking Lot
-        C1 and Boat Ramp","obsDt":"2024-03-07 17:32","howMany":1,"lat":40.9506612,"lng":-81.5262516,"obsValid":false,"obsReviewed":false,"locationPrivate":false,"subId":"S164030858","subnational2Code":"US-OH-153","subnational2Name":"Summit","subnational1Code":"US-OH","subnational1Name":"Ohio","countryCode":"US","countryName":"United
-        States","userDisplayName":"Hunter Hammil","obsId":"OBS1973514337","checklistId":"CL22255","presenceNoted":false,"hasComments":false,"firstName":"Hunter","lastName":"Hammil","hasRichMedia":false},{"speciesCode":"lbbgul","comName":"Lesser
-        Black-backed Gull","sciName":"Larus fuscus","locId":"L789247","locName":"Chippewa
-        Lake Park--Krabill Lodge","obsDt":"2024-03-07 16:45","howMany":1,"lat":41.0657629,"lng":-81.9162941,"obsValid":false,"obsReviewed":false,"locationPrivate":false,"subId":"S164035274","subnational2Code":"US-OH-103","subnational2Name":"Medina","subnational1Code":"US-OH","subnational1Name":"Ohio","countryCode":"US","countryName":"United
-        States","userDisplayName":"Henry  Trimpe","obsId":"OBS1973550890","checklistId":"CL25330","presenceNoted":false,"hasComments":false,"evidence":"P","firstName":"Henry","lastName":"Trimpe","hasRichMedia":true}]'
-  recorded_at: 2024-03-08 03:29:44 GMT
+      string: '[{"speciesCode":"greegr","comName":"Great Egret","sciName":"Ardea alba","locId":"L626153","locName":"Delaware
+        Wildlife Area--Panhandle Rd.","obsDt":"2024-03-13 19:15","howMany":1,"lat":40.3635499,"lng":-83.0482292,"obsValid":false,"obsReviewed":false,"locationPrivate":false,"subId":"S164745269","subnational2Code":"US-OH-041","subnational2Name":"Delaware","subnational1Code":"US-OH","subnational1Name":"Ohio","countryCode":"US","countryName":"United
+        States","userDisplayName":"Edward Hicks","obsId":"OBS1979509623","checklistId":"CL22484","presenceNoted":false,"hasComments":false,"firstName":"Edward","lastName":"Hicks","hasRichMedia":false},{"speciesCode":"pecsan","comName":"Pectoral
+        Sandpiper","sciName":"Calidris melanotos","locId":"L506135","locName":"Shreve
+        Fish Pond","obsDt":"2024-03-13 18:02","howMany":2,"lat":40.7253399,"lng":-81.9983482,"obsValid":true,"obsReviewed":true,"locationPrivate":false,"subId":"S164734165","subnational2Code":"US-OH-169","subnational2Name":"Wayne","subnational1Code":"US-OH","subnational1Name":"Ohio","countryCode":"US","countryName":"United
+        States","userDisplayName":"Ruby Mast","obsId":"OBS1979411785","checklistId":"CL22485","presenceNoted":false,"hasComments":false,"firstName":"Ruby","lastName":"Mast","hasRichMedia":false}]'
+  recorded_at: 2024-03-14 06:12:22 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
@@ -101,9 +100,9 @@ http_interactions:
     headers:
       cache-control: no-cache, no-store, max-age=0, must-revalidate
       content-encoding: gzip
-      content-length: '364'
+      content-length: '375'
       content-type: application/json;charset=utf-8
-      date: Fri, 08 Mar 2024 03:26:10 GMT
+      date: Thu, 14 Mar 2024 06:08:21 GMT
       expires: '0'
       pragma: no-cache
       server: Apache
@@ -117,12 +116,12 @@ http_interactions:
     body:
       encoding: ''
       file: no
-      string: '[{"speciesCode":"virrai2","comName":"Virginia Rail (Virginia)","sciName":"Rallus
-        limicola","locId":"L25205346","locName":"Hay Meadow marsh/Elm Brook & thickets,
-        Lincoln/Concord","obsDt":"2024-03-07 17:08","howMany":1,"lat":42.4600354,"lng":-71.3026765,"obsValid":true,"obsReviewed":true,"locationPrivate":true,"subId":"S164032414"},{"speciesCode":"retloo","comName":"Red-throated
-        Loon","sciName":"Gavia stellata","locId":"L753777","locName":"Mystic Lakes,
-        Medford","obsDt":"2024-03-07 16:52","howMany":1,"lat":42.4327062,"lng":-71.1490059,"obsValid":true,"obsReviewed":true,"locationPrivate":false,"subId":"S164031505"}]'
-  recorded_at: 2024-03-08 03:29:44 GMT
+      string: '[{"speciesCode":"brwhaw","comName":"Broad-winged Hawk","sciName":"Buteo
+        platypterus","locId":"L29842831","locName":"356 Log Cabin Rd, Arundel US-ME
+        (43.4225,-70.5098)","obsDt":"2024-03-13 20:35","howMany":1,"lat":43.422537,"lng":-70.509782,"obsValid":false,"obsReviewed":false,"locationPrivate":true,"subId":"S164747372"},{"speciesCode":"winwre3","comName":"Winter
+        Wren","sciName":"Troglodytes hiemalis","locId":"L23166129","locName":"195
+        Old Dublin Rd, Hancock US-NH 42.96869, -72.01912","obsDt":"2024-03-13 19:02","howMany":1,"lat":42.968687,"lng":-72.019119,"obsValid":false,"obsReviewed":false,"locationPrivate":true,"subId":"S164741090"}]'
+  recorded_at: 2024-03-14 06:12:22 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
@@ -142,9 +141,9 @@ http_interactions:
     headers:
       cache-control: no-cache, no-store, max-age=0, must-revalidate
       content-encoding: gzip
-      content-length: '364'
+      content-length: '342'
       content-type: application/json;charset=utf-8
-      date: Fri, 08 Mar 2024 03:26:10 GMT
+      date: Thu, 14 Mar 2024 06:08:21 GMT
       expires: '0'
       pragma: no-cache
       server: Apache
@@ -158,10 +157,50 @@ http_interactions:
     body:
       encoding: ''
       file: no
-      string: '[{"speciesCode":"eargre","comName":"Eared Grebe","sciName":"Podiceps
-        nigricollis","locId":"L7999175","locName":"Nimisila Reservoir--Parking Lot
-        C1 and Boat Ramp","obsDt":"2024-03-07 17:32","howMany":1,"lat":40.9506612,"lng":-81.5262516,"obsValid":false,"obsReviewed":false,"locationPrivate":false,"subId":"S164030858"},{"speciesCode":"lbbgul","comName":"Lesser
-        Black-backed Gull","sciName":"Larus fuscus","locId":"L789247","locName":"Chippewa
-        Lake Park--Krabill Lodge","obsDt":"2024-03-07 16:45","howMany":1,"lat":41.0657629,"lng":-81.9162941,"obsValid":false,"obsReviewed":false,"locationPrivate":false,"subId":"S164035274"}]'
-  recorded_at: 2024-03-08 03:29:44 GMT
+      string: '[{"speciesCode":"greegr","comName":"Great Egret","sciName":"Ardea alba","locId":"L626153","locName":"Delaware
+        Wildlife Area--Panhandle Rd.","obsDt":"2024-03-13 19:15","howMany":1,"lat":40.3635499,"lng":-83.0482292,"obsValid":false,"obsReviewed":false,"locationPrivate":false,"subId":"S164745269"},{"speciesCode":"comrav","comName":"Common
+        Raven","sciName":"Corvus corax","locId":"L15979485","locName":"Phoebe Hollow","obsDt":"2024-03-13
+        18:40","howMany":1,"lat":39.2518549,"lng":-82.2453525,"obsValid":true,"obsReviewed":true,"locationPrivate":true,"subId":"S164740850"}]'
+  recorded_at: 2024-03-14 06:12:22 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/geo/recent/notable?maxResults=2&lat=42&lng=-70
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '380'
+      content-type: application/json;charset=utf-8
+      date: Thu, 14 Mar 2024 06:08:22 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"brwhaw","comName":"Broad-winged Hawk","sciName":"Buteo
+        platypterus","locId":"L29842831","locName":"356 Log Cabin Rd, Arundel US-ME
+        (43.4225,-70.5098)","obsDt":"2024-03-13 20:35","howMany":1,"lat":43.422537,"lng":-70.509782,"obsValid":false,"obsReviewed":false,"locationPrivate":true,"subId":"S164747372"},{"speciesCode":"winwre3","comName":"Winter
+        Wren","sciName":"Troglodytes hiemalis","locId":"L23166129","locName":"195
+        Old Dublin Rd, Hancock US-NH 42.96869, -72.01912","obsDt":"2024-03-13 19:02","howMany":1,"lat":42.968687,"lng":-72.019119,"obsValid":false,"obsReviewed":false,"locationPrivate":true,"subId":"S164741090"}]'
+  recorded_at: 2024-03-14 06:12:22 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0

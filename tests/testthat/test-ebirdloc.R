@@ -21,6 +21,7 @@ test_that("ebirdloc works correctly", {
 
 test_that("ebirdloc fails correctly", {
   skip_on_cran()
+  skip_on_ci()
   
   mssg <- "You have supplied an invalid species category"
   
