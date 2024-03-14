@@ -1,0 +1,225 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/region/info/US?regionNameFormat=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '161'
+      content-type: application/json;charset=utf-8
+      date: Thu, 07 Mar 2024 06:23:02 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '{"bounds":{"minX":-179.150558,"maxX":179.773408,"minY":18.909858,"maxY":71.390685},"result":"United
+        States","code":"US","type":"country","longitude":0.31142499999999984,"latitude":45.1502715}'
+  recorded_at: 2024-03-07 06:26:33 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/hotspot/info/L99381?regionNameFormat=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '229'
+      content-type: application/json;charset=utf-8
+      date: Thu, 07 Mar 2024 06:23:02 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '{"locId":"L99381","name":"Stewart Park","latitude":42.460791,"longitude":-76.5068525,"countryCode":"US","countryName":"United
+        States","subnational1Name":"New York","subnational1Code":"US-NY","subnational2Code":"US-NY-109","subnational2Name":"Tompkins","isHotspot":true,"locName":"Stewart
+        Park","lat":42.460791,"lng":-76.5068525,"hierarchicalName":"Stewart Park,
+        Tompkins, New York, US","locID":"L99381"}'
+  recorded_at: 2024-03-07 06:26:33 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/region/info/foo?regionNameFormat=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 500
+      category: Server error
+      reason: Internal Server Error
+      message: 'Server error: (500) Internal Server Error'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '118'
+      content-type: application/json
+      date: Thu, 07 Mar 2024 06:23:03 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '{"errors":[{"status":"500","code":"http.status.500","title":"No message
+        found under code ''foo'' for locale ''en_US''."}]}'
+  recorded_at: 2024-03-07 06:26:33 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/region/info/CA-BC-ZZ?regionNameFormat=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '141'
+      content-type: application/json;charset=utf-8
+      date: Thu, 07 Mar 2024 06:23:03 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '{"code":"CA-BC-ZZ","type":"subnational2","parent":{"result":"British
+        Columbia, Canada","code":"CA-BC","type":"subnational1","parent":{"result":"Canada","code":"CA","type":"country","longitude":0.0,"latitude":0.0},"longitude":0.0,"latitude":0.0},"longitude":0.0,"latitude":0.0}'
+  recorded_at: 2024-03-07 06:26:33 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/region/info/US?regionNameFormat=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: foo
+  response:
+    status:
+      status_code: 403
+      category: Client error
+      reason: Forbidden
+      message: 'Client error: (403) Forbidden'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-length: '0'
+      date: Thu, 07 Mar 2024 06:23:03 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: ''
+  recorded_at: 2024-03-07 06:26:33 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/hotspot/info/L00000?regionNameFormat=full
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 410
+      category: Client error
+      reason: Gone
+      message: 'Client error: (410) Gone'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-length: '0'
+      date: Thu, 07 Mar 2024 06:23:03 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: ''
+  recorded_at: 2024-03-07 06:26:33 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0

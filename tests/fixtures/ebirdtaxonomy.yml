@@ -1,0 +1,120 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/taxonomy/ebird?fmt=json&cat=domestic&species=btbwar%2Cmallar2%2Cgragoo1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '297'
+      content-type: application/json;charset=utf-8
+      date: Sat, 09 Mar 2024 04:35:17 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"sciName":"Anser anser (Domestic type)","comName":"Graylag Goose
+        (Domestic type)","speciesCode":"gragoo1","category":"domestic","taxonOrder":266.0,"bandingCodes":[],"comNameCodes":["GRGO"],"sciNameCodes":["ANAN"],"order":"Anseriformes","familyCode":"anatid1","familyComName":"Ducks,
+        Geese, and Waterfowl","familySciName":"Anatidae","reportAs":"gragoo"},{"sciName":"Anas
+        platyrhynchos (Domestic type)","comName":"Mallard (Domestic type)","speciesCode":"mallar2","category":"domestic","taxonOrder":518.0,"bandingCodes":[],"comNameCodes":["MALL"],"sciNameCodes":["ANPL"],"order":"Anseriformes","familyCode":"anatid1","familyComName":"Ducks,
+        Geese, and Waterfowl","familySciName":"Anatidae","reportAs":"mallar3"}]'
+  recorded_at: 2024-03-09 04:38:56 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/taxonomy/ebird?fmt=json&cat=spuh%2Cslash&species=passer1%2Cbird1%2Camewoo%2Cy00335
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '312'
+      content-type: application/json;charset=utf-8
+      date: Sat, 09 Mar 2024 04:35:17 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"sciName":"Passerina amoena/cyanea","comName":"Lazuli/Indigo Bunting","speciesCode":"y00335","category":"slash","taxonOrder":34063.0,"bandingCodes":[],"comNameCodes":["LAZB","INBU","LABU"],"sciNameCodes":["PAAM","PACY"],"order":"Passeriformes","familyCode":"cardin1","familyComName":"Cardinals
+        and Allies","familySciName":"Cardinalidae"},{"sciName":"Passeriformes sp.","comName":"passerine
+        sp.","speciesCode":"passer1","category":"spuh","taxonOrder":35292.0,"bandingCodes":[],"comNameCodes":[],"sciNameCodes":[],"order":"Passeriformes"},{"sciName":"Aves
+        sp.","comName":"bird sp.","speciesCode":"bird1","category":"spuh","taxonOrder":35293.0,"bandingCodes":["UNBI"],"comNameCodes":[],"sciNameCodes":[]}]'
+  recorded_at: 2024-03-09 04:38:56 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/taxonomy/ebird?fmt=json&species=rewbla
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: ''
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '218'
+      content-type: application/json;charset=utf-8
+      date: Sat, 09 Mar 2024 04:35:18 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"sciName":"Agelaius phoeniceus","comName":"Red-winged Blackbird","speciesCode":"rewbla","category":"species","taxonOrder":33251.0,"bandingCodes":["RWBL"],"comNameCodes":[],"sciNameCodes":["AGPH"],"order":"Passeriformes","familyCode":"icteri1","familyComName":"Troupials
+        and Allies","familySciName":"Icteridae"}]'
+  recorded_at: 2024-03-09 04:38:56 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0

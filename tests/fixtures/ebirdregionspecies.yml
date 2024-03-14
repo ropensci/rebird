@@ -1,0 +1,112 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/product/spplist/HM
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '210'
+      content-type: application/json;charset=utf-8
+      date: Fri, 08 Mar 2024 06:49:47 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '["blfshe1","brnsku3","sopsku1","kelgul","antter1","kinpen1","genpen1","chipen2","macpen1","rocpen1","royalb2","wanalb1","antalb1","wanalb5","sooalb1","limalb1","yenalb3","gyhalb","bkbalb","wispet","gybstp1","bbspet1","angpet1","norgip1","souful1","antpet1","cappet","kerpet2","grwpet3","soppet1","whhpet1","motpet","blupet1","brbpri1","dovpri1","slbpri1","fulpri1","grapet","whcpet1","codpet1","sgdpet1","heisha1"]'
+  recorded_at: 2024-03-08 06:53:22 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/product/spplist/SH-SH
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '200'
+      content-type: application/json;charset=utf-8
+      date: Fri, 08 Mar 2024 06:49:48 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '["musduc","rinphe1","chukar","rocpig","zebdov","commoo3","purgal2","sthplo1","lotjae","fragul","whiter","brnnod","blknod","sooter1","arcter","whttro","rebtro","jacpen1","lcspet","barpet","souful1","cappet","bulpet","corshe","greshe","sooshe","refboo","brnboo","masboo","categr1","commyn","redfod1","javspa","comwax","yelcan1"]'
+  recorded_at: 2024-03-08 06:53:22 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/product/spplist/L2549512
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '211'
+      content-type: application/json;charset=utf-8
+      date: Fri, 08 Mar 2024 06:49:48 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '["pabduc1","x00458","brnsku3","kelgul","antter1","kinpen1","adepen1","genpen1","chipen2","macpen1","roypen1","rocpen1","royalb2","wanalb1","antalb1","sooalb1","limalb1","gyhalb","whcalb1","bkbalb","wispet","angpet1","norgip1","souful1","cappet","kerpet2","soppet1","whhpet1","motpet","dovpri1","slbpri1","whcpet1","sooshe","grecor","macsha1","eursta","sonthr1","eurbla","lesred1"]'
+  recorded_at: 2024-03-08 06:53:22 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0

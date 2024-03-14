@@ -1,0 +1,110 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/product/lists/L207391/2020/03/24?maxResults=200
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Wed, 17 Jan 2024 06:27:48 GMT
+      server: Apache
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-type: application/json;charset=utf-8
+      expires: '0'
+      pragma: no-cache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary: Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: '[{"locId":"L207391","subId":"S66174580","userDisplayName":"David Wood","numSpecies":10,"obsDt":"24
+        Mar 2020","obsTime":"14:47","isoObsDate":"2020-03-24 14:47","subID":"S66174580","loc":{"locId":"L207391","name":"Mount
+        Auburn Cemetery","latitude":42.371,"longitude":-71.146,"countryCode":"US","countryName":"United
+        States","subnational1Name":"Massachusetts","subnational1Code":"US-MA","subnational2Code":"US-MA-017","subnational2Name":"Middlesex","isHotspot":true,"locName":"Mount
+        Auburn Cemetery","lat":42.371,"lng":-71.146,"hierarchicalName":"Mount Auburn
+        Cemetery, Middlesex, Massachusetts, US","locID":"L207391"}},{"locId":"L207391","subId":"S66173590","userDisplayName":"Sofia
+        Prado-Irwin","numSpecies":15,"obsDt":"24 Mar 2020","obsTime":"14:31","isoObsDate":"2020-03-24
+        14:31","subID":"S66173590","loc":{"locId":"L207391","name":"Mount Auburn Cemetery","latitude":42.371,"longitude":-71.146,"countryCode":"US","countryName":"United
+        States","subnational1Name":"Massachusetts","subnational1Code":"US-MA","subnational2Code":"US-MA-017","subnational2Name":"Middlesex","isHotspot":true,"locName":"Mount
+        Auburn Cemetery","lat":42.371,"lng":-71.146,"hierarchicalName":"Mount Auburn
+        Cemetery, Middlesex, Massachusetts, US","locID":"L207391"}},{"locId":"L207391","subId":"S66194110","userDisplayName":"Jeffrey
+        Gantz","numSpecies":19,"obsDt":"24 Mar 2020","obsTime":"13:30","isoObsDate":"2020-03-24
+        13:30","subID":"S66194110","loc":{"locId":"L207391","name":"Mount Auburn Cemetery","latitude":42.371,"longitude":-71.146,"countryCode":"US","countryName":"United
+        States","subnational1Name":"Massachusetts","subnational1Code":"US-MA","subnational2Code":"US-MA-017","subnational2Name":"Middlesex","isHotspot":true,"locName":"Mount
+        Auburn Cemetery","lat":42.371,"lng":-71.146,"hierarchicalName":"Mount Auburn
+        Cemetery, Middlesex, Massachusetts, US","locID":"L207391"}},{"locId":"L207391","subId":"S66171158","userDisplayName":"Ann
+        Gurka","numSpecies":21,"obsDt":"24 Mar 2020","obsTime":"13:00","isoObsDate":"2020-03-24
+        13:00","subID":"S66171158","loc":{"locId":"L207391","name":"Mount Auburn Cemetery","latitude":42.371,"longitude":-71.146,"countryCode":"US","countryName":"United
+        States","subnational1Name":"Massachusetts","subnational1Code":"US-MA","subnational2Code":"US-MA-017","subnational2Name":"Middlesex","isHotspot":true,"locName":"Mount
+        Auburn Cemetery","lat":42.371,"lng":-71.146,"hierarchicalName":"Mount Auburn
+        Cemetery, Middlesex, Massachusetts, US","locID":"L207391"}},{"locId":"L207391","subId":"S71419937","userDisplayName":"Jacqui
+        Kluft","numSpecies":20,"obsDt":"24 Mar 2020","obsTime":"10:30","isoObsDate":"2020-03-24
+        10:30","subID":"S71419937","loc":{"locId":"L207391","name":"Mount Auburn Cemetery","latitude":42.371,"longitude":-71.146,"countryCode":"US","countryName":"United
+        States","subnational1Name":"Massachusetts","subnational1Code":"US-MA","subnational2Code":"US-MA-017","subnational2Name":"Middlesex","isHotspot":true,"locName":"Mount
+        Auburn Cemetery","lat":42.371,"lng":-71.146,"hierarchicalName":"Mount Auburn
+        Cemetery, Middlesex, Massachusetts, US","locID":"L207391"}},{"locId":"L207391","subId":"S70981564","userDisplayName":"Barbara
+        Olson","numSpecies":20,"obsDt":"24 Mar 2020","obsTime":"10:30","isoObsDate":"2020-03-24
+        10:30","subID":"S70981564","loc":{"locId":"L207391","name":"Mount Auburn Cemetery","latitude":42.371,"longitude":-71.146,"countryCode":"US","countryName":"United
+        States","subnational1Name":"Massachusetts","subnational1Code":"US-MA","subnational2Code":"US-MA-017","subnational2Name":"Middlesex","isHotspot":true,"locName":"Mount
+        Auburn Cemetery","lat":42.371,"lng":-71.146,"hierarchicalName":"Mount Auburn
+        Cemetery, Middlesex, Massachusetts, US","locID":"L207391"}},{"locId":"L207391","subId":"S66184472","userDisplayName":"Jason
+        Barcus","numSpecies":24,"obsDt":"24 Mar 2020","obsTime":"07:30","isoObsDate":"2020-03-24
+        07:30","subID":"S66184472","loc":{"locId":"L207391","name":"Mount Auburn Cemetery","latitude":42.371,"longitude":-71.146,"countryCode":"US","countryName":"United
+        States","subnational1Name":"Massachusetts","subnational1Code":"US-MA","subnational2Code":"US-MA-017","subnational2Name":"Middlesex","isHotspot":true,"locName":"Mount
+        Auburn Cemetery","lat":42.371,"lng":-71.146,"hierarchicalName":"Mount Auburn
+        Cemetery, Middlesex, Massachusetts, US","locID":"L207391"}}]'
+  recorded_at: 2024-01-17 06:27:49 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/product/lists/LL207391/2020/03/25?maxResults=10
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 400
+      category: Client error
+      reason: Bad Request
+      message: 'Client error: (400) Bad Request'
+    headers:
+      date: Wed, 17 Jan 2024 06:27:49 GMT
+      server: Apache
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-type: application/json
+      expires: '0'
+      pragma: no-cache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary: Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+      content-encoding: gzip
+      content-length: '211'
+      connection: close
+    body:
+      encoding: ''
+      file: no
+      string: '{"errors":[{"status":"400 BAD_REQUEST","code":"methodInvocation","title":"Field
+        regionCode of recListsCmd: Property regionCode threw exception; nested exception
+        is java.lang.IllegalArgumentException: Unable to find matching region type
+        for LL207391"}]}'
+  recorded_at: 2024-01-17 06:27:49 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0

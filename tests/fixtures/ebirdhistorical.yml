@@ -1,0 +1,372 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/US-VA-003/historic/2017/03/19?rank=mrec&maxResults=2&detail=simple&includeProvisional=FALSE
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '284'
+      content-type: application/json;charset=utf-8
+      date: Thu, 14 Mar 2024 05:51:20 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"cangoo","comName":"Canada Goose","sciName":"Branta
+        canadensis","locId":"L4032849","locName":"Bridlepath Yard","obsDt":"2017-03-19
+        19:35","howMany":2,"lat":38.1244313,"lng":-78.4816356,"obsValid":true,"obsReviewed":false,"locationPrivate":true,"subId":"S35291486"},{"speciesCode":"amewoo","comName":"American
+        Woodcock","sciName":"Scolopax minor","locId":"L4032849","locName":"Bridlepath
+        Yard","obsDt":"2017-03-19 19:35","howMany":2,"lat":38.1244313,"lng":-78.4816356,"obsValid":true,"obsReviewed":false,"locationPrivate":true,"subId":"S35291486"}]'
+  recorded_at: 2024-03-14 05:55:23 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/US-VA-003/historic/2017/03/19?rank=mrec&maxResults=2&detail=simple&includeProvisional=FALSE
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '279'
+      content-type: application/json;charset=utf-8
+      date: Thu, 14 Mar 2024 05:51:20 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"cangoo","comName":"Canada Goose","sciName":"Branta
+        canadensis","locId":"L4032849","locName":"Bridlepath Yard","obsDt":"2017-03-19
+        19:35","howMany":2,"lat":38.1244313,"lng":-78.4816356,"obsValid":true,"obsReviewed":false,"locationPrivate":true,"subId":"S35291486"},{"speciesCode":"amewoo","comName":"American
+        Woodcock","sciName":"Scolopax minor","locId":"L4032849","locName":"Bridlepath
+        Yard","obsDt":"2017-03-19 19:35","howMany":2,"lat":38.1244313,"lng":-78.4816356,"obsValid":true,"obsReviewed":false,"locationPrivate":true,"subId":"S35291486"}]'
+  recorded_at: 2024-03-14 05:55:23 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/US-VA-003/historic/2017/03/19?rank=create&maxResults=2&detail=simple&includeProvisional=FALSE
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '312'
+      content-type: application/json;charset=utf-8
+      date: Thu, 14 Mar 2024 05:51:21 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"nrwswa","comName":"Northern Rough-winged Swallow","sciName":"Stelgidopteryx
+        serripennis","locId":"L5534201","locName":"Olympia Drive Ponds","obsDt":"2017-03-19
+        19:00","howMany":1,"lat":38.0339209,"lng":-78.4413689,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S35290626"},{"speciesCode":"yerwar","comName":"Yellow-rumped
+        Warbler","sciName":"Setophaga coronata","locId":"L5534201","locName":"Olympia
+        Drive Ponds","obsDt":"2017-03-19 19:00","howMany":2,"lat":38.0339209,"lng":-78.4413689,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S35290626"}]'
+  recorded_at: 2024-03-14 05:55:23 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/US-VA-003/historic/2017/03/19?rank=mrec&maxResults=2&detail=simple&includeProvisional=FALSE
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '284'
+      content-type: application/json;charset=utf-8
+      date: Thu, 14 Mar 2024 05:51:21 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"cangoo","comName":"Canada Goose","sciName":"Branta
+        canadensis","locId":"L4032849","locName":"Bridlepath Yard","obsDt":"2017-03-19
+        19:35","howMany":2,"lat":38.1244313,"lng":-78.4816356,"obsValid":true,"obsReviewed":false,"locationPrivate":true,"subId":"S35291486"},{"speciesCode":"amewoo","comName":"American
+        Woodcock","sciName":"Scolopax minor","locId":"L4032849","locName":"Bridlepath
+        Yard","obsDt":"2017-03-19 19:35","howMany":2,"lat":38.1244313,"lng":-78.4816356,"obsValid":true,"obsReviewed":false,"locationPrivate":true,"subId":"S35291486"}]'
+  recorded_at: 2024-03-14 05:55:23 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/US-VA/historic/2017/03/19?rank=mrec&maxResults=10000&detail=simple&includeProvisional=FALSE&cat=hybrid
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '385'
+      content-type: application/json;charset=utf-8
+      date: Thu, 14 Mar 2024 05:51:21 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"x00004","comName":"Mallard x American Black Duck (hybrid)","sciName":"Anas
+        platyrhynchos x rubripes","locId":"L791425","locName":"Chincoteague NWR--Entrance/Beach
+        Access Road","obsDt":"2017-03-19 14:20","howMany":1,"lat":37.91462,"lng":-75.3496577,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S35318653"},{"speciesCode":"x00420","comName":"Gadwall
+        x Mallard (hybrid)","sciName":"Mareca strepera x Anas platyrhynchos","locId":"L159299","locName":"Dick
+        Cross WMA","obsDt":"2017-03-19 07:13","howMany":1,"lat":36.6121,"lng":-78.2932,"obsValid":true,"obsReviewed":true,"locationPrivate":false,"subId":"S35275782"}]'
+  recorded_at: 2024-03-14 05:55:23 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/US-VA-003/historic/2017/03/19?rank=mrec&maxResults=2&detail=simple&includeProvisional=FALSE
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '284'
+      content-type: application/json;charset=utf-8
+      date: Thu, 14 Mar 2024 05:51:21 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"cangoo","comName":"Canada Goose","sciName":"Branta
+        canadensis","locId":"L4032849","locName":"Bridlepath Yard","obsDt":"2017-03-19
+        19:35","howMany":2,"lat":38.1244313,"lng":-78.4816356,"obsValid":true,"obsReviewed":false,"locationPrivate":true,"subId":"S35291486"},{"speciesCode":"amewoo","comName":"American
+        Woodcock","sciName":"Scolopax minor","locId":"L4032849","locName":"Bridlepath
+        Yard","obsDt":"2017-03-19 19:35","howMany":2,"lat":38.1244313,"lng":-78.4816356,"obsValid":true,"obsReviewed":false,"locationPrivate":true,"subId":"S35291486"}]'
+  recorded_at: 2024-03-14 05:55:23 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/US-VA-003/historic/2017/03/19?rank=mrec&maxResults=2&detail=simple&includeProvisional=FALSE
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '284'
+      content-type: application/json;charset=utf-8
+      date: Thu, 14 Mar 2024 05:51:22 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"cangoo","comName":"Canada Goose","sciName":"Branta
+        canadensis","locId":"L4032849","locName":"Bridlepath Yard","obsDt":"2017-03-19
+        19:35","howMany":2,"lat":38.1244313,"lng":-78.4816356,"obsValid":true,"obsReviewed":false,"locationPrivate":true,"subId":"S35291486"},{"speciesCode":"amewoo","comName":"American
+        Woodcock","sciName":"Scolopax minor","locId":"L4032849","locName":"Bridlepath
+        Yard","obsDt":"2017-03-19 19:35","howMany":2,"lat":38.1244313,"lng":-78.4816356,"obsValid":true,"obsReviewed":false,"locationPrivate":true,"subId":"S35291486"}]'
+  recorded_at: 2024-03-14 05:55:23 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/US-VA-003/historic/2017/03/19?rank=mrec&maxResults=2&detail=full&includeProvisional=FALSE
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '441'
+      content-type: application/json;charset=utf-8
+      date: Thu, 14 Mar 2024 05:51:22 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"cangoo","comName":"Canada Goose","sciName":"Branta
+        canadensis","locId":"L4032849","locName":"Bridlepath Yard","obsDt":"2017-03-19
+        19:35","howMany":2,"lat":38.1244313,"lng":-78.4816356,"obsValid":true,"obsReviewed":false,"locationPrivate":true,"subId":"S35291486","subnational2Code":"US-VA-003","subnational2Name":"Albemarle","subnational1Code":"US-VA","subnational1Name":"Virginia","countryCode":"US","countryName":"United
+        States","userDisplayName":"Guy Babineau","obsId":"OBS476835910","checklistId":"CL28427","presenceNoted":false,"hasComments":false,"firstName":"Guy","lastName":"Babineau","hasRichMedia":false},{"speciesCode":"amewoo","comName":"American
+        Woodcock","sciName":"Scolopax minor","locId":"L4032849","locName":"Bridlepath
+        Yard","obsDt":"2017-03-19 19:35","howMany":2,"lat":38.1244313,"lng":-78.4816356,"obsValid":true,"obsReviewed":false,"locationPrivate":true,"subId":"S35291486","subnational2Code":"US-VA-003","subnational2Name":"Albemarle","subnational1Code":"US-VA","subnational1Name":"Virginia","countryCode":"US","countryName":"United
+        States","userDisplayName":"Guy Babineau","obsId":"OBS476835909","checklistId":"CL28427","presenceNoted":false,"hasComments":false,"firstName":"Guy","lastName":"Babineau","hasRichMedia":false}]'
+  recorded_at: 2024-03-14 05:55:23 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/data/obs/US-VA-003/historic/2017/03/19?rank=mrec&maxResults=2&detail=simple&includeProvisional=FALSE&hotspot=true
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-length: '283'
+      content-type: application/json;charset=utf-8
+      date: Thu, 14 Mar 2024 05:51:22 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding,Origin,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: ''
+      file: no
+      string: '[{"speciesCode":"cangoo","comName":"Canada Goose","sciName":"Branta
+        canadensis","locId":"L5534201","locName":"Olympia Drive Ponds","obsDt":"2017-03-19
+        19:00","howMany":16,"lat":38.0339209,"lng":-78.4413689,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S35290626"},{"speciesCode":"mallar3","comName":"Mallard","sciName":"Anas
+        platyrhynchos","locId":"L5534201","locName":"Olympia Drive Ponds","obsDt":"2017-03-19
+        19:00","howMany":3,"lat":38.0339209,"lng":-78.4413689,"obsValid":true,"obsReviewed":false,"locationPrivate":false,"subId":"S35290626"}]'
+  recorded_at: 2024-03-14 05:55:23 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0

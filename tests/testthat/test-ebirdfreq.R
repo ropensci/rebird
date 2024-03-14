@@ -1,7 +1,4 @@
-context("ebirdfreq")
-
 test_that("ebirdfreq works correctly", {
-  skip_on_cran()
   expect_error(ebirdfreq("counties", "CA-BC-GV"), "This function has been made temporarily defunct") 
   
   # # Temporary commenting of tests while function is made defunct
@@ -20,8 +17,8 @@ test_that("ebirdfreq works correctly", {
 })
 
 test_that("ebirdfreq fails correctly", {
-  skip_on_cran()
-  
+  expect_error(ebirdfreq(startmonth = 0L), 'Invalid month')
+  expect_error(ebirdfreq(startyear = 1899L), 'Invalid year')
   expect_error(ebirdfreq())
   expect_error(ebirdfreq("foo"))
   expect_error(ebirdfreq("hotspots", "foo123"), "Invalid hotspot code")

@@ -105,7 +105,7 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
     the frequency data for the desired location and date. See
     https://github.com/ropensci/rebird/issues/82 for more information."
   )
-  
+  # nocov start
   ret <- GET(url, query = args, ...)
   stop_for_status(ret)
   asChar <- readBin(ret$content, "character")
@@ -129,5 +129,5 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
     ss$monthQt <- rownames(ss)
     freq_long <- left_join(freq_long, ss, by = "monthQt")
     tbl_df(freq_long)
-  }
+  } # nocov end
 }

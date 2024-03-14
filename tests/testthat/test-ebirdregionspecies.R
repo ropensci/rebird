@@ -1,31 +1,24 @@
-context("ebirdregionspecies")
+vcr::use_cassette("ebirdregionspecies", {
+  test_that("ebirdregionspecies works correctly", {
+    country <- ebirdregionspecies("HM")
+    subnat1 <- ebirdregionspecies("SH-SH")
+    hotspot <- ebirdregionspecies("L2549512")
 
-test_that("ebirdregionspecies works correctly", {
-  skip_on_cran()
-  skip_on_ci()
+    expect_is(country, "data.frame")
+    expect_gt(NROW(country), 30)
+    expect_equal(NCOL(country), 1)
+    expect_is(country$speciesCode, "character")
 
-  eng <- ebirdregionspecies("GB-ENG")
-  lon <- ebirdregionspecies("GB-ENG-LND")
-  hotspot <- ebirdregionspecies("L5803024")
+    expect_is(subnat1, "data.frame")
+    expect_gt(NROW(subnat1), 30)
 
-  expect_is(eng, "data.frame")
-  expect_gt(NROW(eng), 500)
-  expect_equal(NCOL(eng), 1)
-  expect_is(eng$speciesCode, "character")
+    expect_is(hotspot, "data.frame")
+    expect_gt(NROW(hotspot), 20)
+  })
 
-  expect_is(lon, "data.frame")
-  expect_gt(NROW(lon), 300)
-  expect_gt(NROW(eng), NROW(lon))
-
-  expect_is(hotspot, "data.frame")
-  expect_gt(NROW(hotspot), 100)
-  expect_gt(NROW(lon), NROW(hotspot))
-})
-
-test_that("ebirdregionspecies fails correctly", {
-  skip_on_cran()
-
-  expect_error(suppressWarnings(ebirdregionspecies()))
-  expect_error(suppressWarnings(ebirdregionspecies("")))
-  expect_error(suppressWarnings(ebirdregionspecies(c("GB", "FR"))))
+  test_that("ebirdregionspecies fails correctly", {
+    expect_error(ebirdregionspecies(), 'is missing')
+    expect_error(ebirdregionspecies(""), 'No location')
+    expect_error(ebirdregionspecies(letters), 'More than one')
+  })
 })
