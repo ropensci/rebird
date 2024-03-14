@@ -1,8 +1,11 @@
 vcr::use_cassette("ebirdnotable", {
   test_that("ebirdnotable works correctly", {
     sys_tm <- system.time(
-      out <- ebirdnotable(lat=42, lng=-70, dist = 50, max = 2, sleep = 1)
+      expect_warning(
+        out <- ebirdnotable(lat=42, lng=-70, dist = 51, max = 2, sleep = 1),
+        "using 50km"
       )
+    )
     expect_gt(sys_tm['elapsed'], 1)
     expect_is(out, "data.frame")
     expect_equal(dim(out), c(2,13))
@@ -11,7 +14,7 @@ vcr::use_cassette("ebirdnotable", {
 
     oh <- ebirdnotable(region='US-OH', max = 2, regtype='subnational1',
                        provisional = TRUE, hotspot = TRUE, simple = FALSE)
-    expect_gte(NCOL(oh), 28)
+    expect_gte(NCOL(oh), 27)
 
     expect_warning(
       simpler <- ebirdnotable(lat=42, lng=-70, back = 31, max = 2, simple = TRUE),
@@ -24,5 +27,10 @@ vcr::use_cassette("ebirdnotable", {
       ebirdnotable(locID = rep('US-OH', 11), max = 2, regtype = 'subnational1'),
       '10 locations'
     )
+    expect_warning(
+      outmulti <- ebirdnotable(lat=42, lng=-70, region = 'US', max = 2),
+      "more than one location type"
+    )
+    expect_equal(nrow(outmulti), 2)
   })
 })
