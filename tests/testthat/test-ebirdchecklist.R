@@ -27,5 +27,7 @@ test_that("ebirdchecklist errors for bad input", {
 
   invalid_checklist_id <- "invalid_id"
 
-  expect_error(ebirdchecklist(invalid_checklist_id))
+  # Expect an error and check if the error message matches the expected pattern
+  expect_error(ebirdchecklist(invalid_checklist_id),
+               "Checklist ID is invalid")
 })

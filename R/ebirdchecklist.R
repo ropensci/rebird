@@ -20,17 +20,23 @@ ebirdchecklist <- function(subId, sleep = 0, key = NULL, ...) {
 
   url <- paste0(ebase(), "product/checklist/view/", subId)
 
-  args <- list()
-
   Sys.sleep(sleep)
 
-  tt <- GET(URLencode(url),
-            query = ebird_compact(args),
-            add_headers("X-eBirdApiToken" = get_key(key)), # removed config = add_headers(...
-            # to allow config = to be specified in ...
+  response <- GET(URLencode(url),
+            query = ebird_compact(list()),
+            add_headers("X-eBirdApiToken" = get_key(key)),
             ...)
 
-  content(tt, as = "text", encoding = "UTF-8") |>
-    fromJSON() |>
-    bind_rows()
+  content_text <- content(response, as = "text", encoding = "UTF-8")
+  content_json <- fromJSON(content_text, flatten = FALSE)
+
+  # Check if the response contains an error message
+  if ("error" %in% names(content_json) || "errors" %in% names(content_json)) {
+    error_message <- ifelse("error" %in% names(content_json),
+                            paste("Error detected:", content_json$error$status, content_json$error$title),
+                            paste("Errors detected:", content_json$errors$status, content_json$errors$title))
+    stop("Checklist ID is invalid")
+  }
+
+  bind_rows(content_json)
 }
