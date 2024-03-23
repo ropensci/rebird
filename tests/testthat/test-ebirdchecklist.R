@@ -1,27 +1,22 @@
-context("ebirdchecklist")
-
 test_that("ebirdchecklist succeeds reproducibly", {
-  skip_on_cran()
-  skip_on_ci()
 
-  # You will need a valid eBird API key for testing
-  valid_checklist_id <- "S160276772"
+  expect_no_error(out1 <- ebirdchecklist("S117450946"))
 
-  out1 <- ebirdchecklist(valid_checklist_id)
+  # check all list-columns removed during preprocessing
+  expect_false(any(vapply(out1, is.list, logical(1))))
 
+  # Works with breeding code
+  expect_true('ON' %in% out1$auxCode)
 
   expect_is(out1, "data.frame")
-  expect_true(nrow(out1) > 0)
+  expect_true(nrow(out1) == 6)
   expect_true(ncol(out1) > 0)
   expect_true("checklistId" %in% names(out1))
+  expect_equal(out1$checklistId[1], "CL24321")
 
-  # Check if the first row's checklistId is "CL28273"
-  expect_equal(out1$checklistId[1], "CL28273")
 })
 
 test_that("ebirdchecklist errors for bad input", {
-  skip_on_cran()
-  skip_on_ci()
 
   invalid_checklist_id <- "invalid_id"
 
