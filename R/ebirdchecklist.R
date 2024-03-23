@@ -31,11 +31,13 @@ ebirdchecklist <- function(subId, sleep = 0, key = NULL, ...) {
   content_json <- fromJSON(content_text, flatten = FALSE)
 
   # Check if the response contains an error message
-  if ("error" %in% names(content_json) || "errors" %in% names(content_json)) {
-    error_message <- ifelse("error" %in% names(content_json),
-                            paste("Error detected:", content_json$error$status, content_json$error$title),
-                            paste("Errors detected:", content_json$errors$status, content_json$errors$title))
-    stop("Checklist ID is invalid")
+  if (any(grepl('^error', names(content_json)))){
+    err_msg <- 'Unknown error'
+    err_msg <- try(content_json$errors$status, silent = TRUE)
+    if (grepl('subId is invalid', content_json$errors$title)){
+      err_msg <- 'subId is invalid'
+      }
+    stop(err_msg)
   }
 
   bind_rows(content_json)
