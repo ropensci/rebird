@@ -4,7 +4,7 @@
 \alias{ebirdchecklist}
 \title{View Checklist}
 \usage{
-ebirdchecklist(subId, sleep = 0, key = NULL, ...)
+ebirdchecklist(subId, sleep = 0, key = NULL, other = FALSE, ...)
 }
 \arguments{
 \item{subId}{The checklist identifier}
@@ -13,14 +13,61 @@ ebirdchecklist(subId, sleep = 0, key = NULL, ...)
 zero. Set to higher number if you are using this function in a loop with
 many API calls).}
 
-\item{key}{eBird API key. You can obtain one from https://ebird.org/api/keygen.
-We strongly recommend storing it in your \code{.Renviron} file as an
-environment variable called \code{EBIRD_KEY}.}
+\item{key}{eBird API key. You can obtain one from
+https://ebird.org/api/keygen. We strongly recommend storing it in your
+\code{.Renviron} file as an environment variable called \code{EBIRD_KEY}.}
+
+\item{other}{FALSE (default) or TRUE. Whether to return some
+optional/deprecated/unsupported columns. Currently these are all columns in
+subAux, projId, howManyAt*, hideFlags, present, and submissionMethod*.}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
-A data.frame containing:
+A 'tibble' 'data.frame' containing checklist information:
+
+"subId": submission ID
+
+"protocolId": eBird protocol ID
+
+"locId": location ID
+
+"durationHrs": checklist duration, in hours
+
+"allObsReported": whether all observations were reported, i.e.,
+  whether it was a 'complete' checklist
+
+"subComments": checklist comments
+
+"creationDt": checklist creation date
+
+"lastEditedDt": checklist last edited date
+
+"obsDt": checklist date-time
+
+"obsTimeValid": whether checklist date-time is valid
+
+"checklistId" checklist ID
+
+"numObservers" number of observers on checklist
+
+"subnational1Code" country code and subnational1 code
+
+"userDisplayName" eBird user display name
+
+"numSpecies" number of species reported on checklist
+
+"speciesCode" species codes reported on checklist
+
+"obsId" observation IDs for each taxon on checklist
+
+"howManyStr" number of individuals reported for each taxon
+
+"exoticCategory" exotic species categories for each taxon
+
+"obsComments" observation comments for each taxon
+
+"auxCode" breding code for each taxon
 }
 \description{
 View Checklist

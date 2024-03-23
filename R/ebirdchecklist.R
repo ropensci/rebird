@@ -2,14 +2,40 @@
 #'
 #' @param subId The checklist identifier
 #' @param sleep Time (in seconds) before function sends API call (defaults to
-#'    zero. Set to higher number if you are using this function in a loop with
-#'    many API calls).
-#' @param key eBird API key. You can obtain one from https://ebird.org/api/keygen.
-#'    We strongly recommend storing it in your \code{.Renviron} file as an
-#'    environment variable called \code{EBIRD_KEY}.
+#'   zero. Set to higher number if you are using this function in a loop with
+#'   many API calls).
+#' @param key eBird API key. You can obtain one from
+#'   https://ebird.org/api/keygen. We strongly recommend storing it in your
+#'   \code{.Renviron} file as an environment variable called \code{EBIRD_KEY}.
+#' @param other FALSE (default) or TRUE. Whether to return some
+#'   optional/deprecated/unsupported columns. Currently these are all columns in
+#'   subAux, projId, howManyAt*, hideFlags, present, and submissionMethod*.
 #' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #'
-#' @return A data.frame containing:
+#' @return A 'tibble' 'data.frame' containing checklist information:
+#' @return "subId": submission ID
+#' @return "protocolId": eBird protocol ID
+#' @return "locId": location ID
+#' @return "durationHrs": checklist duration, in hours
+#' @return "allObsReported": whether all observations were reported, i.e.,
+#'   whether it was a 'complete' checklist
+#' @return "subComments": checklist comments
+#' @return "creationDt": checklist creation date
+#' @return "lastEditedDt": checklist last edited date
+#' @return "obsDt": checklist date-time
+#' @return "obsTimeValid": whether checklist date-time is valid
+#' @return "checklistId" checklist ID
+#' @return "numObservers" number of observers on checklist
+#' @return "subnational1Code" country code and subnational1 code
+#' @return "userDisplayName" eBird user display name
+#' @return "numSpecies" number of species reported on checklist
+#' @return "speciesCode" species codes reported on checklist
+#' @return "obsId" observation IDs for each taxon on checklist
+#' @return "howManyStr" number of individuals reported for each taxon
+#' @return "exoticCategory" exotic species categories for each taxon
+#' @return "obsComments" observation comments for each taxon
+#' @return "auxCode" breding code for each taxon
+
 #' @export
 #'
 #' @examples \dontrun{
