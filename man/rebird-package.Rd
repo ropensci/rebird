@@ -32,7 +32,7 @@ Other contributors:
   \item Guy Babineau \email{guy.babineau@gmail.com} [contributor]
   \item Marianna Foos \email{marianna.foos@gmail.com} [contributor]
   \item David Bradnum \email{david.bradnum@gmail.com} [contributor]
-  \item Dave Slager [contributor]
+  \item Dave Slager (\href{https://orcid.org/0000-0003-2525-2039}{ORCID}) [contributor]
 }
 
 }

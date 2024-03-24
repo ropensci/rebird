@@ -53,9 +53,7 @@ library("rebird")
 ```
 
 The [eBird API server](https://documenter.getpostman.com/view/664302/S1ENwy59?version=latest)
-has been updated and thus there are a couple major changes in the way `rebird` works.
-API requests to eBird now require users to provide an API key, which is linked to your 
-eBird user account. 
+requires users to provide an API key, which is linked to your eBird user account. 
 You can pass it to the 'key' argument in `rebird` functions, but we highly recommend
 storing it as an environment variable called EBIRD_KEY in your .Renviron file.
 If you don't have a key, you can obtain one from <https://ebird.org/api/keygen>.
@@ -205,6 +203,14 @@ Obtain a list of checklists submitted on a given date at a region or hotspot
 ebirdchecklistfeed(loc = "L207391", date = "2020-03-24", max = 5)
 ```
 
+## View Checklist
+
+Obtain all information on a specific checklist
+
+```{r ebirdchecklist}
+ebirdchecklist("S139153079")
+```
+
 ## Hotspots in a region or nearby coordinates
 
 Obtain a list of hotspots within a region
@@ -251,7 +257,7 @@ The 2.0 APIs have considerably been expanded from the previous version, and `reb
 - [x] Checklist feed on a date: `ebirdchecklistfeed()`
 - [ ] Regional statistics on a date
 - [x] Species list for a region: `ebirdregionspecies()`
-- [ ] View Checklist BETA
+- [x] View Checklist: `ebirdchecklist()`
 
 ### ref/geo
  - [ ]    Adjacent Regions
