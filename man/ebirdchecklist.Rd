@@ -67,6 +67,12 @@ A 'tibble' 'data.frame' containing checklist information:
 
 "obsComments" observation comments for each taxon
 
+"photoCounts" number of photos for each taxon
+
+"audioCounts" number of audio files for each taxon
+
+"videoCounts" number of video files for each taxon
+
 "auxCode" breding code for each taxon
 }
 \description{

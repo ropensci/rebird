@@ -18,7 +18,7 @@ http_interactions:
       cache-control: no-cache, no-store, max-age=0, must-revalidate
       content-encoding: gzip
       content-type: application/json;charset=utf-8
-      date: Sat, 23 Mar 2024 05:57:03 GMT
+      date: Sun, 24 Mar 2024 02:48:14 GMT
       expires: '0'
       pragma: no-cache
       server: Apache
@@ -41,7 +41,46 @@ http_interactions:
         06:55","subnational1Code":"US-WA","howManyAtleast":2,"howManyAtmost":2,"present":false,"subId":"S117450946","projId":"EBIRD","obsId":"OBS1503894278","howManyStr":"2"},{"speciesCode":"houspa","hideFlags":[],"exoticCategory":"N","obsDt":"2022-05-30
         06:55","subnational1Code":"US-WA","howManyAtleast":1,"howManyAtmost":1,"comments":"ON","present":false,"subId":"S117450946","projId":"EBIRD","obsId":"OBS1503894274","howManyStr":"1","obsAux":[{"subId":"S117450946","fieldName":"breeding_code","entryMethodCode":"ebird_breeding_code","auxCode":"ON","obsId":"OBS1503894274","speciesCode":"houspa","value":"ON"}]},{"speciesCode":"pswspa1","hideFlags":[],"obsDt":"2022-05-30
         06:55","subnational1Code":"US-WA","howManyAtleast":1,"howManyAtmost":1,"present":false,"subId":"S117450946","projId":"EBIRD","obsId":"OBS1503894276","howManyStr":"1"}]}'
-  recorded_at: 2024-03-23 06:01:43 GMT
+  recorded_at: 2024-03-24 02:52:56 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/product/checklist/view/S89475689
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-type: application/json;charset=utf-8
+      date: Sun, 24 Mar 2024 02:48:14 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary: Origin,Accept-Encoding,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+      content-length: '484'
+    body:
+      encoding: ''
+      file: no
+      string: '{"projId":"EBIRD","subId":"S89475689","protocolId":"P20","locId":"L15211376","groupId":"G6835020","allObsReported":false,"creationDt":"2021-06-02
+        10:01","lastEditedDt":"2023-01-19 09:41","obsDt":"2021-05-30 02:51","obsTimeValid":true,"checklistId":"CL23150","numObservers":2,"subnational1Code":"US-WA","submissionMethodCode":"EBIRD_android","submissionMethodVersion":"2.8.1_SDK24","userDisplayName":"Dave
+        Slager","numSpecies":2,"submissionMethodVersionDisp":"2.8.1","subAux":[{"subId":"S89475689","fieldName":"nocturnal","entryMethodCode":"ebird_nocturnal","auxCode":"1"}],"subAuxAi":[],"obs":[{"speciesCode":"flaowl","hideFlags":[],"obsDt":"2021-05-30
+        02:51","subnational1Code":"US-WA","howManyAtleast":1,"howManyAtmost":1,"comments":"Ho","mediaCounts":{"A":1},"present":false,"subId":"S89475689","projId":"EBIRD","obsId":"OBS1173665676","howManyStr":"1"},{"speciesCode":"grhowl","hideFlags":[],"obsDt":"2021-05-30
+        02:51","subnational1Code":"US-WA","howManyAtleast":1,"howManyAtmost":1,"comments":"Ho","present":false,"subId":"S89475689","projId":"EBIRD","obsId":"OBS1173665675","howManyStr":"1"}]}'
+  recorded_at: 2024-03-24 02:52:56 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
 - request:
     method: get
@@ -62,7 +101,7 @@ http_interactions:
       cache-control: no-cache, no-store, max-age=0, must-revalidate
       content-encoding: gzip
       content-type: application/json
-      date: Sat, 23 Mar 2024 05:57:04 GMT
+      date: Sun, 24 Mar 2024 02:48:14 GMT
       expires: '0'
       pragma: no-cache
       server: Apache
@@ -77,5 +116,5 @@ http_interactions:
       file: no
       string: '{"errors":[{"status":"400 BAD_REQUEST","code":"Pattern","title":"Field
         subId of checklistBySubIdCmd: subId is invalid."}]}'
-  recorded_at: 2024-03-23 06:01:43 GMT
+  recorded_at: 2024-03-24 02:52:56 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0
