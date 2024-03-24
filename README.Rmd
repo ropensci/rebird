@@ -205,6 +205,14 @@ Obtain a list of checklists submitted on a given date at a region or hotspot
 ebirdchecklistfeed(loc = "L207391", date = "2020-03-24", max = 5)
 ```
 
+## View Checklist
+
+Obtain all information on a specific checklist
+
+```{r ebirdchecklist}
+ebirdchecklist("S121423354")
+```
+
 ## Hotspots in a region or nearby coordinates
 
 Obtain a list of hotspots within a region
@@ -251,7 +259,7 @@ The 2.0 APIs have considerably been expanded from the previous version, and `reb
 - [x] Checklist feed on a date: `ebirdchecklistfeed()`
 - [ ] Regional statistics on a date
 - [x] Species list for a region: `ebirdregionspecies()`
-- [ ] View Checklist BETA
+- [x] View Checklist: `ebirdchecklist()`
 
 ### ref/geo
  - [ ]    Adjacent Regions
