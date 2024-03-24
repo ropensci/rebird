@@ -15,6 +15,11 @@ vcr::use_cassette("ebirdchecklist", {
     expect_true("checklistId" %in% names(out1))
     expect_equal(out1$checklistId[1], "CL24321")
 
+    # works with media
+    expect_no_error(out2 <- ebirdchecklist("S89475689", other = TRUE))
+    expect_true('audioCounts' %in% colnames(out2))
+    expect_equal(nrow(out2), 2)
+
   })
 
   test_that("ebirdchecklist errors for bad input", {

@@ -34,7 +34,10 @@
 #' @return "howManyStr" number of individuals reported for each taxon
 #' @return "exoticCategory" exotic species categories for each taxon
 #' @return "obsComments" observation comments for each taxon
-#' @return "auxCode" breding code for each taxon
+#' @return "photoCounts" number of photos for each taxon
+#' @return "audioCounts" number of audio files for each taxon
+#' @return "videoCounts" number of video files for each taxon
+#' @return "auxCode" breeding code for each taxon
 
 #' @export
 #'
@@ -103,10 +106,17 @@ ebirdchecklist <- function(subId, sleep = 0, key = NULL, other = FALSE, ...) {
   obs_df$subnational1Code <- NULL
   obs_df$obsDt <- NULL
   obs_df$projId <- NULL
-  # mediaCounts appears to just be a nested integer vector (?)
-  obs_df$mediaCounts <- Reduce(c, obs_df$mediaCounts)
   # 'comments' column has name duplicated with checklist comments
   names(obs_df)[names(obs_df) == 'comments'] <- 'obsComments'
+
+  # deal with mediaCounts
+  if (! is.null(obs_df$mediaCounts)){
+    mediaCounts <- obs_df$mediaCounts
+    idx <- match(names(mediaCounts), c('P','A','V'))
+    names(mediaCounts) <- c('photoCounts', 'audioCounts', 'videoCounts')[idx]
+    obs_df$mediaCounts <- NULL
+    obs_df <- cbind(obs_df, mediaCounts)
+  }
 
   # join to get result df
   out_df <- sub_df
