@@ -37,7 +37,7 @@
 #' @return "photoCounts" number of photos for each taxon
 #' @return "audioCounts" number of audio files for each taxon
 #' @return "videoCounts" number of video files for each taxon
-#' @return "auxCode" breding code for each taxon
+#' @return "auxCode" breeding code for each taxon
 
 #' @export
 #'
