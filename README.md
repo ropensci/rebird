@@ -123,16 +123,16 @@ ebirdgeo(species = species_code('spinus tristis'), lat = 42, lng = -76)
 #> # A tibble: 31 × 13
 #>    speciesCode comName  sciName locId locName obsDt howMany   lat   lng obsValid
 #>    <chr>       <chr>    <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl> <lgl>   
-#>  1 amegfi      America… Spinus… L982… Hazel … 2024…       1  42.1 -76.1 TRUE    
-#>  2 amegfi      America… Spinus… L243… 71 Wil… 2024…      12  42.2 -75.9 TRUE    
-#>  3 amegfi      America… Spinus… L197… esther… 2024…       4  42.1 -75.9 TRUE    
-#>  4 amegfi      America… Spinus… L299… 184 Sw… 2024…       4  42.2 -76.0 TRUE    
-#>  5 amegfi      America… Spinus… L300… 194 Sw… 2024…       6  42.2 -75.9 TRUE    
-#>  6 amegfi      America… Spinus… L210… 1099 P… 2024…       2  42.1 -76.0 TRUE    
-#>  7 amegfi      America… Spinus… L124… Happy … 2024…       7  42.1 -75.9 TRUE    
-#>  8 amegfi      America… Spinus… L131… Vestal  2024…       1  42.1 -76.1 TRUE    
-#>  9 amegfi      America… Spinus… L447… Bingha… 2024…       2  42.1 -76.0 TRUE    
-#> 10 amegfi      America… Spinus… L200… Oakrid… 2024…       5  42.1 -75.9 TRUE    
+#>  1 amegfi      America… Spinus… L144… Heart … 2024…      10  41.8 -75.8 TRUE    
+#>  2 amegfi      America… Spinus… L982… Hazel … 2024…       1  42.1 -76.1 TRUE    
+#>  3 amegfi      America… Spinus… L243… 71 Wil… 2024…      12  42.2 -75.9 TRUE    
+#>  4 amegfi      America… Spinus… L124… Happy … 2024…       7  42.1 -75.9 TRUE    
+#>  5 amegfi      America… Spinus… L197… esther… 2024…       4  42.1 -75.9 TRUE    
+#>  6 amegfi      America… Spinus… L299… 184 Sw… 2024…       4  42.2 -76.0 TRUE    
+#>  7 amegfi      America… Spinus… L300… 194 Sw… 2024…       6  42.2 -75.9 TRUE    
+#>  8 amegfi      America… Spinus… L210… 1099 P… 2024…       2  42.1 -76.0 TRUE    
+#>  9 amegfi      America… Spinus… L131… Vestal  2024…       1  42.1 -76.1 TRUE    
+#> 10 amegfi      America… Spinus… L447… Bingha… 2024…       2  42.1 -76.0 TRUE    
 #> # ℹ 21 more rows
 #> # ℹ 3 more variables: obsReviewed <lgl>, locationPrivate <lgl>, subId <chr>
 ```
@@ -143,7 +143,7 @@ Search for bird occurrences by region and species name
 
 ``` r
 ebirdregion(loc = 'US', species = 'btbwar')
-#> # A tibble: 17 × 13
+#> # A tibble: 15 × 13
 #>    speciesCode comName sciName locId locName obsDt howMany   lat    lng obsValid
 #>    <chr>       <chr>   <chr>   <chr> <chr>   <chr>   <int> <dbl>  <dbl> <lgl>   
 #>  1 btbwar      Black-… Setoph… L129… Cave C… 2024…       1  31.9 -109.  TRUE    
@@ -161,8 +161,6 @@ ebirdregion(loc = 'US', species = 'btbwar')
 #> 13 btbwar      Black-… Setoph… L823… J. N. … 2024…       1  26.5  -82.1 TRUE    
 #> 14 btbwar      Black-… Setoph… L682… Univer… 2024…       1  25.7  -80.3 TRUE    
 #> 15 btbwar      Black-… Setoph… L130… Castle… 2024…       1  29.6  -81.2 TRUE    
-#> 16 btbwar      Black-… Setoph… L174… 346 Go… 2024…       1  39.1  -74.8 TRUE    
-#> 17 btbwar      Black-… Setoph… L267… House … 2024…       1  26.0  -80.2 TRUE    
 #> # ℹ 3 more variables: obsReviewed <lgl>, locationPrivate <lgl>, subId <chr>
 ```
 
@@ -172,7 +170,7 @@ Search for bird occurrences by a given hotspot
 
 ``` r
 ebirdregion(loc = 'L99381')
-#> # A tibble: 63 × 14
+#> # A tibble: 62 × 14
 #>    speciesCode comName  sciName locId locName obsDt howMany   lat   lng obsValid
 #>    <chr>       <chr>    <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl> <lgl>   
 #>  1 gadwal      Gadwall  Mareca… L993… Stewar… 2024…       6  42.5 -76.5 TRUE    
@@ -185,7 +183,7 @@ ebirdregion(loc = 'L99381')
 #>  8 gbbgul      Great B… Larus … L993… Stewar… 2024…      NA  42.5 -76.5 TRUE    
 #>  9 doccor      Double-… Nannop… L993… Stewar… 2024…       2  42.5 -76.5 TRUE    
 #> 10 amecro      America… Corvus… L993… Stewar… 2024…       4  42.5 -76.5 TRUE    
-#> # ℹ 53 more rows
+#> # ℹ 52 more rows
 #> # ℹ 4 more variables: obsReviewed <lgl>, locationPrivate <lgl>, subId <chr>,
 #> #   exoticCategory <chr>
 ```
@@ -200,16 +198,16 @@ nearestobs(species_code('branta canadensis'), 42, -76)
 #> # A tibble: 67 × 13
 #>    speciesCode comName  sciName locId locName obsDt howMany   lat   lng obsValid
 #>    <chr>       <chr>    <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl> <lgl>   
-#>  1 cangoo      Canada … Branta… L936… Boland… 2024…       6  42.2 -75.9 TRUE    
-#>  2 cangoo      Canada … Branta… L186… Otsini… 2024…      10  42.1 -75.9 TRUE    
-#>  3 cangoo      Canada … Branta… L717… PA-SQ-… 2024…       2  41.9 -75.9 TRUE    
-#>  4 cangoo      Canada … Branta… L116… Lake M… 2024…       6  41.8 -75.9 TRUE    
-#>  5 cangoo      Canada … Branta… L505… Boland… 2024…       2  42.2 -75.9 TRUE    
-#>  6 cangoo      Canada … Branta… L151… 5212 B… 2024…       2  42.0 -76.0 TRUE    
-#>  7 cangoo      Canada … Branta… L110… MacArt… 2024…       4  42.1 -75.9 TRUE    
-#>  8 cangoo      Canada … Branta… L300… 1318 W… 2024…       2  41.9 -75.8 TRUE    
-#>  9 cangoo      Canada … Branta… L164… Otsini… 2024…      14  42.1 -75.9 TRUE    
-#> 10 cangoo      Canada … Branta… L274… River … 2024…       3  42.1 -76.0 TRUE    
+#>  1 cangoo      Canada … Branta… L179… "Bingh… 2024…       2  42.1 -75.9 TRUE    
+#>  2 cangoo      Canada … Branta… L144… "Heart… 2024…       2  41.8 -75.8 TRUE    
+#>  3 cangoo      Canada … Branta… L116… "Lake … 2024…       2  41.8 -75.9 TRUE    
+#>  4 cangoo      Canada … Branta… L465… "Bingh… 2024…       8  42.1 -75.9 TRUE    
+#>  5 cangoo      Canada … Branta… L300… "Our L… 2024…       2  42.1 -75.9 TRUE    
+#>  6 cangoo      Canada … Branta… L145… "Lake … 2024…       2  41.8 -75.8 TRUE    
+#>  7 cangoo      Canada … Branta… L204… "McDon… 2024…       4  41.8 -75.9 TRUE    
+#>  8 cangoo      Canada … Branta… L936… "Bolan… 2024…       6  42.2 -75.9 TRUE    
+#>  9 cangoo      Canada … Branta… L186… "Otsin… 2024…      10  42.1 -75.9 TRUE    
+#> 10 cangoo      Canada … Branta… L717… "PA-SQ… 2024…       2  41.9 -75.9 TRUE    
 #> # ℹ 57 more rows
 #> # ℹ 3 more variables: obsReviewed <lgl>, locationPrivate <lgl>, subId <chr>
 ```
@@ -231,20 +229,20 @@ Search for notable sightings at a given latitude and longitude
 
 ``` r
 ebirdnotable(lat = 42, lng = -70)
-#> # A tibble: 3,237 × 14
+#> # A tibble: 3,200 × 14
 #>    speciesCode comName  sciName locId locName obsDt howMany   lat   lng obsValid
 #>    <chr>       <chr>    <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl> <lgl>   
-#>  1 lbbgul      Lesser … Larus … L457… Chestn… 2024…       1  42.3 -71.2 FALSE   
-#>  2 chispa      Chippin… Spizel… L277… Mt. Pl… 2024…       4  43.1 -70.8 FALSE   
-#>  3 snogoo      Snow Go… Anser … L300… Cohass… 2024…       1  42.2 -70.8 TRUE    
-#>  4 blkvul      Black V… Coragy… L300… Willia… 2024…       4  43.1 -72.5 FALSE   
-#>  5 yebsap      Yellow-… Sphyra… L112… 111 Mi… 2024…       1  43.6 -71.2 TRUE    
-#>  6 woothr      Wood Th… Hyloci… L159… Hidden… 2024…       1  44.1 -69.6 FALSE   
+#>  1 osprey      Osprey   Pandio… L300… 100 Gr… 2024…       1  41.7 -72.6 FALSE   
+#>  2 fiespa      Field S… Spizel… L514… Pinnac… 2024…       1  43.1 -72.4 FALSE   
+#>  3 chispa      Chippin… Spizel… L586… High S… 2024…       2  42.9 -70.8 FALSE   
+#>  4 palwar3     Palm Wa… Setoph… L250… Hampto… 2024…       1  42.9 -70.8 FALSE   
+#>  5 bkhgul      Black-h… Chroic… L829… Dowses… 2024…       5  41.6 -70.4 FALSE   
+#>  6 rosgoo      Ross's … Anser … L279… Hardar… 2024…       1  42.9 -70.8 FALSE   
 #>  7 osprey      Osprey   Pandio… L675… Longme… 2024…       2  42.1 -72.6 FALSE   
-#>  8 osprey      Osprey   Pandio… L300… ECSU A… 2024…       1  41.7 -72.2 TRUE    
-#>  9 yebsap      Yellow-… Sphyra… L298… 41 N V… 2024…       1  44.1 -70.3 FALSE   
-#> 10 bcnher      Black-c… Nyctic… L251… Horn P… 2024…       1  42.5 -71.2 FALSE   
-#> # ℹ 3,227 more rows
+#>  8 yebsap      Yellow-… Sphyra… L458… Waldob… 2024…       1  44.1 -69.4 FALSE   
+#>  9 yebsap      Yellow-… Sphyra… L458… Waldob… 2024…       1  44.1 -69.4 FALSE   
+#> 10 baleag      Bald Ea… Haliae… L226… W Basi… 2024…       1  41.4 -70.8 FALSE   
+#> # ℹ 3,190 more rows
 #> # ℹ 4 more variables: obsReviewed <lgl>, locationPrivate <lgl>, subId <chr>,
 #> #   exoticCategory <chr>
 ```
@@ -253,20 +251,20 @@ or a region
 
 ``` r
 ebirdnotable(locID = 'US-NY-109')
-#> # A tibble: 77 × 13
+#> # A tibble: 84 × 13
 #>    speciesCode comName  sciName locId locName obsDt howMany   lat   lng obsValid
 #>    <chr>       <chr>    <chr>   <chr> <chr>   <chr>   <int> <dbl> <dbl> <lgl>   
-#>  1 eastow1     Eastern… Pipilo… L117… Ringwo… 2024…       1  42.4 -76.4 FALSE   
-#>  2 eastow1     Eastern… Pipilo… L117… Ringwo… 2024…       1  42.4 -76.4 FALSE   
-#>  3 whcspa      White-c… Zonotr… L300… 200–25… 2024…       2  42.5 -76.3 FALSE   
+#>  1 veggul1     Herring… Larus … L212… Steven… 2024…       1  42.4 -76.4 FALSE   
+#>  2 sancra      Sandhil… Antigo… L212… Steven… 2024…       9  42.4 -76.4 FALSE   
+#>  3 sancra      Sandhil… Antigo… L212… Steven… 2024…       9  42.4 -76.4 FALSE   
 #>  4 veggul1     Herring… Larus … L212… Steven… 2024…       1  42.4 -76.4 FALSE   
 #>  5 veggul1     Herring… Larus … L212… Steven… 2024…       1  42.4 -76.4 FALSE   
 #>  6 veggul1     Herring… Larus … L212… Steven… 2024…       1  42.4 -76.4 FALSE   
-#>  7 veggul1     Herring… Larus … L212… Steven… 2024…       1  42.4 -76.4 FALSE   
-#>  8 veggul1     Herring… Larus … L212… Steven… 2024…       1  42.4 -76.4 FALSE   
-#>  9 veggul1     Herring… Larus … L212… Steven… 2024…       1  42.4 -76.4 FALSE   
-#> 10 veggul1     Herring… Larus … L212… Steven… 2024…       1  42.4 -76.4 FALSE   
-#> # ℹ 67 more rows
+#>  7 eastow1     Eastern… Pipilo… L117… Ringwo… 2024…       1  42.4 -76.4 FALSE   
+#>  8 eastow1     Eastern… Pipilo… L117… Ringwo… 2024…       1  42.4 -76.4 FALSE   
+#>  9 eastow1     Eastern… Pipilo… L117… Ringwo… 2024…       1  42.4 -76.4 FALSE   
+#> 10 eastow1     Eastern… Pipilo… L117… Ringwo… 2024…       1  42.4 -76.4 FALSE   
+#> # ℹ 74 more rows
 #> # ℹ 3 more variables: obsReviewed <lgl>, locationPrivate <lgl>, subId <chr>
 ```
 
@@ -428,15 +426,27 @@ ebirdchecklistfeed(loc = "L207391", date = "2020-03-24", max = 5)
 Obtain all information on a specific checklist
 
 ``` r
-ebirdchecklist("S121423354")
-#> # A tibble: 1 × 17
-#>   subId      protocolId locId     allObsReported creationDt   lastEditedDt obsDt
-#>   <chr>      <chr>      <chr>     <lgl>          <chr>        <chr>        <chr>
-#> 1 S121423354 P20        L21369987 FALSE          2022-10-27 … 2022-10-27 … 2022…
-#> # ℹ 10 more variables: obsTimeValid <lgl>, checklistId <chr>,
-#> #   numObservers <int>, subnational1Code <chr>, userDisplayName <chr>,
-#> #   numSpecies <int>, speciesCode <chr>, obsComments <chr>, obsId <chr>,
-#> #   howManyStr <chr>
+ebirdchecklist("S139153079")
+#> # A tibble: 99 × 24
+#>    subId      protocolId locId groupId   durationHrs allObsReported subComments 
+#>    <chr>      <chr>      <chr> <chr>           <dbl> <lgl>          <chr>       
+#>  1 S139153079 P22        L17   G10310841        11.2 TRUE           "There are …
+#>  2 S139153079 P22        L17   G10310841        11.2 TRUE           "There are …
+#>  3 S139153079 P22        L17   G10310841        11.2 TRUE           "There are …
+#>  4 S139153079 P22        L17   G10310841        11.2 TRUE           "There are …
+#>  5 S139153079 P22        L17   G10310841        11.2 TRUE           "There are …
+#>  6 S139153079 P22        L17   G10310841        11.2 TRUE           "There are …
+#>  7 S139153079 P22        L17   G10310841        11.2 TRUE           "There are …
+#>  8 S139153079 P22        L17   G10310841        11.2 TRUE           "There are …
+#>  9 S139153079 P22        L17   G10310841        11.2 TRUE           "There are …
+#> 10 S139153079 P22        L17   G10310841        11.2 TRUE           "There are …
+#> # ℹ 89 more rows
+#> # ℹ 17 more variables: creationDt <chr>, lastEditedDt <chr>, obsDt <chr>,
+#> #   obsTimeValid <lgl>, checklistId <chr>, numObservers <int>,
+#> #   effortDistanceKm <dbl>, effortDistanceEnteredUnit <chr>,
+#> #   subnational1Code <chr>, userDisplayName <chr>, numSpecies <int>,
+#> #   speciesCode <chr>, obsId <chr>, howManyStr <chr>, obsComments <chr>,
+#> #   photoCounts <int>, videoCounts <int>
 ```
 
 ## Hotspots in a region or nearby coordinates

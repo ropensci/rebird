@@ -190,7 +190,7 @@ ebirdchecklistfeed(loc = "L207391", date = "2020-03-24", max = 5)
 Obtain all information on a specific checklist
 
 ```{r ebirdchecklist}
-ebirdchecklist("S121423354")
+ebirdchecklist("S139153079")
 ```
 
 ## Hotspots in a region or nearby coordinates
