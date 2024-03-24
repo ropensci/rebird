@@ -50,13 +50,11 @@ library("rebird")
 
 The [eBird API
 server](https://documenter.getpostman.com/view/664302/S1ENwy59?version=latest)
-has been updated and thus there are a couple major changes in the way
-`rebird` works. API requests to eBird now require users to provide an
-API key, which is linked to your eBird user account. You can pass it to
-the ‘key’ argument in `rebird` functions, but we highly recommend
-storing it as an environment variable called EBIRD_KEY in your .Renviron
-file. If you don’t have a key, you can obtain one from
-<https://ebird.org/api/keygen>.
+requires users to provide an API key, which is linked to your eBird user
+account. You can pass it to the ‘key’ argument in `rebird` functions,
+but we highly recommend storing it as an environment variable called
+EBIRD_KEY in your .Renviron file. If you don’t have a key, you can
+obtain one from <https://ebird.org/api/keygen>.
 
 You can keep your .Renviron file in your global R home directory
 (`R.home()`), your user’s home directory (`Sys.getenv("HOME")`), or your
