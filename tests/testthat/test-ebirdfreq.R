@@ -1,5 +1,5 @@
 test_that("ebirdfreq works correctly", {
-  expect_error(ebirdfreq("counties", "CA-BC-GV"), "This function has been made temporarily defunct") 
+  expect_error(suppressMessages(ebirdfreq("counties", "CA-BC-GV")), "This function has been made temporarily defunct") 
   
   # # Temporary commenting of tests while function is made defunct
   # long <- ebirdfreq("counties", "CA-BC-GV")

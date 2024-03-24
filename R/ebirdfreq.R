@@ -96,8 +96,8 @@ ebirdfreq <- function(loctype, loc, startyear = 1900,
   url <- "http://ebird.org/ebird/barchartData"
   url_full <- modify_url(url, query = args)
   message(url_full)
-  stop(
-    "This function has been made temporarily defunct as you now need to be 
+  .Defunct(
+    msg = "This function has been made temporarily defunct as you now need to be 
     logged into the eBird website to download frequency data, but we cannot 
     authenticate via the API to do so. This function will be reinstated
     when the frequency data become available through the API. In the meantime, 

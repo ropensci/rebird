@@ -1,3 +1,13 @@
+rebird 1.3.9005
+===================
+
+- Added `ebirdchecklist()`, which lets you view individual checklists (thanks @RichardLitt and @Rafnuss, #108).
+- Made `ebirdregioncheck()`, `ebirdhotspot()`, `ebirdloc()` defunct. 
+- API tests now use `vcr`, which saves "cassettes" of the tests which can be played
+in CI when running tests during CI, instead of storing an API key and having to run
+tests remotely with every PR (thanks @slager).
+- Updated `rebird`'s internal taxonomy after 2023 taxonomic update.
+
 rebird 1.3.0
 ===================
 
