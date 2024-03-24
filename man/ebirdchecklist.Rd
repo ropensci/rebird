@@ -73,7 +73,7 @@ A 'tibble' 'data.frame' containing checklist information:
 
 "videoCounts" number of video files for each taxon
 
-"auxCode" breding code for each taxon
+"auxCode" breeding code for each taxon
 }
 \description{
 View Checklist
