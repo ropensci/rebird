@@ -1,5 +1,4 @@
-rebird 1.3.9005
-===================
+# rebird 1.3.9005
 
 - Added `ebirdchecklist()`, which lets you view individual checklists (thanks @RichardLitt and @Rafnuss, #108).
 - Made `ebirdregioncheck()`, `ebirdhotspot()`, `ebirdloc()` defunct. 
@@ -8,14 +7,12 @@ in CI when running tests during CI, instead of storing an API key and having to 
 tests remotely with every PR (thanks @slager).
 - Updated `rebird`'s internal taxonomy after 2023 taxonomic update.
 
-rebird 1.3.0
-===================
+# rebird 1.3.0
 
 - Updated `rebird`'s internal taxonomy after 2021 taxonomic update.
 - Fix tests.
 
-rebird 1.2.0
-===================
+# rebird 1.2.0
 
 - Added `ebirdsubregionlist()` which lists sub-regions within a specified region (thanks @dbradnum, #90).
 - Disabled `ebirdfreq()` (now throws an informative error) as the frequency data request can't be done through the website anymore without logging in first. This request might be added to the eBird API in the near future (#88).
@@ -23,16 +20,14 @@ rebird 1.2.0
 - Added `ebirdregionspecies()` which provides a list of species codes seen in a location (thanks @dbradnum, #86).
 - Added `ebirdchecklistfeed()` which provides a list of checklists submitted on a given date at a region or hotspot (thanks @mfoos, #79).
 
-rebird 1.1.0
-===================
+# rebird 1.1.0
 
 * Updated internal taxonomy to reflect changes in the [2019 Taxonomy Update](https://ebird.org/news/2019-ebird-taxonomy-update) (#76). 
 * Updated `ebirdregioninfo()` to also provide information of hotspots (thanks @gbabineau, #72).
 * Added `ebirdhistorical()` which provides historic observations on a date at a region or hotspot (thanks @gbabineau, #74).
 * Fixed broken API links in README (thanks @mfoos, #75).
 
-rebird 1.0.0
-===================
+# rebird 1.0.0
 
 This version switches all functions over the the [new eBird API](https://documenter.getpostman.com/view/664302/S1ENwy59?version=latest), given that the one previously used by `rebird` will be retired on October 1st. As such, many of the functions in `rebird` have changed, and the previous versions of the package will not work correctly.
 
@@ -54,8 +49,7 @@ This version switches all functions over the the [new eBird API](https://documen
 
 * Given the changes to the eBird API, the functions `ebirdloc()`, `ebirdhotspot()`, and `ebirdregioncheck()` have been deprecated and will be removed in future releases. These functions still work in the updated API, but might cease to do so in the near future. `ebirdregion()` has the same functionality as the first two functions, while `ebirdregioninfo()` provides a more informative interface than `ebirdregioncheck()`.
 
-rebird 0.5.0
-===================
+# rebird 0.5.0
 
 ### MINOR IMPROVEMENTS AND BUG FIXES
 
@@ -63,23 +57,20 @@ rebird 0.5.0
 * Added information about [`auk`](https://github.com/CornellLabofOrnithology/auk), an R package that helps extracting and processing the whole eBird dataset (#60).
 * Updated package documentation (#61).
 
-rebird 0.4.0
-===================
+# rebird 0.4.0
 
 ### MINOR IMPROVEMENTS AND BUG FIXES
 
 * Fix for `ebirdfreq` which stopped working due to changes on the eBird website (#52).
 * Replaced deprecated `dplyr::rbind_all` function with `dplyr::bind_rows` (#43).
 
-rebird 0.3.0
-===================
+# rebird 0.3.0
 
 ### MINOR IMPROVEMENTS AND BUG FIXES
 
 * Fix for `httr::content` after changes in httr v1.0.0 (#38).
 
-rebird 0.2
-===================
+# rebird 0.2
 
 ### NEW FEATURES
 
@@ -90,4 +81,3 @@ rebird 0.2
 * Passed along curl options to httr functions
 * Replaced RJSONIO with jsonlite
 * Replaced plyr with dplyr
-
