@@ -1,3 +1,20 @@
+name: taxonomy-version-check
+
+on:
+  schedule:
+    - cron: '0 0 * 8-11 1' # Monday in every month from August through November.
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+env:
+  ISSUE_TITLE: 'eBird taxonomy has updated'
+  ISSUE_BODY: |
+    This issue has been opened by the GitHub Action workflow `taxonomy-version-check`.
+
+    There is an update to the eBird taxonomy. The `rebird::tax` dataset and documentation needs to be updated.    
+
 jobs:
   taxonomy-version-check-job:
     runs-on: ubuntu-latest
@@ -24,7 +41,7 @@ jobs:
       - name: check-taxonomy-version-step
         id: check-taxonomy-version
         run: |
-          Rscript -e "testthat::test_file('tests/testthat/test-data.R', load_package = 'source', stop_on_failure = TRUE)" && echo "failed::false" >> "$GITHUB_OUTPUT" || echo "failed::true" >> "$GITHUB_OUTPUT" 
+          Rscript -e "testthat::test_file('tests/testthat/test-data.R', load_package = 'source', stop_on_failure = TRUE)" && echo "failed=false" >> "$GITHUB_OUTPUT" || echo "failed=true" >> "$GITHUB_OUTPUT" 
 
   check-and-create-issue-job:
     needs: taxonomy-version-check-job
