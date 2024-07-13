@@ -35,4 +35,10 @@ vcr::use_cassette("ebirdtaxonomy", {
       }
     )
   })
+
+  test_that("ebirdtaxonomy sets version attribute", {
+    latest_version <- ebirdtaxonomyversion(latest_only = TRUE)
+    version_value <- attr(ebirdtaxonomy(), "version")
+    expect_equal(latest_version, version_value)
+  })
 })

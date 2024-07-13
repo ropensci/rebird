@@ -15,8 +15,6 @@ coverage](https://codecov.io/gh/ropensci/rebird/branch/master/graph/badge.svg)](
 downloads](https://cranlogs.r-pkg.org/badges/rebird)](https://github.com/r-hub/cranlogs.app)
 [![cran
 version](https://www.r-pkg.org/badges/version/rebird)](https://cran.r-project.org/package=rebird/)
-[![taxonomy-check](https://github.com/ropensci/rebird/actions/workflows/taxonomy-check.yaml/badge.svg)](https://github.com/ropensci/rebird/actions/workflows/taxonomy-check.yaml)
-
 <!-- badges: end -->
 
 `rebird` is a package to interface with the eBird webservices.
