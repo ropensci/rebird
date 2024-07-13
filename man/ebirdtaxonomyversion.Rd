@@ -27,14 +27,13 @@ If `latest_only = TRUE`, a character of the latest `authorityVer`
 }
 \description{
 Returns a data.frame of available version numbers of
-the eBird taxonomy or the latest version number of the 
+the eBird taxonomy or the latest version number of the
 taxonomy.
 }
 \examples{
 \dontrun{
-ebirdsubregionlist("country")
-ebirdsubregionlist("subnational1", "US")
-ebirdsubregionlist("subnational2", "US-NY")
+ebirdtaxonomyversion()
+ebirdtaxonomyversion(latest_only = TRUE)
 }
 }
 \references{

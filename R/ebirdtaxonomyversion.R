@@ -1,15 +1,15 @@
 #' eBird Taxonomy Version
 #'
 #' Returns a data.frame of available version numbers of
-#' the eBird taxonomy or the latest version number of the 
+#' the eBird taxonomy or the latest version number of the
 #' taxonomy.
 #'
 #' @param key eBird API key. You can obtain one from https://ebird.org/api/keygen.
 #'    We strongly recommend storing it in your \code{.Renviron} file as an
 #'    environment variable called \code{EBIRD_KEY} to avoid having to constantly 
 #'    supply the key, and to avoid accidentally sharing it publicly.
-#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' @param latest_only Whether to return only the latest version number
+#' @param ... Curl options passed on to \code{\link[httr]{GET}}
 #' 
 #' @return If `latest_only = FALSE`, a data.frame containing the collected information:
 #' @return "authorityVer": Character of version.
@@ -19,9 +19,8 @@
 #' @export
 #' 
 #' @examples \dontrun{
-#' ebirdsubregionlist("country")
-#' ebirdsubregionlist("subnational1", "US")
-#' ebirdsubregionlist("subnational2", "US-NY")
+#' ebirdtaxonomyversion()
+#' ebirdtaxonomyversion(latest_only = TRUE)
 #' }
 #' @author Jordan Bradford \email{jrdnbradford@gmail.com}
 #' @references \url{http://ebird.org/}
