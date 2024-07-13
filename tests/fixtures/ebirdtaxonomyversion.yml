@@ -1,0 +1,71 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/taxonomy/versions?fmt=json
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-type: application/json;charset=utf-8
+      date: Fri, 12 Jul 2024 18:08:45 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary: Origin,Accept-Encoding,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+      content-length: '157'
+    body:
+      encoding: ''
+      file: no
+      string: '[{"authorityVer":2023.0,"latest":true},{"authorityVer":2022.0,"latest":false},{"authorityVer":2021.01,"latest":false},{"authorityVer":2021.0,"latest":false},{"authorityVer":2019.03,"latest":false},{"authorityVer":2019.02,"latest":false},{"authorityVer":2019.01,"latest":false},{"authorityVer":2019.0,"latest":false},{"authorityVer":2018.02,"latest":false},{"authorityVer":2018.01,"latest":false},{"authorityVer":2018.0,"latest":false},{"authorityVer":2017.02,"latest":false},{"authorityVer":2017.01,"latest":false},{"authorityVer":2017.0,"latest":false},{"authorityVer":2016.0,"latest":false},{"authorityVer":2015.0,"latest":false},{"authorityVer":1.55,"latest":false},{"authorityVer":1.54,"latest":false},{"authorityVer":1.53,"latest":false},{"authorityVer":1.52,"latest":false},{"authorityVer":1.051,"latest":false},{"authorityVer":1.05,"latest":false},{"authorityVer":1.049,"latest":false},{"authorityVer":1.048,"latest":false},{"authorityVer":1.0,"latest":false},{"authorityVer":0.9,"latest":false}]'
+  recorded_at: 2024-07-12 18:08:46 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
+- request:
+    method: get
+    uri: https://ebird.org/ws2.0/ref/taxonomy/versions?fmt=json
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      X-eBirdApiToken: <<<redacted>>>
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      content-encoding: gzip
+      content-type: application/json;charset=utf-8
+      date: Fri, 12 Jul 2024 18:08:45 GMT
+      expires: '0'
+      pragma: no-cache
+      server: Apache
+      strict-transport-security: max-age=31536000 ; includeSubDomains
+      vary: Origin,Accept-Encoding,Access-Control-Request-Method,Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+      content-length: '157'
+    body:
+      encoding: ''
+      file: no
+      string: '[{"authorityVer":2023.0,"latest":true},{"authorityVer":2022.0,"latest":false},{"authorityVer":2021.01,"latest":false},{"authorityVer":2021.0,"latest":false},{"authorityVer":2019.03,"latest":false},{"authorityVer":2019.02,"latest":false},{"authorityVer":2019.01,"latest":false},{"authorityVer":2019.0,"latest":false},{"authorityVer":2018.02,"latest":false},{"authorityVer":2018.01,"latest":false},{"authorityVer":2018.0,"latest":false},{"authorityVer":2017.02,"latest":false},{"authorityVer":2017.01,"latest":false},{"authorityVer":2017.0,"latest":false},{"authorityVer":2016.0,"latest":false},{"authorityVer":2015.0,"latest":false},{"authorityVer":1.55,"latest":false},{"authorityVer":1.54,"latest":false},{"authorityVer":1.53,"latest":false},{"authorityVer":1.52,"latest":false},{"authorityVer":1.051,"latest":false},{"authorityVer":1.05,"latest":false},{"authorityVer":1.049,"latest":false},{"authorityVer":1.048,"latest":false},{"authorityVer":1.0,"latest":false},{"authorityVer":0.9,"latest":false}]'
+  recorded_at: 2024-07-12 18:08:46 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0

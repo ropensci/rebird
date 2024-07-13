@@ -36,7 +36,7 @@ Suggests:
     covr,
     vcr (>= 0.6.0),
     withr
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 X-schema.org-applicationCategory: Data Access
 X-schema.org-keywords: birds, birding, ebird, database, data, biology, observations, sightings, ornithology
 X-schema.org-isPartOf: https://ropensci.org
