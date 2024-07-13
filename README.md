@@ -558,13 +558,13 @@ covered by this package, feel free to submit a pull request!
 
 -   [x] eBird Taxonomy: `ebirdtaxonomy()`
 -   [ ] Taxonomic Forms
--   [ ] Taxonomy Versions
+-   [x] Taxonomy Versions: `ebirdtaxonomyversion()`
 -   [ ] Taxonomic Groups
 
 ### ref/region
 
 -   [x] Region Info: `ebirdregioninfo()`
--   [x] Sub Region List `ebirdsubregionlist()`
+-   [x] Sub Region List: `ebirdsubregionlist()`
 
 ## Meta
 
