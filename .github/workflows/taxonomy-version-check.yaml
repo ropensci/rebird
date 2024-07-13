@@ -21,8 +21,6 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
-    outputs:
-      result: ${{ steps.check-taxonomy.outputs.result }}
     steps:
       - name: checkout-step
         uses: actions/checkout@v4
