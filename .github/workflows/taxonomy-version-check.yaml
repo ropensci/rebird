@@ -2,8 +2,11 @@ name: taxonomy-version-check
 
 on:
   schedule:
-    - cron: '0 13 * * 1' # Weekly on Mondays at 9AM EST
     - cron: '0 0 * 8-11 1' # Monday in every month from August through November.
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
 
 env:
   ISSUE_TITLE: 'eBird taxonomy has updated'
