@@ -13,7 +13,7 @@
 #' 
 #' @return If `latest_only = FALSE`, a data.frame containing the collected information:
 #' @return "authorityVer": Character of version.
-#' @return "latest": Boolean indicating whether `authorityVer`` is the latest taxonomy version
+#' @return "latest": Boolean indicating whether `authorityVer` is the latest taxonomy version
 #' @return If `latest_only = TRUE`, a character of the latest `authorityVer`
 #' 
 #' @export

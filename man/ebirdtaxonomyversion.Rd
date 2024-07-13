@@ -21,7 +21,7 @@ If `latest_only = FALSE`, a data.frame containing the collected information:
 
 "authorityVer": Character of version.
 
-"latest": Boolean indicating whether `authorityVer`` is the latest taxonomy version
+"latest": Boolean indicating whether `authorityVer` is the latest taxonomy version
 
 If `latest_only = TRUE`, a character of the latest `authorityVer`
 }
