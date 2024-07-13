@@ -42,7 +42,7 @@ jobs:
         run: Rscript -e "testthat::test_file('tests/testthat/test-data.R', load_package = 'source', stop_on_failure = TRUE)"
 
   check-and-create-issue-job:
-    needs: taxonomy-check-job
+    needs: taxonomy-version-check-job
     if: failure()
     runs-on: ubuntu-latest
     steps:
