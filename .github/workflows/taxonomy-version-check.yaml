@@ -37,12 +37,13 @@ jobs:
           extra-packages: local::.
 
       - name: check-taxonomy-version-step
+        continue-on-error: true
         id: check-taxonomy-version
         run: Rscript -e "testthat::test_file('tests/testthat/test-data.R', stop_on_failure = TRUE)"
 
   check-and-create-issue-job:
     needs: taxonomy-check-job
-    if: failure() &&  ${{ steps.check-taxonomy-version.outcome }} == 'failure'
+    if: failure()
     runs-on: ubuntu-latest
     steps:
       - name: check-issue-step
