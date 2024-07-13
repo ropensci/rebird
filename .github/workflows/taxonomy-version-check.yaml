@@ -42,7 +42,7 @@ jobs:
 
   check-and-create-issue-job:
     needs: taxonomy-check-job
-    if: failure() && steps.check-taxonomy-version.outcome == 'failure'
+    if: failure() &&  ${{ steps.check-taxonomy-version.outcome }} == 'failure'
     runs-on: ubuntu-latest
     steps:
       - name: check-issue-step
