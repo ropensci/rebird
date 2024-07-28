@@ -10,7 +10,7 @@
 #'
 #' @return data.frame containing the collected information:
 #' @return "authorityVer": Character of version.
-#' @return "latest": Boolean indicating whether `authorityVer`` is the latest taxonomy version
+#' @return "latest": Boolean indicating whether `authorityVer` is the latest taxonomy version
 #'
 #' @export
 #'

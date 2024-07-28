@@ -270,12 +270,12 @@ The 2.0 APIs have considerably been expanded from the previous version, and `reb
 ### ref/taxonomy
  - [x]     eBird Taxonomy: `ebirdtaxonomy()`
  - [ ]     Taxonomic Forms
- - [ ]     Taxonomy Versions
+ - [x]     Taxonomy Versions: `ebirdtaxonomyversion()`
  - [ ]     Taxonomic Groups
 
 ### ref/region
  - [x]     Region Info: `ebirdregioninfo()`
- - [x]     Sub Region List `ebirdsubregionlist()`
+ - [x]     Sub Region List: `ebirdsubregionlist()`
 
 
 ## Meta

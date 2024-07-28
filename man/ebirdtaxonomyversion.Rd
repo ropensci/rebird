@@ -18,8 +18,9 @@ supply the key, and to avoid accidentally sharing it publicly.}
 data.frame containing the collected information:
 
 "authorityVer": Character of version.
-
+ 
 "latest": Boolean indicating whether `authorityVer`` is the latest taxonomy version
+
 }
 \description{
 Returns a data.frame of available version numbers of the eBird taxonomy
