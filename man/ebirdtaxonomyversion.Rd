@@ -4,36 +4,29 @@
 \alias{ebirdtaxonomyversion}
 \title{eBird Taxonomy Version}
 \usage{
-ebirdtaxonomyversion(key = NULL, latest_only = FALSE, ...)
+ebirdtaxonomyversion(key = NULL, ...)
 }
 \arguments{
-\item{key}{eBird API key. You can obtain one from https://ebird.org/api/keygen.
+\item{key}{optional eBird API key. You can obtain one from https://ebird.org/api/keygen.
 We strongly recommend storing it in your \code{.Renviron} file as an
-environment variable called \code{EBIRD_KEY} to avoid having to constantly 
+environment variable called \code{EBIRD_KEY} to avoid having to constantly
 supply the key, and to avoid accidentally sharing it publicly.}
-
-\item{latest_only}{Whether to return only the latest version number}
 
 \item{...}{Curl options passed on to \code{\link[httr]{GET}}}
 }
 \value{
-If `latest_only = FALSE`, a data.frame containing the collected information:
+data.frame containing the collected information:
 
 "authorityVer": Character of version.
 
 "latest": Boolean indicating whether `authorityVer`` is the latest taxonomy version
-
-If `latest_only = TRUE`, a character of the latest `authorityVer`
 }
 \description{
-Returns a data.frame of available version numbers of
-the eBird taxonomy or the latest version number of the
-taxonomy.
+Returns a data.frame of available version numbers of the eBird taxonomy
 }
 \examples{
 \dontrun{
 ebirdtaxonomyversion()
-ebirdtaxonomyversion(latest_only = TRUE)
 }
 }
 \references{

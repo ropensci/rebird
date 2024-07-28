@@ -67,6 +67,7 @@ ebirdtaxonomy <- function(cat=NULL, locale=NULL, species = NULL, key = NULL, ...
   }
 
   tax <- ebird_GET(paste0(ebase(), 'ref/taxonomy/ebird'), args, key = key, ...)
-  attr(tax, "version") <- ebirdtaxonomyversion(latest_only = TRUE)
+  latest <-  subset(ebirdtaxonomyversion(), latest == TRUE)$authorityVer
+  attr(tax, "version") <- latest
   tax
 }
