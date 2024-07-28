@@ -8,23 +8,19 @@ env:
     There is an update to the eBird taxonomy. The `rebird::tax` dataset and documentation needs to be updated.
 
 on:
-  workflow_run:
-    workflows: ["R-CMD-check"]
-    types:
-      - completed
+  workflow_call:
 
 jobs:
   taxonomy-version-check-job:
     outputs:
       check-failed: ${{ steps.check-taxonomy-version.outputs.failed }}
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     steps:
       - name: check-taxonomy-version-step
         id: check-taxonomy-version
         run: |
           Rscript -e "testthat::test_file('tests/testthat/test-data.R', load_package = 'source', stop_on_failure = TRUE)" && echo "failed=false" >> "$GITHUB_OUTPUT" || echo "failed=true" >> "$GITHUB_OUTPUT" 
-      
+
   check-and-create-issue-job:
     needs: taxonomy-version-check-job
     if: needs.taxonomy-version-check-job.outputs.check-failed == 'true'
