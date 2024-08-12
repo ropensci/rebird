@@ -87,4 +87,3 @@ ebird_GET <- function(url, args, key = NULL, ...){
     }
   }
 }
-

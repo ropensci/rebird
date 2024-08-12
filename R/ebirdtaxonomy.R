@@ -61,11 +61,13 @@ ebirdtaxonomy <- function(cat=NULL, locale=NULL, species = NULL, key = NULL, ...
   species <- if(!is.null(species)) species <- paste0(species, collapse = ",")
   args <- list(fmt='json', cat=cat, locale=locale, species=species)
   
-  # Allow not using a key for just this function, it's the only endpoint 
-  # that allows it
+  # Allow not using a key for this function
   if (is.null(key) && !nzchar(Sys.getenv("EBIRD_KEY"))) {
     key <- ""
   }
-  
-  ebird_GET(paste0(ebase(), 'ref/taxonomy/ebird'), args, key = key, ...)
+
+  tax <- ebird_GET(paste0(ebase(), 'ref/taxonomy/ebird'), args, key = key, ...)
+  latest <-  subset(ebirdtaxonomyversion(), latest == TRUE)$authorityVer
+  attr(tax, "version") <- latest
+  tax
 }
