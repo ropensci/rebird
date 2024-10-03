@@ -50,7 +50,10 @@
 #' @return "locationPrivate": TRUE if location is not a birding hotspot
 #'    automatic filters or a regional viewer, FALSE otherwise
 #' @return "subId": submission ID
-#' @return "exoticCategory": Exotic category
+#' @return "exoticCategory":  If applicable, exotic species category. This column will be provided
+#'    if there are exotics or introduced species in the query. Return values are "N" for naturalized,
+#'    "P" for provisional, "X" for escapee, and NA for native. For more information see
+#'    \url{support.ebird.org/en/support/solutions/articles/48001218430}.
 #' @return "subnational2Code": county code (returned if simple=FALSE)
 #' @return "subnational2Name": county name (returned if simple=FALSE)
 #' @return "subnational1Code": state/province ISO code (returned if simple=FALSE)
