@@ -47,6 +47,10 @@
 #' @return "obsValid": TRUE if observation has been deemed valid by either the
 #'    automatic filters or a regional viewer, FALSE otherwise
 #' @return "sciName" species' scientific name
+#' @return "exoticCategory":  If applicable, exotic species category. This column will be provided
+#'    if there are exotics or introduced species in the query. Return values are "N" for naturalized,
+#'    "P" for provisional, "X" for escapee, and NA for native. For more information see
+#'    \url{support.ebird.org/en/support/solutions/articles/48001218430}.
 #' @export
 #' @examples \dontrun{
 #' ebirdgeo('amegfi', 42, -76) # American Goldfinch

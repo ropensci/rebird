@@ -20,6 +20,13 @@ vcr::use_cassette("ebirdchecklist", {
     expect_true('audioCounts' %in% colnames(out2))
     expect_equal(nrow(out2), 2)
 
+    # Returns exoticCategory or doesn't, depending on whether it is in the checklist
+    expect_true('exoticCategory' %in% colnames(out1))
+    expect_false('exoticCategory' %in% colnames(out2))
+    # Tests to make sure the the column number has changed. Can help us catch API changes, too.
+    expect_equal(ncol(out1), ncol(out2) + 1)
+
+
   })
 
   test_that("ebirdchecklist errors for bad input", {
