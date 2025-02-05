@@ -49,6 +49,10 @@
 #' @return "obsReviewed": TRUE if observation has been reviewed, FALSE otherwise
 #' @return "locationPrivate": TRUE if location is not a birding hotspot
 #' @return "subId": submission ID
+#' @return "exoticCategory":  If applicable, exotic species category. This column will be provided
+#'    if there are exotics or introduced species in the query. Return values are "N" for naturalized,
+#'    "P" for provisional, "X" for escapee, and NA for native. For more information see
+#'    \url{support.ebird.org/en/support/solutions/articles/48001218430}.
 #' @export
 #' 
 #' @author Rafael Maia \email{rm72@@zips.uakron.edu},
