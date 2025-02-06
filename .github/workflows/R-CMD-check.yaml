@@ -4,12 +4,13 @@ on:
   push:
     branches: [main, master]
   pull_request:
-    branches: [main, master]
   schedule:
     - cron:
         '0 8 1,15 * *' # At 08:00AM on 1st and 15th of month
 
-name: R-CMD-check
+name: R-CMD-check.yaml
+
+permissions: read-all
 
 jobs:
   R-CMD-check:
@@ -50,3 +51,4 @@ jobs:
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
+          build_args: 'c("--no-manual","--compact-vignettes=gs+qpdf")'
